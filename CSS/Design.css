@@ -2,17 +2,18 @@
 				/*Reglage par default des pages */
 
 
-article, nav, div, section, ul, li, a, aside, footer{
+article, nav, div, section, ul, li, a, aside, footer, a:visited{
 	margin: 0px;
 	padding: 0px;
 	text-decoration: none;
 	list-style-type: none;
+
 }
 
 
 
 			/* Paramètre de la div PAGE BLOCK*/
-#Page_block
+#page_block
 {
 	display: inline-block;
 	width: 95%;
@@ -23,7 +24,7 @@ article, nav, div, section, ul, li, a, aside, footer{
 }
 
 			/*Activite_recente*/
-#Activite_recente{
+#activitees_recentes{
 	display: block;
 	float: left;
 	border-style: solid;
@@ -43,7 +44,7 @@ nav{
 	margin-left: 10%;
 	margin-top: 2.5%;
 	width: 80%;
-	min-width: 700px;
+	min-width: 250px;
 	background-color: #26F018;
 	padding-top: 2.5%;
 	padding-bottom: 2.5%;
@@ -54,11 +55,15 @@ li{
 	padding-right: 1%;
 }
 
+li a, li a:visited{
+	color: blue;
+}
+
 			/*Section*/
 section{
 	display: block;
 	width: 80%;
-	min-width: 800px;
+	min-width: 250px;
 	margin-top: 5%;
 	margin-bottom: 5%;
 	margin-left: 16%;
@@ -101,7 +106,7 @@ footer{
 	margin-left: 10%;
 	margin-bottom: 2.5%;
 	width: 80%;
-	min-width: 700px;
+	min-width: 250px;
 	text-align: center;
 	background-color: #E86E03;
 	padding-top: 1.5%;
