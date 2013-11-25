@@ -29,7 +29,7 @@ article, nav, div, section, ul, li, a, aside, footer{
 	border-style: solid;
 	width: 14%;
 	margin-left: 1%;
-	margin-top: 2%;
+	margin-top: 5%;
 	padding-top: 12%;
 	padding-bottom: 12%;
 	background-color: #E80366;
@@ -45,6 +45,8 @@ nav{
 	width: 80%;
 	min-width: 700px;
 	background-color: #26F018;
+	padding-top: 2.5%;
+	padding-bottom: 2.5%;
 }
 
 li{
@@ -102,5 +104,7 @@ footer{
 	min-width: 700px;
 	text-align: center;
 	background-color: #E86E03;
+	padding-top: 1.5%;
+	padding-bottom: 1.5%;
 }
 
