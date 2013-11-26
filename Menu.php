@@ -14,7 +14,3 @@
 		echo '</nav>';
 		}
 	?>
-
-
-
-	edededede
