@@ -10,7 +10,8 @@ function head($titlePage, $listInc = array()){
 	echo '<head>';
 	echo '<title>'.NAME_SITE.' - '.$titlePage.'</title>';
 	echo '<meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1"/>';
-	echo '<link rel="stylesheet" href="CSS/'.CSS_BASE.'" type="text/css" title="Design"/>';
+	echo '<link rel="stylesheet" type="text/css" title="Design" href="CSS/'.CSS_BASE.'"/>';
+	echo '<link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/>';
 	foreach($listInc as $inc){
 		if(isset($inc['type'])){
 			switch(strtolower($inc['type'])){
