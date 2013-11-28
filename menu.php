@@ -1,4 +1,4 @@
-
+﻿
 	<?php
 		function menu(){
 		echo '<nav>';

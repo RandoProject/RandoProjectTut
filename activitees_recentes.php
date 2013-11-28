@@ -1,4 +1,4 @@
-
+﻿
 	<?php
 		function activitees_recentes(){
 		echo '<div id="activitees_recentes">';
