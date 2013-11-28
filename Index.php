@@ -1,39 +1,19 @@
-﻿<!DOCTYPE html>
-<html xmls="http://www.w3.org/1999/xhtml" lang="fr">
-	
-	<head>
-				<?php 
-						include("includes.php");
-						head("RandoPassion"); 
-				?>
-	</head>
-	
-	<body>
-		<div id="page_block">
-			<?php 
-				include("Menu.php"); 
-				menu();
-			?>
-			
-			<?php
-				include("activitees_recentes.php");
-				activitees_recentes();
-			?>
-			
-			<section>
-				<article>
-					<?php include("Article.php"); ?>
-				</article>
+<?php
+include("header");
+include("menu.php");
+include("footer.php"); 
 
-				<aside>
-					<?php include("Aside.php"); ?>
-				</aside>
-			</section>
+if(isset($_POST['page']) or $_POST['page'] == 'welcome'){
+	include_once('welcome.php');
+}
+else{
+	switch($_POST['page']){
+		case 'connexion':
+			include_once('Location:Controller/c_connexion.php');
+		break;
 
-			<?php 
-				include("Footer.php"); 
-				footer();
-			?>
-		</div>
-	</body>
-</html>
+		default:
+			include_once('Location:error_page.php');
+		break;
+	}
+}
