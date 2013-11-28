@@ -16,6 +16,4 @@ else{
 			include_once('error_page.php');
 		break;
 	}
-}
-
-gg
+} 
