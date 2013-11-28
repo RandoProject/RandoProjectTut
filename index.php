@@ -1,19 +1,19 @@
 <?php
-include("header");
-include("menu.php");
-include("footer.php"); 
+include_once("header.php");
+include_once("menu.php");
+include_once("footer.php"); 
 
-if(isset($_POST['page']) or $_POST['page'] == 'welcome'){
-	include_once('welcome.php');
+if(!isset($_GET['page']) or $_GET['page'] == 'accueil'){
+	include_once('accueil.php');
 }
 else{
-	switch($_POST['page']){
+	switch($_GET['page']){
 		case 'connexion':
-			include_once('Location:Controller/c_connexion.php');
+			include_once('Controller/c_connexion.php');
 		break;
 
 		default:
-			include_once('Location:error_page.php');
+			include_once('error_page.php');
 		break;
 	}
 }

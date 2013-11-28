@@ -4,13 +4,12 @@
 		echo '<nav>';
 		echo'
 				<ul>
-					<li><a href="Index.php">Acceuil</a></li><!-- 
-					--><li><a href="Randonnee.php">Randonnée</a></li><!--
-					--><li><a href="Galerie.php">Galerie</a></li><!--
-					--><li><a href="Autres_activités.php">Autres activités</a></li>
+					<li><a href="index.php">Acceuil</a></li>
+					<li><a href="randonnee.php">Randonnée</a></li>
+					<li><a href="galerie.php">Galerie</a></li>
+					<li><a href="autres_activités.php">Autres activités</a></li>
 				</ul>
 			';
 
 		echo '</nav>';
 		}
-	?>
