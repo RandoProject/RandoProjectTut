@@ -17,6 +17,3 @@ else{
 		break;
 	}
 } 
-
-
-ggggggg
