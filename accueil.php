@@ -1,10 +1,9 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html xmls="http://www.w3.org/1999/xhtml" lang="fr">
+		
+	<?php head("RandoPassion"); ?>
 	
-	<head>
-			<?php head("RandoPassion"); ?>
-	</head>
-	
+
 	<body>
 		<div id="page_block">
 			<?php menu(); ?>
@@ -15,9 +14,7 @@
 			?>
 			
 			<section>
-				<article>
-					<?php include("article.php"); ?>
-				</article>
+				
 			</section>
 
 			<?php 
