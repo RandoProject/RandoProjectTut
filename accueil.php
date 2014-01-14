@@ -18,10 +18,6 @@
 				<article>
 					<?php include("article.php"); ?>
 				</article>
-
-				<aside>
-					<?php include("aside.php"); ?>
-				</aside>
 			</section>
 
 			<?php 
