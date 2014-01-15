@@ -1,21 +1,23 @@
 <!DOCTYPE html>
 <html lang="fr">
 		
-	<?php head("RandoPassion"); ?>
+	<?php head("Accueil"); ?>
 
 	<body>
-		<?php menu(); ?>
-        
-        <?php
-            activitees_recentes();
-        ?>
-        
-        <section>
-            blablabla
-        </section>
+        <div id="page_block">
+    		<?php menu(); ?>
+            
+            <?php
+                activitees_recentes();
+            ?>
+            
+            <section>
+                
+            </section>
 
-        <?php 
-            footer();
-        ?>
+            <?php 
+                footer();
+            ?>
+        </div>
 	</body>
 </html>

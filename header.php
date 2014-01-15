@@ -1,5 +1,5 @@
 <?php
-const NAME_SITE = 'Rando';
+const NAME_SITE = 'RandoPassion';
 const CSS_BASE = 'Design.css';
 
 /* Arguments : 
