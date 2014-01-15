@@ -1,15 +1,13 @@
-
-	<?php
-		function menu(){
-		echo '<nav>';
-		echo'
+<?php
+function menu(){
+	echo '	<nav>
 				<ul>
-					<li><a href="index.php">Acceuil</a></li><!--
-					--><li><a href="randonnee.php">Randonnée</a></li><!--
-					--><li><a href="galerie.php">Galerie</a></li><!--
-					--><li><a  id="bare_fin_menu" href="autres_activités.php">Autres activités</a></li>
+					<a href="index.php"><li>Acceuil</li></a>
+					<a href="randonnee.php"><li>Randonnée</li></a>
+					<a href="galerie.php"><li>Galerie</li></a>
+					<a href="autres_activités.php"><li>Autres activités</li></a>
 				</ul>
-			';
-
-		echo '</nav>';
-		}
+			</nav>
+	';
+}
+?>

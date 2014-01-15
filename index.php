@@ -1,6 +1,7 @@
 <?php
 include_once("header.php");
 include_once("menu.php");
+include_once("activitees_recentes.php");
 include_once("footer.php"); 
 
 if(!isset($_GET['page']) or $_GET['page'] == 'accueil'){
@@ -17,3 +18,4 @@ else{
 		break;
 	}
 } 
+?>

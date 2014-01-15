@@ -1,15 +1,12 @@
-
-	<?php
-		function activitees_recentes(){
-		echo '<div id="activitees_recentes">';
-		echo'
+<?php
+function activitees_recentes(){
+	echo '	<aside>
 				<p>
-				Activité récente (nouvelles randos etc...)
+					Activité récente (nouvelles randos etc...)
 				</p>
-			';
-
-		echo '</div>';
-		}
-	?>
+			</aside>
+	';
+}
+?>
 
 			
