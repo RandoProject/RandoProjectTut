@@ -25,7 +25,7 @@
 					<label for="Titre"> Titre </label><br/><input type="texte" name="titre"/><br/>
 					<label for="Code"> Code </label><br/>
 						<?php
-							include("function_rechercher_avancee.php"); 
+							include("fonction_rechercher_avancee_select.php"); 
 							recherche_avancee("code"); 
 						?>
 
