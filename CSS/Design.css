@@ -57,7 +57,7 @@ nav ul li{
 	display: inline-block;
 }
 
-nav ul li , nav ul li a:visited{
+nav ul li {
 	color: #E6E6E6;
 	padding-top: 20px;
 	padding-bottom: 20px;
@@ -82,7 +82,7 @@ nav ul li:hover{
 	transition: 0.5s 0.1s ease-out;
 }
 
-nav ul li a#bare_fin_menu{
+nav ul li#bare_fin_menu{
 
 	border-right: 2px solid #010101;
 }
