@@ -1,15 +1,14 @@
 <?php
-require ('bin/params.php');
-
 		function recherche_avancee($nameSelect){
+		require('bin/params.php');
+
 		echo '<select name="'.$nameSelect.'">';
 			
 			$req = $bdd->query('SELECT code FROM rando');
-			$req->setFetchMode(PDO::FETCH_OBJ);
 
 			while($donnees = $req->fetch())
 			{
-				echo '<option value="1">1</option>';
+				echo '<option valeur=" '.$donnees['code'].' ">'.$donnees['code'].'</option>';
 			}
 
 			$req->closeCursor();

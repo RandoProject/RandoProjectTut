@@ -1,9 +1,5 @@
 <!DOCTYPE html>
 <html lang="fr">
-<?php 
-	include("function_rechercher_avancee.php");
-?>
-
 
 	<?php 
 		include("header.php");
@@ -26,9 +22,12 @@
 			
 			<section>
                 <form method="post" action="rechercher_avancee_post">
-					<label for="Titre"> Titre </label><br/><input type="texte" name="titre"/>
+					<label for="Titre"> Titre </label><br/><input type="texte" name="titre"/><br/>
 					<label for="Code"> Code </label><br/>
-						<?php recherche_avancee("code"); ?>
+						<?php
+							include("function_rechercher_avancee.php"); 
+							recherche_avancee("code"); 
+						?>
 
 					<input type="submit" value="Rechercher"/>
 				</form>
@@ -37,7 +36,7 @@
 
 			<?php 
 				include("footer.php");
-				footer();
+				footer(); 
 			?>
 		</div>
 	</body>
