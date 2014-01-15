@@ -1,6 +1,6 @@
 <?php
 $host='localhost';
-$user='';
+$user='root';
 $password='';
 $base='site_rando';
 
