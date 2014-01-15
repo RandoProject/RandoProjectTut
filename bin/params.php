@@ -5,7 +5,7 @@ $password='';
 $base='site_rando';
 
 	try{
-		$bdd = new PDO('mysql:host=\'$host\';dbanme=\'$base\'', $user, $password);
+		$bdd = new PDO('mysql:host='.$host.';dbanme='.$base.'', $user, $password);
 	}
 	catch(Exception $e)
 	{

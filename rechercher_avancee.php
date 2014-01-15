@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmls="http://www.w3.org/1999/xhtml" lang="fr">
+<html lang="fr">
 <?php 
 	include("function_rechercher_avancee.php");
 ?>
@@ -25,15 +25,15 @@
 			?>
 			
 			<section>
-				<form method="post" action="rechercher_avancee_post">
+                <form method="post" action="rechercher_avancee_post">
 					<label for="Titre"> Titre </label><br/><input type="texte" name="titre"/>
 					<label for="Code"> Code </label><br/>
 						<?php recherche_avancee("code"); ?>
 
 					<input type="submit" value="Rechercher"/>
 				</form>
-				
-			</section>
+            </section>
+
 
 			<?php 
 				include("footer.php");
@@ -42,3 +42,5 @@
 		</div>
 	</body>
 </html>
+
+
