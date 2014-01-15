@@ -67,6 +67,7 @@ section{
 	position: absolute;
 	top: 71px;
 	left: 285px;
+	right: 10px;
 	width: auto;
 	min-width: 700px;
 	min-height: 800px;
