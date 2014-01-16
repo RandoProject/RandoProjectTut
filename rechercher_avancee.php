@@ -3,7 +3,7 @@
 
 	<?php 
 		include("header.php");
-		head("Recherche avancÃ©e"); 
+		head("Recherche avancée"); 
 	?>
 	
 
@@ -22,12 +22,30 @@
 			
 			<section>
                 <form method="post" action="rechercher_avancee_post">
-					<label for="Titre"> Titre </label><br/><input type="texte" name="titre"/><br/>
+					<label for="Titre"> Titre </label><br/>
+						<input type="texte" name="titre"/><br/>
 					<label for="Code"> Code </label><br/>
 						<?php
-							include("fonction_rechercher_avancee_select.php"); 
-							recherche_avancee("code"); 
-						?>
+							include("fonction_rechercher_avancee_select.php");	
+							recherche_avancee("Code","code","rando","req0"); 
+						?><br/>
+					<label for="Longueur"> Longueur</label><br/>
+						<select name="longueur"/><br/>
+							<option value="vide" selected="selected"> </option>
+							<option value="5"> 5 Km </option>
+							<option value="10"> 10 Km </option>
+							<option value="15"> 15 Km </option>
+							<option value="20"> 20 Km </option>
+							<option value="25"> 25 Km </option>
+							<option value="30"> 30 Km </option>
+							<option value="35"> 35 Km </option>
+						</select><br/>
+					<label for="Difficulté"> Difficulté </label><br/>
+						<?php
+							recherche_avancee("Difficulte","difficulté","rando","req1");
+						?><br/>
+
+
 
 					<input type="submit" value="Rechercher"/>
 				</form>

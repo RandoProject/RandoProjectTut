@@ -1,17 +1,17 @@
 <?php
-		function recherche_avancee($nameSelect){
+		function recherche_avancee($nameSelect,$select,$table,$requete){
 		require('bin/params.php');
 
 		echo '<select name="'.$nameSelect.'">';
 			
-			$req = $bdd->query('SELECT code FROM rando');
+			$requete = $bdd->query("SELECT $select FROM $table");
 
-			while($donnees = $req->fetch())
+			while($donnees = $requete->fetch())
 			{
-				echo '<option valeur=" '.$donnees['code'].' ">'.$donnees['code'].'</option>';
+				echo '<option valeur=" '.$donnees[$select].' ">'.$donnees[$select].'</option>';
 			}
 
-			$req->closeCursor();
+			$requete->closeCursor();
 
 		echo '</select>';
 		}
