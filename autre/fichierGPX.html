@@ -1,0 +1,126 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+
+	</head>
+	<body>
+		<h1>Test chargement GPX</h1>
+
+		<form id="formulaireChargefichier">
+			<input id="fileMap" type="file">
+		</form>
+
+		<script type="text/javascript">
+    		var fileInput = document.querySelector('#fileMap');
+
+		   		fileInput.onchange = function() {
+    			var reader = new FileReader();
+    			
+    			reader.onload = function() {
+    				if(window.DOMParser){
+    					parser = new DOMParser();
+    					gpxFile = parser.parseFromString(reader.result, "text/xml");
+    				}
+    				else{ // Si on est sur IE
+    					gpxFile = new ActiveXObject("Microsoft.XMLDOM");
+  						gpxFile.async=false;
+  						gpxFile.loadXML(reader.result); 
+    				}
+
+
+    				var table = document.createElement('table');
+    				table.innerHTML = '<thead><th>Numéro</th><th>Latitude</th><th>Longitude</th><th>Elévation</th><th>Date/heure</th></thead>';
+    				var line;
+    				var lon, lat; // Longitude et lattitude
+    				var ele, eleFloat, maxEle = null, minEle = null, elePrevious = null;
+    				var time;
+    				var listPoints = gpxFile.getElementsByTagName('trkpt');
+    				var listAttributes;
+    				var listChilds;
+    				var i; // Nous permettra de calculer le nombre de point
+                    var deniv = 0; // Le dénivelé
+
+    				var minLat, minLon, maxLat, maxLon; // 
+
+
+    				for(var i=0; i< listPoints.length; i++){
+    					line = document.createElement('tr');
+    					num = document.createElement('td');
+    					lon = num.cloneNode();
+    					lat = num.cloneNode();
+    					ele = num.cloneNode();
+    					time = num.cloneNode();
+
+    					listAttributes = listPoints[i].attributes;
+    					for(var j=0; j < listAttributes.length; j++){
+    						if(listAttributes[j].nodeName == 'lon'){
+    							lon.appendChild(document.createTextNode(listAttributes[j].nodeValue));
+
+    						}
+    						else if(listAttributes[j].nodeName == 'lat'){
+    							lat.appendChild(document.createTextNode(listAttributes[j].nodeValue));
+    						}
+    					}
+
+    					listChilds = listPoints[i].childNodes;
+    					for(var j=0, childText; j < listChilds.length; j++){
+    						if(listChilds[j].nodeName == 'ele'){
+                                eleFloat = parseFloat(listChilds[j].childNodes[0].nodeValue); // On transforme le résultat en nombre
+                                
+                                if(minEle == null || eleFloat < minEle){
+                                    minEle = eleFloat;
+                                }
+                                if(maxEle == null || eleFloat > maxEle){
+                                    maxEle = eleFloat;
+                                }
+                                
+                                if(elePrevious != null && eleFloat > elePrevious){ // Si on est en côte
+                                    deniv += eleFloat - elePrevious;
+                                }
+
+
+    							ele.appendChild(document.createTextNode(eleFloat));
+
+                                elePrevious = eleFloat;
+    						}
+    						else if(listChilds[j].nodeName == 'time'){
+    							time.appendChild(document.createTextNode(listChilds[j].childNodes[0].nodeValue));
+    						}
+    					}
+
+
+    					num.appendChild(document.createTextNode(i));
+    					line.appendChild(num);
+    					line.appendChild(lat);
+    					line.appendChild(lon);
+    					line.appendChild(ele);
+    					line.appendChild(time);
+    					table.appendChild(line);
+    				}
+
+    				var infoFile = document.createElement('div');
+    				var h3 = document.createElement('h3');
+    				var p = document.createElement('p');
+
+    				p.innerHTML = '<strong>Nom du fichier</strong> : ' + fileInput.files[0].name + '<br><strong>Nombre de points</strong> : ' + i + '<br>';
+                    p.innerHTML += '<strong>Dénivelé : </strong>' + deniv + 'm<br>';
+                    p.innerHTML += '<strong>Point le plus haut : </strong>' + maxEle + 'm<br><strong>Point le plus bas : </strong>' + minEle + 'm<br>';
+    				h3.appendChild(document.createTextNode('Informations fichier : '));
+    				infoFile.appendChild(h3);
+    				infoFile.appendChild(p);
+    				document.body.appendChild(infoFile);
+    				
+    				table.setAttribute('border', 2);
+    				document.body.appendChild(table);
+
+    			};
+
+
+    			reader.readAsText(fileInput.files[0]);
+    		}
+
+
+    	</script>
+	</body>
+</html>

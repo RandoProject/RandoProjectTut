@@ -1,0 +1,14 @@
+
+----------- A faire -----------
+- Gestion des erreurs en chargement de fichier GPX
+
+- Problème, on ne peut pas ouvrir 2 fichiers d'affiler
+
+- Rajouter des champs pour les GPX -> http://www.topografix.com/gpx_manual.asp
+
+- Faire les informations sur le fichier : minlat, maxlat, dénivelé cumulé...
+
+
+----------- Idées -----------
+
+- Utiliser le premier point de chaque randonnée pour la représenter sur la carte de France

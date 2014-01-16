@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <style type="text/css">
+      html { height: 100% }
+      body { height: 100%; margin: 0; padding: 0 }
+      #map-canvas { height: 80% }
+    </style>
+
+		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC8ydWcT7L0z-S-g7DJf0Nh985GSMDjSf0&sensor=false&region=FR">
+		</script>
+		<script type="text/javascript">
+			var map;
+			var msg;
+			function initialize(){
+				var mapOptions = {
+					center: new google.maps.LatLng(45, 3),
+					zoom: 9
+				};
+			
+				map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+
+				var tableCoord = [
+				new google.maps.LatLng(45, 3),
+				new google.maps.LatLng(46, 5),
+				new google.maps.LatLng(45, 0),
+				new google.maps.LatLng(30, 2),
+				new google.maps.LatLng(10, 40)];
+
+				var myPath = new google.maps.Polyline({
+					path: tableCoord,
+					geodesic: true,
+					strokeColor: '#0000CC',
+					strokeOpacity: 0.8,
+					strokeWeight: 2
+				});
+
+				myPath.setMap(map);
+			}
+
+
+
+			google.maps.event.addDomListener(window, 'onload', initialize);
+		</script>
+	</head>
+		<body onload="initialize()">
+		<h1>Test map</h1>
+		<div id="map-canvas"/>
+
+	</body>
+</html>
