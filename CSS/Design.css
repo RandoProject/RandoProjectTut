@@ -62,7 +62,7 @@ aside{
 	width: 15%;
 	margin-top: 2%;	
 	margin-left: 10px;
-	height: 700px;
+	height: 725px;
 	background-color: #D8D8D8;
 	border: 1px solid #010101;
 	box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.55) inset;
@@ -90,7 +90,7 @@ footer{
 	display: inline-block;
 	padding-top: 1.5%;
 	padding-bottom: 1.5%;
-	margin-top: 2%;
+	margin-top: 4%;
 	width: 100%;
 	min-width: 800px;
 	height: auto;
