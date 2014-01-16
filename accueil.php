@@ -4,20 +4,21 @@
 	<?php head("Accueil"); ?>
 
 	<body>
-        <div id="page_block">
+        
     		<?php menu(); ?>
             
-            <?php
-                activitees_recentes();
-            ?>
-            
-            <section>
+            <div id="corps">
+				<?php
+                    activitees_recentes();
+                ?>
                 
-            </section>
+                <section>
+                    
+                </section>
+        	</div>
 
             <?php 
                 footer();
             ?>
-        </div>
 	</body>
 </html>

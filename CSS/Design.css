@@ -10,6 +10,13 @@
 	resize: none;
 	border: none;
 }
+html,
+body{
+	height: 100%;
+	width: 100%;
+	min-width: 800px;
+	height: 100%;
+}
 
 
 			/* Menu */
@@ -45,15 +52,11 @@ nav ul a li:hover{
 	transition: 0.5s 0.1s ease-out;
 }
 
-			/* PAGE BLOCK */
-#page_block{
-	display: inline-block;
-	width: 100%;
-	min-width: 800px;
-	height: auto;
-	background-color: #FFFFFF	;
-}
 
+			/* Corps */
+#corps{
+	min-height: 85%;
+}
 
 			/* Activite_recente */
 aside{
@@ -75,7 +78,7 @@ section{
 	width: 78%;
 	min-width: 250px;
 	height: 650px;
-	margin-top: 4%;
+	margin-top: 4%;	
 	margin-left: 3%;
 	margin-right: auto;
 	vertical-align: top;
@@ -87,13 +90,11 @@ section{
 
 			/* Footer */
 footer{
-	display: inline-block;
+	margin-top: 4%;
 	padding-top: 1.5%;
 	padding-bottom: 1.5%;
-	margin-top: 4%;
 	width: 100%;
 	min-width: 800px;
-	height: auto;
 	text-align: center;
 	background-color: #303030;
 	color: white;
