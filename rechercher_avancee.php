@@ -41,10 +41,12 @@
 							<option value="35"> 35 Km </option>
 						</select><br/>
 					<label for="Difficulté"> Difficulté </label><br/>
-						<?php
-							recherche_avancee("Difficulte","difficulté","rando","req1");
-						?><br/>
-
+						<select name="longueur"/><br/>
+							<option value="vide" selected="selected"> </option>
+							<option value="1">Difficulté 1 </option>
+							<option value="2">Difficulté 2</option>
+							<option value="3">Difficulté 3</option>
+						</select><br/>
 
 
 					<input type="submit" value="Rechercher"/>
