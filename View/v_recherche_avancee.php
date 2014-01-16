@@ -18,35 +18,76 @@
 				<section>
 	                <form method="post" action="rechercher_avancee_post">
 						<label for="Titre"> Titre </label><br/>
-							<input type="texte" name="titre"/><br/>
-						<label for="Code"> Code </label><br/>
+							<input type="texte" name="title" value="Randonnée à Conques" onfocus="if (this.value=='Randonnée à Conques') this.value=''" onblur="this.value='Randonnée à Conques'"/><br/>
+
+						<!--<label for="Code"> Code </label><br/>
 							<?php
-								echo '<select name = "code">';
+								/*echo '<select name = "code">';
 									foreach($listeRando as $rando){
 										echo '<option value="'.$rando['code'].'"> '.$rando['code'].'</option>';
 									}
-								echo '</select>';
-							?><br/>
+								echo '</select>';*/
+							?><br/>-->
+
 						<label for="Longueur"> Longueur</label><br/>
-							<select name="longueur"/><br/>
-								<option value="vide" selected="selected"> </option>
-								<option value="5"> 5 Km </option>
-								<option value="10"> 10 Km </option>
-								<option value="15"> 15 Km </option>
-								<option value="20"> 20 Km </option>
-								<option value="25"> 25 Km </option>
-								<option value="30"> 30 Km </option>
-								<option value="35"> 35 Km </option>
+							<select name="distance"><br/>
+								<option value="not_clarify" selected="selected">Non précisé</option>
+									<?php
+										$n=0;
+										$m=5;
+										$number_of_ligne=0;
+											for($number_of_ligne; $number_of_ligne <=8; $number_of_ligne++)
+											{
+												echo'<option value="'.$n.'">De '.$n.' à '.$m.'Km';
+												$n=$n+5;
+												$m=$m+5;
+											}
+											echo'<option value="'.$m.'">Plus de '.$m.' Km';
+									?>
 							</select><br/>
+
+						<label for="Durée"> Durée </label><br/>
+							<select name="time"><br/>
+								<option value="not_clarify" selected="selected">Non précisé</option>
+									<?php
+										$d=0;
+										$m=1;
+										$n=3;
+										$number_of_ligne=0;
+											echo'<option value="'.$d.'">Moins de '.$m.' heure';
+											for($number_of_ligne; $number_of_ligne <=1; $number_of_ligne++)
+											{
+												echo'<option value="'.$m.'">De '.$m.' h à '.$n.' h';
+												$m=$m+$n-1;
+												$n=$n+3;
+											}
+											echo'<option value="half_day"> Demi journée </option>';
+											echo'<option value="one_day"> 1 journée</option>';
+											echo'<option value="two_four_days"> 2 à 4 jours </option>';
+											echo'<option value="four_days"> Plus de 4 jours </option>';
+
+									?>
+							</select><br/>
+
 						<label for="Difficulté"> Difficulté </label><br/>
-							<select name="longueur"/><br/>
-								<option value="vide" selected="selected"> </option>
-								<option value="1">Difficulté 1 </option>
-								<option value="2">Difficulté 2</option>
-								<option value="3">Difficulté 3</option>
+							<select name="difficulty"><br/>
+								<option value="not_clarify" selected="selected">Non précisé</option>
+								<?php
+									$n=0;
+									$number_of_ligne=0;
+											for($number_of_ligne; $number_of_ligne <=4; $number_of_ligne++)
+											{
+												echo'<option value="'.$m.'">Difficulté '.$n;
+												$n=$n+1;
+											}
+								?>
 							</select><br/>
 
-
+						<label for="Point d'eau "> Point d'eau </label><br/>
+							<select name="water"><br/>
+								<option value="not_matter" selected="selected">Indifférent</option>
+								<option value="Yes"> Oui </option>
+							</select><br/>
 						<input type="submit" value="Rechercher"/>
 					</form>
 	            </section>
