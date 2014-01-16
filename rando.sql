@@ -155,22 +155,19 @@ CREATE TABLE IF NOT EXISTS `galerie` (
 PRIMARY KEY (`numéro`)
 );
 
-INSERT INTO `galerie` VALUES ('0',
-							'galerie par défaut');
-							
+INSERT INTO `galerie` VALUES ('0',	'galerie par défaut');
+
 -- ____________________ PHOTO ____________________ --
 CREATE TABLE IF NOT EXISTS `photo` (
 `numéro` int(10) NOT NULL AUTO_INCREMENT,
-`nom` varchar(100) NOT NULL,
+`nom` BLOB NOT NULL,
 `galerie` int(10) NOT NULL,
 `descriptif` text DEFAULT NULL,
-PRIMARY KEY (`numéro`)
+PRIMARY KEY (`numéro`),
+FOREIGN KEY (`galerie`) REFERENCES `galerie`(`numéro`)
 );
 
-INSERT INTO `photo` VALUES ('0',
-							'défaut.png',
-							'0',
-							'');
+INSERT INTO `photo` VALUES ('0', 'défaut.png', '0', '');
 
 -- ____________________ MEMBRE ____________________ --
 CREATE TABLE IF NOT EXISTS `membre` (
@@ -194,19 +191,19 @@ CONSTRAINT C_STATUT CHECK (statut = 'membre' OR statut = 'administrateur' OR sta
 );
 
 INSERT INTO `membre` VALUES ('Pat',
-							'0000',
-							'administrateur',
-							'Paturaux',
-							'Florian',
-							'1993-09-28',
-							'',
-							'',
-							'',
-							'florian.paturaux@univ-lyon1.fr',
-							'',
-							'',		
-							'');
-							
+				'0000',
+				'administrateur',
+				'Paturaux',
+				'Florian',
+				'1993-09-28',
+				'',
+				'',
+				'',
+				'florian.paturaux@univ-lyon1.fr',
+				'',
+				'',		
+				'');
+
 -- ____________________ RANDO ____________________ --
 CREATE TABLE IF NOT EXISTS `rando` (
 `code` int(10) NOT NULL AUTO_INCREMENT,
@@ -236,55 +233,55 @@ CHECK (note BETWEEN 0 and 5)
 
 INSERT INTO `rando` (`titre`, `parcour`, `longueur`, `durée`, `difficulté`, `descriptif`, `note`,`point_eau`, `denivelé`, `equipement`,`date_insertion`,`validé`, `coordonnée`, `photo_principale`, `auteur`, `galerie`)
 VALUES ('Randonnée à Thérondels', 
-		'',
-		'15,5',
-		'4:45',
-		'2',
-		'La presqu’île de Laussac, depuis le village de Thérondels, tout proche des monts du Cantal : une approche facile des gorges sauvages de la Truyère et du plan d’eau de Sarrans, avec des points de vue exceptionnels.',
-		'',
-		'1',
-		'',
-		'',
-		'2014-01-15 14:30:00',
-		'1',
-		'',
-		'therondels.jpg',
-		'Pat',
-		'');
+	'',
+	'15,5',
+	'4:45',
+	'2',
+	'La presqu’île de Laussac, depuis le village de Thérondels, tout proche des monts du Cantal : une approche facile des gorges sauvages de la Truyère et du plan d’eau de Sarrans, avec des points de vue exceptionnels.',
+	'',
+	'1',
+	'',
+	'',
+	'2014-01-15 14:30:00',
+	'1',
+	'',
+	'therondels.jpg',
+	'Pat',
+	'');
 INSERT INTO `rando` (`titre`, `parcour`, `longueur`, `durée`, `difficulté`, `descriptif`, `note`,`point_eau`, `denivelé`, `equipement`,`date_insertion`,`validé`, `coordonnée`, `photo_principale`, `auteur`, `galerie`)
 VALUES ('Randonnée à Conques', 
-		'',
-		'7',
-		'2:30',
-		'1',
-		'Dans cet austère et sauvage paysage, au confluent des gorges creusées par l’Ouche et de la vallée du Dourdou, se niche le site de Conques, rayonnant de lumière et semblant figé par le temps.',
-		'',
-		'1',
-		'',
-		'',
-		'2014-01-15 14:35:00',
-		'1',
-		'',
-		'conques.jpg',
-		'Pat',
-		'');
+	'',
+	'7',
+	'2:30',
+	'1',
+	'Dans cet austère et sauvage paysage, au confluent des gorges creusées par l’Ouche et de la vallée du Dourdou, se niche le site de Conques, rayonnant de lumière et semblant figé par le temps.',
+	'',
+	'1',
+	'',
+	'',
+	'2014-01-15 14:35:00',
+	'1',
+	'',
+	'conques.jpg',
+	'Pat',
+	'');
 INSERT INTO `rando` (`titre`, `parcour`, `longueur`, `durée`, `difficulté`, `descriptif`, `note`,`point_eau`, `denivelé`, `equipement`,`date_insertion`,`validé`, `coordonnée`, `photo_principale`, `auteur`, `galerie`)
 VALUES ('Randonnée à La Capelle-Balaguier', 
-		'',
-		'15',
-		'3:45',
-		'2',
-		'A l’ouest de Villeneuve, le causse de Salvagnac offre aux randonneurs des chemins ancestraux, marqués de l’usure des charrois d’antan, bordés de murettes en pierres sèches et de buis épaiset parfumés.',
-		'',
-		'1',
-		'',
-		'',
-		'2014-01-15 14:40:00',
-		'1',
-		'',
-		'capelle-balaguier.jpg',
-		'Pat',
-		'');
+	'',
+	'15',
+	'3:45',
+	'2',
+	'A l’ouest de Villeneuve, le causse de Salvagnac offre aux randonneurs des chemins ancestraux, marqués de l’usure des charrois d’antan, bordés de murettes en pierres sèches et de buis épaiset parfumés.',
+	'',
+	'1',
+	'',
+	'',
+	'2014-01-15 14:40:00',
+	'1',
+	'',
+	'capelle-balaguier.jpg',
+	'Pat',
+	'');
 
 -- ____________________ LOCALISER ____________________ --
 CREATE TABLE IF NOT EXISTS `localiser` (
