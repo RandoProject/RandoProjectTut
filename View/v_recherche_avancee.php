@@ -2,20 +2,17 @@
 <html lang="fr">
 
 	<?php 
-		include("header.php");
 		head("Recherche avancée"); 
 	?>
 	
 
 	<body>
 			<?php 
-				include("menu.php");
 				menu(); 
 			?>
 			
 			<div id="corps">
 			<?php
-				include("activitees_recentes.php");
 				activitees_recentes();
 			?>
 				<section>
@@ -24,8 +21,11 @@
 							<input type="texte" name="titre"/><br/>
 						<label for="Code"> Code </label><br/>
 							<?php
-								include("../Models/fonction_rechercher_avancee_select.php");	
-								recherche_avancee("Code","code","rando","req0"); 
+								echo '<select name = "code">';
+									foreach($listeRando as $rando){
+										echo '<option value="'.$rando['code'].'"> '.$rando['code'].'</option>';
+									}
+								echo '</select>';
 							?><br/>
 						<label for="Longueur"> Longueur</label><br/>
 							<select name="longueur"/><br/>
@@ -52,7 +52,6 @@
 	            </section>
 	        </div>
 			<?php 
-				include("footer.php");
 				footer(); 
 			?>
 	</body>

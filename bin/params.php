@@ -2,7 +2,7 @@
 $host='mysql:host=localhost;dbname=site_rando';
 $user='root';
 $password='';
-$base='site_rando';
+$bdd;
 
 	try{
 		$bdd = new PDO($host, $user, $password);
