@@ -17,7 +17,12 @@
 			?>
 				<section>
 	                <?php
-	                	echo'Vous avez selectionné la randonnée : '.$affichage_rando['titre'];
+	                	if(isset($affichage_rando[0])){ // Il est mieux de faire un foreach au cas ou on a plusieurs résultats
+	                		echo'Vous avez selectionné la randonnée : '.$affichage_rando[0]['titre'];
+	                	}
+	                	else{
+	                		echo'<p>Aucun résultat trouvé</p>';
+	                	}
 	                ?>
 	            </section>
 	        </div>

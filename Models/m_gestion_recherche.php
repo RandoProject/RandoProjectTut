@@ -1,12 +1,10 @@
 <?php
-	function affichage(){
+	function affichage($title){
 		global $bdd;
-		if(isset($_POST['title']))
-		{
-			$requete = $bdd->prepare("SELECT titre FROM rando WHERE titre= :title");
-			$requete->execute(array('title' => $_POST['title'])) or die(print_r($erreur -> errorInfo()));
-			$res = $requete->fetchAll();
-			$requete->closeCursor();
-			return $res;
-		}
+
+		$requete = $bdd->prepare("SELECT titre FROM rando WHERE LOWER(titre)= :title");
+		$requete->execute(array('title' => strtolower($title))) or die(print_r($erreur -> errorInfo()));
+		$res = $requete->fetchAll();
+		$requete->closeCursor();
+		return $res;
 	}
