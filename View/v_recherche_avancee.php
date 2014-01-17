@@ -16,7 +16,7 @@
 				activitees_recentes();
 			?>
 				<section>
-	                <form method="post" action="rechercher_avancee_post">
+	                <form method="post" action="index.php?page=affichage_recherche">
 	                <label for="Region"> Région </label><br/>
 	                	<?php
 	                		echo'<select name="region">';
@@ -27,16 +27,7 @@
 	                	?><br/>
 
 						<label for="Titre"> Titre </label><br/>
-							<input type="texte" name="title" value="Randonnée à Conques" onfocus="if (this.value=='Randonnée à Conques') this.value=''" onblur="this.value='Randonnée à Conques'"/><br/>
-
-						<!--<label for="Code"> Code </label><br/>
-							<?php
-								/*echo '<select name = "code">';
-									foreach($listeRando as $rando){
-										echo '<option value="'.$rando['code'].'"> '.$rando['code'].'</option>';
-									}
-								echo '</select>';*/
-							?><br/>-->
+							<input type="texte" name="title" value="Ex: Randonnée à Conques" onfocus="if (this.value=='Ex: Randonnée à Conques') this.value=''"/><br/>
 
 						<label for="Longueur"> Longueur</label><br/>
 							<select name="distance"><br/>
@@ -84,11 +75,11 @@
 							<select name="difficulty"><br/>
 								<option value="not_clarify" selected="selected">Non précisé</option>
 								<?php
-									$n=0;
+									$n=1;
 									$number_of_ligne=0;
 											for($number_of_ligne; $number_of_ligne <=4; $number_of_ligne++)
 											{
-												echo'<option value="'.$m.'">Difficulté '.$n;
+												echo'<option value="'.$n.'">Difficulté '.$n;
 												$n=$n+1;
 											}
 								?>

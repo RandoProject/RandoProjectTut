@@ -15,6 +15,11 @@ else{
 
 		case 'recherche':
 			include_once('Controller/c_recherche_avancee.php');
+		break;
+
+		case 'affichage_recherche':
+			include_once('Controller/c_affichage_recherche.php');
+		break;
 
 		default:
 			include_once('View/error_page.php');
