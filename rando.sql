@@ -233,7 +233,7 @@ CHECK (difficulté BETWEEN 0 and 5),
 CHECK (note BETWEEN 0 and 5)
 );
 
-INSERT INTO `rando` (`titre`, `parcour`, `longueur`, `durée`, `difficulté`, `descriptif`, `note`,`point_eau`, `denivelé`, `equipement`,`date_insertion`,`validé`, `coordonnée`, `photo_principale`, `auteur`, `galerie`)
+INSERT INTO `rando` (`titre`, `parcour`, `longueur`, `durée`, `difficulté`, `descriptif`, `note`,`point_eau`, `denivelé`, `equipement`,`date_insertion`,`validé`, `parcours`, `région`, `photo_principale`, `auteur`, `galerie`)
 VALUES ('Randonnée à Thérondels', 
 	'',
 	'15,5',
@@ -251,7 +251,7 @@ VALUES ('Randonnée à Thérondels',
 	'therondels.jpg',
 	'Pat',
 	'');
-INSERT INTO `rando` (`titre`, `parcour`, `longueur`, `durée`, `difficulté`, `descriptif`, `note`,`point_eau`, `denivelé`, `equipement`,`date_insertion`,`validé`, `coordonnée`, `photo_principale`, `auteur`, `galerie`)
+INSERT INTO `rando` (`titre`, `parcour`, `longueur`, `durée`, `difficulté`, `descriptif`, `note`,`point_eau`, `denivelé`, `equipement`,`date_insertion`,`validé`, `parcours`, `région`, `photo_principale`, `auteur`, `galerie`)
 VALUES ('Randonnée à Conques', 
 	'',
 	'7',
@@ -269,7 +269,7 @@ VALUES ('Randonnée à Conques',
 	'conques.jpg',
 	'Pat',
 	'');
-INSERT INTO `rando` (`titre`, `parcour`, `longueur`, `durée`, `difficulté`, `descriptif`, `note`,`point_eau`, `denivelé`, `equipement`,`date_insertion`,`validé`, `coordonnée`, `photo_principale`, `auteur`, `galerie`)
+INSERT INTO `rando` (`titre`, `parcour`, `longueur`, `durée`, `difficulté`, `descriptif`, `note`,`point_eau`, `denivelé`, `equipement`,`date_insertion`,`validé`, `parcours`, `région`, `photo_principale`, `auteur`, `galerie`)
 VALUES ('Randonnée à La Capelle-Balaguier', 
 	'',
 	'15',
