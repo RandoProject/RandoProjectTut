@@ -36,13 +36,15 @@
 										$n=0;
 										$m=5;
 										$number_of_ligne=0;
-											for($number_of_ligne; $number_of_ligne <=8; $number_of_ligne++)
+											for($number_of_ligne; $number_of_ligne <=5; $number_of_ligne++)
 											{
 												echo'<option value="'.$n.'">De '.$n.' à '.$m.'Km';
 												$n=$n+5;
 												$m=$m+5;
 											}
-											echo'<option value="'.$m.'">Plus de '.$m.' Km';
+											echo'<option value="30">De 30 à 40Km';
+											echo'<option value="40">De 40 à 50Km';
+											echo'<option value="50">Plus de 50Km';
 									?>
 							</select><br/>
 
@@ -58,7 +60,7 @@
 											for($number_of_ligne; $number_of_ligne <=1; $number_of_ligne++)
 											{
 												echo'<option value="'.$m.'">De '.$m.' h à '.$n.' h';
-												$m=$m+$n-1;
+												$m=$n;
 												$n=$n+3;
 											}
 											echo'<option value="half_day"> Demi journée </option>';
