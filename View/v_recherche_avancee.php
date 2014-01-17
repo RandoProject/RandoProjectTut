@@ -17,6 +17,15 @@
 			?>
 				<section>
 	                <form method="post" action="rechercher_avancee_post">
+	                <label for="Region"> Région </label><br/>
+	                	<?php
+	                		echo'<select name="region">';
+	                			foreach ($listeRegion as $l_region) {
+	                				echo'<option value="'.$l_region['nom'].'"> '.$l_region['num_region'] .' '.$l_region['nom'].'</option>';
+	                			}
+	                		echo'</select>';
+	                	?><br/>
+
 						<label for="Titre"> Titre </label><br/>
 							<input type="texte" name="title" value="Randonnée à Conques" onfocus="if (this.value=='Randonnée à Conques') this.value=''" onblur="this.value='Randonnée à Conques'"/><br/>
 
