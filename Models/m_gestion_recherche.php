@@ -13,7 +13,7 @@
 		global $bdd;
 
 		$requete = $bdd->prepare("SELECT titre, région, nom FROM rando, regions WHERE rando.région = regions.num_region AND région = :region");
-		$requete->execute(array('region' => strtolower($region))) or die(print_r($erreur -> errorInfor()));
+		$requete->execute(array('region' => $region)) or die(print_r($erreur -> errorInfor()));
 		$res = $requete->fetchAll();
 		$requete->closeCursor();
 		return $res;

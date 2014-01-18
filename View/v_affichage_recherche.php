@@ -23,12 +23,12 @@
 	                	else{
 	                		echo'<p>Aucun résultat trouvé</p>';
 	                	}
-	                	if(isset($affichage_region[0])){
-	                		echo'Dans la région '.$affichage_region[0]['nom'].'se trouve les randonnées suivantes :';
+	                	if(isset($affichage_region)){
+	                		echo'Dans la région '.$affichage_region['nom'].'se trouve les randonnées suivantes :';
 	                	
 	                	}
 	                	else{
-	                		echo'<p>Aucune randonnée dans la région : '.$affichage_region[0]['nom'].'</p>';
+	                		echo'<p>Aucune randonnée dans la région : <strong>'.$affichage_region['nom'].'</section>strong></p>';
 	                	}
 	                ?>
 	            </section>

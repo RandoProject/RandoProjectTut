@@ -8,8 +8,8 @@ if(isset($_POST['title']) and $_POST['title'] != "")
 {
 		$affichage_titre_rando = affichage_title($_POST['title']);
 }
-if(isset($_POST['region']))
+if(isset($_POST['s_region']))
 {
-		$affichage_region = affichage_region($_POST['region']);
+		$affichage_region = affichage_region($_POST['s_region']);
 }
 include_once('View/v_affichage_recherche.php');
