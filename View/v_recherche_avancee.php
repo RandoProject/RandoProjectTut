@@ -19,9 +19,9 @@
 	                <form method="post" action="index.php?page=affichage_recherche">
 	                <label for="Region"> Région </label><br/>
 	                	<?php
-	                		echo'<select name="s_region[]" multiple>';
+	                		echo'<select name="s_region">';
 	                			foreach ($listeRegion as $l_region) {
-	                				echo'<option value="'.$l_region['num_region'].'"> '.$l_region['num_region'] .' '.$l_region['nom'].'</option>';
+	                				echo'<option value="'.$l_region['num_region'].'">'.$l_region['nom'].'</option>';
 	                			}
 	                		echo'</select>';
 	                	?><br/>

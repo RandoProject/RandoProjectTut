@@ -12,7 +12,7 @@
 	function affichage_region($region){
 		global $bdd;
 
-		$requete = $bdd->prepare("SELECT titre, région, nom FROM rando, regions WHERE rando.région = regions.num_region AND région = :region");
+		$requete = $bdd->prepare("SELECT titre, région, nom FROM rando, regions WHERE rando.région = regions.num_region AND rando.région = :region");
 		$requete->execute(array('region' => $region)) or die(print_r($erreur -> errorInfor()));
 		$res = $requete->fetchAll();
 		$requete->closeCursor();
