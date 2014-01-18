@@ -12,4 +12,15 @@ if(isset($_POST['s_region']))
 {
 		$affichage_region = affichage_region($_POST['s_region']);
 }
+
+
+
+if(isset($_POST['title'],$_POST['s_region'])  and $_POST['title'] !="")
+{
+		$affichage_rando = affichage_f_rando($_POST['title'], $_POST['s_region']);
+}
+
+
+
+
 include_once('View/v_affichage_recherche.php');

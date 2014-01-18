@@ -25,15 +25,30 @@
 	                	}
 	                	if(isset($affichage_region) and !empty($affichage_region)){
 	                		
-	                		echo'Dans la région '.$affichage_region[0]['nom'].'se trouve les randonnées suivantes :';
+	                		echo'Dans la région '.$affichage_region[0]['nom'].'se trouve les randonnées suivantes :<br/>';
 	                		foreach($affichage_region as $rando){
-	                			echo 'Randos : '.$rando['titre'].'<br>';
+	                			echo 'Randos : '.$rando['titre'].'<br/>';
 	                		}
 	                	
 	                	}
 	                	else{
-	                		echo'<p>Aucune randonnée dans la région : <strong> </section>strong></p>';
+	                		echo'<p>Il n\'y a ucune randonnée dans cette région</p>';
 	                	}
+
+
+	                	if(isset($affichage_rando) and !empty($affichage_rando)){
+	                		echo'il existe bien la randonnée :  '.$affichage_rando[0]['titre'].' dans la région : '.$affichage_rando[0]['nom'].'';
+	                		foreach($affichage_rando as $randonnee){
+	                			echo 'Rando : '.$randonnee['titre'].'<br/>';
+	                		}
+	                	}
+	                	else{
+	                		echo'il n\'y a rien du tout';
+	                	}
+
+
+	        
+
 	                ?>
 	            </section>
 	        </div>
