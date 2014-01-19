@@ -52,7 +52,7 @@
 
 	                	/*QUESTIONNAIRE COMPLET*/
 	        
-	                	if(isset($affichage_rando_complet) and !empty($affichage_region))
+	                	if(isset($affichage_rando_complet) and !empty($affichage_rando_complet))
 	                	{
 	                		foreach($affichage_rando_complet as $rando){
 	                			echo $rando['titre'];
