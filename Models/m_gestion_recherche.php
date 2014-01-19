@@ -46,7 +46,7 @@
 				{
 					if($difficulty == "difficulte_non_precise") /*cela veut dire que la difficulté n'est pas renseigné, on prend pas en compte le paramètre difficulté*/
 					{
-						$distance2 = $distance + 5;
+						$distance2 = intval($distance) + 5;
 
 						$requete = $bdd->prepare("SELECT * FROM rando WHERE longueur >= :distance AND longueur <= :distance2 AND durée <= "."01:00:00");
 						$requete->execute(array('distance' => $distance, 'distance2' => $distance2)) or die(print_r($erreur -> errorInfo()));
@@ -56,7 +56,7 @@
 					}
 					else /*cela veut dire que la difficulté est sélectionné, on prend en compte $difficulty*/
 					{	
-						$distance2 = $distance + 5;
+						$distance2 = intval($distance) + 5;
 
 						$requete = $bdd->prepare("SELECT * FROM rando WHERE longueur >= :distance AND longueur <= :distance2 AND durée <= "."01:00:00"." AND difficulté = :difficulty");
 						$requete->execute(array('distance' => $distance, 'distance2' => $distance2, 'difficulty' => $difficulty)) or die(print_r($erreur -> errorInfo()));
@@ -65,5 +65,6 @@
 						return $req;
 					}
 				}
+
 			}
 	}
