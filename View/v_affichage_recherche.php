@@ -19,7 +19,7 @@
 	                <?php
 
 	                	/*TEST QUESTIONNAIRE*/
-
+	                	/*
 	                	if(isset($affichage_titre_rando[0])){ // Il est mieux de faire un foreach au cas ou on a plusieurs résultats
 	                		echo'Vous avez selectionné la randonnée : '.$affichage_titre_rando[0]['titre'];
 	                	}
@@ -48,9 +48,24 @@
 	                	else{
 	                		echo'il n\'y a rien du tout';
 	                	}
+						*/
 
 	                	/*QUESTIONNAIRE COMPLET*/
 	        
+	                	if(isset($affichage_rando_complet) and !empty($affichage_region))
+	                	{
+	                		foreach($affichage_rando_complet as $rando){
+	                			echo $rando['titre'];
+	                			echo $rando['longueur'];
+	                			echo $rando['durée'];
+	                			echo 'Point d\' eau : '.$rando['point_eau'];
+	                			echo $rando['difficulté'];
+	                		}
+	                	}
+	                	else
+	                	{
+	                		echo 'erreur';
+	                	}
 
 	                ?>
 	            </section>
