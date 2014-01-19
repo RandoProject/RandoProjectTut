@@ -17,6 +17,9 @@
 			?>
 				<section>
 	                <?php
+
+	                	/*TEST QUESTIONNAIRE*/
+
 	                	if(isset($affichage_titre_rando[0])){ // Il est mieux de faire un foreach au cas ou on a plusieurs résultats
 	                		echo'Vous avez selectionné la randonnée : '.$affichage_titre_rando[0]['titre'];
 	                	}
@@ -46,7 +49,7 @@
 	                		echo'il n\'y a rien du tout';
 	                	}
 
-
+	                	/*QUESTIONNAIRE COMPLET*/
 	        
 
 	                ?>

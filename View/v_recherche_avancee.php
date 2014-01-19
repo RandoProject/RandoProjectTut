@@ -20,6 +20,7 @@
 	                <label for="Region"> Région </label><br/>
 	                	<?php
 	                		echo'<select name="s_region">';
+	                			echo'<option value="not_clarify"> Non précisé </option>';
 	                			foreach ($listeRegion as $l_region) {
 	                				echo'<option value="'.$l_region['num_region'].'">'.$l_region['nom'].'</option>';
 	                			}
@@ -27,11 +28,11 @@
 	                	?><br/>
 
 						<label for="Titre"> Titre </label><br/>
-							<input type="texte" name="title" value="Ex: Randonnée à Conques" onfocus="if (this.value=='Ex: Randonnée à Conques') this.value=''"/><br/>
+							<input type="texte" name="title" value=" Ex: Randonnée à Conques" onfocus="if (this.value==' Ex: Randonnée à Conques') this.value=''"/><br/>
 
 						<label for="Longueur"> Longueur</label><br/>
 							<select name="distance"><br/>
-								<option value="not_clarify" selected="selected">Non précisé</option>
+								<option value="50" selected="selected">Non précisé</option>
 									<?php
 										$n=0;
 										$m=5;
@@ -50,7 +51,7 @@
 
 						<label for="Durée"> Durée </label><br/>
 							<select name="time"><br/>
-								<option value="not_clarify" selected="selected">Non précisé</option>
+								<option value="96" selected="selected">Non précisé</option>
 									<?php
 										$d=0;
 										$m=1;
@@ -63,23 +64,23 @@
 												$m=$n;
 												$n=$n+3;
 											}
-											echo'<option value="half_day"> Demi journée </option>';
-											echo'<option value="one_day"> 1 journée</option>';
-											echo'<option value="two_four_days"> 2 à 4 jours </option>';
-											echo'<option value="four_days"> Plus de 4 jours </option>';
+											echo'<option value="10"> Demi journée </option>';
+											echo'<option value="24"> 1 journée</option>';
+											echo'<option value="48"> 2 à 4 jours </option>';
+											echo'<option value="96"> Plus de 4 jours </option>';
 
 									?>
 							</select><br/>
 
 						<label for="Difficulté"> Difficulté </label><br/>
 							<select name="difficulty"><br/>
-								<option value="not_clarify" selected="selected">Non précisé</option>
+								<option value="5" selected="selected">Non précisé</option>
 								<?php
 									$n=1;
 									$number_of_ligne=0;
 											for($number_of_ligne; $number_of_ligne <=4; $number_of_ligne++)
 											{
-												echo'<option value="'.$n.'">Difficulté '.$n;
+												echo'<option value="'.$n.'">Difficulté '.$n.'</option>';
 												$n=$n+1;
 											}
 								?>
@@ -87,8 +88,8 @@
 
 						<label for="Point d'eau "> Point d'eau </label><br/>
 							<select name="water"><br/>
-								<option value="not_matter" selected="selected">Indifférent</option>
-								<option value="Yes"> Oui </option>
+								<option value="0" selected="selected">Indifférent</option>
+								<option value="1"> Oui </option>
 							</select><br/>
 						<input type="submit" value="Rechercher"/>
 					</form>
