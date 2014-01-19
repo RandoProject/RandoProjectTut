@@ -210,77 +210,161 @@
 				{
 					if($difficulty == "difficulte_non_precise") /*cela veut dire que la difficulté n'est pas renseigné, on prend pas en compte le paramètre difficulté*/
 					{
-						
+						$distance2 = $dsitance + 10;
+
+						$requete = $bdd->prepare("SELECT * FROM rando WHERE longueur >= :distance AND longueur <= :distance2 AND durée <= 01':'00':'00");
+						$requete->execute(array('distance' => $distance, 'distance2' => $distance2)) or die(print_r($erreur -> errorInfo()));
+						$req = $requete->fetchAll();
+						$requete->closeCursor();
+						return $req;
 					}
 					else /*cela veut dire que la difficulté est sélectionné, on prend en compte $difficulty*/
 					{
+						$distance2 = $distance + 10;
 
+						$requete = $bdd->prepare("SELECT * FROM rando WHERE longueur >= :distance AND longueur <= :distance2 AND durée <= 01':'00':'00");
+						$requete->execute(array('distance' => $distance, 'distance2' => $distance2)) or die(print_r($erreur -> errorInfo()));
+						$req = $requete->fetchAll();
+						$requete->closeCursor();
+						return $req;
 					}
 				}
 				elseif($temps_intervalle == "time_1") /*cela veut dire que le temps sélectionné est de 1h à 3h, on sélectionne les randonnées supérieur à 1h et inférieur à 3h*/
 				{
 					if($difficulty == "difficulte_non_precise") /*cela veut dire que la difficulté n'est pas renseigné, on prend pas en compte le paramètre difficulté*/
 					{
-						
+						$distance2 = $distance + 10;
+
+						$requete = $bdd->prepare("SELECT * FROM rando WHERE longueur >= :distance AND longueur <= :distance2 AND durée >= 01':'00':'00 AND durée <= 03':'00':'00");
+						$requete->execute(array('distance' => $distance, 'distance2' => $distance2)) or die(print_r($erreur -> errorInfo()));
+						$req = $requete->fetchAll();
+						$requete->closeCursor();
+						return $req;
 					}
 					else /*cela veut dire que la difficulté est sélectionné, on prend en compte $difficulty*/
 					{
+						$distance2 = $distance + 10;
 
+						$requete = $bdd->prepare("SELECT * FROM rando WHERE longueur >= :distance AND longueur <= :distance2 AND durée >= 01':'00':'00 AND durée <= 03':'00':'00 AND difficulté = :difficulty");
+						$requete->execute(array('distance' => $distance, 'distance2' => $distance2, 'difficulty' => $difficulty)) or die(print_r($erreur -> errorInfo()));
+						$req = $requete->fetchAll();
+						$requete->closeCursor();
+						return $req;
 					}
 				}
 				elseif ($temps_intervalle == "time_3") /*cela veut dire que le temps sélectionné est de 3h à 6h, on selectionne les randonnées supérieur à 3h et inférieur à 6h*/
 				{
 					if($difficulty == "difficulte_non_precise") /*cela veut dire que la difficulté n'est pas renseigné, on prend pas en compte le paramètre difficulté*/
 					{
-						
+						$distance2 = $distance + 10;
+
+						$requete = $bdd->prepare("SELECT * FROM rando WHERE longueur >= :distance AND longueur <= :distance2 AND durée >= 03':'00':'00 AND durée <= 06':'00':'00");
+						$requete->execute(array('distance' => $distance, 'distance2' => $distance2)) or die(print_r($erreur -> errorInfo()));
+						$req = $requete->fetchAll();
+						$requete->closeCursor();
+						return $req;
 					}
 					else /*cela veut dire que la difficulté est sélectionné, on prend en compte $difficulty*/
 					{
+						$distance2 = $distance + 10;
 
+						$requete = $bdd->prepare("SELECT * FROM rando WHERE longueur >= :distance AND longueur <= :distance2 AND durée >= 03':'00':'00 AND durée <= 06':'00':'00 AND difficulté = :difficulty");
+						$requete->execute(array('distance' => $distance, 'distance2' => $distance2, 'difficulty' => $difficulty)) or die(print_r($erreur -> errorInfo()));
+						$req = $requete->fetchAll();
+						$requete->closeCursor();
+						return $req;
 					}
 				}
 				elseif($temps_intervalle == "time_10_24") /*cela veut dire que le temps sélectionné est une demi journée ou bien 1 journée, on sélectionne toutes les randos supérieur ou égal*/
 				{
 					if($difficulty == "difficulte_non_precise") /*cela veut dire que la difficulté n'est pas renseigné, on prend pas en compte le paramètre difficulté*/
 					{
-						
+						$distance2 = $distance + 10;
+
+						$requete = $bdd->prepare("SELECT * FROM rando WHERE longueur >= :distance AND longueur <= :distance2 AND durée >= :time");
+						$requete->execute(array('distance' => $distance, 'distance2' => $distance2, 'time' => $time)) or die(print_r($erreur -> errorInfo()));
+						$req = $requete->fetchAll();
+						$requete->closeCursor();
+						return $req;
 					}
 					else /*cela veut dire que la difficulté est sélectionné, on prend en compte $difficulty*/
 					{
+						$distance2 = $distance + 10;
 
+						$requete = $bdd->prepare("SELECT * FROM rando WHERE longueur >= :distance AND longueur <= :distance2 AND durée >= :time AND difficulté = :difficulty");
+						$requete->execute(array('distance' => $distance, 'distance2' => $distance2, 'difficulty' => $difficulty, 'time' => $time)) or die(print_r($erreur -> errorInfo()));
+						$req = $requete->fetchAll();
+						$requete->closeCursor();
+						return $req;
 					}
 				}
 				elseif($temps_intervalle == "time_48_96") /*cela veut dire que le temps sélectionné est entre 2 et 4 jours, on sélectione les randos entre 48h et 96h*/
 				{
 					if($difficulty == "difficulte_non_precise") /*cela veut dire que la difficulté n'est pas renseigné, on prend pas en compte le paramètre difficulté*/
 					{
-						
+						$distance2 = $distance + 10;
+
+						$requete = $bdd->prepare("SELECT * FROM rando WHERE longueur >= :distance AND longueur <= :distance2 AND durée >= 48':'00':'00 AND durée <= 96':'00':'00");
+						$requete->execute(array('distance' => $distance, 'distance2' => $distance2, 'time' => $time)) or die(print_r($erreur -> errorInfo()));
+						$req = $requete->fetchAll();
+						$requete->closeCursor();
+						return $req;
 					}
 					else /*cela veut dire que la difficulté est sélectionné, on prend en compte $difficulty*/
 					{
+						$distance2 = $distance + 10;
 
+						$requete = $bdd->prepare("SELECT * FROM rando WHERE longueur >= :distance AND longueur <= :distance2 AND durée >= 48':'00':'00 AND durée <= 96':'00':'00 AND difficulté = :difficulty");
+						$requete->execute(array('distance' => $distance, 'distance2' => $distance2, 'difficulty' => $difficulty)) or die(print_r($erreur -> errorInfo()));
+						$req = $requete->fetchAll();
+						$requete->closeCursor();
+						return $req;
 					}
 				}
 				elseif($temps_intervalle == "time_non_precise") /*cela veut dire qu'il n'y a pas de temps sélectionné, on sélectionne tous les temps*/
 				{
 					if($difficulty == "difficulte_non_precise") /*cela veut dire que la difficulté n'est pas renseigné, on prend pas en compte le paramètre difficulté*/
 					{
-						
+						$distance2 = $distance + 10;
+
+						$requete = $bdd->prepare("SELECT * FROM rando WHERE longueur >= :distance AND longueur <= :distance2");
+						$requete->execute(array('distance' => $distance, 'distance2' => $distance2, 'time' => $time)) or die(print_r($erreur -> errorInfo()));
+						$req = $requete->fetchAll();
+						$requete->closeCursor();
+						return $req;
 					}
 					else /*cela veut dire que la difficulté est sélectionné, on prend en compte $difficulty*/
 					{
+						$distance2 = $distance + 10;
 
+						$requete = $bdd->prepare("SELECT * FROM rando WHERE longueur >= :distance AND longueur <= :distance2 AND difficulté = :difficulty");
+						$requete->execute(array('distance' => $distance, 'distance2' => $distance2, 'difficulty' => $difficulty)) or die(print_r($erreur -> errorInfo()));
+						$req = $requete->fetchAll();
+						$requete->closeCursor();
+						return $req;
 					}
 				}
 				else /*cela veut dire que le temps sélectionné est plus de 4 jours, on sélectionne toutes les randos avec un temps supérieur ou égal à 96h*/
 				{
 					if($difficulty == "difficulte_non_precise") /*cela veut dire que la difficulté n'est pas renseigné, on prend pas en compte le paramètre difficulté*/
 					{
-						
+						$distance2 = $distance + 10;
+
+						$requete = $bdd->prepare("SELECT * FROM rando WHERE longueur >= :distance AND longueur <= :distance2 AND durée >= 96':'00':'00");
+						$requete->execute(array('distance' => $distance, 'distance2' => $distance2, 'time' => $time)) or die(print_r($erreur -> errorInfo()));
+						$req = $requete->fetchAll();
+						$requete->closeCursor();
+						return $req;
 					}
 					else /*cela veut dire que la difficulté est sélectionné, on prend en compte $difficulty*/
 					{
+						$distance2 = $distance + 10;
 
+						$requete = $bdd->prepare("SELECT * FROM rando WHERE longueur >= :distance AND longueur <= :distance2 AND durée >= 96':'00':'00 AND difficulté = :difficulty");
+						$requete->execute(array('distance' => $distance, 'distance2' => $distance2, 'difficulty' => $difficulty)) or die(print_r($erreur -> errorInfo()));
+						$req = $requete->fetchAll();
+						$requete->closeCursor();
+						return $req;
 					}
 				}
 			}
