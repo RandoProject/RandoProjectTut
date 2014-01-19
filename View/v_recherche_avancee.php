@@ -86,7 +86,7 @@
 							</select><br/>
 
 						<label for="Point d'eau "> Point d'eau </label><br/>
-							<select name="water"><br/>
+							<select name="water">
 								<option value="0" selected="selected">Indifférent</option>
 								<option value="1"> Oui </option>
 							</select><br/>
