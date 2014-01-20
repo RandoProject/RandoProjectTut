@@ -19,36 +19,13 @@
 	                <?php
 
 	                	/*TEST QUESTIONNAIRE*/
-	                	/*
+	                	
 	                	if(isset($affichage_titre_rando[0])){ // Il est mieux de faire un foreach au cas ou on a plusieurs résultats
 	                		echo'Vous avez selectionné la randonnée : '.$affichage_titre_rando[0]['titre'];
 	                	}
 	                	else{
 	                		echo'<p>Aucun résultat trouvé</p>';
 	                	}
-	                	if(isset($affichage_region) and !empty($affichage_region)){
-	                		
-	                		echo'Dans la région '.$affichage_region[0]['nom'].'se trouve les randonnées suivantes :<br/>';
-	                		foreach($affichage_region as $rando){
-	                			echo 'Randos : '.$rando['titre'].'<br/>';
-	                		}
-	                	
-	                	}
-	                	else{
-	                		echo'<p>Il n\'y a ucune randonnée dans cette région</p>';
-	                	}
-
-
-	                	if(isset($affichage_rando) and !empty($affichage_rando)){
-	                		echo'il existe bien la randonnée :  '.$affichage_rando[0]['titre'].' dans la région : '.$affichage_rando[0]['nom'].'';
-	                		foreach($affichage_rando as $randonnee){
-	                			echo 'Rando : '.$randonnee['titre'].'<br/>';
-	                		}
-	                	}
-	                	else{
-	                		echo'il n\'y a rien du tout';
-	                	}
-						*/
 
 	                	/*QUESTIONNAIRE COMPLET*/
 	        
