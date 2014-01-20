@@ -35,39 +35,173 @@
 */
 
 
-	function affichage_f_rando_complet($region, $distance, $time, $difficulty, $water, $region_true_false, $distance_intervalle, $temps_intervalle){
+	function affichage_f_rando_complet($region, $distance, $time, $difficulty, $water, $typeRegion, $MAX_distance, $MIN_distance, $MAX_time, $MIN_time, $difficulty_var, $water_var){
 		global $bdd;
 
-		if($region_true_false == "s_region_true")   /*cela veut dire que la région n'est pas précisé */
+		if($typeRegion == 's_region_false') /*Region non précisé, on prend pas le paramètre en compte*/
 		{
-			if($distance_intervalle == "distance_0_25") /*cela veut dire que la distance se trouve entre 0 et 25 et a une intervalle de 5 en 5*/
-			{
-				if($temps_intervalle == "time_0") /*cela veut dire que le temps sélectionné est moins de une heure*/
+			if($MAX_distance == -1) 	/*si la distance n'est pas sélectionné*/
+			{	
+				if($MAX_time == 'inferieur_1h') /*on selectionne les randos avec un temps inférieur ou égal à 1h*/
 				{
-					if($difficulty == "difficulte_non_precise") /*cela veut dire que la difficulté n'est pas renseigné, on prend pas en compte le paramètre difficulté*/
+					if($difficulty_var == 'non_precise') /*difficulté non precise on prend pas en compte*/
 					{
-						$distance2 = intval($distance) + 5;
 
-						$requete = $bdd->prepare("SELECT * FROM rando WHERE longueur >= :distance AND longueur <= :distance2 AND durée <= "."01:00:00");
-						$requete->execute(array('distance' => $distance, 'distance2' => $distance2)) or die(print_r($erreur -> errorInfo()));
-						$req = $requete->fetchAll();
-						$requete->closeCursor();
-						return $req;
 					}
-					else /*cela veut dire que la difficulté est sélectionné, on prend en compte $difficulty*/
-					{	
-						$distance2 = intval($distance) + 5;
+					else /*on prend en compte la difficulté*/
+					{
 
-						$requete = $bdd->prepare("SELECT * FROM rando WHERE longueur >= :distance AND longueur <= :distance2 AND durée <= "."01:00:00"." AND difficulté = :difficulty");
-						$requete->execute(array('distance' => $distance, 'distance2' => $distance2, 'difficulty' => $difficulty)) or die(print_r($erreur -> errorInfo()));
-						$req = $requete->fetchAll();
-						$requete->closeCursor();
-						return $req;
 					}
 				}
+				else if($MAX_time == 'vide_10') /*on selectionne les randos avec un temps supérieur ou égal à 10h, on utilise sup ou egal à MIN*/
+				{
+					if($difficulty_var == 'non_precise') /*difficulté non precise on prend pas en compte*/
+					{
 
+					}
+					else /*on prend en compte la difficulté*/
+					{
+
+					}
+				}
+				else if($MAX_time == 'vide_24') /*on selectionne les randos avec un temps supérieur ou égal à 24h et on trie par odre croissant,on utilise sup ou egal à MIN*/
+				{
+					if($difficulty_var == 'non_precise') /*difficulté non precise on prend pas en compte*/
+					{
+
+					}
+					else /*on prend en compte la difficulté*/
+					{
+
+					}
+				}
+				else if($MAX_time =='vide_96') /*on sélection les temps supérieur ou égal à 96h*/
+				{
+					if($difficulty_var == 'non_precise') /*difficulté non precise on prend pas en compte*/
+					{
+
+					}
+					else /*on prend en compte la difficulté*/
+					{
+
+					}
+				}
+				else if($MAX_time == 'vide') /*temps pas sélectionné, on utilise supérieur ou égal à MIN*/
+				{
+					if($difficulty_var == 'non_precise') /*difficulté non precise on prend pas en compte*/
+					{
+
+					}
+					else /*on prend en compte la difficulté*/
+					{
+
+					}
+				}
+				else 	/*temps sélectionné dans une intervalle, on utilise MIN et MAX*/
+				{
+					if($difficulty_var == 'non_precise') /*difficulté non precise on prend pas en compte*/
+					{
+
+					}
+					else /*on prend en compte la difficulté*/
+					{
+
+					}
+				}
 			}
+			else if($MAX_distance == 1) /*si la distance sélectionné est supérieur ou égal à 50, on utilises MIN_distance qui est égal à 50 on, utilise sup ou egal à MIN*/
+			{ 
+				if($difficulty_var == 'non_precise') /*difficulté non precise on prend pas en compte*/
+					{
 
+					}
+					else /*on prend en compte la difficulté*/
+					{
+
+					}
+			}
+		}
+		else 	/*Region précisé*/
+		{
+			if($MAX_distance == -1) 	/*si la distance n'est pas sélectionné*/
+			{	
+				if($MAX_time == 'inferieur_1h') /*on selectionne les randos avec un temps inférieur ou égal à 1h*/
+				{
+					if($difficulty_var == 'non_precise') /*difficulté non precise on prend pas en compte*/
+					{
+
+					}
+					else /*on prend en compte la difficulté*/
+					{
+
+					}
+				}
+				else if($MAX_time == 'vide_10') /*on selectionne les randos avec un temps supérieur ou égal à 10h, on utilise sup ou egal à MIN*/
+				{
+					if($difficulty_var == 'non_precise') /*difficulté non precise on prend pas en compte*/
+					{
+
+					}
+					else /*on prend en compte la difficulté*/
+					{
+
+					}
+				}
+				else if($MAX_time == 'vide_24') /*on selectionne les randos avec un temps supérieur ou égal à 24h et on trie par odre croissant,on utilise sup ou egal à MIN*/
+				{
+					if($difficulty_var == 'non_precise') /*difficulté non precise on prend pas en compte*/
+					{
+
+					}
+					else /*on prend en compte la difficulté*/
+					{
+
+					}
+				}
+				else if($MAX_time =='vide_96') /*on sélection les temps supérieur ou égal à 96h*/
+				{
+					if($difficulty_var == 'non_precise') /*difficulté non precise on prend pas en compte*/
+					{
+
+					}
+					else /*on prend en compte la difficulté*/
+					{
+
+					}
+				}
+				else if($MAX_time == 'vide') /*temps pas sélectionné, on utilise supérieur ou égal à MIN*/
+				{
+					if($difficulty_var == 'non_precise') /*difficulté non precise on prend pas en compte*/
+					{
+
+					}
+					else /*on prend en compte la difficulté*/
+					{
+
+					}
+				}
+				else 	/*temps sélectionné dans une intervalle, on utilise MIN et MAX*/
+				{
+					if($difficulty_var == 'non_precise') /*difficulté non precise on prend pas en compte*/
+					{
+
+					}
+					else /*on prend en compte la difficulté*/
+					{
+
+					}
+				}
+			}
+			else if($MAX_distance == 1) /*si la distance sélectionné est supérieur ou égal à 50, on utilises MIN_distance qui est égal à 50 on, utilise sup ou egal à MIN*/
+			{ 
+				if($difficulty_var == 'non_precise') /*difficulté non precise on prend pas en compte*/
+					{
+
+					}
+					else /*on prend en compte la difficulté*/
+					{
+
+					}
+			}
+		}
 	}
-
-}

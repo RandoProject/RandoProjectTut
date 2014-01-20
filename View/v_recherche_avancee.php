@@ -56,17 +56,17 @@
 										$d=0;
 										$m=1;
 										$n=3;
-											echo'<option value="'.$d.'">Moins de '.$m.' heure';
+											echo'<option value="0'.$d.':00:00"> Moins de '.$m.' heure';
 											for($number_of_ligne = 0; $number_of_ligne <=1; $number_of_ligne++)
 											{
-												echo'<option value="'.$m.'">De '.$m.' h à '.$n.' h';
+												echo'<option value="0'.$m.':00:00"> De '.$m.' h à '.$n.' h';
 												$m=$n;
 												$n=$n+3;
 											}
-											echo'<option value="10"> Demi journée </option>';
-											echo'<option value="24"> 1 journée</option>';
-											echo'<option value="48"> 2 à 4 jours </option>';
-											echo'<option value="96"> Plus de 4 jours </option>';
+											echo'<option value="10:00:00"> Demi journée </option>';
+											echo'<option value="24:00:00"> 1 journée</option>';
+											echo'<option value="48:00:00"> 2 à 4 jours </option>';
+											echo'<option value="96:00:00"> Plus de 4 jours </option>';
 
 									?>
 							</select><br/>

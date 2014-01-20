@@ -26,269 +26,145 @@ if(isset($_POST['title'],$_POST['s_region'])  and $_POST['title'] !="")
 
 																				/*J'ai pas trouvé de moyen plus court pour faire tout çà, étant donné qu'il y a des intervalles, en faisant çà dans la fonction qui fera la requête à la base de donnée, j'aurais tous les cas possibles, et je pourrais définir les intervalles correctement, çà fait beaucoup je sais mais il y a beaucoup d'intervalle, et je n'ai pas trouvé plus facile à faire :/ */
 
+
+
+
 if(isset($_POST['s_region'], $_POST['distance'], $_POST['time'], $_POST['difficulty'], $_POST['water']))
 {
-	if($_POST['s_region'] == "not_clarify")
-	{
-		if($_POST['distance'] == "0" || $_POST['distance'] == "5" || $_POST['distance'] == "10" || $_POST['distance'] == "15" || $_POST['distance'] == "20" || $_POST['distance'] == "25")
-		{
-			if($_POST['time'] == "0")
-			{
-				$affichage_rando_complet = affichage_f_rando_complet($_POST['s_region'], $_POST['distance'], $_POST['time'], $_POST['difficulty'], $_POST['water'],'s_region_true','distance_0_25','time_0');
-			}
-			elseif($_POST['time'] == "1")
-			{
-				$affichage_rando_complet = affichage_f_rando_complet($_POST['s_region'], $_POST['distance'], $_POST['time'], $_POST['difficulty'], $_POST['water'],'s_region_true','distance_0_25','time_1');
-			}
-			elseif($_POST['time'] == "3")
-			{
-				$affichage_rando_complet = affichage_f_rando_complet($_POST['s_region'], $_POST['distance'], $_POST['time'], $_POST['difficulty'], $_POST['water'],'s_region_true','distance_0_25','time_3');
-			}
-			elseif($_POST['time'] == "10" || $_POST['time'] == "24")
-			{
-				$affichage_rando_complet = affichage_f_rando_complet($_POST['s_region'], $_POST['distance'], $_POST['time'], $_POST['difficulty'], $_POST['water'],'s_region_true','distance_0_25','time_10_24');
-			}
-			elseif($_POST['time'] == "48")
-			{
-				$affichage_rando_complet = affichage_f_rando_complet($_POST['s_region'], $_POST['distance'], $_POST['time'], $_POST['difficulty'], $_POST['water'],'s_region_true','distance_0_25','time_48_96');
-			}
-			elseif($_POST['time'] == "time_non_precise")
-			{
-				$affichage_rando_complet = affichage_f_rando_complet($_POST['s_region'], $_POST['distance'], $_POST['time'], $_POST['difficulty'], $_POST['water'],'s_region_true','distance_30_40','time_non_precise');
-			}
-			else 	/*------------------Si le temps est égal ou supérieur à 96h------------------*/
-			{
-				$affichage_rando_complet = affichage_f_rando_complet($_POST['s_region'], $_POST['distance'], $_POST['time'], $_POST['difficulty'], $_POST['water'],'s_region_true','distance_0_25','time_96');
-			}
-		}
+	$distance = $_POST['distance'];
+	$possibleDistances = array('0', '5', '10', '15', '20', '25', '30', '40', '50');
+	$time = $_POST['time'];
+	$possibleTimes = array('00:00:00', '01:00:00', '03:00:00', '10:00:00', '24:00:00', '48:00:00', '96:00:00', 'time_non_precise');
+	$difficulty = $_POST['difficulty'];
+	$possibleDifficulty = array('1', '2', '3', '4', '5', 'difficulte_non_precise');
+	$water = $_POST['water'];
 
-		elseif($_POST['distance'] == "30" || $_POST['distance'] == "40")
-		{
-			if($_POST['time'] == "0")
-			{
-				$affichage_rando_complet = affichage_f_rando_complet($_POST['s_region'], $_POST['distance'], $_POST['time'], $_POST['difficulty'], $_POST['water'],'s_region_true','distance_30_40','time_0');
-			}
-			elseif($_POST['time'] == "1")
-			{
-				$affichage_rando_complet = affichage_f_rando_complet($_POST['s_region'], $_POST['distance'], $_POST['time'], $_POST['difficulty'], $_POST['water'],'s_region_true','distance_30_40','time_1');
-			}
-			elseif($_POST['time'] == "3")
-			{
-				$affichage_rando_complet = affichage_f_rando_complet($_POST['s_region'], $_POST['distance'], $_POST['time'], $_POST['difficulty'], $_POST['water'],'s_region_true','distance_0_25','time_3');
-			}
-			elseif($_POST['time'] == "10" || $_POST['time'] == "24")
-			{
-				$affichage_rando_complet = affichage_f_rando_complet($_POST['s_region'], $_POST['distance'], $_POST['time'], $_POST['difficulty'], $_POST['water'],'s_region_true','distance_30_40','time_10_24');
-			}
-			elseif($_POST['time'] == "48")
-			{
-				$affichage_rando_complet = affichage_f_rando_complet($_POST['s_region'], $_POST['distance'], $_POST['time'], $_POST['difficulty'], $_POST['water'],'s_region_true','distance_30_40','time_48_96');
-			}
-			elseif($_POST['time'] == "time_non_precise")
-			{
-				$affichage_rando_complet = affichage_f_rando_complet($_POST['s_region'], $_POST['distance'], $_POST['time'], $_POST['difficulty'], $_POST['water'],'s_region_true','distance_30_40','time_non_precise');
-			}
-			else 	/*------------------Si le temps est égal ou supérieur à 96h------------------*/
-			{
-				$affichage_rando_complet = affichage_f_rando_complet($_POST['s_region'], $_POST['distance'], $_POST['time'], $_POST['difficulty'], $_POST['water'],'s_region_true','distance_30_40','time_96');
-			}
-		}
-
-		elseif($_POST['distance'] == "non_precise")
-		{
-			if($_POST['time'] == "0")
-			{
-				$affichage_rando_complet = affichage_f_rando_complet($_POST['s_region'], $_POST['distance'], $_POST['time'], $_POST['difficulty'], $_POST['water'],'s_region_true','distance_sup_50','time_0');
-			}
-			elseif($_POST['time'] == "1")
-			{
-				$affichage_rando_complet = affichage_f_rando_complet($_POST['s_region'], $_POST['distance'], $_POST['time'], $_POST['difficulty'], $_POST['water'],'s_region_true','distance_sup_50','time_1');
-			}
-			elseif($_POST['time'] == "3")
-			{
-				$affichage_rando_complet = affichage_f_rando_complet($_POST['s_region'], $_POST['distance'], $_POST['time'], $_POST['difficulty'], $_POST['water'],'s_region_true','distance_0_25','time_3');
-			}
-			elseif($_POST['time'] == "10" || $_POST['time'] == "24")
-			{
-				$affichage_rando_complet = affichage_f_rando_complet($_POST['s_region'], $_POST['distance'], $_POST['time'], $_POST['difficulty'], $_POST['water'],'s_region_true','distance_sup_50','time_10_24');
-			}
-			elseif($_POST['time'] == "48")
-			{
-				$affichage_rando_complet = affichage_f_rando_complet($_POST['s_region'], $_POST['distance'], $_POST['time'], $_POST['difficulty'], $_POST['water'],'s_region_true','distance_sup_50','time_48_96');
-			}
-			elseif($_POST['time'] == "time_non_precise")
-			{
-				$affichage_rando_complet = affichage_f_rando_complet($_POST['s_region'], $_POST['distance'], $_POST['time'], $_POST['difficulty'], $_POST['water'],'s_region_true','distance_30_40','time_non_precise');
-			}
-			else 	/*------------------Si le temps est égal ou supérieur à 96h------------------*/
-			{
-				$affichage_rando_complet = affichage_f_rando_complet($_POST['s_region'], $_POST['distance'], $_POST['time'], $_POST['difficulty'], $_POST['water'],'s_region_true','distance_sup_50','time_96');
-			}
-		}
-
-		else 	/*------------------Si la distance est égal ou supérieur à 50 Km------------------*/
-		{
-			if($_POST['time'] == "0")
-			{
-				$affichage_rando_complet = affichage_f_rando_complet($_POST['s_region'], $_POST['distance'], $_POST['time'], $_POST['difficulty'], $_POST['water'],'s_region_true','distance_50','time_0');
-			}
-			elseif($_POST['time'] == "1")
-			{
-				$affichage_rando_complet = affichage_f_rando_complet($_POST['s_region'], $_POST['distance'], $_POST['time'], $_POST['difficulty'], $_POST['water'],'s_region_true','distance_50','time_1');
-			}
-			elseif($_POST['time'] == "3")
-			{
-				$affichage_rando_complet = affichage_f_rando_complet($_POST['s_region'], $_POST['distance'], $_POST['time'], $_POST['difficulty'], $_POST['water'],'s_region_true','distance_0_25','time_3');
-			}
-			elseif($_POST['time'] == "10" || $_POST['time'] == "24")
-			{
-				$affichage_rando_complet = affichage_f_rando_complet($_POST['s_region'], $_POST['distance'], $_POST['time'], $_POST['difficulty'], $_POST['water'],'s_region_true','distance_50','time_10_24');
-			}
-			elseif($_POST['time'] == "48")
-			{
-				$affichage_rando_complet = affichage_f_rando_complet($_POST['s_region'], $_POST['distance'], $_POST['time'], $_POST['difficulty'], $_POST['water'],'s_region_true','distance_50','time_48_96');
-			}
-			elseif($_POST['time'] == "time_non_precise")
-			{
-				$affichage_rando_complet = affichage_f_rando_complet($_POST['s_region'], $_POST['distance'], $_POST['time'], $_POST['difficulty'], $_POST['water'],'s_region_true','distance_30_40','time_non_precise');
-			}
-			else 	/*------------------Si le temps est égal ou supérieur à 96h------------------*/
-			{
-				$affichage_rando_complet = affichage_f_rando_complet($_POST['s_region'], $_POST['distance'], $_POST['time'], $_POST['difficulty'], $_POST['water'],'s_region_true','distance_50','time_96');
-			}
-		}
+	if($_POST['s_region'] == "not_clarify"){
+		$typeRegion = 's_region_false';
+	}
+	else{
+		$typeRegion = 's_region_true';
 	}
 
-	else 	/*------------------Si la région est sélectionnée------------------*/
-	{
-		if($_POST['distance'] == "0" || $_POST['distance'] == "5" || $_POST['distance'] == "10" || $_POST['distance'] == "15" || $_POST['distance'] == "20" || $_POST['distance'] == "25")
-		{
-			if($_POST['time'] == "0")
-			{
-				$affichage_rando_complet = affichage_f_rando_complet($_POST['s_region'], $_POST['distance'], $_POST['time'], $_POST['difficulty'], $_POST['water'],'s_region_false','distance_0_25','time_0');
-			}
-			elseif($_POST['time'] == "1")
-			{
-				$affichage_rando_complet = affichage_f_rando_complet($_POST['s_region'], $_POST['distance'], $_POST['time'], $_POST['difficulty'], $_POST['water'],'s_region_false','distance_0_25','time_1');
-			}
-			elseif($_POST['time'] == "3")
-			{
-				$affichage_rando_complet = affichage_f_rando_complet($_POST['s_region'], $_POST['distance'], $_POST['time'], $_POST['difficulty'], $_POST['water'],'s_region_false','distance_0_25','time_3');
-			}
-			elseif($_POST['time'] == "10" || $_POST['time'] == "24")
-			{
-				$affichage_rando_complet = affichage_f_rando_complet($_POST['s_region'], $_POST['distance'], $_POST['time'], $_POST['difficulty'], $_POST['water'],'s_region_false','distance_0_25','time_10_24');
-			}
-			elseif($_POST['time'] == "48")
-			{
-				$affichage_rando_complet = affichage_f_rando_complet($_POST['s_region'], $_POST['distance'], $_POST['time'], $_POST['difficulty'], $_POST['water'],'s_region_false','distance_0_25','time_48_96');
-			}
-			elseif($_POST['time'] == "time_non_precise")
-			{
-				$affichage_rando_complet = affichage_f_rando_complet($_POST['s_region'], $_POST['distance'], $_POST['time'], $_POST['difficulty'], $_POST['water'],'s_region_false','distance_30_40','time_non_precise');
-			}
-			else 	/*------------------Si le temps est égal ou supérieur à 96h------------------*/
-			{
-				$affichage_rando_complet = affichage_f_rando_complet($_POST['s_region'], $_POST['distance'], $_POST['time'], $_POST['difficulty'], $_POST['water'],'s_region_false','distance_0_25','time_96');
-			}
-		}
-
-		elseif($_POST['distance'] == "30" || $_POST['distance'] == "40")
-		{
-			if($_POST['time'] == "0")
-			{
-				$affichage_rando_complet = affichage_f_rando_complet($_POST['s_region'], $_POST['distance'], $_POST['time'], $_POST['difficulty'], $_POST['water'],'s_region_false','distance_30_40','time_0');
-			}
-			elseif($_POST['time'] == "1")
-			{
-				$affichage_rando_complet = affichage_f_rando_complet($_POST['s_region'], $_POST['distance'], $_POST['time'], $_POST['difficulty'], $_POST['water'],'s_region_false','distance_30_40','time_1');
-			}
-			elseif($_POST['time'] == "3")
-			{
-				$affichage_rando_complet = affichage_f_rando_complet($_POST['s_region'], $_POST['distance'], $_POST['time'], $_POST['difficulty'], $_POST['water'],'s_region_false','distance_0_25','time_3');
-			}
-			elseif($_POST['time'] == "10" || $_POST['time'] == "24")
-			{
-				$affichage_rando_complet = affichage_f_rando_complet($_POST['s_region'], $_POST['distance'], $_POST['time'], $_POST['difficulty'], $_POST['water'],'s_region_false','distance_30_40','time_10_24');
-			}
-			elseif($_POST['time'] == "48")
-			{
-				$affichage_rando_complet = affichage_f_rando_complet($_POST['s_region'], $_POST['distance'], $_POST['time'], $_POST['difficulty'], $_POST['water'],'s_region_false','distance_30_40','time_48_96');
-			}
-			elseif($_POST['time'] == "time_non_precise")
-			{
-				$affichage_rando_complet = affichage_f_rando_complet($_POST['s_region'], $_POST['distance'], $_POST['time'], $_POST['difficulty'], $_POST['water'],'s_region_false','distance_30_40','time_non_precise');
-			}
-			else 	/*------------------Si le temps est égal ou supérieur à 96h------------------*/
-			{
-				$affichage_rando_complet = affichage_f_rando_complet($_POST['s_region'], $_POST['distance'], $_POST['time'], $_POST['difficulty'], $_POST['water'],'s_region_false','distance_30_40','time_96');
-			}
-		}
-
-		elseif($_POST['distance'] == "non_precise")
-		{
-			if($_POST['time'] == "0")
-			{
-				$affichage_rando_complet = affichage_f_rando_complet($_POST['s_region'], $_POST['distance'], $_POST['time'], $_POST['difficulty'], $_POST['water'],'s_region_false','distance_non_precise','time_0');
-			}
-			elseif($_POST['time'] == "1")
-			{
-				$affichage_rando_complet = affichage_f_rando_complet($_POST['s_region'], $_POST['distance'], $_POST['time'], $_POST['difficulty'], $_POST['water'],'s_region_false','distance_non_precise','time_1');
-			}
-			elseif($_POST['time'] == "3")
-			{
-				$affichage_rando_complet = affichage_f_rando_complet($_POST['s_region'], $_POST['distance'], $_POST['time'], $_POST['difficulty'], $_POST['water'],'s_region_false','distance_0_25','time_3');
-			}
-			elseif($_POST['time'] == "10" || $_POST['time'] == "24")
-			{
-				$affichage_rando_complet = affichage_f_rando_complet($_POST['s_region'], $_POST['distance'], $_POST['time'], $_POST['difficulty'], $_POST['water'],'s_region_false','distance_non_precise','time_10_24');
-			}
-			elseif($_POST['time'] == "48")
-			{
-				$affichage_rando_complet = affichage_f_rando_complet($_POST['s_region'], $_POST['distance'], $_POST['time'], $_POST['difficulty'], $_POST['water'],'s_region_false','distance_non_precise','time_48_96');
-			}
-			elseif($_POST['time'] == "time_non_precise")
-			{
-				$affichage_rando_complet = affichage_f_rando_complet($_POST['s_region'], $_POST['distance'], $_POST['time'], $_POST['difficulty'], $_POST['water'],'s_region_false','distance_30_40','time_non_precise');
-			}
-			else 	/*------------------Si le temps est égal ou supérieur à 96h------------------*/
-			{
-				$affichage_rando_complet = affichage_f_rando_complet($_POST['s_region'], $_POST['distance'], $_POST['time'], $_POST['difficulty'], $_POST['water'],'s_region_false','distance_non_precise','time_96');
-			}
-		}
-
-		else 	/*------------------Si la distance est égal ou supérieur à 50 Km------------------*/
-		{
-			if($_POST['time'] == "0")
-			{
-				$affichage_rando_complet = affichage_f_rando_complet($_POST['s_region'], $_POST['distance'], $_POST['time'], $_POST['difficulty'], $_POST['water'],'s_region_false','distance_50','time_0');
-			}
-			elseif($_POST['time'] == "1")
-			{
-				$affichage_rando_complet = affichage_f_rando_complet($_POST['s_region'], $_POST['distance'], $_POST['time'], $_POST['difficulty'], $_POST['water'],'s_region_false','distance_50','time_1');
-			}
-			elseif($_POST['time'] == "3")
-			{
-				$affichage_rando_complet = affichage_f_rando_complet($_POST['s_region'], $_POST['distance'], $_POST['time'], $_POST['difficulty'], $_POST['water'],'s_region_false','distance_0_25','time_3');
-			}
-			elseif($_POST['time'] == "10" || $_POST['time'] == "24")
-			{
-				$affichage_rando_complet = affichage_f_rando_complet($_POST['s_region'], $_POST['distance'], $_POST['time'], $_POST['difficulty'], $_POST['water'],'s_region_false','distance_50','time_10_24');
-			}
-			elseif($_POST['time'] == "48")
-			{
-				$affichage_rando_complet = affichage_f_rando_complet($_POST['s_region'], $_POST['distance'], $_POST['time'], $_POST['difficulty'], $_POST['water'],'s_region_false','distance_50','time_48_96');
-			}
-			elseif($_POST['time'] == "time_non_precise")
-			{
-				$affichage_rando_complet = affichage_f_rando_complet($_POST['s_region'], $_POST['distance'], $_POST['time'], $_POST['difficulty'], $_POST['water'],'s_region_false','distance_30_40','time_non_precise');
-			}
-			else 	/*------------------Si le temps est égal ou supérieur à 96h------------------*/
-			{
-				$affichage_rando_complet = affichage_f_rando_complet($_POST['s_region'], $_POST['distance'], $_POST['time'], $_POST['difficulty'], $_POST['water'],'s_region_false','distance_50','time_96');
-			}
-		}
+	if($distance in_array(array_slice($possibleDistances, 0, 6))){
+		$MAX_distance = intval($distance) + 5;
+		$MIN_distance = intval($distance);
 	}
+	else if($distance in_array(array_slice($possibleDistances, 6, 8))){
+		$MAX_distance = intval($distance) + 10;
+		$MIN_distance = intval($distance);
+	}
+	else if($distance == 'non_precise'){	/*Si la distance n'est pas sélectionné*/
+		$MAX_distance = -1;
+		$MIN_distance = -1;
+	}
+	else if($distance == '50'){	/*Si la distance sélectionné est supérieur ou égal à 50KM*/
+		$MAX_distance = 1;
+		$MIN_distance = intval($distance);
+	}
+	else{
+		$MAX_distance = false;
+		$MIN_distance = false;
+		// erreur
+	}
+
+
+	switch($time){
+
+		case "00:00:00":	
+				$MAX_time = 'inferieur_1h';
+				$MIN_time = 'vide_0';
+				break;
+		
+		case "01:00:00": 					
+				$MAX_time = '03:00:00';
+				$MIN_time = '01:00:00';
+				break;
+	
+		case "03:00:00":					
+				$MAX_time = '06:00:00';
+				$MIN_time = '03:00:00';
+				break;
+
+		case "10:00:00":
+				$MAX_time = 'vide_10';
+				$MIN_time = '10:00:00';
+				break;
+
+		case "24:00:00": 					
+				$MAX_time = 'vide_24';
+				$MIN_time = '24:00:00';
+				break;
+
+		case "48:00:00":		 			
+				$MAX_time = '96:00:00';
+				$MIN_time = '48:00:00';
+				break;
+
+		case "96:00:00":
+				$MAX_time = 'vide_96';
+				$MIN_time = '96:00:00';
+				break;
+
+		case  "time_non_precise": 	
+				$MAX_time = 'vide';
+				$MIN_time = '00:00:00';
+				break;
+
+		default:
+				$MAX_time = false;
+				$MIN_time = false;
+				// erreur 
+				break;
+	}
+
+	switch($difficulty){
+
+		case "1":
+				$difficulty_var = intval($difficulty);
+				break;
+
+		case "2":
+				$difficulty_var = intval($difficulty);
+				break;
+
+		case "3":
+				$difficulty_var = intval($difficulty);
+				break;
+
+		case "4":
+				$difficulty_var = intval($difficulty);
+				break;
+
+		case "5":
+				$difficulty_var = intval($difficulty);
+				break;
+
+		case"difficulte_non_precise":
+				$difficulty = 'non_precise';
+
+		default:
+				$difficulty_var = false;
+	}
+
+	switch($water){
+
+		case "0":
+				$water_var = intval($water);
+				break;
+		case "1":
+				$water_var = intval($water);
+				break;
+		default:
+				$water_var = false;
+				break;
+	}
+
+
+
+$affichage_rando_complet = affichage_f_rando_complet($_POST['s_region'], $_POST['distance'], $_POST['time'], $_POST['difficulty'], $_POST['water'], $typeRegion, $MAX_distance, $MIN_distance, $MAX_time, $MIN_time, $difficulty_var, $water_var);
+
+		
 }
 
 
