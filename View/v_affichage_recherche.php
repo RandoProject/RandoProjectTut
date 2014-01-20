@@ -55,11 +55,13 @@
 	                	if(isset($affichage_rando_complet) and !empty($affichage_rando_complet))
 	                	{
 	                		foreach($affichage_rando_complet as $rando){
-	                			echo $rando['titre'];
-	                			echo $rando['longueur'];
-	                			echo $rando['durée'];
-	                			echo 'Point d\' eau : '.$rando['point_eau'];
-	                			echo $rando['difficulté'];
+	                			echo'<center>';
+		                			echo '<strong>'.$rando['titre'].'</strong><br/>';
+		                			echo $rando['longueur'].'<br/>';
+		                			echo $rando['durée'].'<br/>';
+		                			echo 'Point d\' eau : '.$rando['point_eau'].'<br/>';
+		                			echo $rando['difficulté'].'<br/>';
+		                		echo '</center>';
 	                		}
 	                	}
 	                	else
