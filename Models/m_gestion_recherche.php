@@ -53,7 +53,7 @@ function affichage_f_rando_complet($region, $typeRegion, $MAX_distance, $MIN_dis
 			$reqValues['distance'] = $MIN_distance;
 		}
 		else{
-			array_push($reqArray, "longueur >= :distanceMin", "longueur =< :distanceMax");
+			array_push($reqArray, "longueur >= :distanceMin", "longueur <= :distanceMax");
 			$reqValues['distanceMin'] = $MIN_distance;
 			$reqValues['distanceMax'] = $MAX_distance;
 		}
@@ -79,6 +79,7 @@ function affichage_f_rando_complet($region, $typeRegion, $MAX_distance, $MIN_dis
 	if(!empty($reqArray)){
 		$reqStr .= " WHERE ".implode(' AND ', $reqArray);
 	}
+
 
 	$req = $bdd->prepare($reqStr);
 	$req->execute($reqValues) or die(print_r($erreur -> errorInfo()));
