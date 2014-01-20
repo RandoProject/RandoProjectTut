@@ -8,14 +8,9 @@
     		<?php menu(); ?>
             
             <div id="corps">
-				<?php
-                    activitees_recentes();
-                ?>
-                
-                <section>
-                    
-                </section>
-        	</div>
+				<div id="diaporama">Text + Galerie</div>
+				<div id="map"><img style="width:100%; height:100%;" src="Resources/Images/map.png"></div>
+			</div>
 
             <?php 
                 footer();
