@@ -34,9 +34,7 @@ if(isset($_POST['s_region'], $_POST['distance'], $_POST['time'], $_POST['difficu
 	$distance = $_POST['distance'];
 	$possibleDistances = array('0', '5', '10', '15', '20', '25', '30', '40', '50');
 	$time = $_POST['time'];
-	$possibleTimes = array('00:00:00', '01:00:00', '03:00:00', '10:00:00', '24:00:00', '48:00:00', '96:00:00', 'time_non_precise');
 	$difficulty = $_POST['difficulty'];
-	$possibleDifficulty = array('1', '2', '3', '4', '5', 'difficulte_non_precise');
 	$water = $_POST['water'];
 
 	if($_POST['s_region'] == "not_clarify"){
@@ -118,51 +116,28 @@ if(isset($_POST['s_region'], $_POST['distance'], $_POST['time'], $_POST['difficu
 				break;
 	}
 
-	switch($difficulty){
 
-		case "1":
-				$difficulty_var = intval($difficulty);
-				break;
-
-		case "2":
-				$difficulty_var = intval($difficulty);
-				break;
-
-		case "3":
-				$difficulty_var = intval($difficulty);
-				break;
-
-		case "4":
-				$difficulty_var = intval($difficulty);
-				break;
-
-		case "5":
-				$difficulty_var = intval($difficulty);
-				break;
-
-		case"difficulte_non_precise":
-				$difficulty = 'non_precise';
-
-		default:
-				$difficulty_var = false;
+	if (in_array($difficulty,array('1', '2', '3', '4', '5')))
+	{
+		$difficulty= intval($difficulty);
+	}
+	else if
+	{
+		$difficulty = 'non_precise';
 	}
 
-	switch($water){
-
-		case "0":
-				$water_var = intval($water);
-				break;
-		case "1":
-				$water_var = intval($water);
-				break;
-		default:
-				$water_var = false;
-				break;
+	
+	if($water == "0" || $water== "1")
+	{
+		$water = intval($water);
+	}
+	else
+	{
+		$water = false;
 	}
 
 
-
-$affichage_rando_complet = affichage_f_rando_complet($_POST['s_region'], $_POST['distance'], $_POST['time'], $_POST['difficulty'], $_POST['water'], $typeRegion, $MAX_distance, $MIN_distance, $MAX_time, $MIN_time, $difficulty_var, $water_var);
+$affichage_rando_complet = affichage_f_rando_complet($_POST['s_region'], $typeRegion, $MAX_distance, $MIN_distance, $MAX_time, $MIN_time, $difficulty, $water);
 
 		
 }

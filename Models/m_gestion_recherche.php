@@ -1,6 +1,6 @@
 <?php
 
-/*
+	/*
 	function affichage_title($title){
 		global $bdd;
 
@@ -32,10 +32,10 @@
 		$requete->closeCursor();
 		return $req;
 	}
-*/
+	*/
 
 
-	function affichage_f_rando_complet($region, $distance, $time, $difficulty, $water, $typeRegion, $MAX_distance, $MIN_distance, $MAX_time, $MIN_time, $difficulty_var, $water_var){
+	function affichage_f_rando_complet($region, $typeRegion, $MAX_distance, $MIN_distance, $MAX_time, $MIN_time, $difficulty, $water){
 		global $bdd;
 
 		if($typeRegion == 's_region_false') /*Region non précisé, on prend pas le paramètre en compte*/
@@ -46,22 +46,37 @@
 				{
 					if($difficulty_var == 'non_precise') /*difficulté non precise on prend pas en compte*/
 					{
-
+						$requete = $bdd->query("SELECT * FROM rando WHERE  AND durée <= "."01:00:00");
+						$req = $requete->fetchAll();
+						$requete->closeCursor();
+						return $req;
 					}
 					else /*on prend en compte la difficulté*/
 					{
-
+						$requete = $bdd->prepare("SELECT * FROM rando WHERE  AND durée <= '01:00:00' AND difficulté = :difficulty");
+						$requete->execute(array('difficulty' => $difficulty)) or die(print_r($erreur -> errorInfo()));
+						$req = $requete->fetchAll();
+						$requete->closeCursor();
+						return $req;
 					}
 				}
 				else if($MAX_time == 'vide_10') /*on selectionne les randos avec un temps supérieur ou égal à 10h, on utilise sup ou egal à MIN*/
 				{
 					if($difficulty_var == 'non_precise') /*difficulté non precise on prend pas en compte*/
 					{
-
+						$requete = $bdd->query("SELECT * FROM rando WHERE  AND durée >= :MIN_time");
+						$requete->execute(array('MIN_time' => $MIN_time)) or die(print_r($erreur -> errorInfo()));
+						$req = $requete->fetchAll();
+						$requete->closeCursor();
+						return $req;
 					}
 					else /*on prend en compte la difficulté*/
 					{
-
+						$requete = $bdd->query("SELECT * FROM rando WHERE  AND durée >= :MIN_time AND difficulté = :difficulty");
+						$requete->execute(array('MIN_time' => $MIN_time, 'difficulty' => $difficulty)) or die(print_r($erreur -> errorInfo()));
+						$req = $requete->fetchAll();
+						$requete->closeCursor();
+						return $req;
 					}
 				}
 				else if($MAX_time == 'vide_24') /*on selectionne les randos avec un temps supérieur ou égal à 24h et on trie par odre croissant,on utilise sup ou egal à MIN*/
