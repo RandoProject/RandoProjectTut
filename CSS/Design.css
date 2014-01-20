@@ -83,10 +83,10 @@ nav ul#account li a:hover{
 	color: #E4DFD2;
 	transition: 0.3s 0s all;
 }
-nav ul#account li a.right:hover{
+nav ul#account li a.profil:hover{
 	background-color: #0080C0;
 }
-nav ul#account li a.left:hover{
+nav ul#account li a.connexion:hover{
 	background-color: #E13E42;
 }
 

@@ -10,12 +10,12 @@ function menu(){
 				<ul id="account">
 	';
 	//if(user non connecté){
-		echo '		<li><a class="right" href="index.php?page=inscription">Inscription</a></li>
-					<li><a class="left" href="index.php?page=connexion">Connexion</a></li>
+		echo '		<li><a class="profil" href="index.php?page=inscription">Inscription</a></li>
+					<li><a class="connexion" href="index.php?page=connexion">Connexion</a></li>
 		';
 	/*else
-		echo '		<li><a class="right" href="index.php?page=profil">Profil</a></li>
-					<li><a class="left" href="index.php?page=deconnexion">Déconnexion</a></li>
+		echo '		<li><a class="profil" href="index.php?page=profil">Profil</a></li>
+					<li><a class="connexion" href="index.php?page=deconnexion">Déconnexion</a></li>
 		';*/
 	echo '		</ul>
 			</nav>
