@@ -18,7 +18,7 @@ html,
 body{
 	height: 100%;
 	width: 100%;
-	min-width: 800px;
+	min-width: 1000px;
 	height: 100%;
 	background-color: #444444;
 }
@@ -28,14 +28,17 @@ body{
 nav{
 	text-align: center;
 	width: 100%;
-	min-width: 800px;
+	min-width: 1000px;
 	height: 70px;
 	
+}
+nav ul{
+	display: inline-block;
 }
 nav ul li{
 	display: inline-block;
 }
-nav ul li a{
+nav ul#menu li a{
 	display: block;
 	margin-left: 5px;
 	margin-right: 5px;
@@ -50,8 +53,37 @@ nav ul li a{
 	border-bottom-right-radius: 2px;
 	transition: 0.5s 0s ease-out;
 }
-nav ul li a:hover{
+nav ul#menu li a:hover{
 	padding-bottom: 30px;
+	margin-bottom: -30px;
+	background-color: #EFEFDF;
+	color: #111111;
+	transition: 0.4s 0s ease-out;
+}
+nav ul#account{
+	display: block;
+	text-align: right;
+	margin-right: 1%;
+	margin-top: -40px;
+}
+nav ul#account li{
+	margin-right: -4px;
+}
+nav ul#account li a{
+	display: block;
+	margin-left: 5px;
+	margin-right: 5px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 15px;
+	padding-right: 15px;
+	font-weight: bold;
+	background-color: #E4DFD2;
+	box-shadow:	0px 0px 10px 0px rgba(0, 0, 0, 0.7);
+	border-radius: 2px;
+	transition: 0.5s 0s ease-out;
+}
+nav ul#account li a:hover{
 	background-color: #EFEFDF;
 	color: #111111;
 	transition: 0.4s 0s ease-out;
@@ -63,7 +95,7 @@ nav ul li a:hover{
 	height: auto;
 	min-height: 80%;
 	width: 98%;
-	min-width: 800px;	
+	min-width: 1000px;	
 	margin-top: 15px;
 	margin-bottom: 15px;
 	margin-left: auto;
@@ -87,7 +119,6 @@ aside{
 section{
 	display: inline-block;
 	width: 83%;
-	min-width: 648px;
 	height: 650px;
 	margin-left: 2%;
 	margin-right: auto;
@@ -102,7 +133,6 @@ section{
 #corps #diaporama{
 	display: inline-block;
 	width: 49%;
-	min-width: 392px;
 	height: 600px;
 	margin-right: -4px;
 	background-color: #E4DFD2;
@@ -112,7 +142,6 @@ section{
 #corps #map{
 	display: inline-block;
 	width: 49%;
-	min-width: 392px;
 	height: 600px;
 	margin-left: 2%;
 	margin-right: auto;
@@ -129,9 +158,8 @@ footer{
 	margin-left: auto;
 	margin-right: auto;
 	margin-top: 25px;
-	height: 50px;
 	width: 98%;
-	min-width: 800px;
+	height: 50px;
 	text-align: center;
 	background-color: #E4DFD2;
 	box-shadow:	0px 0px 10px 0px rgba(0, 0, 0, 0.7);

@@ -21,6 +21,22 @@ else{
 			include_once('Controller/c_affichage_recherche.php');
 		break;
 
+		case 'galerie':
+			include_once('Controller/');
+		break;
+
+		case 'ajouter_rando':
+			include_once('Controller/');
+		break;
+
+		case 'connexion':
+			include_once('Controller/');
+		break;
+
+		case 'nscription':
+			include_once('Controller/');
+		break;
+
 		default:
 			include_once('View/error_page.php');
 		break;
