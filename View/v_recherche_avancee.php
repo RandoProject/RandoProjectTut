@@ -18,14 +18,14 @@
 
 
 					<section>
-		                <form method="post" action="index.php?page=affichage_recherche">
-		                <label for="Titre"> Titre </label><br/>
-								<input type="texte" name="title" value=" Ex: Randonnée à Conques" onfocus="if (this.value==' Ex: Randonnée à Conques') this.value=''"/>
-								<input type="submit" value="rechercher"/><br/><br/>
+		                <form method="post" action="index.php?page=recherche">
+		                <label for="title"> Titre </label><br/>
+								<input type="texte" name="title" id="title" value=" Ex: Randonnée à Conques" onfocus="if (this.value==' Ex: Randonnée à Conques') this.value=''"/>
+								<input type="submit" value="rechercher" name="envoie_titre"/><br/><br/>
 
-		                <label for="Region"> Région </label><br/>
+		                <label for="s_region"> Région </label><br/>
 		                	<?php
-		                		echo'<select name="s_region">';
+		                		echo'<select id="s_region" name="s_region">';
 		                			echo'<option value="not_clarify"> Non précisé </option>';
 		                			foreach ($listeRegion as $l_region) {
 		                				echo'<option value="'.$l_region['num_region'].'">'.$l_region['nom'].'</option>';
@@ -33,8 +33,8 @@
 		                		echo'</select>';
 		                	?><br/>
 
-							<label for="Longueur"> Longueur</label><br/>
-								<select name="distance">
+							<label for="distance"> Longueur</label><br/>
+								<select id="distance" name="distance">
 									<option value="non_precise" selected="selected">Non précisé</option>
 										<?php
 											$n=0;
@@ -51,8 +51,8 @@
 										?>
 								</select><br/>
 
-							<label for="Durée"> Durée </label><br/>
-								<select name="time">
+							<label for="time"> Durée </label><br/>
+								<select id="time" name="time">
 									<option value="time_non_precise" selected="selected">Non précisé</option>
 										<?php
 											$d=0;
@@ -73,8 +73,8 @@
 										?>
 								</select><br/>
 
-							<label for="Difficulté"> Difficulté </label><br/>
-								<select name="difficulty">
+							<label for="difficulty"> Difficulté </label><br/>
+								<select id="difficulty" name="difficulty">
 									<option value="difficulte_non_precise" selected="selected">Non précisé</option>
 									<?php
 										$n=1;
@@ -87,37 +87,57 @@
 									?>
 								</select><br/>
 
-							<label for="Point d'eau "> Point d'eau </label><br/>
-								<select name="water">
+							<label for="water"> Point d'eau </label><br/>
+								<select id="water" name="water">
 									<option value="0" selected="selected">Indifférent</option>
 									<option value="1"> Oui </option>
 								</select><br/>
-							<input type="submit" value="Rechercher"/>
+							<input type="submit" value="Rechercher" name="envoie_formulaire"/>
 						</form>
-		            </section>
+		            
 
-		            <!--Zone pour afficher la recherche-->
-		        <?php
-		        
-		            if(isset($affichage_rando_complet) and !empty($affichage_rando_complet))
-	                	{
-	                		foreach($affichage_rando_complet as $rando){
-	                			echo'<center>';
-		                			echo '<strong>'.$rando['titre'].'</strong><br/>';
-		                			echo $rando['longueur'].'<br/>';
-		                			echo $rando['durée'].'<br/>';
-		                			echo 'Point d\' eau : '.$rando['point_eau'].'<br/>';
-		                			echo $rando['difficulté'].'<br/>';
-		                		echo '</center>';
-	                		}
-	                	}
-	                	else
-	                	{
-	                		echo 'erreur';
-	                	}
-	            ?>
-
+				            <!--Zone pour afficher la recherche-->
+				        <?php
+				        	if(isset($_POST['envoie_formulaire']))
+				        	{
+				        		if(isset($affichage_rando_complet) and !empty($affichage_rando_complet))
+			                	{
+			                		foreach($affichage_rando_complet as $rando){
+				                			echo '<strong> Titre : </strong>'.$rando['titre'].'<br/>';
+				                			echo '<strong> Longueur : </strong>'.$rando['longueur'].'<br/>';
+				                			echo '<strong> Durée : </strong>'.$rando['durée'].'<br/>';
+				                			echo '<strong> Point d\' eau : </strong>'.$rando['point_eau'].'<br/>';
+				                			echo '<strong> Difficulté : </strong>'.$rando['difficulté'].'<br/>';
+			                		}
+			                	}
+			                	else
+			                	{
+			                		echo 'Aucune randonnée trouvée';
+			                	}
+				        	}
+				            
+				            if(isset($_POST['envoie_titre']))
+				            {
+				            	if(isset($affichage_titre_rando) and !empty($affichage_titre_rando))
+				            	{
+				            		foreach($affichage_titre_rando as $rando)
+				            		{
+				                			echo '<strong> Titre : </strong>'.$rando['titre'].'<br/>';
+				                			echo '<strong> Longueur : </strong>'.$rando['longueur'].'<br/>';
+				                			echo '<strong> Durée : </strong>'.$rando['durée'].'<br/>';
+				                			echo '<strong> Point d\' eau : </strong>'.$rando['point_eau'].'<br/>';
+				                			echo '<strong> Difficulté : </strong>'.$rando['difficulté'].'<br/>';
+					                }
+	                			}
+	                			else
+	                			{
+			                		echo 'Aucune randonnée trouvée';
+	                			}
+				            }
+			            ?>
+	            	</section>
 	        </div>
+
 			<?php 
 				footer(); 
 			?>

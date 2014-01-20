@@ -17,10 +17,6 @@ else{
 			include_once('Controller/c_recherche_avancee.php');
 		break;
 
-		case 'affichage_recherche':
-			include_once('Controller/c_affichage_recherche.php');
-		break;
-
 		case 'galerie':
 			include_once('Controller/');
 		break;

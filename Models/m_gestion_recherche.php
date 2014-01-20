@@ -4,8 +4,16 @@
 function affichage_title($title){
 	global $bdd;
 
-	$requete = $bdd->prepare("SELECT titre FROM rando WHERE LOWER(titre)= :title");
+	$requete = $bdd->prepare("SELECT * FROM rando WHERE LOWER(titre)= :title");
 	$requete->execute(array('title' => strtolower($title))) or die(print_r($erreur -> errorInfo()));
+	$res = $requete->fetchAll();
+	$requete->closeCursor();
+	return $res;
+}
+
+function select_regions($select){
+	global $bdd;
+	$requete = $bdd->query("SELECT $select FROM regions ORDER BY nom ASC");
 	$res = $requete->fetchAll();
 	$requete->closeCursor();
 	return $res;
