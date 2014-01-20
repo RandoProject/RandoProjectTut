@@ -47,6 +47,7 @@ function affichage_f_rando_complet($region, $typeRegion, $MAX_distance, $MIN_dis
 		array_push($reqArray, "région = :region ");
 		$reqValues['region'] = $region;
 	}
+
 	if($MAX_distance !== -1 && $MAX_distance !== false){
 		if($MIN_distance >= 50){
 			array_push($reqArray, "longueur >= :distance");
@@ -61,11 +62,11 @@ function affichage_f_rando_complet($region, $typeRegion, $MAX_distance, $MIN_dis
 
 	if($MAX_time !== false){
 		if($MAX_time == 'inferieur_1h'){
-		 		array_push($reqArray, "durée <= 01:00:00");
+		 		array_push($reqArray, "durée <= '01:00:00' ");
 		}
 		else if($MAX_time == 'vide_10' || $MAX_time == 'vide_24' || $MAX_time == 'vide_96'){
-	 		array_push($reqArray, "durée <= :time"); // ?
-	 		$reqValues['time'] = $MAX_time;
+	 		array_push($reqArray, "durée <= :time"); 
+	 		$reqValues['time'] = $MIN_time;
 		}
 		else{
 			array_push($reqArray, "durée >= :timeMin", "durée <= :timeMax");
@@ -73,6 +74,18 @@ function affichage_f_rando_complet($region, $typeRegion, $MAX_distance, $MIN_dis
 			$reqValues['timeMax'] = $MAX_time;
 		}
 	}
+
+	if($difficulty == 1 || $difficulty == 2 || $difficulty == 3 || $difficulty == 4 || $difficulty == 5){
+		array_push($reqArray, "difficulté = :difficulty");
+		$reqValues['difficulty'] = $difficulty;
+	}
+
+
+	if($water != false){
+		array_push($reqArray, "point_eau = :water");
+		$reqValues['water'] = $water;
+	}
+
 
 	$reqStr = "SELECT * FROM rando";
 
@@ -84,6 +97,8 @@ function affichage_f_rando_complet($region, $typeRegion, $MAX_distance, $MIN_dis
 	$req = $bdd->prepare($reqStr);
 	$req->execute($reqValues) or die(print_r($erreur -> errorInfo()));
 	$res = $req->fetchAll();
+	$req->closeCursor();
+	return $res;
 
 
 

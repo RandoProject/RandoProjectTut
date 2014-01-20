@@ -71,7 +71,7 @@ if(isset($_POST['s_region'], $_POST['distance'], $_POST['time'], $_POST['difficu
 
 		case "00:00:00":	
 				$MAX_time = 'inferieur_1h';
-				$MIN_time = 'vide_0';
+				$MIN_time = '00:00:00';
 				break;
 		
 		case "01:00:00": 					
