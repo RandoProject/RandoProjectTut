@@ -44,11 +44,11 @@ if(isset($_POST['s_region'], $_POST['distance'], $_POST['time'], $_POST['difficu
 		$typeRegion = 's_region_true';
 	}
 
-	if($distance in_array(array_slice($possibleDistances, 0, 6))){
+	if(in_array($distance , array_slice($possibleDistances, 0, 6))){
 		$MAX_distance = intval($distance) + 5;
 		$MIN_distance = intval($distance);
 	}
-	else if($distance in_array(array_slice($possibleDistances, 6, 8))){
+	else if(in_array($distance, array_slice($possibleDistances, 6, 8))){
 		$MAX_distance = intval($distance) + 10;
 		$MIN_distance = intval($distance);
 	}
@@ -84,7 +84,7 @@ if(isset($_POST['s_region'], $_POST['distance'], $_POST['time'], $_POST['difficu
 				$MIN_time = '03:00:00';
 				break;
 
-		case "10:00:00":
+		case "10:00:00": // Changement à faire
 				$MAX_time = 'vide_10';
 				$MIN_time = '10:00:00';
 				break;
@@ -121,7 +121,7 @@ if(isset($_POST['s_region'], $_POST['distance'], $_POST['time'], $_POST['difficu
 	{
 		$difficulty= intval($difficulty);
 	}
-	else if
+	else
 	{
 		$difficulty = 'non_precise';
 	}
