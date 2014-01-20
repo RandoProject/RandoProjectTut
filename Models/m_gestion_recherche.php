@@ -47,13 +47,13 @@ function affichage_f_rando_complet($region, $typeRegion, $MAX_distance, $MIN_dis
 		array_push($reqArray, "région = :region ");
 		$reqValues['region'] = $region;
 	}
-	if($MAX_distance !== -1){
+	if($MAX_distance !== -1 && $MAX_distance !== false){
 		if($MIN_distance >= 50){
-			array_push($reqArray, "distance >= :distance");
+			array_push($reqArray, "longueur >= :distance");
 			$reqValues['distance'] = $MIN_distance;
 		}
 		else{
-			array_push($reqArray, "discance >= :distanceMin", "discance =< :distanceMax");
+			array_push($reqArray, "longueur >= :distanceMin", "longueur =< :distanceMax");
 			$reqValues['distanceMin'] = $MIN_distance;
 			$reqValues['distanceMax'] = $MAX_distance;
 		}
@@ -64,7 +64,7 @@ function affichage_f_rando_complet($region, $typeRegion, $MAX_distance, $MIN_dis
 		 		array_push($reqArray, "durée <= 01:00:00");
 		}
 		else if($MAX_time == 'vide_10' || $MAX_time == 'vide_24' || $MAX_time == 'vide_96'){
-	 		array_push($reqArray, "durée <= :time");// ?
+	 		array_push($reqArray, "durée <= :time"); // ?
 	 		$reqValues['time'] = $MAX_time;
 		}
 		else{
@@ -79,191 +79,11 @@ function affichage_f_rando_complet($region, $typeRegion, $MAX_distance, $MIN_dis
 	if(!empty($reqArray)){
 		$reqStr .= " WHERE ".implode(' AND ', $reqArray);
 	}
-	print_r($reqValues);
-	print_r($reqArray);
-	print_r($reqStr);
+
+	$req = $bdd->prepare($reqStr);
+	$req->execute($reqValues) or die(print_r($erreur -> errorInfo()));
+	$res = $req->fetchAll();
 
 
 
-	if($typeRegion == 's_region_false') /*Region non précisé, on prend pas le paramètre en compte*/
-	{
-		if($MAX_distance == -1) 	/*si la distance n'est pas sélectionné*/
-		{	
-			if($MAX_time == 'inferieur_1h') /*on selectionne les randos avec un temps inférieur ou égal à 1h*/
-			{
-				if($difficulty == 'non_precise') /*difficulté non precise on prend pas en compte*/
-				{
-					/*$requete = $bdd->query("SELECT * FROM rando WHERE  AND durée <= "."01:00:00");
-					$req = $requete->fetchAll();
-					$requete->closeCursor();
-					return $req;*/
-				}
-				else /*on prend en compte la difficulté*/
-				{
-					/*$requete = $bdd->prepare("SELECT * FROM rando WHERE  AND durée <= '01:00:00' AND difficulté = :$difficulty");
-					$requete->execute(array('$difficulty' => $difficulty)) or die(print_r($erreur -> errorInfo()));
-					$req = $requete->fetchAll();
-					$requete->closeCursor();
-					return $req;*/
-				}
-			}
-			else if($MAX_time == 'vide_10') /*on selectionne les randos avec un temps supérieur ou égal à 10h, on utilise sup ou egal à MIN*/
-			{
-				if($difficulty == 'non_precise') /*difficulté non precise on prend pas en compte*/
-				{
-					/*$requete = $bdd->query("SELECT * FROM rando WHERE  AND durée >= :MIN_time");
-					$requete->execute(array('MIN_time' => $MIN_time)) or die(print_r($erreur -> errorInfo()));
-					$req = $requete->fetchAll();
-					$requete->closeCursor();
-					return $req;*/
-				}
-				else /*on prend en compte la difficulté*/
-				{
-					/*$requete = $bdd->query("SELECT * FROM rando WHERE  AND durée >= :MIN_time AND difficulté = :$difficulty");
-					$requete->execute(array('MIN_time' => $MIN_time, '$difficulty' => $difficulty)) or die(print_r($erreur -> errorInfo()));
-					$req = $requete->fetchAll();
-					$requete->closeCursor();
-					return $req;*/
-				}
-			}
-			else if($MAX_time == 'vide_24') /*on selectionne les randos avec un temps supérieur ou égal à 24h et on trie par odre croissant,on utilise sup ou egal à MIN*/
-			{
-				if($difficulty == 'non_precise') /*difficulté non precise on prend pas en compte*/
-				{
-
-				}
-				else /*on prend en compte la difficulté*/
-				{
-
-				}
-			}
-			else if($MAX_time =='vide_96') /*on sélection les temps supérieur ou égal à 96h*/
-			{
-				if($difficulty == 'non_precise') /*difficulté non precise on prend pas en compte*/
-				{
-
-				}
-				else /*on prend en compte la difficulté*/
-				{
-
-				}
-			}
-			else if($MAX_time == 'vide') /*temps pas sélectionné, on utilise supérieur ou égal à MIN*/
-			{
-				if($difficulty == 'non_precise') /*difficulté non precise on prend pas en compte*/
-				{
-
-				}
-				else /*on prend en compte la difficulté*/
-				{
-
-				}
-			}
-			else 	/*temps sélectionné dans une intervalle, on utilise MIN et MAX*/
-			{
-				if($difficulty == 'non_precise') /*difficulté non precise on prend pas en compte*/
-				{
-
-				}
-				else /*on prend en compte la difficulté*/
-				{
-
-				}
-			}
-		}
-		else if($MAX_distance == 1) /*si la distance sélectionné est supérieur ou égal à 50, on utilises MIN_distance qui est égal à 50 on, utilise sup ou egal à MIN*/
-		{ 
-			if($difficulty == 'non_precise') /*difficulté non precise on prend pas en compte*/
-				{
-
-				}
-				else /*on prend en compte la difficulté*/
-				{
-
-				}
-		}
-	}
-	else 	/*Region précisé*/
-	{
-		if($MAX_distance == -1) 	/*si la distance n'est pas sélectionné*/
-		{	
-			if($MAX_time == 'inferieur_1h') /*on selectionne les randos avec un temps inférieur ou égal à 1h*/
-			{
-				if($difficulty == 'non_precise') /*difficulté non precise on prend pas en compte*/
-				{
-
-				}
-				else /*on prend en compte la difficulté*/
-				{
-
-				}
-			}
-			else if($MAX_time == 'vide_10') /*on selectionne les randos avec un temps supérieur ou égal à 10h, on utilise sup ou egal à MIN*/
-			{
-				if($difficulty == 'non_precise') /*difficulté non precise on prend pas en compte*/
-				{
-
-				}
-				else /*on prend en compte la difficulté*/
-				{
-
-				}
-			}
-			else if($MAX_time == 'vide_24') /*on selectionne les randos avec un temps supérieur ou égal à 24h et on trie par odre croissant,on utilise sup ou egal à MIN*/
-			{
-				if($difficulty == 'non_precise') /*difficulté non precise on prend pas en compte*/
-				{
-
-				}
-				else /*on prend en compte la difficulté*/
-				{
-
-				}
-			}
-			else if($MAX_time =='vide_96') /*on sélection les temps supérieur ou égal à 96h*/
-			{
-				if($difficulty == 'non_precise') /*difficulté non precise on prend pas en compte*/
-				{
-
-				}
-				else /*on prend en compte la difficulté*/
-				{
-
-				}
-			}
-			else if($MAX_time == 'vide') /*temps pas sélectionné, on utilise supérieur ou égal à MIN*/
-			{
-				if($difficulty == 'non_precise') /*difficulté non precise on prend pas en compte*/
-				{
-
-				}
-				else /*on prend en compte la difficulté*/
-				{
-
-				}
-			}
-			else 	/*temps sélectionné dans une intervalle, on utilise MIN et MAX*/
-			{
-				if($difficulty == 'non_precise') /*difficulté non precise on prend pas en compte*/
-				{
-
-				}
-				else /*on prend en compte la difficulté*/
-				{
-
-				}
-			}
-		}
-		else if($MAX_distance == 1) /*si la distance sélectionné est supérieur ou égal à 50, on utilises MIN_distance qui est égal à 50 on, utilise sup ou egal à MIN*/
-		{ 
-			if($difficulty == 'non_precise') /*difficulté non precise on prend pas en compte*/
-				{
-
-				}
-				else /*on prend en compte la difficulté*/
-				{
-
-				}
-		}
-	}
 }
