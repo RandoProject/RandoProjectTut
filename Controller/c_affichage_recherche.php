@@ -106,7 +106,7 @@ if(isset($_POST['s_region'], $_POST['distance'], $_POST['time'], $_POST['difficu
 
 		case  "time_non_precise": 	
 				$MAX_time = 'vide';
-				$MIN_time = 'vide';
+				$MIN_time = '00:00:00';
 				break;
 
 		default:

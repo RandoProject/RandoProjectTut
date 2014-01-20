@@ -38,6 +38,8 @@ function affichage_f_rando($title, $region){
 function affichage_f_rando_complet($region, $typeRegion, $MAX_distance, $MIN_distance, $MAX_time, $MIN_time, $difficulty, $water){
 	global $bdd;
 
+
+
 	$reqValues = array();
 	$reqArray = array();
 
@@ -97,4 +99,7 @@ function affichage_f_rando_complet($region, $typeRegion, $MAX_distance, $MIN_dis
 	$res = $req->fetchAll();
 	$req->closeCursor();
 	return $res;
+
+
+
 }
