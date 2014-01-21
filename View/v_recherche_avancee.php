@@ -119,12 +119,12 @@
                         
                         if(isset($_POST['envoie_titre']))
                         {
-                            if(isset($affichage_titre_rando, $photo_rando) and !empty($affichage_titre_rando))
+                            if(isset($affichage_titre_rando) and !empty($affichage_titre_rando))
                             {
                                 foreach($affichage_titre_rando as $rando)
                                 {
-                                		echo '<img src="Resources/Galerie/'. $rando['nom_galerie'] .'/'. $rando['nom_photo'] .'" width="100px" height="50px;"/>';
                                         echo '<strong> Titre : </strong>'.$rando['titre'].'<br/>';
+                                        echo '<img src="Resources/Galerie/'. $rando['nom_galerie'] .'/'. $rando['nom_photo'] .'" width="100px" height="50px;"/><br/>';
                                         echo '<strong> Longueur : </strong>'.$rando['longueur'].'<br/>';
                                         echo '<strong> Durée : </strong>'.$rando['durée'].'<br/>';
                                         echo '<strong> Point d\' eau : </strong>'.$rando['point_eau'].'<br/>';

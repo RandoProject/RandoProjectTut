@@ -10,7 +10,7 @@ function affichage_title($title){
 
 
 	if(count($mots) > 0){
-		$reqStr = "SELECT * FROM rando WHERE ";
+		$reqStr = "SELECT rando.*, photo.nom AS nom_photo, galerie.nom AS nom_galerie FROM rando, photo, galerie WHERE rando.photo_principale = photo.numero AND photo.galerie = galerie.numero AND ";
 		for($i = 0; $i < count($mots); $i++){
 			$reqStr .= "titre LIKE '%".$mots[$i]."%'";
 			if( $i < count( $mots ) - 1 ){
