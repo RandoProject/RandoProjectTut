@@ -17,7 +17,9 @@ function affichage_title($title){
 				$reqStr .= " OR ";
 			}
 		}
-		
+
+		$reqStr .= " ORDER BY longueur ASC";
+
 		$requete= $bdd->query($reqStr) or die(print_r($erreur -> errorInfo()));
 		$res = $requete->fetchAll();
 		$requete->closeCursor();
