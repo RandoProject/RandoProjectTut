@@ -19,18 +19,19 @@
 
 					<section>
 		                <form method="post" action="index.php?page=recherche">
+		            <div id="titre">
 		                <label for="title"> Titre </label>
 								<input type="texte" name="title" id="title" value=" Ex: Randonnée à Conques" onfocus="if (this.value==' Ex: Randonnée à Conques') this.value=''"/>
 								<input type="submit" value="rechercher" name="envoie_titre"/><br/><br/><br/>
-
+					</div>
 		                <label for="s_region"> Région </label>
 		                	<?php
 		                		echo'<select id="s_region" name="s_region">';
 		                			echo'<option value="not_clarify"> Non précisé </option>';
 		                			foreach ($listeRegion as $l_region) {
-		                				echo'<option value="'.$l_region['num_region'].'">'.$l_region['nom'].'</option>';
+		                				echo'<option value="'.$l_region['num_region'].'">'. $l_region['nom'].'</option>';
 		                			}
-		                		echo'</select><br/><br/>';
+		                		echo'</select>';
 		                	?>
 
 							<label for="distance"> Longueur</label>
@@ -49,7 +50,7 @@
 												echo'<option value="40">De 40 à 50Km';
 												echo'<option value="50">Plus de 50Km';
 										?>
-								</select><br/><br/>
+								</select>
 
 							<label for="time"> Durée </label>
 								<select id="time" name="time">
@@ -71,7 +72,7 @@
 												echo'<option value="96:00:00"> Plus de 4 jours </option>';
 
 										?>
-								</select><br/><br/>
+								</select>
 
 							<label for="difficulty"> Difficulté </label>
 								<select id="difficulty" name="difficulty">
@@ -85,14 +86,14 @@
 													$n=$n+1;
 												}
 									?>
-								</select><br/><br/>
+								</select>
 
 							<label for="water"> Point d'eau </label>
 								<select id="water" name="water">
 									<option value="0" selected="selected">Indifférent</option>
 									<option value="1"> Oui </option>
-								</select><br/><br/>
-							<input type="submit" value="Rechercher" name="envoie_formulaire"/>
+								</select>
+							<input type="submit" value="Rechercher" name="envoie_formulaire"/><br/><br/>
 						</form>
 		            
 

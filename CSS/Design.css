@@ -178,7 +178,34 @@ footer{
 
 			/*Formulaire de recherche + affichage randonnée*/
 label{
-	display: block;
-	width: 100px;
+	display: inline-block;
+	width: auto;
 	float: left;
+	margin-right: 10px;
+}
+
+select, input{
+	display: block;
+	float: left;
+	margin-right: 25px;
+}
+
+form{
+	display: block;
+	margin-left: 17%;
+}
+
+#titre{
+	display: block;
+	margin-left: 27%;
+	margin-top: 3%;
+}
+
+
+#difficulty, #water{
+	width: 100px;
+}
+
+#title{
+	width: 200px;
 }
