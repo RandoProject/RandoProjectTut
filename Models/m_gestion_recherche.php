@@ -99,6 +99,7 @@ function affichage_f_rando_complet($region, $typeRegion, $MAX_distance, $MIN_dis
 	if(!empty($reqArray)){
 		$reqStr .= " WHERE ".implode(' AND ', $reqArray);
 	}
+		$reqStr .= " ORDER BY longueur ASC";
 
 
 	$req = $bdd->prepare($reqStr);
