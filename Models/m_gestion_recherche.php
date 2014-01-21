@@ -25,13 +25,7 @@ function affichage_title($title){
 		$requete->closeCursor();
 		return $res;
 	}
-/*
-	$requete = $bdd->prepare("SELECT * FROM rando WHERE LOWER(titre)= :title");
-	$requete->execute(array('title' => strtolower($title))) or die(print_r($erreur -> errorInfo()));
-	$res = $requete->fetchAll();
-	$requete->closeCursor();
-	return $res;
-*/
+
 }
 
 function select_regions($select){
