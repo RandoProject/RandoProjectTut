@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 include_once("View/header.php");
 include_once("View/menu.php");
 include_once("View/footer.php"); 
