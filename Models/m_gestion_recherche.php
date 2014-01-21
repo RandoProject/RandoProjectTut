@@ -27,21 +27,6 @@ function affichage_title($title){
 	}
 }
 
-function affichage_photo($title){
-	global $bdd;
-	
-	$requete = $bdd->prepare("SELECT titre, photo.nom AS nom_photo , galerie.nom AS nom_galerie
-							FROM rando, photo, galerie
-							WHERE rando.photo_principale = photo.numero
-							AND photo.galerie = galerie.numero
-							AND titre = :title
-							ORDER BY date_insertion DESC");
-	$requete->execute(array('title' => $title)) or die(print_r($erreur -> errorInfo()));
-	$res = $requete->fetchAll();
-	$requete->closeCursor();
-	return $res;
-}
-
 function select_regions($select){
 	global $bdd;
 	$requete = $bdd->query("SELECT $select FROM regions ORDER BY nom ASC");
@@ -104,20 +89,19 @@ function affichage_f_rando_complet($region, $typeRegion, $MAX_distance, $MIN_dis
 	}
 
 
-	$reqStr = "SELECT * FROM rando";
+	$reqStr = "	SELECT rando.*, photo.nom AS nom_photo, galerie.nom AS nom_galerie
+				FROM rando, photo, galerie
+				WHERE rando.photo_principale = photo.numero
+				AND photo.galerie = galerie.numero";
 
 	if(!empty($reqArray)){
-		$reqStr .= " WHERE ".implode(' AND ', $reqArray);
+		$reqStr .= " AND ".implode(' AND ', $reqArray);
 	}
 		$reqStr .= " ORDER BY longueur ASC";
-
 
 	$req = $bdd->prepare($reqStr);
 	$req->execute($reqValues) or die(print_r($erreur -> errorInfo()));
 	$res = $req->fetchAll();
 	$req->closeCursor();
 	return $res;
-
-
-
 }

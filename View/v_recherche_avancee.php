@@ -103,8 +103,9 @@
                             if(isset($affichage_rando_complet) and !empty($affichage_rando_complet))
                             {
                                 foreach($affichage_rando_complet as $rando){
-                                        echo '<strong> Titre : </strong>'.$rando['titre'].'<br/>';
-                                        echo '<strong> Longueur : </strong>'.$rando['longueur'].'<br/>';
+										echo '<strong> Titre : </strong>'.$rando['titre'].'<br/>';
+                                        echo '<img src="Resources/Galerie/'. $rando['nom_galerie'] .'/'. $rando['nom_photo'] .'" width="100px" height="50px;"/><br/>';
+										echo '<strong> Longueur : </strong>'.$rando['longueur'].'<br/>';
                                         echo '<strong> Durée : </strong>'.$rando['durée'].'<br/>';
                                         echo '<strong> Point d\' eau : </strong>'.$rando['point_eau'].'<br/>';
                                         echo '<strong> Difficulté : </strong>'.$rando['difficulté'].'<br/>';
@@ -122,7 +123,7 @@
                             {
                                 foreach($affichage_titre_rando as $rando)
                                 {
-                                		echo '<img src="Resources/Galerie/'. $photo_rando['nom_galerie'] .'/'. $photo_rando['nom_photo'] .'" width="100px" height="50px;"/>';
+                                		echo '<img src="Resources/Galerie/'. $rando['nom_galerie'] .'/'. $rando['nom_photo'] .'" width="100px" height="50px;"/>';
                                         echo '<strong> Titre : </strong>'.$rando['titre'].'<br/>';
                                         echo '<strong> Longueur : </strong>'.$rando['longueur'].'<br/>';
                                         echo '<strong> Durée : </strong>'.$rando['durée'].'<br/>';
