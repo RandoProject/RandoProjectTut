@@ -126,6 +126,9 @@ $listeRegion = select_regions('num_region, nom');
 
 
 /*Affichage des photos*/
-$photo_rando = affichage_photo($_POST['title']);
+if(isset($_POST['title'])){
+	$photo_rando = affichage_photo($_POST['title']);
+}
+
 
 include_once('View/v_recherche_avancee.php');
