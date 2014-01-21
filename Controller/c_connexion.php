@@ -9,7 +9,6 @@ if(strtolower($_SERVER['REQUEST_METHOD']) == "post"){
 		$error['pass'] = 'Vous n\'avez pas entré de mot de passe.';
 	}
 
-	print_r($error);
 	if(empty($error)){
 		include_once('bin/params.php');
 		include_once('Models/m_members.php');

@@ -14,7 +14,7 @@ function get_member($pseudo, $pass = false){
 	$req = $bdd->prepare($reqStr);
 	$req->execute($reqArray);
 	$result = $req->fetch(PDO::FETCH_OBJ);
-	print_r($result);
+	
 	$req->closeCursor();
 	return $result;
 }
