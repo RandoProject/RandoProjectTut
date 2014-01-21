@@ -25,7 +25,21 @@ function affichage_title($title){
 		$requete->closeCursor();
 		return $res;
 	}
+}
 
+function affichage_photo($title){
+	global $bdd;
+	
+	$requete = $bdd->prepare("SELECT titre, photo.nom AS nom_photo , galerie.nom AS nom_galerie
+							FROM rando, photo, galerie
+							WHERE rando.photo_principale = photo.numero
+							AND photo.galerie = galerie.numero
+							AND titre = :title
+							ORDER BY date_insertion DESC");
+	$requete->execute(array('title' => $title)) or die(print_r($erreur -> errorInfo()));
+	$res = $requete->fetchAll();
+	$requete->closeCursor();
+	return $res;
 }
 
 function select_regions($select){

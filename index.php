@@ -25,10 +25,10 @@ else{
 		break;
 
 		case 'connexion':
-			include_once('Controller/');
+			include_once('Controller/c_connexion.php');
 		break;
 
-		case 'nscription':
+		case 'inscription':
 			include_once('Controller/');
 		break;
 

@@ -19,8 +19,8 @@
                 <section>
                     <form method="post" action="index.php?page=recherche">
                 <div id="titre">
-                    <label for="title"> Titre </label>
-                            <input type="texte" name="title" id="title" value=" Ex: Randonnée à Conques" onfocus="if (this.value==' Ex: Randonnée à Conques') this.value=''"/>
+                    <label for="title"> Recherche </label>
+                            <input type="texte" name="title" id="title" value=" Saisir des mots clés" onfocus="if (this.value==' Saisir des mots clés') this.value=''"/>
                             <input type="submit" value="rechercher" name="envoie_titre"/><br/><br/><br/>
                 </div>
                     <label for="s_region"> Région </label>
@@ -118,10 +118,11 @@
                         
                         if(isset($_POST['envoie_titre']))
                         {
-                            if(isset($affichage_titre_rando) and !empty($affichage_titre_rando))
+                            if(isset($affichage_titre_rando, $photo_rando) and !empty($affichage_titre_rando))
                             {
                                 foreach($affichage_titre_rando as $rando)
                                 {
+                                		echo '<img src="Resources/Galerie/'. $photo_rando['nom_galerie'] .'/'. $photo_rando['nom_photo'] .'" width="100px" height="50px;"/>';
                                         echo '<strong> Titre : </strong>'.$rando['titre'].'<br/>';
                                         echo '<strong> Longueur : </strong>'.$rando['longueur'].'<br/>';
                                         echo '<strong> Durée : </strong>'.$rando['durée'].'<br/>';
