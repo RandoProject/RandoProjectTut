@@ -4,11 +4,28 @@
 function affichage_title($title){
 	global $bdd;
 
-	$requete = $bdd->prepare("SELECT * FROM rando WHERE LOWER(titre)= :title");
-	$requete->execute(array('title' => strtolower($title))) or die(print_r($erreur -> errorInfo()));
-	$res = $requete->fetchAll();
-	$requete->closeCursor();
-	return $res;
+	$req = htmlspecialchars($title);
+
+	$mots = explode(" ", $req);
+
+
+	if(count($mots) > 0){
+		$reqStr = "SELECT * FROM rando WHERE ";
+		for($i = 0; $i < count($mots); $i++){
+			$reqStr .= "titre LIKE '%".$mots[$i]."%'";
+			if( $i < count( $mots ) - 1 ){
+				$reqStr .= " OR ";
+			}
+		}
+
+		$reqStr .= " ORDER BY longueur ASC";
+
+		$requete= $bdd->query($reqStr) or die(print_r($erreur -> errorInfo()));
+		$res = $requete->fetchAll();
+		$requete->closeCursor();
+		return $res;
+	}
+
 }
 
 function select_regions($select){
@@ -78,6 +95,7 @@ function affichage_f_rando_complet($region, $typeRegion, $MAX_distance, $MIN_dis
 	if(!empty($reqArray)){
 		$reqStr .= " WHERE ".implode(' AND ', $reqArray);
 	}
+		$reqStr .= " ORDER BY longueur ASC";
 
 
 	$req = $bdd->prepare($reqStr);

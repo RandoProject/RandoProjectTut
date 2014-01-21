@@ -164,3 +164,42 @@ footer{
 	border-top-left-radius: 2px;
 	border-top-right-radius: 2px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+			/* Formulaire de recherche + affichage randonnée */
+label{
+	display: inline-block;
+	width: auto;
+	float: left;
+	margin-right: 10px;
+}
+select, input{
+	display: block;
+	float: left;
+	margin-right: 25px;
+}
+form{
+	display: block;
+	margin-left: 17%;
+}
+#titre{
+	display: block;
+	margin-left: 27%;
+	margin-top: 3%;
+}
+#difficulty, #water{
+	width: 100px;
+}
+#title{
+	width: 200px;
+}

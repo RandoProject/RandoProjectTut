@@ -3,13 +3,13 @@
 include_once('bin/params.php');
 include_once('Models/m_gestion_recherche.php');
 			
-
-if(isset($_POST['title']) and $_POST['title'] != "")
+/*Recherche par mot clé*/
+if(isset($_POST['title']))
 {
 		$affichage_titre_rando = affichage_title($_POST['title']);
 }
 
-
+/*Recherche via le formulaire*/
 if(isset($_POST['s_region'], $_POST['distance'], $_POST['time'], $_POST['difficulty'], $_POST['water']))
 {
 	$distance = $_POST['distance'];
@@ -121,6 +121,7 @@ $affichage_rando_complet = affichage_f_rando_complet($_POST['s_region'], $typeRe
 
 }
 
+/*Affichage des régions*/
 $listeRegion = select_regions('num_region, nom');
 
 

@@ -155,7 +155,10 @@ CREATE TABLE IF NOT EXISTS `galerie` (
 PRIMARY KEY (`numero`)
 );
 
-INSERT INTO `galerie` VALUES ('0',	'galerie par défaut');
+INSERT INTO `galerie` VALUES ('0',	'défaut');
+INSERT INTO `galerie` VALUES ('1',	'a');
+INSERT INTO `galerie` VALUES ('2',	'b');
+INSERT INTO `galerie` VALUES ('3',	'c');
 
 -- ____________________ PHOTO ____________________ --
 CREATE TABLE IF NOT EXISTS `photo` (
@@ -168,6 +171,9 @@ FOREIGN KEY (`galerie`) REFERENCES `galerie`(`numero`)
 );
 
 INSERT INTO `photo` VALUES ('0', 'défaut.png', '0', '');
+INSERT INTO `photo` VALUES ('1', 'PR1.jpg', '1', '');
+INSERT INTO `photo` VALUES ('2', 'PR11.jpg', '2', '');
+INSERT INTO `photo` VALUES ('3', 'saut-mounine-pr19.jpg', '3', '');
 
 -- ____________________ MEMBRE ____________________ --
 CREATE TABLE IF NOT EXISTS `membre` (
@@ -248,9 +254,9 @@ VALUES ('Randonnée à Thérondels',
 	'1',
 	'a.gpx',
 	'16',
-	'therondels.jpg',
+	'1',
 	'Pat',
-	'');
+	'1');
 INSERT INTO `rando` (`titre`, `parcour`, `longueur`, `durée`, `difficulté`, `descriptif`, `note`,`point_eau`, `denivelé`, `equipement`,`date_insertion`,`validé`, `parcours`, `région`, `photo_principale`, `auteur`, `galerie`)
 VALUES ('Randonnée à Conques', 
 	'',
@@ -266,9 +272,9 @@ VALUES ('Randonnée à Conques',
 	'1',
 	'b.gpx',
 	'16',
-	'conques.jpg',
+	'2',
 	'Pat',
-	'');
+	'2');
 INSERT INTO `rando` (`titre`, `parcour`, `longueur`, `durée`, `difficulté`, `descriptif`, `note`,`point_eau`, `denivelé`, `equipement`,`date_insertion`,`validé`, `parcours`, `région`, `photo_principale`, `auteur`, `galerie`)
 VALUES ('Randonnée à La Capelle-Balaguier', 
 	'',
@@ -284,9 +290,9 @@ VALUES ('Randonnée à La Capelle-Balaguier',
 	'1',
 	'c.gpx',
 	'16',
-	'capelle-balaguier.jpg',
+	'3',
 	'Pat',
-	'');
+	'3');
 
 -- ____________________ LOCALISER ____________________ --
 CREATE TABLE IF NOT EXISTS `localiser` (
