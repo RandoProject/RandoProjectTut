@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 include_once("View/header.php");
 include_once("View/menu.php");
 include_once("View/footer.php"); 
@@ -25,7 +25,7 @@ else{
 		break;
 
 		case 'connexion':
-			include_once('Controller/');
+			include_once('Controller/c_connexion.php');
 		break;
 
 		case 'inscription':
