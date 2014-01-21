@@ -29,7 +29,7 @@ else{
 			include_once('Controller/');
 		break;
 
-		case 'nscription':
+		case 'inscription':
 			include_once('Controller/');
 		break;
 
