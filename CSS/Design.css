@@ -164,3 +164,21 @@ footer{
 	border-top-left-radius: 2px;
 	border-top-right-radius: 2px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+			/*Formulaire de recherche + affichage randonnée*/
+label{
+	display: block;
+	width: 100px;
+	float: left;
+}

@@ -19,21 +19,21 @@
 
 					<section>
 		                <form method="post" action="index.php?page=recherche">
-		                <label for="title"> Titre </label><br/>
+		                <label for="title"> Titre </label>
 								<input type="texte" name="title" id="title" value=" Ex: Randonnée à Conques" onfocus="if (this.value==' Ex: Randonnée à Conques') this.value=''"/>
-								<input type="submit" value="rechercher" name="envoie_titre"/><br/><br/>
+								<input type="submit" value="rechercher" name="envoie_titre"/><br/><br/><br/>
 
-		                <label for="s_region"> Région </label><br/>
+		                <label for="s_region"> Région </label>
 		                	<?php
 		                		echo'<select id="s_region" name="s_region">';
 		                			echo'<option value="not_clarify"> Non précisé </option>';
 		                			foreach ($listeRegion as $l_region) {
 		                				echo'<option value="'.$l_region['num_region'].'">'.$l_region['nom'].'</option>';
 		                			}
-		                		echo'</select>';
-		                	?><br/>
+		                		echo'</select><br/><br/>';
+		                	?>
 
-							<label for="distance"> Longueur</label><br/>
+							<label for="distance"> Longueur</label>
 								<select id="distance" name="distance">
 									<option value="non_precise" selected="selected">Non précisé</option>
 										<?php
@@ -49,9 +49,9 @@
 												echo'<option value="40">De 40 à 50Km';
 												echo'<option value="50">Plus de 50Km';
 										?>
-								</select><br/>
+								</select><br/><br/>
 
-							<label for="time"> Durée </label><br/>
+							<label for="time"> Durée </label>
 								<select id="time" name="time">
 									<option value="time_non_precise" selected="selected">Non précisé</option>
 										<?php
@@ -71,9 +71,9 @@
 												echo'<option value="96:00:00"> Plus de 4 jours </option>';
 
 										?>
-								</select><br/>
+								</select><br/><br/>
 
-							<label for="difficulty"> Difficulté </label><br/>
+							<label for="difficulty"> Difficulté </label>
 								<select id="difficulty" name="difficulty">
 									<option value="difficulte_non_precise" selected="selected">Non précisé</option>
 									<?php
@@ -85,13 +85,13 @@
 													$n=$n+1;
 												}
 									?>
-								</select><br/>
+								</select><br/><br/>
 
-							<label for="water"> Point d'eau </label><br/>
+							<label for="water"> Point d'eau </label>
 								<select id="water" name="water">
 									<option value="0" selected="selected">Indifférent</option>
 									<option value="1"> Oui </option>
-								</select><br/>
+								</select><br/><br/>
 							<input type="submit" value="Rechercher" name="envoie_formulaire"/>
 						</form>
 		            

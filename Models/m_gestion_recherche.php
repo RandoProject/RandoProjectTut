@@ -4,11 +4,32 @@
 function affichage_title($title){
 	global $bdd;
 
+	$req = htmlspecialchars($title);
+
+	$mots = explode(" ", $req);
+
+
+	if(count($mots) > 0){
+		$reqStr = "SELECT * FROM rando WHERE ";
+		for($i = 0; $i < count($mots); $i++){
+			$reqStr .= "titre LIKE '%".$mots[$i]."%'";
+			if( $i < count( $mots ) - 1 ){
+				$reqStr .= " OR ";
+			}
+		}
+		
+		$requete= $bdd->query($reqStr) or die(print_r($erreur -> errorInfo()));
+		$res = $requete->fetchAll();
+		$requete->closeCursor();
+		return $res;
+	}
+/*
 	$requete = $bdd->prepare("SELECT * FROM rando WHERE LOWER(titre)= :title");
 	$requete->execute(array('title' => strtolower($title))) or die(print_r($erreur -> errorInfo()));
 	$res = $requete->fetchAll();
 	$requete->closeCursor();
 	return $res;
+*/
 }
 
 function select_regions($select){

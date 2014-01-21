@@ -4,7 +4,7 @@ include_once('bin/params.php');
 include_once('Models/m_gestion_recherche.php');
 			
 
-if(isset($_POST['title']) and $_POST['title'] != "")
+if(isset($_POST['title']))
 {
 		$affichage_titre_rando = affichage_title($_POST['title']);
 }
