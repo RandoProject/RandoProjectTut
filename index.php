@@ -1,7 +1,6 @@
 <?php
 include_once("View/header.php");
 include_once("View/menu.php");
-include_once("View/activitees_recentes.php");
 include_once("View/footer.php"); 
 
 if(!isset($_GET['page']) or $_GET['page'] == 'accueil'){
