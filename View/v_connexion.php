@@ -1,15 +1,12 @@
-ï»¿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 
 	<?php 
 		head("Connexion"); 
 	?>
 	
-
 	<body>
-			<?php 
-				menu(); 
-			?>
+			<?php menu(); ?>
 			
 			<div id="corps">
 				<?php
@@ -18,7 +15,7 @@
 
                 <section>
                     <?php if(isset($_SESSION['statut'])){
-                            echo '<p>Vous Ãªtes dÃ©jÃ  connectÃ©.</p>';
+                            echo '<p>Vous êtes déjà connecté.</p>';
                     }
                     else{ ?>
                     <h2>Connectez vous</h2>
@@ -33,15 +30,12 @@
                         <?php if(isset($error['pass'])) echo '<p class="error">'.$error['pass'].'</p>'; ?><br><br>
 
                         <input type="submit" value="connexion">
-
                     </form>
-                    <?php }?>
+                    <?php } ?>
                 </section>
 	        </div>
 
-			<?php 
-				footer(); 
-			?>
+			<?php footer(); ?>
 	</body>
 </html>
 

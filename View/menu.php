@@ -1,4 +1,5 @@
 <?php
+
 function menu(){
 	echo '	<nav>
 				<ul id="menu">
@@ -20,6 +21,4 @@ function menu(){
 	echo '		</ul>
 			</nav>
 	';
-	
 }
-?>
