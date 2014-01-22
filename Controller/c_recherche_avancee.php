@@ -3,15 +3,13 @@
 include_once('bin/params.php');
 include_once('Models/m_gestion_recherche.php');
 			
-/*Recherche par mot clé*/
-if(isset($_POST['title']))
-{
+/* Recherche par mot clé */
+if(isset($_POST['title'])){
 		$affichage_titre_rando = affichage_title($_POST['title']);
 }
 
-/*Recherche via le formulaire*/
-if(isset($_POST['s_region'], $_POST['distance'], $_POST['time'], $_POST['difficulty'], $_POST['water']))
-{
+/* Recherche via le formulaire */
+if(isset($_POST['s_region'], $_POST['distance'], $_POST['time'], $_POST['difficulty'], $_POST['water'])){
 	$distance = $_POST['distance'];
 	$possibleDistances = array('0', '5', '10', '15', '20', '25', '30', '40', '50');
 	$time = $_POST['time'];
@@ -33,11 +31,11 @@ if(isset($_POST['s_region'], $_POST['distance'], $_POST['time'], $_POST['difficu
 		$MAX_distance = intval($distance) + 10;
 		$MIN_distance = intval($distance);
 	}
-	else if($distance == 'non_precise'){	/*Si la distance n'est pas sélectionné*/
+	else if($distance == 'non_precise'){ /* Si la distance n'est pas sélectionné */
 		$MAX_distance = -1;
 		$MIN_distance = -1;
 	}
-	else if($distance == '50'){	/*Si la distance sélectionné est supérieur ou égal à 50KM*/
+	else if($distance == '50'){	/* Si la distance sélectionnée est supérieur ou égal à 50KM */
 		$MAX_distance = 1;
 		$MIN_distance = intval($distance);
 	}
@@ -46,7 +44,6 @@ if(isset($_POST['s_region'], $_POST['distance'], $_POST['time'], $_POST['difficu
 		$MIN_distance = false;
 		// erreur
 	}
-
 
 	switch($time){
 
@@ -97,32 +94,24 @@ if(isset($_POST['s_region'], $_POST['distance'], $_POST['time'], $_POST['difficu
 				break;
 	}
 
-
-	if (in_array($difficulty,array('1', '2', '3', '4', '5')))
-	{
+	if (in_array($difficulty,array('1', '2', '3', '4', '5'))){
 		$difficulty= intval($difficulty);
 	}
-	else
-	{
+	else{
 		$difficulty = 'non_precise';
 	}
 
-	
-	if($water == "0" || $water== "1")
-	{
+	if($water == "0" || $water== "1"){
 		$water = intval($water);
 	}
-	else
-	{
+	else{
 		$water = false;
 	}
 
-$affichage_rando_complet = affichage_f_rando_complet($_POST['s_region'], $typeRegion, $MAX_distance, $MIN_distance, $MAX_time, $MIN_time, $difficulty, $water);
-
+	$affichage_rando_complet = affichage_f_rando_complet($_POST['s_region'], $typeRegion, $MAX_distance, $MIN_distance, $MAX_time, $MIN_time, $difficulty, $water);
 }
 
-/*Affichage des régions*/
+/* Affichage des régions */
 $listeRegion = select_regions('num_region, nom');
-
 
 include_once('View/v_recherche_avancee.php');
