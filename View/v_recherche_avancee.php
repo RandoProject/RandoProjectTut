@@ -110,9 +110,9 @@
 												echo '<strong> Titre : </strong>'.$rando['titre'].'<br/>';
 		                                        echo '<img src="Resources/Galerie/'. $rando['nom_galerie'] .'/'. $rando['nom_photo'] .'" width="100px" height="50px;"/><br/>';
 												echo '<strong> Longueur : </strong>'.$rando['longueur'].'<br/>';
-		                                        echo '<strong> Durée : </strong>'.$rando['durée'].'<br/>';
+		                                        echo '<strong> Durée : </strong>'.$rando['duree'].'<br/>';
 		                                        echo '<strong> Point d\' eau : </strong>'.$rando['point_eau'].'<br/>';
-		                                        echo '<strong> Difficulté : </strong>'.$rando['difficulté'].'<br/>';
+		                                        echo '<strong> Difficulté : </strong>'.$rando['difficulte'].'<br/>';
 		                                }
 		                            }
 		                            else
@@ -130,9 +130,9 @@
 		                                        echo '<strong> Titre : </strong>'.$rando['titre'].'<br/>';
 		                                        echo '<img src="Resources/Galerie/'. $rando['nom_galerie'] .'/'. $rando['nom_photo'] .'" width="100px" height="50px;"/><br/>';
 		                                        echo '<strong> Longueur : </strong>'.$rando['longueur'].'<br/>';
-		                                        echo '<strong> Durée : </strong>'.$rando['durée'].'<br/>';
+		                                        echo '<strong> Durée : </strong>'.$rando['duree'].'<br/>';
 		                                        echo '<strong> Point d\' eau : </strong>'.$rando['point_eau'].'<br/>';
-		                                        echo '<strong> Difficulté : </strong>'.$rando['difficulté'].'<br/>';
+		                                        echo '<strong> Difficulté : </strong>'.$rando['difficulte'].'<br/>';
 		                                }
 		                            }
 		                            else

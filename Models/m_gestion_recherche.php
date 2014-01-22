@@ -63,7 +63,7 @@ function affichage_f_rando_complet($region, $typeRegion, $MAX_distance, $MIN_dis
 	$reqArray = array();
 
 	if($typeRegion == 's_region_true'){
-		array_push($reqArray, "région = :region ");
+		array_push($reqArray, "region = :region ");
 		$reqValues['region'] = $region;
 	}
 
@@ -81,21 +81,21 @@ function affichage_f_rando_complet($region, $typeRegion, $MAX_distance, $MIN_dis
 
 	if($MAX_time !== false){
 		if($MAX_time == 'inferieur_1h'){
-		 		array_push($reqArray, "durée <= '01:00:00' ");
+		 		array_push($reqArray, "duree <= '01:00:00' ");
 		}
 		else if($MAX_time == 'vide_10' || $MAX_time == 'vide_24' || $MAX_time == 'vide_96'){
-	 		array_push($reqArray, "durée <= :time"); 
+	 		array_push($reqArray, "duree <= :time"); 
 	 		$reqValues['time'] = $MIN_time;
 		}
 		else{
-			array_push($reqArray, "durée >= :timeMin", "durée <= :timeMax");
+			array_push($reqArray, "duree >= :timeMin", "duree <= :timeMax");
 			$reqValues['timeMin'] = $MIN_time;
 			$reqValues['timeMax'] = $MAX_time;
 		}
 	}
 
 	if($difficulty == 1 || $difficulty == 2 || $difficulty == 3 || $difficulty == 4 || $difficulty == 5){
-		array_push($reqArray, "difficulté = :difficulty");
+		array_push($reqArray, "difficulte = :difficulty");
 		$reqValues['difficulty'] = $difficulty;
 	}
 

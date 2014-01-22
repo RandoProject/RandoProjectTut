@@ -216,22 +216,22 @@ CREATE TABLE IF NOT EXISTS `rando` (
 `titre` varchar(150) NOT NULL,
 `parcour` point DEFAULT NULL,
 `longueur` float unsigned NOT NULL,
-`durée` time NOT NULL,
-`difficulté` int(1) NOT NULL,
+`duree` time NOT NULL,
+`difficulte` int(1) NOT NULL,
 `descriptif` text NOT NULL,
 `note` int(1) DEFAULT NULL,
 `point_eau` tinyint(1) DEFAULT NULL,
-`denivelé` int(4) DEFAULT NULL,
+`denivele` int(4) DEFAULT NULL,
 `equipement` varchar(150) DEFAULT NULL,
 `date_insertion` datetime NOT NULL,
-`validé` tinyint(1) NOT NULL,
+`valide` tinyint(1) NOT NULL,
 `parcours` blob NOT NULL,
-`région` varchar(2) NOT NULL,
+`region` varchar(2) NOT NULL,
 `photo_principale` int(10) NOT NULL,
 `auteur` varchar(30) NOT NULL,
 `galerie` int(10) DEFAULT NULL,
 PRIMARY KEY (`code`),
-FOREIGN KEY (`région`) REFERENCES `regions`(`num_region`),
+FOREIGN KEY (`region`) REFERENCES `regions`(`num_region`),
 FOREIGN KEY (`photo_principale`) REFERENCES `photo`(`numero`),
 FOREIGN KEY (`auteur`) REFERENCES `membre`(`pseudo`),
 FOREIGN KEY (`galerie`) REFERENCES `galerie`(`numero`),
@@ -239,7 +239,7 @@ CHECK (difficulté BETWEEN 0 and 5),
 CHECK (note BETWEEN 0 and 5)
 );
 
-INSERT INTO `rando` (`titre`, `parcour`, `longueur`, `durée`, `difficulté`, `descriptif`, `note`,`point_eau`, `denivelé`, `equipement`,`date_insertion`,`validé`, `parcours`, `région`, `photo_principale`, `auteur`, `galerie`)
+INSERT INTO `rando` (`titre`, `parcour`, `longueur`, `duree`, `difficulte`, `descriptif`, `note`,`point_eau`, `denivele`, `equipement`,`date_insertion`,`valide`, `parcours`, `region`, `photo_principale`, `auteur`, `galerie`)
 VALUES ('Randonnée à Thérondels', 
 	'',
 	'15,5',
@@ -257,7 +257,7 @@ VALUES ('Randonnée à Thérondels',
 	'1',
 	'Pat',
 	'1');
-INSERT INTO `rando` (`titre`, `parcour`, `longueur`, `durée`, `difficulté`, `descriptif`, `note`,`point_eau`, `denivelé`, `equipement`,`date_insertion`,`validé`, `parcours`, `région`, `photo_principale`, `auteur`, `galerie`)
+INSERT INTO `rando` (`titre`, `parcour`, `longueur`, `duree`, `difficulte`, `descriptif`, `note`,`point_eau`, `denivele`, `equipement`,`date_insertion`,`valide`, `parcours`, `region`, `photo_principale`, `auteur`, `galerie`)
 VALUES ('Randonnée à Conques', 
 	'',
 	'7',
@@ -275,7 +275,7 @@ VALUES ('Randonnée à Conques',
 	'2',
 	'Pat',
 	'2');
-INSERT INTO `rando` (`titre`, `parcour`, `longueur`, `durée`, `difficulté`, `descriptif`, `note`,`point_eau`, `denivelé`, `equipement`,`date_insertion`,`validé`, `parcours`, `région`, `photo_principale`, `auteur`, `galerie`)
+INSERT INTO `rando` (`titre`, `parcour`, `longueur`, `duree`, `difficulte`, `descriptif`, `note`,`point_eau`, `denivele`, `equipement`,`date_insertion`,`valide`, `parcours`, `region`, `photo_principale`, `auteur`, `galerie`)
 VALUES ('Randonnée à La Capelle-Balaguier', 
 	'',
 	'15',
