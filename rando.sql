@@ -207,7 +207,7 @@ INSERT INTO `membre` VALUES ('Pat',
 				'',
 				'florian.paturaux@univ-lyon1.fr',
 				'',
-				'',		
+				'',
 				'');
 
 -- ____________________ RANDO ____________________ --

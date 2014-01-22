@@ -20,7 +20,7 @@
                     <form method="post" action="index.php?page=recherche">
                 <div id="titre">
                     <label for="title"> Recherche </label>
-                            <input type="texte" name="title" id="title" value=" Saisir des mots clés" onfocus="if (this.value==' Saisir des mots clés') this.value=''"/>
+                            <input type="texte" name="title" id="title" placeholder=" Saisir des mots clés" onfocus="if (this.value==' Saisir des mots clés') this.value=''"/>
                             <input type="submit" value="rechercher" name="envoie_titre"/><br/><br/><br/>
                 </div>
                     <label for="s_region"> Région </label>

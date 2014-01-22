@@ -5,19 +5,39 @@ function affichage_title($title){
 	global $bdd;
 
 	$req = htmlspecialchars($title);
-
-	$mots = explode(" ", $req);
-
-
+	$mots = explode(' ', $req);
+	
 	if(count($mots) > 0){
-		$reqStr = "SELECT rando.*, photo.nom AS nom_photo, galerie.nom AS nom_galerie FROM rando, photo, galerie WHERE rando.photo_principale = photo.numero AND photo.galerie = galerie.numero AND ";
-		for($i = 0; $i < count($mots); $i++){
-			$reqStr .= "titre LIKE '%".$mots[$i]."%'";
-			if( $i < count( $mots ) - 1 ){
-				$reqStr .= " OR ";
+		$reqStr = "	SELECT rando.*, photo.nom AS nom_photo, galerie.nom AS nom_galerie 
+					FROM rando, photo, galerie 
+					WHERE rando.photo_principale = photo.numero 
+					AND photo.galerie = galerie.numero";
+		$i = 0;
+		$parenthese = 0;
+		while($i < count($mots)){ // Ajoute AND si il y a un mot non vide dans le tableau
+			if($mots[$i] !== ''){
+				$reqStr .= " AND (";
+				$parenthese = 1;
+				break;
+			}
+			$i++;
+		}
+		for($i = 0; $i < count($mots); $i++){ // Ajoute les conditions si le tableau n'est pas vide
+			if($mots[$i] !== ''){ // Ajoute les conditions si le mot n'est pas vide
+				$reqStr .= "titre LIKE '%$mots[$i]%'";
+				$j = $i+1;
+				while($j < count($mots)){ // Ajoute OR si il y a un autre mot non vide dans le tableau
+					if($mots[$j] !== ''){
+						$reqStr .= " OR ";
+						break;
+					}
+					$j++;
+				}
 			}
 		}
-
+		if($parenthese === 1){
+			$reqStr .= ")";
+		}
 		$reqStr .= " ORDER BY longueur ASC";
 
 		$requete= $bdd->query($reqStr) or die(print_r($erreur -> errorInfo()));
