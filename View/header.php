@@ -10,7 +10,7 @@
 const NAME_SITE = 'RandoPassion';
 const CSS_BASE = 'Design.css';
 
-function head($titlePage, $listInc){
+function head($titlePage, $listInc = array()){
 	echo '<head>';
 	echo '<title>'.NAME_SITE.' - '.$titlePage.'</title>';
 	echo '<meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1"/>';
