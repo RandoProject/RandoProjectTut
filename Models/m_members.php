@@ -1,5 +1,6 @@
-ï»¿<?php
-/* Les fonctions de ce fichier concernent les opÃ©ration sur les membres dans la base de donnÃ©e*/
+<?php
+
+/* Les fonctions de ce fichier concernent les opération sur les membres dans la base de donnée */
 
 function get_member($pseudo, $pass = false){
 	global $bdd;

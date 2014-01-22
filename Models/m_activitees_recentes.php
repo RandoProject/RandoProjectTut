@@ -2,7 +2,6 @@
 
 function dernieres_rando($nombre){
 	global $bdd;
-	
 	$requete = $bdd->query("SELECT titre, photo.nom AS nom_photo , galerie.nom AS nom_galerie
 							FROM rando, photo, galerie
 							WHERE rando.photo_principale = photo.numero

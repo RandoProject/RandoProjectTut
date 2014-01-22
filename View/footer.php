@@ -1,4 +1,5 @@
 <?php
+
 function footer(){
 	echo '	<footer>
 				<p>
@@ -7,4 +8,3 @@ function footer(){
 			</footer>
 	';
 }
-?>

@@ -1,6 +1,5 @@
 <?php
 
-
 function affichage_title($title){
 	global $bdd;
 
@@ -47,6 +46,7 @@ function affichage_title($title){
 	}
 }
 
+
 function select_regions($select){
 	global $bdd;
 	$requete = $bdd->query("SELECT $select FROM regions ORDER BY nom ASC");
@@ -56,11 +56,8 @@ function select_regions($select){
 }
 
 
-
 function affichage_f_rando_complet($region, $typeRegion, $MAX_distance, $MIN_distance, $MAX_time, $MIN_time, $difficulty, $water){
 	global $bdd;
-
-
 
 	$reqValues = array();
 	$reqArray = array();
@@ -102,12 +99,10 @@ function affichage_f_rando_complet($region, $typeRegion, $MAX_distance, $MIN_dis
 		$reqValues['difficulty'] = $difficulty;
 	}
 
-
 	if($water != false){
 		array_push($reqArray, "point_eau = :water");
 		$reqValues['water'] = $water;
 	}
-
 
 	$reqStr = "	SELECT rando.*, photo.nom AS nom_photo, galerie.nom AS nom_galerie
 				FROM rando, photo, galerie
@@ -117,7 +112,7 @@ function affichage_f_rando_complet($region, $typeRegion, $MAX_distance, $MIN_dis
 	if(!empty($reqArray)){
 		$reqStr .= " AND ".implode(' AND ', $reqArray);
 	}
-		$reqStr .= " ORDER BY longueur ASC";
+	$reqStr .= " ORDER BY longueur ASC";
 
 	$req = $bdd->prepare($reqStr);
 	$req->execute($reqValues) or die(print_r($erreur -> errorInfo()));
