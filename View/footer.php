@@ -3,7 +3,7 @@
 function footer(){
 	echo '	<footer>
 				<p>
-					Qui est en ligne etc....
+					&copy; 2014 RandoPassion
 				</p>
 			</footer>
 	';
