@@ -237,11 +237,12 @@ section form div#recherche_criteres input[type="submit"]{
 
 			/* Footer */
 footer{
+	padding-top: 10px;
+	padding-bottom: 5px;
 	margin-left: auto;
 	margin-right: auto;
 	margin-top: 25px;
 	width: 98%;
-	height: 50px;
 	text-align: center;
 	background-color: #E5E5E5;
 	box-shadow:	0px 0px 10px 0px rgba(0, 0, 0, 0.7);
