@@ -125,7 +125,7 @@
                             }
                         }
                         
-                        if(isset($_POST['envoie_titre'])) {
+                        if(isset($_POST['envoie_titre'])){
                             if(isset($affichage_titre_rando) and !empty($affichage_titre_rando)){
                                 foreach($affichage_titre_rando as $rando){
                                     echo '<strong> Titre : </strong>'.$rando['titre'].'<br/>';
