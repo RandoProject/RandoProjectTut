@@ -145,6 +145,6 @@
             </section>
         </div>
     
-        <?php footer(); ?>
+        <?php include_once('Controller/c_footer.php'); ?>
 	</body>
 </html>

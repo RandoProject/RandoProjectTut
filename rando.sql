@@ -7,18 +7,19 @@ create database `site_rando`;
 USE site_rando;
 DROP TABLE IF EXISTS `regions`;
 DROP TABLE IF EXISTS `departements`;
-DROP TABLE IF EXISTS `localiser`;
-DROP TABLE IF EXISTS `membre`;
-DROP TABLE IF EXISTS `rando`;
-DROP TABLE IF EXISTS `commentaire`;
 DROP TABLE IF EXISTS `galerie`;
 DROP TABLE IF EXISTS `photo`;
+DROP TABLE IF EXISTS `membre`;
+DROP TABLE IF EXISTS `rando`;
+DROP TABLE IF EXISTS `localiser`;
+DROP TABLE IF EXISTS `commentaire`;
+DROP TABLE IF EXISTS `connectes`;
 
 -- ____________________ REGION ____________________ --
 CREATE TABLE IF NOT EXISTS `regions` (
-`num_region` varchar(2) NOT NULL,
-`nom` varchar(255) NOT NULL,
-PRIMARY KEY  (`num_region`)
+	`num_region` varchar(2) NOT NULL,
+	`nom` varchar(255) NOT NULL,
+	PRIMARY KEY  (`num_region`)
 );
 INSERT INTO `regions` VALUES ('1', 'Alsace');
 INSERT INTO `regions` VALUES ('2', 'Aquitaine');
@@ -45,11 +46,11 @@ INSERT INTO `regions` VALUES ('22', 'Rhone Alpes');
 
 -- ____________________ DEPARTEMENT ____________________ --
 CREATE TABLE IF NOT EXISTS `departements` (
-`num_departement` varchar(2) NOT NULL,
-`num_region` varchar(2) NOT NULL,
-`nom` char(32) NOT NULL,
-PRIMARY KEY  (`num_departement`),
-FOREIGN KEY (`num_region`) REFERENCES `regions`(`num_region`)
+	`num_departement` varchar(2) NOT NULL,
+	`num_region` varchar(2) NOT NULL,
+	`nom` char(32) NOT NULL,
+	PRIMARY KEY  (`num_departement`),
+	FOREIGN KEY (`num_region`) REFERENCES `regions`(`num_region`)
 );
 INSERT INTO `departements` VALUES ('1', '22', 'Ain');
 INSERT INTO `departements` VALUES ('2', '19', 'Aisne');
@@ -150,9 +151,9 @@ INSERT INTO `departements` VALUES ('2b', '9', 'Haute Corse');
 
 -- ____________________ GALERIE ____________________ --
 CREATE TABLE IF NOT EXISTS `galerie` (
-`numero` int(10) NOT NULL AUTO_INCREMENT,
-`nom` varchar(100) NOT NULL,
-PRIMARY KEY (`numero`)
+	`numero` int(10) NOT NULL AUTO_INCREMENT,
+	`nom` varchar(100) NOT NULL,
+	PRIMARY KEY (`numero`)
 );
 
 INSERT INTO `galerie` VALUES ('0',	'défaut');
@@ -162,12 +163,12 @@ INSERT INTO `galerie` VALUES ('3',	'c');
 
 -- ____________________ PHOTO ____________________ --
 CREATE TABLE IF NOT EXISTS `photo` (
-`numero` int(10) NOT NULL AUTO_INCREMENT,
-`nom` blob NOT NULL,
-`galerie` int(10) NOT NULL,
-`descriptif` text DEFAULT NULL,
-PRIMARY KEY (`numero`),
-FOREIGN KEY (`galerie`) REFERENCES `galerie`(`numero`)
+	`numero` int(10) NOT NULL AUTO_INCREMENT,
+	`nom` blob NOT NULL,
+	`galerie` int(10) NOT NULL,
+	`descriptif` text DEFAULT NULL,
+	PRIMARY KEY (`numero`),
+	FOREIGN KEY (`galerie`) REFERENCES `galerie`(`numero`)
 );
 
 INSERT INTO `photo` VALUES ('0', 'défaut.png', '0', '');
@@ -177,23 +178,23 @@ INSERT INTO `photo` VALUES ('3', 'saut-mounine-pr19.jpg', '3', '');
 
 -- ____________________ MEMBRE ____________________ --
 CREATE TABLE IF NOT EXISTS `membre` (
-`pseudo` varchar(30) NOT NULL,
-`mdp` varchar(30) NOT NULL,
-`statut` varchar(20) NOT NULL,
-`nom` varchar(30) NOT NULL,
-`prénom` varchar(30) NOT NULL,
-`date_naiss` date DEFAULT NULL,
-`adresse` varchar(70) DEFAULT NULL,
-`ville` varchar(30) DEFAULT NULL,
-`code_postal` varchar(5) DEFAULT NULL, 
-`mail` varchar(70) NOT NULL,
-`description` text DEFAULT NULL,
-`galerie` int(10) DEFAULT NULL,
-`photo` int(10) DEFAULT NULL,
-PRIMARY KEY(`pseudo`),
-FOREIGN KEY (`galerie`) REFERENCES `galerie`(`numero`),
-FOREIGN KEY (`photo`) REFERENCES `photo`(`numero`),
-CONSTRAINT C_STATUT CHECK (statut = 'membre' OR statut = 'administrateur' OR statut = 'modérateur')
+	`pseudo` varchar(30) NOT NULL,
+	`mdp` varchar(30) NOT NULL,
+	`statut` varchar(20) NOT NULL,
+	`nom` varchar(30) NOT NULL,
+	`prénom` varchar(30) NOT NULL,
+	`date_naiss` date DEFAULT NULL,
+	`adresse` varchar(70) DEFAULT NULL,
+	`ville` varchar(30) DEFAULT NULL,
+	`code_postal` varchar(5) DEFAULT NULL, 
+	`mail` varchar(70) NOT NULL,
+	`description` text DEFAULT NULL,
+	`galerie` int(10) DEFAULT NULL,
+	`photo` int(10) DEFAULT NULL,
+	PRIMARY KEY(`pseudo`),
+	FOREIGN KEY (`galerie`) REFERENCES `galerie`(`numero`),
+	FOREIGN KEY (`photo`) REFERENCES `photo`(`numero`),
+	CONSTRAINT C_STATUT CHECK (statut = 'membre' OR statut = 'administrateur' OR statut = 'modérateur')
 );
 
 INSERT INTO `membre` VALUES ('Pat',
@@ -238,31 +239,31 @@ INSERT INTO `membre` VALUES ('Sylvio',
 
 -- ____________________ RANDO ____________________ --
 CREATE TABLE IF NOT EXISTS `rando` (
-`code` int(10) NOT NULL AUTO_INCREMENT,
-`titre` varchar(150) NOT NULL,
-`parcour` point DEFAULT NULL,
-`longueur` float unsigned NOT NULL,
-`duree` time NOT NULL,
-`difficulte` int(1) NOT NULL,
-`descriptif` text NOT NULL,
-`note` int(1) DEFAULT NULL,
-`point_eau` tinyint(1) DEFAULT NULL,
-`denivele` int(4) DEFAULT NULL,
-`equipement` varchar(150) DEFAULT NULL,
-`date_insertion` datetime NOT NULL,
-`valide` tinyint(1) NOT NULL,
-`parcours` blob NOT NULL,
-`region` varchar(2) NOT NULL,
-`photo_principale` int(10) NOT NULL,
-`auteur` varchar(30) NOT NULL,
-`galerie` int(10) DEFAULT NULL,
-PRIMARY KEY (`code`),
-FOREIGN KEY (`region`) REFERENCES `regions`(`num_region`),
-FOREIGN KEY (`photo_principale`) REFERENCES `photo`(`numero`),
-FOREIGN KEY (`auteur`) REFERENCES `membre`(`pseudo`),
-FOREIGN KEY (`galerie`) REFERENCES `galerie`(`numero`),
-CHECK (difficulté BETWEEN 0 and 5),
-CHECK (note BETWEEN 0 and 5)
+	`code` int(10) NOT NULL AUTO_INCREMENT,
+	`titre` varchar(150) NOT NULL,
+	`parcour` point DEFAULT NULL,
+	`longueur` float unsigned NOT NULL,
+	`duree` time NOT NULL,
+	`difficulte` int(1) NOT NULL,
+	`descriptif` text NOT NULL,
+	`note` int(1) DEFAULT NULL,
+	`point_eau` tinyint(1) DEFAULT NULL,
+	`denivele` int(4) DEFAULT NULL,
+	`equipement` varchar(150) DEFAULT NULL,
+	`date_insertion` datetime NOT NULL,
+	`valide` tinyint(1) NOT NULL,
+	`parcours` blob NOT NULL,
+	`region` varchar(2) NOT NULL,
+	`photo_principale` int(10) NOT NULL,
+	`auteur` varchar(30) NOT NULL,
+	`galerie` int(10) DEFAULT NULL,
+	PRIMARY KEY (`code`),
+	FOREIGN KEY (`region`) REFERENCES `regions`(`num_region`),
+	FOREIGN KEY (`photo_principale`) REFERENCES `photo`(`numero`),
+	FOREIGN KEY (`auteur`) REFERENCES `membre`(`pseudo`),
+	FOREIGN KEY (`galerie`) REFERENCES `galerie`(`numero`),
+	CHECK (difficulté BETWEEN 0 and 5),
+	CHECK (note BETWEEN 0 and 5)
 );
 
 INSERT INTO `rando` (`titre`, `parcour`, `longueur`, `duree`, `difficulte`, `descriptif`, `note`,`point_eau`, `denivele`, `equipement`,`date_insertion`,`valide`, `parcours`, `region`, `photo_principale`, `auteur`, `galerie`)
@@ -322,23 +323,30 @@ VALUES ('Randonnée à La Capelle-Balaguier',
 
 -- ____________________ LOCALISER ____________________ --
 CREATE TABLE IF NOT EXISTS `localiser` (
-`code_rando` int(10) NOT NULL,
-`num_dept` varchar(2) NOT NULL,
-PRIMARY KEY (`code_rando`,`num_dept`),
-FOREIGN KEY (`code_rando`) REFERENCES `rando`(`code`),
-FOREIGN KEY (`num_dept`) REFERENCES `departements`(`num_departement`)
+	`code_rando` int(10) NOT NULL,
+	`num_dept` varchar(2) NOT NULL,
+	PRIMARY KEY (`code_rando`,`num_dept`),
+	FOREIGN KEY (`code_rando`) REFERENCES `rando`(`code`),
+	FOREIGN KEY (`num_dept`) REFERENCES `departements`(`num_departement`)
 ); 
 
 -- ____________________ COMMENTAIRE ____________________ --
 CREATE TABLE IF NOT EXISTS `commentaire` (
-`numero` int(10) NOT NULL AUTO_INCREMENT,
-`date` datetime NOT NULL,
-`auteur` varchar(30) NOT NULL,
-`code_rando` int(10) NOT NULL,
-`commentaire` text NOT NULL,
-`note` int(1) DEFAULT NULL,
-PRIMARY KEY (`numero`),
-FOREIGN KEY (`code_rando`) REFERENCES `rando`(`code`),
-FOREIGN KEY (`auteur`) REFERENCES `membre`(`pseudo`),
-CHECK (note BETWEEN 0 and 5)
+	`numero` int(10) NOT NULL AUTO_INCREMENT,
+	`date` datetime NOT NULL,
+	`auteur` varchar(30) NOT NULL,
+	`code_rando` int(10) NOT NULL,
+	`commentaire` text NOT NULL,
+	`note` int(1) DEFAULT NULL,
+	PRIMARY KEY (`numero`),
+	FOREIGN KEY (`code_rando`) REFERENCES `rando`(`code`),
+	FOREIGN KEY (`auteur`) REFERENCES `membre`(`pseudo`),
+	CHECK (note BETWEEN 0 and 5)
+);
+
+-- ____________________ CONNECTES ____________________ --
+CREATE TABLE IF NOT EXISTS `connectes` (
+	`ip` varchar(15) NOT NULL,
+	`timestamp` int NOT NULL,
+	PRIMARY KEY (`ip`, `timestamp`)
 );

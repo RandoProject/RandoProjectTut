@@ -40,6 +40,6 @@
             <div id="map"><img style="width:100%; height:100%;" src="Resources/Images/map.png"></div>
         </div>
     
-        <?php footer(); ?>
+        <?php include_once('Controller/c_footer.php'); ?>
 	</body>
 </html>
