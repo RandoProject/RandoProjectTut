@@ -1,4 +1,5 @@
 <?php
+session_start();
 include_once("View/header.php");
 include_once("View/menu.php");
 
@@ -25,6 +26,11 @@ else{
 
 		case 'connexion':
 			include_once('Controller/c_connexion.php');
+		break;
+
+		case 'deconnexion':
+			session_destroy();
+			include_once('View/accueil.php');
 		break;
 
 		case 'inscription':
