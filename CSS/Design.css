@@ -29,7 +29,7 @@ nav{
 	text-align: center;
 	width: 100%;
 	min-width: 1000px;
-	height: 70px;
+	height: 60px;
 }
 nav ul{
 	display: inline-block;
@@ -48,16 +48,16 @@ nav ul li a{
 }
 
 nav ul#menu li a{
-	padding-top: 20px;
-	padding-bottom: 20px;
-	padding-left: 30px;
-	padding-right: 30px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	padding-left: 17px;
+	padding-right: 17px;
 	border-bottom-left-radius: 2px;
 	border-bottom-right-radius: 2px;
 }
 nav ul#menu li a:hover{
-	padding-bottom: 30px;
-	margin-bottom: -30px;
+	padding-bottom: 25px;
+	margin-bottom: -25px;
 	background-color: #F5F5F5;
 	color: #111111;
 	transition: 0.4s 0s;
@@ -67,7 +67,7 @@ nav ul#account{
 	display: block;
 	text-align: right;
 	margin-right: 1%;
-	margin-top: -40px;
+	margin-top: -38px;
 }
 nav ul#account li{
 	margin-right: -4px;

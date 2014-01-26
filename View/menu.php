@@ -10,16 +10,16 @@ function menu(){
 
 	if(isset($_SESSION['statut'])){
 		if($_SESSION['statut'] == 'administrateur'){
-			echo '<li><a href="#">Administration</a></li>';
+			echo '	<li><a href="#">Administration</a></li>';
 		}
 		else if($_SESSION['statut'] == 'moderateur'){
-			echo '<li><a href="#">Validation</a></li>';
+			echo '	<li><a href="#">Validation</a></li>';
 		}
 	}
 
-	echo '</ul>
+	echo '		</ul>
 				<ul id="account">';
-	//if(user non connecté){
+				
 	if(isset($_SESSION['statut'])){
 		echo '		<li><a class="profil" href="index.php?page=profil">Profil</a></li>
 					<li><a class="connexion" href="index.php?page=deconnexion">Déconnexion</a></li>';
