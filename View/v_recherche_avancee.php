@@ -9,7 +9,7 @@
         <div id="corps">
             <?php include_once('Controller/c_activitees_recentes.php'); ?>
     
-            <section>
+            <section id="rando">
                 <div id="titre_recherche_avancee">
                     <p>Recherche avancée</p>
                 </div>

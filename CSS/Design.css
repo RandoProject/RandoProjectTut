@@ -148,6 +148,7 @@ aside img{
 	box-shadow:	0px 0px 10px 0px rgba(0, 0, 0, 0.5);
 }
 
+
 			/* Section */
 section{
 	display: inline-block;
@@ -162,14 +163,15 @@ section{
 	overflow: hidden;
 }
 
+
 			/* Formulaire de recherche */
-section div#titre_recherche_avancee{
+section#rando div#titre_recherche_avancee{
 	width: 100%;
 	height: 50px;
 	background-color: #2E9AFE;
 	box-shadow:	0px 0px 10px 0px rgba(0, 0, 0, 0.7);
 }
-section div#titre_recherche_avancee p{
+section#rando div#titre_recherche_avancee p{
 	padding-top: 13px;
 	text-align: center;
 	color: #F5F6F7;
@@ -177,63 +179,108 @@ section div#titre_recherche_avancee p{
 	font-size: 1.3em;
 	text-shadow: 0px 1px 5px rgba(0, 0, 0, 0.7);
 }
-section form div{
+section#rando form div{
 	margin-top: 15px;
 	margin-bottom: 40px;
 	text-align: center;
 }
-section form div p{
+section#rando form div p{
 	font-weight: bold;
 	margin-bottom: 10px;
 }
-section form div input,
-section form div select{
+section#rando form div input,
+section#rando form div select{
 	padding-top: 5px;
 	padding-bottom: 5px;
 	padding-right: 10px;
 	padding-left: 10px;
 	border-radius: 2px;
 	border: solid 1px #CCC;
-	background-color: #F7F7F7;
+	background-color: #F5F5F5;
 }
-section form div input[type="submit"]{
+section#rando form div input[type="submit"]{
 	cursor: pointer;
 	font-weight: bold;
 	margin-left: 50px;
 }
-section form div input[type="submit"]:hover{
+section#rando form div input[type="submit"]:hover{
 	background-color: #2E9AFE;
 	color: #F5F6F7;
 	border: solid 1px #2E9AFE;
 }
-			/* Recherche par mots clés */
-section form div#recherche_mot_cle input[type="text"]{
+/* Recherche par mots clés */
+section#rando form div#recherche_mot_cle input[type="text"]{
 	width: 300px;
 }
-section form div#recherche_mot_cle input[type="text"]:hover,
-section form div#recherche_mot_cle input[type="text"]:focus{
+section#rando form div#recherche_mot_cle input[type="text"]:hover,
+section#rando form div#recherche_mot_cle input[type="text"]:focus{
 	background-color: #FFFFFF;
 }
-			/* Recherche par critères */
-section form div#recherche_criteres div.critere{
+/* Recherche par critères */
+section#rando form div#recherche_criteres div.critere{
 	display: inline-block;
 	margin-top: 0px;
 	margin-left: 1.3%;
 	margin-right: 1.3%;
 }
-section form div#recherche_criteres div.critere select{
+section#rando form div#recherche_criteres div.critere select{
 	cursor: pointer;
 }
-section form div#recherche_criteres div.critere select:hover,
-section form div#recherche_criteres div.critere select:focus{
+section#rando form div#recherche_criteres div.critere select:hover,
+section#rando form div#recherche_criteres div.critere select:focus{
 	background-color: #FFFFFF;
 }
-section form div#recherche_criteres div.critere select option:hover{
+section#rando form div#recherche_criteres div.critere select option:hover{
 	background-color: #2E9AFE;
 }
-section form div#recherche_criteres input[type="submit"]{
+section#rando form div#recherche_criteres input[type="submit"]{
 	margin-right: 50px;
 }
+
+
+			/* Connexion */
+section#connexion{
+	text-align: center;
+}
+section#connexion h1{
+	margin-top: 50px;
+	margin-bottom: 30px;
+	font-weight: bold;
+	font-size: 1.3em;
+}
+section#connexion p.error{
+	color: #F30;
+	font-style: italic;
+}
+section#connexion form input{
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-right: 10px;
+	padding-left: 10px;
+	border-radius: 2px;
+	border: solid 1px #CCC;
+	background-color: #F5F5F5;
+}
+section#connexion form input[type="text"],
+section#connexion form input[type="password"]{
+	width: 200px;
+}
+section#connexion form input[type="text"]:hover,
+section#connexion form input[type="text"]:focus,
+section#connexion form input[type="password"]:hover,
+section#connexion form input[type="password"]:focus{
+	background-color: #FFFFFF;
+}
+section#connexion form input[type="submit"]{
+	cursor: pointer;
+	font-weight: bold;
+}
+section#connexion form input[type="submit"]:hover{
+	background-color: #2E9AFE;
+	color: #F5F6F7;
+	border: solid 1px #2E9AFE;
+}
+
 
 			/* Footer */
 footer{
