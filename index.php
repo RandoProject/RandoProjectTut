@@ -10,35 +10,39 @@ else{
 	switch($_GET['page']){
 		case 'connexion':
 			include_once('Controller/c_connexion.php');
-		break;
+			break;
 
 		case 'recherche':
 			include_once('Controller/c_recherche_avancee.php');
-		break;
+			break;
 
 		case 'galerie':
 			include_once('Controller/');
-		break;
+			break;
 
 		case 'ajouter_rando':
 			include_once('Controller/');
-		break;
+			break;
 
 		case 'connexion':
 			include_once('Controller/c_connexion.php');
-		break;
+			break;
 
 		case 'deconnexion':
 			session_destroy();
 			include_once('View/accueil.php');
-		break;
+			break;
 
 		case 'inscription':
 			include_once('Controller/');
-		break;
+			break;
+
+		case 'profil':
+			include_once('Controller/c_profil.php');
+			break;
 
 		default:
 			include_once('View/error_page.php');
-		break;
+			break;
 	}
 }
