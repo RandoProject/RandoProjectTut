@@ -23,7 +23,10 @@ function get_member($pseudo, $pass = false){
 function get_photo($pseudo){
 	global $bdd;
 
-	$reqStr = 'SELECT photo.nom FROM photo WHERE numero = (SELECT membre.photo FROM membre WHERE pseudo = :pseudo)';
+	$reqStr = '	SELECT photo.nom AS photo, galerie.nom AS galerie 
+				FROM photo, galerie
+				WHERE photo.galerie = galerie.numero
+				AND photo.numero = (SELECT membre.photo FROM membre WHERE pseudo = :pseudo)';
 	$reqArray = array('pseudo' => $pseudo);
 
 	$req = $bdd->prepare($reqStr);
