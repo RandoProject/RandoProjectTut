@@ -1,5 +1,9 @@
 <?php
 
+if(!$_SESSION){
+	header('location:index.php?page=connexion');
+}
+
 include_once('bin/params.php');
 include_once('Models/m_members.php');
 
