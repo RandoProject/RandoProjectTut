@@ -30,7 +30,7 @@ else{
 
 		case 'deconnexion':
 			session_destroy();
-			include_once('View/accueil.php');
+			header('location:index.php');
 			break;
 
 		case 'inscription':
