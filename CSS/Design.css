@@ -282,6 +282,24 @@ section#connexion form input[type="submit"]:hover{
 }
 
 
+			/* Profil */
+section#profil div#pseudo{
+	margin-top: 50px;
+	margin-bottom: 20px;
+	text-align: center;
+	font-weight: bold;
+}
+section#profil table{
+	margin: auto;
+	vertical-align: top;
+	line-height: 150%;
+}
+section#profil table tr td img{
+	width: 128px;
+	height: 128px;
+}
+
+
 			/* Footer */
 footer{
 	padding-top: 10px;
