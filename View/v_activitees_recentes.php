@@ -8,4 +8,13 @@
         }
         ?>
     </center>
+    <br/>
+	<p>Dernièrs Commentaires</p>
+    <center>
+		<?php
+        foreach($liste_com as $com){
+			echo $com['commentaire'].'</br>';
+			echo '<em>'.$com['auteur'].'</em><br/>';
+        }
+        ?>
 </aside>			

@@ -197,45 +197,51 @@ CREATE TABLE IF NOT EXISTS `membre` (
 	CONSTRAINT C_STATUT CHECK (statut = 'membre' OR statut = 'administrateur' OR statut = 'modérateur')
 );
 
-INSERT INTO `membre` VALUES ('Pat',
-							'0000',
-							'administrateur',
-							'Paturaux',
-							'Florian',
-							'1993-09-28',
-							'60 rue du Solon',
-							'42410',
-							'Saint Michel sur Rhône',
-							'florian.paturaux@univ-lyon1.fr',
-							'',
-							'',
-							'');
-INSERT INTO `membre` VALUES ('Benoit',
-							'0000',
-							'administrateur',
-							'Rongeard',
-							'Benoit',
-							'1994-03-30',
-							'',
-							'',
-							'',
-							'benoit.rongeard@univ-lyon1.fr',
-							'',
-							'',
-							'');
-INSERT INTO `membre` VALUES ('Sylvio',
-							'0000',
-							'administrateur',
-							'Menubarbe',
-							'Sylvio',
-							'1994-01-11',
-							'',
-							'',
-							'',
-							'sylvio.menubarbe@univ-lyon1.fr',
-							'',
-							'',
-							'');
+INSERT INTO `membre` VALUES (
+	'Pat',
+	'0000',
+	'administrateur',
+	'Paturaux',
+	'Florian',
+	'1993-09-28',
+	'60 rue du Solon',
+	'42410',
+	'Saint Michel sur Rhône',
+	'florian.paturaux@univ-lyon1.fr',
+	'',
+	'',
+	''
+);
+INSERT INTO `membre` VALUES (
+	'Benoit',
+	'0000',
+	'administrateur',
+	'Rongeard',
+	'Benoit',
+	'1994-03-30',
+	'',
+	'',
+	'',
+	'benoit.rongeard@univ-lyon1.fr',
+	'',
+	'',
+	''
+);
+INSERT INTO `membre` VALUES (
+	'Sylvio',
+	'0000',
+	'administrateur',
+	'Menubarbe',
+	'Sylvio',
+	'1994-01-11',
+	'',
+	'',
+	'',
+	'sylvio.menubarbe@univ-lyon1.fr',
+	'',
+	'',
+	''
+);
 
 -- ____________________ RANDO ____________________ --
 CREATE TABLE IF NOT EXISTS `rando` (
@@ -267,59 +273,65 @@ CREATE TABLE IF NOT EXISTS `rando` (
 );
 
 INSERT INTO `rando` (`titre`, `parcour`, `longueur`, `duree`, `difficulte`, `descriptif`, `note`,`point_eau`, `denivele`, `equipement`,`date_insertion`,`valide`, `parcours`, `region`, `photo_principale`, `auteur`, `galerie`)
-VALUES ('Randonnée à Thérondels', 
-		'',
-		'15,5',
-		'4:45',
-		'2',
-		'La presqu’île de Laussac, depuis le village de Thérondels, tout proche des monts du Cantal : une approche facile des gorges sauvages de la Truyère et du plan d’eau de Sarrans, avec des points de vue exceptionnels.',
-		'',
-		'1',
-		'',
-		'',
-		'2014-01-15 14:30:00',
-		'1',
-		'a.gpx',
-		'16',
-		'1',
-		'Pat',
-		'1');
+VALUES (
+	'Randonnée à Thérondels', 
+	'',
+	'15,5',
+	'4:45',
+	'2',
+	'La presqu’île de Laussac, depuis le village de Thérondels, tout proche des monts du Cantal : une approche facile des gorges sauvages de la Truyère et du plan d’eau de Sarrans, avec des points de vue exceptionnels.',
+	'',
+	'1',
+	'',
+	'',
+	'2014-01-15 14:30:00',
+	'1',
+	'a.gpx',
+	'16',
+	'1',
+	'Pat',
+	'1'
+);
 INSERT INTO `rando` (`titre`, `parcour`, `longueur`, `duree`, `difficulte`, `descriptif`, `note`,`point_eau`, `denivele`, `equipement`,`date_insertion`,`valide`, `parcours`, `region`, `photo_principale`, `auteur`, `galerie`)
-VALUES ('Randonnée à Conques', 
-		'',
-		'7',
-		'2:30',
-		'1',
-		'Dans cet austère et sauvage paysage, au confluent des gorges creusées par l’Ouche et de la vallée du Dourdou, se niche le site de Conques, rayonnant de lumière et semblant figé par le temps.',
-		'',
-		'1',
-		'',
-		'',
-		'2014-01-15 14:35:00',
-		'1',
-		'b.gpx',
-		'16',
-		'2',
-		'Pat',
-		'2');
+VALUES (
+	'Randonnée à Conques', 
+	'',
+	'7',
+	'2:30',
+	'1',
+	'Dans cet austère et sauvage paysage, au confluent des gorges creusées par l’Ouche et de la vallée du Dourdou, se niche le site de Conques, rayonnant de lumière et semblant figé par le temps.',
+	'',
+	'1',
+	'',
+	'',
+	'2014-01-15 14:35:00',
+	'1',
+	'b.gpx',
+	'16',
+	'2',
+	'Pat',
+	'2'
+);
 INSERT INTO `rando` (`titre`, `parcour`, `longueur`, `duree`, `difficulte`, `descriptif`, `note`,`point_eau`, `denivele`, `equipement`,`date_insertion`,`valide`, `parcours`, `region`, `photo_principale`, `auteur`, `galerie`)
-VALUES ('Randonnée à La Capelle-Balaguier', 
-		'',
-		'15',
-		'3:45',
-		'2',
-		'A l’ouest de Villeneuve, le causse de Salvagnac offre aux randonneurs des chemins ancestraux, marqués de l’usure des charrois d’antan, bordés de murettes en pierres sèches et de buis épaiset parfumés.',
-		'',
-		'1',
-		'',
-		'',
-		'2014-01-15 14:40:00',
-		'1',
-		'c.gpx',
-		'16',
-		'3',
-		'Pat',
-		'3');
+VALUES (
+	'Randonnée à La Capelle-Balaguier', 
+	'',
+	'15',
+	'3:45',
+	'2',
+	'A l’ouest de Villeneuve, le causse de Salvagnac offre aux randonneurs des chemins ancestraux, marqués de l’usure des charrois d’antan, bordés de murettes en pierres sèches et de buis épaiset parfumés.',
+	'',
+	'1',
+	'',
+	'',
+	'2014-01-15 14:40:00',
+	'1',
+	'c.gpx',
+	'16',
+	'3',
+	'Pat',
+	'3'
+);
 
 -- ____________________ LOCALISER ____________________ --
 CREATE TABLE IF NOT EXISTS `localiser` (
@@ -342,6 +354,15 @@ CREATE TABLE IF NOT EXISTS `commentaire` (
 	FOREIGN KEY (`code_rando`) REFERENCES `rando`(`code`),
 	FOREIGN KEY (`auteur`) REFERENCES `membre`(`pseudo`),
 	CHECK (note BETWEEN 0 and 5)
+);
+
+INSERT INTO `commentaire` VALUES (
+	'0',
+	'2014-01-27 09:00:00',
+	'Pat',
+	'1',
+	'Bonne rando !',
+	''
 );
 
 -- ____________________ CONNECTES ____________________ --
