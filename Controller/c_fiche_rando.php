@@ -9,18 +9,50 @@ if(isset($_GET['code'])){
 	$rando = get_rando($code);
 	
 	$title = $rando->titre;
+	$author = $rando->auteur;
+	$description = $rando->descriptif;
+	$difficulty = $rando->difficulte;
+	$region = $rando->region;
 	$lenght = $rando->longueur.' Km';
+	$path = $rando->parcours;
+	$galery = $rando->nom_galerie;
+	$photo = 'Resources/Galerie/'.$galery.'/'.$rando->nom_photo;
 	
 	// Durée
 	$time = new DateTime(trim($rando->duree));
 	$duration = $time->format('h').'h'.$time->format('i');
 	
-	$difficulty = $rando->difficulte;
-	$description = $rando->descriptif;
-	$note = $rando->note;
-	$water = $rando->point_eau;
-	$altitude = $rando->denivele;
-	$equipment = $rando->equipement;
+	// Note
+	if(empty($rando->note)){
+		$note = '<em>non renseigné</em>';
+	}
+	else{
+		$note = $rando->note;
+	}
+	
+	// Point d'eau
+	if(empty($rando->point_eau)){
+		$water = '<em>non renseigné</em>';
+	}
+	else{
+		$water = $rando->point_eau;
+	}
+	
+	// Dénivelé
+	if(empty($rando->denivele)){
+		$altitude = '<em>non renseigné</em>';
+	}
+	else{
+		$altitude = $rando->denivele;
+	}
+	
+	// Equipement
+	if(empty($rando->equipement)){
+		$equipment = '<em>non renseigné</em>';
+	}
+	else{
+		$equipment = $rando->equipement;
+	}
 	
 	// Date et Heure d'insertion
 	$date = new DateTime(trim($rando->date_insertion));
@@ -42,12 +74,6 @@ if(isset($_GET['code'])){
 	}
 	$insertion_date = $date->format('d').' '.$month.' '.$date->format('Y');
 	$insertion_hour = $date->format('h').'h'.$date->format('i');
-	
-	$path = $rando->parcours;
-	$region = $rando->region;
-	$author = $rando->auteur;
-	$galery = $rando->nom_galerie;
-	$photo = 'Resources/Galerie/'.$galery.'/'.$rando->nom_photo;
 }
 
 include_once('View/v_fiche_rando.php');
