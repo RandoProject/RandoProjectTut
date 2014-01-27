@@ -247,7 +247,6 @@ INSERT INTO `membre` VALUES (
 CREATE TABLE IF NOT EXISTS `rando` (
 	`code` int(10) NOT NULL AUTO_INCREMENT,
 	`titre` varchar(150) NOT NULL,
-	`parcour` point DEFAULT NULL,
 	`longueur` float unsigned NOT NULL,
 	`duree` time NOT NULL,
 	`difficulte` int(1) NOT NULL,
@@ -272,10 +271,9 @@ CREATE TABLE IF NOT EXISTS `rando` (
 	CHECK (note BETWEEN 0 and 5)
 );
 
-INSERT INTO `rando` (`titre`, `parcour`, `longueur`, `duree`, `difficulte`, `descriptif`, `note`,`point_eau`, `denivele`, `equipement`,`date_insertion`,`valide`, `parcours`, `region`, `photo_principale`, `auteur`, `galerie`)
+INSERT INTO `rando` (`titre`, `longueur`, `duree`, `difficulte`, `descriptif`, `note`,`point_eau`, `denivele`, `equipement`,`date_insertion`,`valide`, `parcours`, `region`, `photo_principale`, `auteur`, `galerie`)
 VALUES (
-	'Randonnée à Thérondels', 
-	'',
+	'Randonnée à Thérondels',
 	'15,5',
 	'4:45',
 	'2',
@@ -292,10 +290,9 @@ VALUES (
 	'Pat',
 	'1'
 );
-INSERT INTO `rando` (`titre`, `parcour`, `longueur`, `duree`, `difficulte`, `descriptif`, `note`,`point_eau`, `denivele`, `equipement`,`date_insertion`,`valide`, `parcours`, `region`, `photo_principale`, `auteur`, `galerie`)
+INSERT INTO `rando` (`titre`, `longueur`, `duree`, `difficulte`, `descriptif`, `note`,`point_eau`, `denivele`, `equipement`,`date_insertion`,`valide`, `parcours`, `region`, `photo_principale`, `auteur`, `galerie`)
 VALUES (
-	'Randonnée à Conques', 
-	'',
+	'Randonnée à Conques',
 	'7',
 	'2:30',
 	'1',
@@ -312,10 +309,9 @@ VALUES (
 	'Pat',
 	'2'
 );
-INSERT INTO `rando` (`titre`, `parcour`, `longueur`, `duree`, `difficulte`, `descriptif`, `note`,`point_eau`, `denivele`, `equipement`,`date_insertion`,`valide`, `parcours`, `region`, `photo_principale`, `auteur`, `galerie`)
+INSERT INTO `rando` (`titre`, `longueur`, `duree`, `difficulte`, `descriptif`, `note`,`point_eau`, `denivele`, `equipement`,`date_insertion`,`valide`, `parcours`, `region`, `photo_principale`, `auteur`, `galerie`)
 VALUES (
-	'Randonnée à La Capelle-Balaguier', 
-	'',
+	'Randonnée à La Capelle-Balaguier',
 	'15',
 	'3:45',
 	'2',

@@ -21,7 +21,7 @@ else{
 			break;
 
 		case 'ajouter_rando':
-			include_once('Controller/');
+			include_once('Controller/c_ajout_rando.php');
 			break;
 
 		case 'connexion':
