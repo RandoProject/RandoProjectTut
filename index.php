@@ -41,6 +41,10 @@ else{
 			include_once('Controller/c_profil.php');
 			break;
 
+		case 'fiche_rando':
+			include_once('Controller/c_fiche_rando.php');
+			break;
+
 		default:
 			include_once('View/error_page.php');
 			break;
