@@ -117,7 +117,7 @@
                                     echo '<strong> Longueur : </strong>'.$rando['longueur'].'<br/>';
                                     echo '<strong> Durée : </strong>'.$rando['duree'].'<br/>';
                                     echo '<strong> Point d\' eau : </strong>'.$rando['point_eau'].'<br/>';
-                                    echo '<strong> Difficulté : </strong>'.$rando['difficulte'].'<br/>';
+                                    echo '<strong> Difficulté : </strong>'.$rando['difficulte'].'<br/>';echo '<a href="index.php?page=fiche_rando&code='.$rando['code'].'"><em>consulter la fiche..</em></a><br/>';
                                 }
                             }
                             else{
@@ -134,6 +134,7 @@
                                     echo '<strong> Durée : </strong>'.$rando['duree'].'<br/>';
                                     echo '<strong> Point d\' eau : </strong>'.$rando['point_eau'].'<br/>';
                                     echo '<strong> Difficulté : </strong>'.$rando['difficulte'].'<br/>';
+									echo '<a href="index.php?page=fiche_rando&code='.$rando['code'].'"><em>consulter la fiche..</em></a><br/>';
                                 }
                             }
                             else{
