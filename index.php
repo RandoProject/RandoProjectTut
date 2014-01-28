@@ -20,8 +20,8 @@ else{
 			include_once('Controller/');
 			break;
 
-		case 'ajouter_rando':
-			include_once('Controller/c_ajout_rando.php');
+		case 'ajout_rando':
+			include_once('Controller/c_ajouter_rando.php');
 			break;
 
 		case 'connexion':

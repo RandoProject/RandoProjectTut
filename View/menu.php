@@ -6,7 +6,7 @@ function menu(){
 					<li><a href="index.php">Acceuil</a></li>
 					<li><a href="index.php?page=recherche">Randonnées</a></li>
 					<li><a href="index.php?page=galerie">Galerie</a></li>
-					<li><a href="index.php?page=ajouter_rando">Ajouter une rando</a></li>';
+					<li><a href="index.php?page=ajout_rando">Ajouter une rando</a></li>';
 
 	if(isset($_SESSION['statut'])){
 		if($_SESSION['statut'] == 'administrateur'){
