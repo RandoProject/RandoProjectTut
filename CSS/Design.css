@@ -240,7 +240,27 @@ section#rando form div#recherche_criteres div.critere select option:selected{
 section#rando form div#recherche_criteres input[type="submit"]{
 	margin-right: 50px;
 }
+			/*Affichage randonnée après une recherche*/
+#cadre_principal_recherche{
+	padding-top: 0.5%;
+	height: 208px;
+	border-top: solid 2px #555555;
+	background-color: #D8D8D8;
+}
 
+#photo_rando_recherche{
+	display: block;
+	float: left;
+	width: 300px;
+	min-width: 300px;
+	height: auto;
+}
+
+#cadre_affichage_text_recherche{
+	display: block;
+	width: 100%;
+	height: 100%;
+}
 
 			/* Connexion */
 section#connexion{
@@ -265,6 +285,7 @@ section#connexion form input{
 	border-radius: 2px;
 	border: solid 1px #CCC;
 	background-color: #F5F5F5;
+	font-weight: bold;
 }
 section#connexion form input[type="text"],
 section#connexion form input[type="password"]{
@@ -275,6 +296,8 @@ section#connexion form input[type="text"]:focus,
 section#connexion form input[type="password"]:hover,
 section#connexion form input[type="password"]:focus{
 	background-color: #FFFFFF;
+	font-weight: bold;
+	box-shadow: 0px 0px 4px #0080FF, 0px 0px 4px #0080FF;
 }
 section#connexion form input[type="submit"]{
 	cursor: pointer;

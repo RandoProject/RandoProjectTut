@@ -112,12 +112,16 @@
                         if(isset($_POST['envoie_formulaire'])){
                             if(isset($affichage_rando_complet) and !empty($affichage_rando_complet)){
                                 foreach($affichage_rando_complet as $rando){
-                                    echo '<strong> Titre : </strong>'.$rando['titre'].'<br/>';
-                                    echo '<img src="Resources/Galerie/'. $rando['nom_galerie'] .'/'. $rando['nom_photo'] .'" width="100px" height="50px;"/><br/>';
-                                    echo '<strong> Longueur : </strong>'.$rando['longueur'].'<br/>';
-                                    echo '<strong> Durée : </strong>'.$rando['duree'].'<br/>';
-                                    echo '<strong> Point d\' eau : </strong>'.$rando['point_eau'].'<br/>';
-                                    echo '<strong> Difficulté : </strong>'.$rando['difficulte'].'<br/>';echo '<a href="index.php?page=fiche_rando&code='.$rando['code'].'"><em>consulter la fiche..</em></a><br/>';
+                                echo '<div id="cadre_principal_recherche">';
+	                                	echo '<img src="Resources/Galerie/'. $rando['nom_galerie'] .'/'. $rando['nom_photo'] .'" width="100px" height="50px;" id="photo_rando_recherche"/><br/>';
+	                                echo '<div id="cadre_affichage_text_recherche"';
+	                                    echo '<strong> Titre : </strong>'.$rando['titre'].'<br/>';
+	                                    echo '<strong> Longueur : </strong>'.$rando['longueur'].'<br/>';
+	                                    echo '<strong> Durée : </strong>'.$rando['duree'].'<br/>';
+	                                    echo '<strong> Point d\' eau : </strong>'.$rando['point_eau'].'<br/>';
+	                                    echo '<strong> Difficulté : </strong>'.$rando['difficulte'].'<br/>';echo '<a href="index.php?page=fiche_rando&code='.$rando['code'].'"><em>consulter la fiche..</em></a><br/>';
+	                                echo '</div>';
+	                            echo '</div>';
                                 }
                             }
                             else{
@@ -128,13 +132,17 @@
                         if(isset($_POST['envoie_titre'])){
                             if(isset($affichage_titre_rando) and !empty($affichage_titre_rando)){
                                 foreach($affichage_titre_rando as $rando){
-                                    echo '<strong> Titre : </strong>'.$rando['titre'].'<br/>';
-                                    echo '<img src="Resources/Galerie/'. $rando['nom_galerie'] .'/'. $rando['nom_photo'] .'" width="100px" height="50px;"/><br/>';
-                                    echo '<strong> Longueur : </strong>'.$rando['longueur'].'<br/>';
-                                    echo '<strong> Durée : </strong>'.$rando['duree'].'<br/>';
-                                    echo '<strong> Point d\' eau : </strong>'.$rando['point_eau'].'<br/>';
-                                    echo '<strong> Difficulté : </strong>'.$rando['difficulte'].'<br/>';
-									echo '<a href="index.php?page=fiche_rando&code='.$rando['code'].'"><em>consulter la fiche..</em></a><br/>';
+                                echo '<div id="cadre_principal_recherche">';	
+	                                	echo '<img src="Resources/Galerie/'. $rando['nom_galerie'] .'/'. $rando['nom_photo'] .'" width="100px" height="50px;" id="photo_rando_recherche"/><br/>';
+	                                echo '<div id="cadre_affichage_text_recherche"';  
+	                                    echo '<strong> Titre : </strong>'.$rando['titre'].'<br/>';
+	                                    echo '<strong> Longueur : </strong>'.$rando['longueur'].'<br/>';
+	                                    echo '<strong> Durée : </strong>'.$rando['duree'].'<br/>';
+	                                    echo '<strong> Point d\' eau : </strong>'.$rando['point_eau'].'<br/>';
+	                                    echo '<strong> Difficulté : </strong>'.$rando['difficulte'].'<br/>';
+										echo '<a href="index.php?page=fiche_rando&code='.$rando['code'].'"><em>consulter la fiche..</em></a><br/>';
+	                               	echo '</div>';
+	                            echo '</div>';
                                 }
                             }
                             else{
