@@ -246,15 +246,15 @@ section#rando form div#recherche_criteres input[type="submit"]{
 section#rando div#affichage_recherche div#cadre_rando{
 	height: 350px;
 	padding-top: 30px;
+	padding-left: 15px;
 	box-shadow: 0px 0px 5px #2E2E2E;
 }
 
-#cadre_rond{
+section#rando div#affichage_recherche div#cadre_rando div#cadre_rond{
 	display: block;
 	float: left;
 	width: 330px;
 	height: 330px;
-	margin-left: 10%;
 	margin: auto;
 	overflow: hidden;
 	position: relative;
@@ -262,7 +262,7 @@ section#rando div#affichage_recherche div#cadre_rando{
 }
 
 
-#lien_cadre0, #lien_cadre2, #lien_cadre4, #lien_cadre6, #lien_cadre8, #lien_cadre10{
+section#rando div#affichage_recherche div#cadre_rando div#cadre_rond a#lien_cadre0, #lien_cadre2, #lien_cadre4, #lien_cadre6, #lien_cadre8, #lien_cadre10{
 	display: block;
 	height: 250px;
 	position: absolute;
@@ -277,7 +277,7 @@ section#rando div#affichage_recherche div#cadre_rando{
 	transition: all 0.3s ease 0s;
 }
 
-#lien_cadre1, #lien_cadre3, #lien_cadre5, #lien_cadre7, #lien_cadre9{
+section#rando div#affichage_recherche div#cadre_rando div#cadre_rond a#lien_cadre1, #lien_cadre3, #lien_cadre5, #lien_cadre7, #lien_cadre9{
 	display: block;
 	height: 250px;
 	position: absolute;
