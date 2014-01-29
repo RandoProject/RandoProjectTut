@@ -118,7 +118,7 @@
 	                                		echo '<a href="index.php?page=fiche_rando&code='.$rando['code'].'"><img src="Resources/Galerie/'. $rando['nom_galerie'] .'/'. $rando['nom_photo'] .'" width="100px" height="50px;" id="photo_rando_recherche"/><a>';
 	                              	echo '</div>';
 
-	                                echo '<div id="cadre_affichage_text_recherche"';
+	                                echo '<div id="cadre_affichage_text_recherche">';
 	                                    echo '<span id="title">Titre : '.$rando['titre'].'<br/>';
 	                                    echo '<span id="longueur">Longueur : '.$rando['longueur'].'<br/>';
 	                                    echo '<span id="durée">Durée : '.$rando['duree'].'<br/>';
@@ -143,7 +143,7 @@
 	                                		echo '<a href="index.php?page=fiche_rando&code='.$rando['code'].'"><img src="Resources/Galerie/'. $rando['nom_galerie'] .'/'. $rando['nom_photo'] .'" width="100px" height="50px;" id="photo_rando_recherche"/></a>';
 	                               	echo '</div>';
 
-	                                echo '<div id="cadre_affichage_text_recherche"';  
+	                                echo '<div id="cadre_affichage_text_recherche">';  
 	                                    echo '<strong> Titre : </strong>'.$rando['titre'].'<br/>';
 	                                    echo '<strong> Longueur : </strong>'.$rando['longueur'].'<br/>';
 	                                    echo '<strong> Durée : </strong>'.$rando['duree'].'<br/>';

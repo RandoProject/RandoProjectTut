@@ -261,9 +261,7 @@ section#rando form div#recherche_criteres input[type="submit"]{
 }
 
 #cadre_rond_photo{
-	display: block;
 	overflow: hidden;
-	position: relative;
 	float: left;
 	width: 200px;
 	min-width: 200px;
@@ -278,25 +276,17 @@ section#rando form div#recherche_criteres input[type="submit"]{
 }
 
 #photo_rando_recherche{
-	display: block;
-	z-index: 99;
-	position: absolute;
 	width: 200px;
 	min-width: 200px;
 	height: 200px;
 
+
 	transition: all 0.3s ease 0s;
-	-webkit-transition: all 0.3s ease 0s;
 	-moz-transition: all 0.3s ease 0s;	
+	-webkit-transition: all 0.3s ease 0s;
 }
 
-#photo_rando_recherche:hover{
-	transform: scale(1.2);
-	-moz-transform: scale(1.2);
-	-webkit-transform: scale(1.2);
-}
-
-#cadre_rond_photo:hover{
+#photo_rando_recherche:hover, #cadre_rond_photo:hover{
 	transform: scale(1.2);
 	-moz-transform: scale(1.2);
 	-webkit-transform: scale(1.2);
