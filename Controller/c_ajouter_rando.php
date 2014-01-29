@@ -37,7 +37,7 @@ if(isset($_SESSION['statut']) and in_array($_SESSION['statut'], array('administr
 		if(!isset($_POST['day']) or $_POST['day'] == ""){
 			$day = 0;
 		}else{
-			if(is_numeric($_POST['day']) and intval($_POST['day']) =< 21 and intval($_POST['day']) >= 0){
+			if(is_numeric($_POST['day']) and intval($_POST['day']) <= 21 and intval($_POST['day']) >= 0){
 				$day = intval($_POST['day']);
 			}
 			else{
