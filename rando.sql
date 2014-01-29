@@ -258,7 +258,7 @@ CREATE TABLE IF NOT EXISTS `rando` (
 	`date_insertion` datetime NOT NULL,
 	`valide` tinyint(1) NOT NULL,
 	`parcours` blob NOT NULL,
-	`region` varchar(2) NOT NULL,
+	`departement` varchar(2) NOT NULL,
 	`photo_principale` int(10) NOT NULL,
 	`auteur` varchar(30) NOT NULL,
 	`galerie` int(10) DEFAULT NULL,
@@ -271,7 +271,7 @@ CREATE TABLE IF NOT EXISTS `rando` (
 	CHECK (note BETWEEN 0 and 5)
 );
 
-INSERT INTO `rando` (`titre`, `longueur`, `duree`, `difficulte`, `descriptif`, `note`,`point_eau`, `denivele`, `equipement`,`date_insertion`,`valide`, `parcours`, `region`, `photo_principale`, `auteur`, `galerie`)
+INSERT INTO `rando` (`titre`, `longueur`, `duree`, `difficulte`, `descriptif`, `note`,`point_eau`, `denivele`, `equipement`,`date_insertion`,`valide`, `parcours`, `departement`, `photo_principale`, `auteur`, `galerie`)
 VALUES (
 	'Randonnée à Thérondels',
 	'15,5',
@@ -285,12 +285,12 @@ VALUES (
 	'2014-01-15 14:30:00',
 	'1',
 	'a.gpx',
-	'16',
+	'departement',
 	'1',
 	'Pat',
 	'1'
 );
-INSERT INTO `rando` (`titre`, `longueur`, `duree`, `difficulte`, `descriptif`, `note`,`point_eau`, `denivele`, `equipement`,`date_insertion`,`valide`, `parcours`, `region`, `photo_principale`, `auteur`, `galerie`)
+INSERT INTO `rando` (`titre`, `longueur`, `duree`, `difficulte`, `descriptif`, `note`,`point_eau`, `denivele`, `equipement`,`date_insertion`,`valide`, `parcours`, `departement`, `photo_principale`, `auteur`, `galerie`)
 VALUES (
 	'Randonnée à Conques',
 	'7',
@@ -304,12 +304,12 @@ VALUES (
 	'2014-01-15 14:35:00',
 	'1',
 	'b.gpx',
-	'16',
+	'departement',
 	'2',
 	'Pat',
 	'2'
 );
-INSERT INTO `rando` (`titre`, `longueur`, `duree`, `difficulte`, `descriptif`, `note`,`point_eau`, `denivele`, `equipement`,`date_insertion`,`valide`, `parcours`, `region`, `photo_principale`, `auteur`, `galerie`)
+INSERT INTO `rando` (`titre`, `longueur`, `duree`, `difficulte`, `descriptif`, `note`,`point_eau`, `denivele`, `equipement`,`date_insertion`,`valide`, `parcours`, `departement`, `photo_principale`, `auteur`, `galerie`)
 VALUES (
 	'Randonnée à La Capelle-Balaguier',
 	'15',
@@ -323,7 +323,7 @@ VALUES (
 	'2014-01-15 14:40:00',
 	'1',
 	'c.gpx',
-	'16',
+	'departement',
 	'3',
 	'Pat',
 	'3'

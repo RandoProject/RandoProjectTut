@@ -153,7 +153,6 @@ aside img{
 section{
 	display: inline-block;
 	width: 82%;
-	min-height: 725px;
 	height: auto;
 	margin-left: 1%;
 	margin-right: auto;
@@ -241,63 +240,45 @@ section#rando form div#recherche_criteres div.critere select option:selected{
 section#rando form div#recherche_criteres input[type="submit"]{
 	margin-right: 50px;
 }
-			/*Affichage randonnée après une recherche*/
-#cadre_principal_recherche0{
-	margin-top: 10%;
-}
 
-#cadre_principal_recherche0, #cadre_principal_recherche2, #cadre_principal_recherche4, #cadre_principal_recherche6, #cadre_principal_recherche8, #cadre_principal_recherche10{
-	height: 245px;
-	padding-top: 2%;
-	background-color: #BDBDBD;
-	box-shadow: 0px 0px 5px #2E2E2E;
-}
 
-#cadre_principal_recherche1, #cadre_principal_recherche3, #cadre_principal_recherche5, #cadre_principal_recherche7, #cadre_principal_recherche9{
-	height: 245px;
-	padding-top: 2%;
+			/* Affichage randonnée */
+section#rando div#affichage_recherche div#cadre_rando{
+	height: 250px;
+	padding-top: 30px;
 	background-color: #E6E6E6;
 	box-shadow: 0px 0px 5px #2E2E2E;
 }
-
-#cadre_rond_photo{
-	overflow: hidden;
+section#rando div#affichage_recherche div#cadre_rond_photo{
 	float: left;
+	width: 180px;
+	height: 180px;
+	margin-top: 20px;
+	margin-left: 50px;
+	border-radius: 100px;
+	transition: 0.3s 0s;
+	overflow: hidden;
+}
+section#rando div#affichage_recherche div#cadre_rond_photo:hover{
+	padding: 10px;
+	margin-top: 10px;
+	margin-left: 40px;
+	margin-right: -10px;
+	transition: 0.3s 0s;
+}
+section#rando div#affichage_recherche div#cadre_rond_photo a img{
+	margin-left: -10px;
+	margin-top: -10px;
 	width: 200px;
-	min-width: 200px;
 	height: 200px;
-	margin-left: 2%;
-	text-align: center;
-	border-radius: 250px;
-
-	transition: all 0.3s ease 0s;
-	-moz-transition: all 0.3s ease 0s;
-	-webkit-transition: all 0.3s ease 0s;
 }
-
-#photo_rando_recherche{
-	width: 200px;
-	min-width: 200px;
-	height: 200px;
-
-
-	transition: all 0.3s ease 0s;
-	-moz-transition: all 0.3s ease 0s;	
-	-webkit-transition: all 0.3s ease 0s;
-}
-
-#photo_rando_recherche:hover, #cadre_rond_photo:hover{
-	transform: scale(1.2);
-	-moz-transform: scale(1.2);
-	-webkit-transform: scale(1.2);
-}
-
-#cadre_affichage_text_recherche{
+section#rando div#affichage_recherche div#cadre_affichage_text_recherche{
 	display: inline-block;
 	margin-left: 5%;
 	width: 60%;
 	height: 100%;
 }
+
 
 			/* Connexion */
 section#connexion{
