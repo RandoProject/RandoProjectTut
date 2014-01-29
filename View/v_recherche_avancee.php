@@ -116,9 +116,9 @@
 								if($i % 2 === 0)$bgcolor = '#BDBDBD';
 								else $bgcolor = '#E6E6E6';
                                 echo '<div id="cadre_rando" style="background-color:'.$bgcolor.'">';
-                                    	echo'<div id="cadre_rond">';
+                                    	echo'<div id="cadre_rond'.$i.'">';
     	                                		echo '<a id="lien_cadre'.$i.'" href="index.php?page=fiche_rando&code='.$rando['code'].'"></a>';
-                                                echo '<img width="330px" height="330px" src="Resources/Galerie/'. $rando['nom_galerie'] .'/'. $rando['nom_photo'] .'"/>';
+                                                echo '<img width="250px" height="250px" src="Resources/Galerie/'. $rando['nom_galerie'] .'/'. $rando['nom_photo'] .'"/>';
     	                              	echo '</div>';
 	                                echo '<div id="cadre_affichage_text_recherche">';
 	                                    echo '<span id="title">Titre : '.$rando['titre'].'<br/>';
@@ -143,9 +143,9 @@
 								if($i % 2 === 0)$bgcolor = '#BDBDBD';
 								else $bgcolor = '#E6E6E6';
                                 echo '<div id="cadre_rando" style="background-color:'.$bgcolor.'">';
-                                	echo'<div id="cadre_rond">';
+                                	echo'<div id="cadre_rond'.$i.'">';
                                                 echo '<a id="lien_cadre'.$i.'" href="index.php?page=fiche_rando&code='.$rando['code'].'"></a>';
-                                                echo '<img width="330px" height="330px" src="Resources/Galerie/'. $rando['nom_galerie'] .'/'. $rando['nom_photo'] .'"/>';
+                                                echo '<img width="250px" height="250px" src="Resources/Galerie/'. $rando['nom_galerie'] .'/'. $rando['nom_photo'] .'"/>';
                                      echo '</div>';
 	                                echo '<div id="cadre_affichage_text_recherche">';  
 	                                    echo '<strong> Titre : </strong>'.$rando['titre'].'<br/>';
