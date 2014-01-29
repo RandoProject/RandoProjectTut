@@ -96,7 +96,7 @@ nav ul#account li a.connexion:hover{
 	display: inline-block;
 	width: 66%;
 	height: 600px;
-	margin-right: -4px;
+	margin-right: -10px;
 }
 #corps #map{
 	display: inline-block;
@@ -115,7 +115,7 @@ nav ul#account li a.connexion:hover{
 			/* Corps */
 #corps{
 	height: auto;
-	min-height: 80%;
+	min-height: 85%;
 	width: 100%;
 	min-width: 1000px;	
 	margin-top: 15px;
@@ -153,7 +153,7 @@ aside img{
 section{
 	display: inline-block;
 	width: 82%;
-	min-height: 650px;
+	height: auto;
 	margin-left: 1%;
 	margin-right: auto;
 	background-color: #E5E5E5;
@@ -187,13 +187,12 @@ section#rando form div{
 section#rando form div p{
 	font-weight: bold;
 	margin-bottom: 10px;
+	font-size: 1.3em;
 }
 section#rando form div input,
 section#rando form div select{
-	padding-top: 5px;
-	padding-bottom: 5px;
-	padding-right: 10px;
-	padding-left: 10px;
+	margin-top: 5px;
+	padding: 5px;
 	border-radius: 2px;
 	border: solid 1px #CCC;
 	background-color: #F5F5F5;
@@ -208,13 +207,18 @@ section#rando form div input[type="submit"]:hover{
 	color: #F5F6F7;
 	border: solid 1px #2E9AFE;
 }
+section#rando form div select{
+	min-width: 123px;
+}
 /* Recherche par mots clés */
 section#rando form div#recherche_mot_cle input[type="text"]{
 	width: 300px;
+	font-weight: bold;
 }
 section#rando form div#recherche_mot_cle input[type="text"]:hover,
 section#rando form div#recherche_mot_cle input[type="text"]:focus{
 	background-color: #FFFFFF;
+	box-shadow: 0px 0px 4px #0080FF, 0px 0px 4px #0080FF;
 }
 /* Recherche par critères */
 section#rando form div#recherche_criteres div.critere{
@@ -226,15 +230,53 @@ section#rando form div#recherche_criteres div.critere{
 section#rando form div#recherche_criteres div.critere select{
 	cursor: pointer;
 }
-section#rando form div#recherche_criteres div.critere select:hover,
-section#rando form div#recherche_criteres div.critere select:focus{
+section#rando form div#recherche_criteres div.critere select:hover{
 	background-color: #FFFFFF;
+	box-shadow: 0px 0px 4px #0080FF, 0px 0px 4px #0080FF;
 }
-section#rando form div#recherche_criteres div.critere select option:hover{
-	background-color: #2E9AFE;
+section#rando form div#recherche_criteres div.critere select option:selected{
+	background-color: red;
 }
 section#rando form div#recherche_criteres input[type="submit"]{
 	margin-right: 50px;
+}
+
+
+			/* Affichage randonnée */
+section#rando div#affichage_recherche div#cadre_rando{
+	height: 250px;
+	padding-top: 30px;
+	background-color: #E6E6E6;
+	box-shadow: 0px 0px 5px #2E2E2E;
+}
+section#rando div#affichage_recherche div#cadre_rond_photo{
+	float: left;
+	width: 180px;
+	height: 180px;
+	margin-top: 20px;
+	margin-left: 50px;
+	border-radius: 100px;
+	transition: 0.3s 0s;
+	overflow: hidden;
+}
+section#rando div#affichage_recherche div#cadre_rond_photo:hover{
+	padding: 10px;
+	margin-top: 10px;
+	margin-left: 40px;
+	margin-right: -10px;
+	transition: 0.3s 0s;
+}
+section#rando div#affichage_recherche div#cadre_rond_photo a img{
+	margin-left: -10px;
+	margin-top: -10px;
+	width: 200px;
+	height: 200px;
+}
+section#rando div#affichage_recherche div#cadre_affichage_text_recherche{
+	display: inline-block;
+	margin-left: 5%;
+	width: 60%;
+	height: 100%;
 }
 
 
@@ -253,6 +295,7 @@ section#connexion p.error{
 	font-style: italic;
 }
 section#connexion form input{
+	margin-top: 5px;
 	padding-top: 5px;
 	padding-bottom: 5px;
 	padding-right: 10px;
@@ -260,6 +303,7 @@ section#connexion form input{
 	border-radius: 2px;
 	border: solid 1px #CCC;
 	background-color: #F5F5F5;
+	font-weight: bold;
 }
 section#connexion form input[type="text"],
 section#connexion form input[type="password"]{
@@ -270,6 +314,8 @@ section#connexion form input[type="text"]:focus,
 section#connexion form input[type="password"]:hover,
 section#connexion form input[type="password"]:focus{
 	background-color: #FFFFFF;
+	font-weight: bold;
+	box-shadow: 0px 0px 4px #0080FF, 0px 0px 4px #0080FF;
 }
 section#connexion form input[type="submit"]{
 	cursor: pointer;
