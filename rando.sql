@@ -263,7 +263,7 @@ CREATE TABLE IF NOT EXISTS `rando` (
 	`auteur` varchar(30) NOT NULL,
 	`galerie` int(10) DEFAULT NULL,
 	PRIMARY KEY (`code`),
-	FOREIGN KEY (`region`) REFERENCES `regions`(`num_region`),
+	FOREIGN KEY (`departement`) REFERENCES `departements`(`num_departement`),
 	FOREIGN KEY (`photo_principale`) REFERENCES `photo`(`numero`),
 	FOREIGN KEY (`auteur`) REFERENCES `membre`(`pseudo`),
 	FOREIGN KEY (`galerie`) REFERENCES `galerie`(`numero`),
@@ -285,7 +285,7 @@ VALUES (
 	'2014-01-15 14:30:00',
 	'1',
 	'a.gpx',
-	'departement',
+	'12',
 	'1',
 	'Pat',
 	'1'
@@ -304,7 +304,7 @@ VALUES (
 	'2014-01-15 14:35:00',
 	'1',
 	'b.gpx',
-	'departement',
+	'12',
 	'2',
 	'Pat',
 	'2'
@@ -323,7 +323,7 @@ VALUES (
 	'2014-01-15 14:40:00',
 	'1',
 	'c.gpx',
-	'departement',
+	'12',
 	'3',
 	'Pat',
 	'3'
