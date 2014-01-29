@@ -244,34 +244,60 @@ section#rando form div#recherche_criteres input[type="submit"]{
 
 			/* Affichage randonnée */
 section#rando div#affichage_recherche div#cadre_rando{
-	height: 250px;
+	height: 350px;
 	padding-top: 30px;
-	background-color: #E6E6E6;
 	box-shadow: 0px 0px 5px #2E2E2E;
 }
-section#rando div#affichage_recherche div#cadre_rond_photo{
+
+#cadre_rond{
+	display: block;
 	float: left;
-	width: 180px;
-	height: 180px;
-	margin-top: 20px;
-	margin-left: 50px;
-	border-radius: 100px;
-	transition: 0.3s 0s;
+	width: 330px;
+	height: 330px;
+	margin-left: 10%;
+	margin: auto;
 	overflow: hidden;
+	position: relative;
+	text-align: center;
 }
-section#rando div#affichage_recherche div#cadre_rond_photo:hover{
-	padding: 10px;
-	margin-top: 10px;
-	margin-left: 40px;
-	margin-right: -10px;
-	transition: 0.3s 0s;
+
+
+#lien_cadre0, #lien_cadre2, #lien_cadre4, #lien_cadre6, #lien_cadre8, #lien_cadre10{
+	display: block;
+	height: 250px;
+	position: absolute;
+	margin-left: -70px;
+	margin-top: -70px;
+	width: 250px;
+	border: 110px solid #BDBDBD;
+	border-radius: 900px;
+
+	z-index: 99;
+
+	transition: all 0.3s ease 0s;
 }
-section#rando div#affichage_recherche div#cadre_rond_photo a img{
-	margin-left: -10px;
-	margin-top: -10px;
-	width: 200px;
-	height: 200px;
+
+#lien_cadre1, #lien_cadre3, #lien_cadre5, #lien_cadre7, #lien_cadre9{
+	display: block;
+	height: 250px;
+	position: absolute;
+	margin-left: -70px;
+	margin-top: -70px;
+	width: 250px;
+	border: 110px solid #E6E6E6;
+	border-radius: 900px;
+
+	z-index: 99;
+
+	transition: all 0.3s ease 0s;
 }
+
+section#rando div#affichage_recherche div#cadre_rando div#cadre_rond a:hover{
+	transform: scale(1.3);
+	-webkit-transform: scale(1.3);
+	-moz-transform: scale(1.3);
+}
+
 section#rando div#affichage_recherche div#cadre_affichage_text_recherche{
 	display: inline-block;
 	margin-left: 5%;

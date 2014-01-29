@@ -116,10 +116,10 @@
 								if($i % 2 === 0)$bgcolor = '#BDBDBD';
 								else $bgcolor = '#E6E6E6';
                                 echo '<div id="cadre_rando" style="background-color:'.$bgcolor.'">';
-                                	echo'<div id="cadre_rond_photo">';
-	                                		echo '<a href="index.php?page=fiche_rando&code='.$rando['code'].'"><img src="Resources/Galerie/'. $rando['nom_galerie'] .'/'. $rando['nom_photo'] .'"/><a>';
-	                              	echo '</div>';
-
+                                    	echo'<div id="cadre_rond">';
+    	                                		echo '<a id="lien_cadre'.$i.'" href="index.php?page=fiche_rando&code='.$rando['code'].'"></a>';
+                                                echo '<img width="330px" height="330px" src="Resources/Galerie/'. $rando['nom_galerie'] .'/'. $rando['nom_photo'] .'"/>';
+    	                              	echo '</div>';
 	                                echo '<div id="cadre_affichage_text_recherche">';
 	                                    echo '<span id="title">Titre : '.$rando['titre'].'<br/>';
 	                                    echo '<span id="longueur">Longueur : '.$rando['longueur'].'<br/>';
@@ -143,10 +143,10 @@
 								if($i % 2 === 0)$bgcolor = '#BDBDBD';
 								else $bgcolor = '#E6E6E6';
                                 echo '<div id="cadre_rando" style="background-color:'.$bgcolor.'">';
-                                	echo'<div id="cadre_rond_photo">';	
-	                                		echo '<a href="index.php?page=fiche_rando&code='.$rando['code'].'"><img src="Resources/Galerie/'. $rando['nom_galerie'] .'/'. $rando['nom_photo'] .'"/></a>';
-	                               	echo '</div>';
-
+                                	echo'<div id="cadre_rond">';
+                                                echo '<a id="lien_cadre'.$i.'" href="index.php?page=fiche_rando&code='.$rando['code'].'"></a>';
+                                                echo '<img width="330px" height="330px" src="Resources/Galerie/'. $rando['nom_galerie'] .'/'. $rando['nom_photo'] .'"/>';
+                                     echo '</div>';
 	                                echo '<div id="cadre_affichage_text_recherche">';  
 	                                    echo '<strong> Titre : </strong>'.$rando['titre'].'<br/>';
 	                                    echo '<strong> Longueur : </strong>'.$rando['longueur'].'<br/>';
