@@ -20,8 +20,8 @@ else{
 			include_once('Controller/');
 			break;
 
-		case 'ajouter_rando':
-			include_once('Controller/c_ajout_rando.php');
+		case 'ajout_rando':
+			include_once('Controller/c_ajouter_rando.php');
 			break;
 
 		case 'connexion':
@@ -34,7 +34,7 @@ else{
 			break;
 
 		case 'inscription':
-			include_once('Controller/');
+			include_once('Controller/c_inscription.php');
 			break;
 
 		case 'profil':

@@ -1,7 +1,6 @@
 <?php
 
 if(strtolower($_SERVER['REQUEST_METHOD']) == "post"){
-	$error = array();
 	if(!isset($_POST['pseudo']) or $_POST['pseudo'] == ""){
 		$error['pseudo'] = 'Vous n\'avez pas entré d\'identifiant.';
 	}
@@ -35,6 +34,14 @@ if(strtolower($_SERVER['REQUEST_METHOD']) == "post"){
 	if(!isset($error['pseudo'])){
 		$value['pseudo'] = strip_tags($_POST['pseudo']);
 	}
+	if(isset($error) and !empty($error)){
+		include_once('View/v_connexion.php');
+	}
+}
+else{
+	include_once('View/v_connexion.php');
 }
 
-include_once('View/v_connexion.php');
+
+
+

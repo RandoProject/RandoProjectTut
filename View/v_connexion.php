@@ -19,7 +19,8 @@
                     }
                     else{ ?>
                         <h1>Connectez vous</h1>
-                        <form method="post" action="index.php?page=connexion<?php echo isset($_GET['page_pre'])? 'parge_pre'.$_GET['page_pre'] : ''; ?>">
+                        <?php if(isset($_GET['page_pre'])) echo '<p>Vous devez être connecté pour accéder à cette page.</p>'; ?>
+                        <form method="post" action="index.php?page=connexion<?php echo isset($_GET['page_pre'])? '&page_pre='.$_GET['page_pre'] : ''; ?>">
                             <label for="pseudo">Identifiant :</label><br/>
                             <input type="text" name="pseudo" <?php if(isset($value['pseudo'])) echo 'value="'.$value['pseudo'].'"'; ?> maxlength="30" required/>
                             <?php if(isset($error['pseudo'])) echo '<p class="error">'.$error['pseudo'].'</p>'; else echo '<br/><br/>'; ?><br/>

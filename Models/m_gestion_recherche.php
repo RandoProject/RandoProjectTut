@@ -49,7 +49,7 @@ function affichage_title($title){
 
 function select_regions($select){
 	global $bdd;
-	$requete = $bdd->query("SELECT $select FROM regions ORDER BY nom ASC");
+	$requete = $bdd->query("SELECT $select  FROM regions ORDER BY nom ASC");
 	$res = $requete->fetchAll();
 	$requete->closeCursor();
 	return $res;
