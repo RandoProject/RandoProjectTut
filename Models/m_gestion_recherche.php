@@ -1,21 +1,22 @@
 <?php
 
-function affichage_title($title){
+function affichage_title($title, $page){
 	global $bdd;
-
+	
+	$page = ($page - 1) * 10;
 	$req = htmlspecialchars($title);
 	$mots = explode(' ', $req);
 	
 	if(count($mots) > 0){
-		$reqStr = "	SELECT rando.*, photo.nom AS nom_photo, galerie.nom AS nom_galerie 
+		$reqStr = '	SELECT rando.*, photo.nom AS nom_photo, galerie.nom AS nom_galerie 
 					FROM rando, photo, galerie 
 					WHERE rando.photo_principale = photo.numero 
-					AND photo.galerie = galerie.numero";
+					AND photo.galerie = galerie.numero';
 		$i = 0;
 		$parenthese = 0;
 		while($i < count($mots)){ // Ajoute AND si il y a un mot non vide dans le tableau
 			if($mots[$i] !== ''){
-				$reqStr .= " AND (";
+				$reqStr .= ' AND (';
 				$parenthese = 1;
 				break;
 			}
@@ -23,11 +24,11 @@ function affichage_title($title){
 		}
 		for($i = 0; $i < count($mots); $i++){ // Ajoute les conditions si le tableau n'est pas vide
 			if($mots[$i] !== ''){ // Ajoute les conditions si le mot n'est pas vide
-				$reqStr .= "titre LIKE '%$mots[$i]%'";
+				$reqStr .= 'titre LIKE "%'.$mots[$i].'%"';
 				$j = $i+1;
 				while($j < count($mots)){ // Ajoute OR si il y a un autre mot non vide dans le tableau
 					if($mots[$j] !== ''){
-						$reqStr .= " OR ";
+						$reqStr .= ' OR ';
 						break;
 					}
 					$j++;
@@ -35,9 +36,9 @@ function affichage_title($title){
 			}
 		}
 		if($parenthese === 1){
-			$reqStr .= ")";
+			$reqStr .= ')';
 		}
-		$reqStr .= " ORDER BY longueur ASC";
+		$reqStr .= ' ORDER BY longueur ASC LIMIT '.$page.', 10';
 
 		$requete= $bdd->query($reqStr) or die(print_r($erreur -> errorInfo()));
 		$res = $requete->fetchAll();
@@ -104,15 +105,15 @@ function affichage_f_rando_complet($region, $typeRegion, $MAX_distance, $MIN_dis
 		$reqValues['water'] = $water;
 	}
 
-	$reqStr = "	SELECT rando.*, photo.nom AS nom_photo, galerie.nom AS nom_galerie
+	$reqStr = '	SELECT rando.*, photo.nom AS nom_photo, galerie.nom AS nom_galerie
 				FROM rando, photo, galerie
 				WHERE rando.photo_principale = photo.numero
-				AND photo.galerie = galerie.numero";
+				AND photo.galerie = galerie.numero';
 
 	if(!empty($reqArray)){
-		$reqStr .= " AND ".implode(' AND ', $reqArray);
+		$reqStr .= ' AND '.implode(' AND ', $reqArray);
 	}
-	$reqStr .= " ORDER BY longueur ASC";
+	$reqStr .= ' ORDER BY longueur ASC';
 
 	$req = $bdd->prepare($reqStr);
 	$req->execute($reqValues) or die(print_r($erreur -> errorInfo()));
