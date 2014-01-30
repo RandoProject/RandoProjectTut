@@ -34,7 +34,7 @@ else{
 			break;
 
 		case 'inscription':
-			include_once('Controller/');
+			include_once('Controller/c_inscription.php');
 			break;
 
 		case 'profil':
