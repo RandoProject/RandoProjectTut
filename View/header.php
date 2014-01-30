@@ -24,9 +24,19 @@ function head($titlePage, $listInc = array()){
 					break;
 
 				case 'javascript':
-					echo '<script type="text/javascript" src="'.$inc['href'].'"></script>';
+					echo '<script type="text/javascript" src="'.$inc['src'].'"></script>';
 					break;
-					
+				case 'meta':
+					echo '<meta ';
+					while ($elem = current($inc)) { // Permet de mettre n'importe quel type d'attributs
+						if(key($inc) != 'type'){
+					    	echo key($inc).'="'.$elem.'" ';
+					    }
+					    next($inc);
+					}
+					echo '/>';
+				break;
+
 				default: break;
 			}	
 		}
