@@ -3,7 +3,7 @@
 function menu(){
 	echo '	<nav>
 				<ul id="menu">
-					<li><a href="index.php">Acceuil</a></li>
+					<li><a href="index.php">Accueil</a></li>
 					<li><a href="index.php?page=recherche">Randonnées</a></li>
 					<li><a href="index.php?page=galerie">Galerie</a></li>
 					<li><a href="index.php?page=ajout_rando">Ajouter une rando</a></li>';
