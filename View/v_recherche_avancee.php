@@ -113,23 +113,23 @@
 							if(!empty($randonnee)){ 
 								$i=0;
                                 foreach($randonnee as $rando){
-									if($i % 2 === 0) $bgcolor = '#BDBDBD';
-									else $bgcolor = '#E6E6E6';
-									echo '	<div id="cadre_rando" style="background-color:'.$bgcolor.'">';
-									echo '		<div id="cadre_rond'.$i.'">';
-									echo '			<a id="lien_cadre'.$i.'" href="index.php?page=fiche_rando&code='.$rando['code'].'"></a>';
-									echo '				<img width="250px" height="250px" src="Resources/Galerie/'. $rando['nom_galerie'] .'/'. $rando['nom_photo'] .'"/>';
+									if($i % 2 === 0) $css = '_pair';
+									else $css = '_impair';
+									$i++;
+									echo '	<div id="rando'.$css.'">';
+									echo '		<div id="rond">';
+									echo '			<a id="lien" href="index.php?page=fiche_rando&code='.$rando['code'].'"></a>';
+									echo '			<img src="Resources/Galerie/'. $rando['nom_galerie'] .'/'. $rando['nom_photo'] .'"/>';
 									echo '		</div>';
-									echo '		<div id="cadre_affichage_text_recherche">';
-									echo '			<span id="title">Titre : '.$rando['titre'].'<br/>';
-									echo '			<span id="longueur">Longueur : '.$rando['longueur'].'<br/>';
-									echo '			<span id="durée">Durée : '.$rando['duree'].'<br/>';
-									echo '			<span id="poind_eau"> Point d\' eau : '.$rando['point_eau'].'<br/>';
-									echo '			<span id="difficulte"> Difficulté : '.$rando['difficulte'].'<br/>';
+									echo '		<div id="affichage_text">';
+									echo '			Titre : '.$rando['titre'].'<br/>';
+									echo '			Longueur : '.$rando['longueur'].'<br/>';
+									echo '			Durée : '.$rando['duree'].'<br/>';
+									echo '			Point d\' eau : '.$rando['point_eau'].'<br/>';
+									echo '			Difficulté : '.$rando['difficulte'].'<br/>';
 									echo '			<a href="index.php?page=fiche_rando&code='.$rando['code'].'"><em>consulter la fiche..</em></a><br/>';
 									echo '		</div>';
 									echo '	</div>';
-									$i++;
                                 }
                             }
                             else{
@@ -137,6 +137,7 @@
                             }
 						}
 						
+						// Affichage résultats de la recherche
 						if(isset($_POST['envoie_formulaire'])){
                             affichage_rando($affichage_rando_complet);
                         }
