@@ -11,7 +11,10 @@
 	?>
 	<script type="text/javascript">
 	tinymce.init({
-	    selector: "textarea"
+	    selector: "#description",
+	    browser_spellcheck: true,
+	    language: "fr_FR",
+	    nowrap: true
 	 });
 	</script>
 
