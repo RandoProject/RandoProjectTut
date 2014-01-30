@@ -15,7 +15,8 @@
                             <input type="texte" id="pseudo" name="pseudo"/><br/><br/>
 
                         <label for="password">Mot de passe :</label>
-                            <input type="password" id="password" name="password"/><br/><br/>
+                            <input type="password" id="password" name="password"/><br/>
+                            <input type="password" name="confirm_password"/><br/>
 
                         <label for="familly_name">Nom : </label>
                             <input type="texte" id="familly_name" name="familly_name"/><br/><br/>
@@ -42,6 +43,7 @@
 
                         <input type="submit" value"S'inscrire"/>
                     </form>  
+
             </section>
         </div>
     
