@@ -14,7 +14,7 @@
                     <p>Recherche avancée</p>
                 </div>
                 
-                <form method="post" action="index.php?page=recherche">
+                <form method="post" action="index.php?page=recherche&numPage=1">
                     <div id="recherche_mot_cle">
                         <p>Recherche par mots clés</p>
                         <input type="text" name="title" placeholder="mots clés.." autocomplete="off"/>
@@ -130,6 +130,7 @@
 									echo '			<a href="index.php?page=fiche_rando&code='.$rando['code'].'"><em>consulter la fiche..</em></a><br/>';
 									echo '		</div>';
 									echo '	</div>';
+									if($i === 10) break;
                                 }
                             }
                             else{
@@ -142,8 +143,16 @@
                             affichage_rando($affichage_rando_complet);
                         }
                         else if(isset($_POST['envoie_titre'])){
-                            affichage_rando($affichage_titre_rando);
-                        }
+                            affichage_rando($affichage_titre_rando, $_GET['numPage']);
+							$i = 1;
+							while(count(affichage_title($_POST['title'], $i)) != 0){
+								echo '	<form method="post" action="index.php?page=recherche&numPage='.$i.'">
+											<input type="hidden" name="title" value="'.$_POST['title'].'">
+											<input type="submit" name="envoie_titre" value="'.$i.'"/>
+										</form>';
+								$i++;
+							}                            
+                       }
                     ?>
                 </div>
             </section>
