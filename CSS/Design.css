@@ -153,7 +153,7 @@ aside img{
 section{
 	display: inline-block;
 	width: 82%;
-	height: auto;
+	min-height: 500px;
 	margin-left: 1%;
 	margin-right: auto;
 	background-color: #E5E5E5;
