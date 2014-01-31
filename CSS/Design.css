@@ -33,6 +33,7 @@ nav{
 }
 nav ul{
 	display: inline-block;
+	height: 60px;
 }
 nav ul li{
 	display: inline-block;
@@ -46,7 +47,7 @@ nav ul li a{
 	box-shadow:	0px 0px 10px 0px rgba(0, 0, 0, 0.7);
 	transition: 0.5s 0s;
 }
-
+/* Menu */
 nav ul#menu li a{
 	padding-top: 15px;
 	padding-bottom: 15px;
@@ -57,17 +58,16 @@ nav ul#menu li a{
 }
 nav ul#menu li a:hover{
 	padding-bottom: 25px;
-	margin-bottom: -25px;
 	background-color: #F5F5F5;
 	color: #111111;
 	transition: 0.4s 0s;
 }
-
+/* Compte */
 nav ul#account{
 	display: block;
 	text-align: right;
 	margin-right: 1%;
-	margin-top: -38px;
+	margin-top: -50px;
 }
 nav ul#account li{
 	margin-right: -4px;
