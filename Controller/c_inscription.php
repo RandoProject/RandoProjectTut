@@ -160,6 +160,7 @@ include_once('Models/m_members.php');
 				include_once('View/v_inscription.php');
 			}
 			else{
+				$envoie = "envoye";
 				include_once('View/v_inscription.php');
 			}
 		}

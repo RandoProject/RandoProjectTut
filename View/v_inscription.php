@@ -8,6 +8,14 @@
         
         <div id="corps">
             <section >
+
+            <?php
+                if(isset($_POST['submit']) and !isset($error)){
+                        echo '<p>Vous vous êtes inscrit sur RandoPassion !</p> 
+                                        <p>Bienvenue !</p>';
+                }
+                else{
+            ?>
                     <h2>Bienvenue sur RandoPassion, inscrivez-vous dès maintenant !</h2><br/> 
 
                     <form action="index.php?page=inscription" method="post">
@@ -87,6 +95,11 @@
 
                         <input type="submit" value"S'inscrire" name="submit"/>
                     </form> 
+            <?php
+                }
+            ?>
+
+                    
 
             </section>
         </div>
