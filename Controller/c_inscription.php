@@ -2,141 +2,169 @@
 
 include_once('bin/params.php');
 include_once('Models/m_inscription.php');
+include_once('Models/m_members.php');
 
-	if(!isset($_SESSION['statut'])){
+
 		if(strtolower($_SERVER['REQUEST_METHOD']) == 'post'){
 			if(isset($_POST['pseudo']) and $_POST['pseudo'] != ""){
-				$pseudo = strip_tags($_POST['name']);
+				$pseudo = strip_tags($_POST['pseudo']);
+				$pseudo2 = get_member($pseudo);
 				if(strlen($pseudo) > 30){
-					$error['pseudo'] = "Votre pseudo doit faire moins de 30 caractÃ¨res !";
+					$error['pseudo'] = "Votre pseudo doit faire moins de 30 caractères !";
+				}
+				else if(!empty($pseudo2)){
+					$error['pseudo'] = "Le pseudo <strong>".$pseudo."</strong> existe déjà !";
 				}
 			}
 			else{
-				$error['pseudo'] = "Vous n'avez pas renseignÃ© votre pseudo !";
+				$error['pseudo'] = "Vous n'avez pas renseigné votre pseudo !";
 			}
 
 			if(isset($_POST['password'], $_POST['confirm_password']) and $_POST['password'] != ""){
 				$password = strip_tags($_POST['password']);
-				if(strlen($password) > 30){
-					$error['password'] = "Votre mot de passe ne doit pas contenir plus de 30 caractÃ¨res !";
+				$confirm_password = strip_tags($_POST['confirm_password']);
+				if(strlen($password) > 30 or strlen($confirm_password) > 30){
+					$error['password'] = "Votre mot de passe ne doit pas contenir plus de 30 caractères !";
 				}
-				else if($_POST['password'] != $_POST['confirm_password']){
-					$error['confirm_password'] = "Les deux mots de passe ne correspondent pas !";
+				else if($_POST['confirm_password'] != $_POST['password']){
+					$error['password'] = "Les deux mots de passe ne correspondent pas !";
 				}
 			}
 			else{
-				$error['password'] = "Vous n'avez pas entrÃ© de mot de passe !";
+				$error['password'] = "Vous n'avez pas entré de mot de passe !";
 			}
 
 			if(isset($_POST['familly_name']) and $_POST['familly_name'] != ""){
 				$familly_name = strip_tags($_POST['familly_name']);
 				if(strlen($familly_name) > 30){
-					$error['familly_name'] = "Votre nom de famille doit faire moins de 30 caractÃ¨res !";
+					$error['familly_name'] = "Votre nom de famille doit faire moins de 30 caractères !";
 				}
-				else if(!ctype_alpha($_POST['familly_name'])){
+				else if(!ctype_alpha($familly_name)){
 					$error['familly_name'] = "Votre nom de famille ne doit pas contenir de chiffres !";
 				}
 			}
 			else{
-				$error['familly_name'] = "Vous n'avez pas renseignÃ© votre nom de famille ";
+				$error['familly_name'] = "Vous n'avez pas renseigné votre nom de famille ";
 			}
 
 			if(isset($_POST['name']) and $_POST['name'] != ""){
 				$name = strip_tags($_POST['name']);
 				if(strlen($name) > 30){
-					$error['name'] = "Votre prÃ©nom doit faire moins de 30 caractÃ¨res !";
+					$error['name'] = "Votre prénom doit faire moins de 30 caractères !";
 				}
-				else if(!ctype_alpha($_POST['name'])){
-					$error['name'] = "Votre prÃ©nom ne doit pas contenir de chiffres !";
+				else if(!ctype_alpha($name)){
+					$error['name'] = "Votre prénom ne doit pas contenir de chiffres !";
 				}
 			}
 			else{
-				$error['name'] = "Vous n'avez pas renseignÃ© votre prÃ©nom !";
+				$error['name'] = "Vous n'avez pas renseigné votre prénom !";
 			}
 
-			//VÃ©rification de la date de naissance
+			//Vérification de la date de naissance
 			if(!isset($_POST['day_birth']) or $_POST['day_birth'] == ""){
 				$day_birth = 0;
 			}
-			else if(is_numeric($_POST['day_birth']) and intval($_POST['day_birth']) <= 9 and intval($_POST['day_birth']) >= 1){
-				$day_birth = intval("0").intval($_POST['day_birth']);
-			}
-			else if(is_numeric($_POST['day_birth']) and intval($_POST['day_birth']) <= 31 and intval($_POST['day_birth']) >= 10){
+			else if(is_numeric($_POST['day_birth']) and intval($_POST['day_birth']) <= 31 and intval($_POST['day_birth']) >= 1){
 				$day_birth = intval($_POST['day_birth']);
 			}
 			else{
-				$error['day_birth'] = "Le jour de naissance n'est pas valide, il doit Ãªtre compris entre 1 et 31 !";
+				$error['day_birth'] = "Le jour de naissance n'est pas valide !";
 			}
 
 			if(!isset($_POST['month_birth']) or $_POST['month_birth'] == ""){
 				$month_birth = 0;
 			}
-			else if(is_numeric($_POST['month_birth']) and intval($_POST['month_birth']) <= 9 and intval($_POST['month_birth']) >= 1){
-				$month_birth = intval("0").intval($_POST['month_birth']);
-			}
-			else if(is_numeric($_POST['month_birth']) and intval($_POST['month_birth']) <= 12 and intval($_POST['month_birth']) >= 10){
+			
+			else if(is_numeric($_POST['month_birth']) and intval($_POST['month_birth']) <= 12 and intval($_POST['month_birth']) >= 1){
 				$month_birth = intval($_POST['month_birth']);
 			}
 			else{
-				$error['month_birth'] = "Le mois de naissance n'est pas valide, il doit Ãªtre compris entre 1 et 12";
+				$error['month_birth'] = "Le mois de naissance n'est pas valide !";
+			}
+
+			if(!isset($_POST['year_birth']) or $_POST['year_birth'] == ""){
+				$year_birth = 0;
+			}
+			
+			else if(is_numeric($_POST['year_birth']) and intval($_POST['year_birth']) <= date('Y') and intval($_POST['year_birth']) >= 1920){
+				$year_birth = intval($_POST['year_birth']);
+			}
+			else{
+				$error['year_birth'] = "L'année de naissance n'est pas valide !";
 			}
 
 			if(isset($_POST['street']) or $_POST['street'] != ""){
 				$street = strip_tags($_POST['street']);
 				if(strlen($street) > 70){
-					$error['street'] = "L adresse ne doit pas faire plus de 70 caractÃ¨res!";
+					$error['street'] = "L adresse ne doit pas faire plus de 70 caractères!";
 				}
-				else if(ctype_digit($_POST['street'])){
+				else if(ctype_digit($street)){
 					$error['street'] = "L'adresse ne peut pas contenir que des chiffres !";
 				}
 			}
-			else{
-				$error['street'] = "Vous n'avez pas saisie d'adresse !";
-			}
+			
 
 			if(isset($_POST['postal_code']) and $_POST['postal_code'] != ""){
 				$postal_code = strip_tags($_POST['postal_code']);
 				if(strlen($postal_code) > 5){
-					$error['postal_code'] = "Le code postale ne doit pas dÃ©passer 5 caractÃ¨res !";
+					$error['postal_code'] = "Le code postale ne doit pas dépasser 5 caractères !";
 				}
-				else if(!ctype_digit($_POST['postal_code'])){
+				else if(!ctype_digit($postal_code)){
 					$error['postal_code'] = "Le code postale ne doit contenir que des chiffres !";
 				}
 			}
-			else{
-				$error['postal_code'] = "Le code postale n'a pas Ã©tÃ© saisie !";
-			}
-
+			
 			if(isset($_POST['city']) and $_POST['city'] != ""){
 				$city = strip_tags($_POST['city']);
 				if(strlen($city) > 30){
-					$error['city'] = "La ville ne doit pas faire plus de 50 caractÃ¨res !";
+					$error['city'] = "La ville ne doit pas faire plus de 50 caractères !";
 				}
-				else if(!ctype_alpha($_POST['city'])){
+				else if(!ctype_alpha(str_replace(' ', '', $city))){
 					$error['city'] = "La ville ne doit pas contenir de chiffres !";
 				}
 			}
-			else{
-				$error['city'] = "La ville n'a pas Ã©tÃ© renseignÃ©e !";
-			}
-
+			
 			if(isset($_POST['mail']) or $_POST['mail'] != ""){
 				$mail = strip_tags($_POST['mail']);
 				if(!filter_var($mail, FILTER_VALIDATE_EMAIL)){
-					$error['mail'] = "Le mail rentrÃ© n'est pas valide !";
+					$error['mail'] = "Le mail rentré n'est pas valide !";
 				}
 			}
 			else{
 				$error['mail'] = "Vous n'avez pas saisie votre mail !";
 			}
 
-			include_once('View/v_inscription.php');
+			if(isset($error) and !empty($error)){
+				if(!isset($error['pseudo'])){
+				$value['pseudo'] = $pseudo;
+				}
+				if(!isset($error['familly_name'])){
+					$value['familly_name'] = $familly_name;
+				}
+				if(!isset($error['name'])){
+					$value['name'] = $name;
+				}
+				if(!isset($error['street'])){
+					$value['street'] = $street;
+				}
+				if(!isset($error['postal_code'])){
+					$value['postal_code'] = $postal_code;
+				}
+				if(!isset($error['city'])){
+					$value['city'] = $city;
+				}
+				if(!isset($error['mail'])){
+					$value['mail'] = $mail;
+				}
+
+				include_once('View/v_inscription.php');
+			}
+			else{
+				include_once('View/v_inscription.php');
+			}
 		}
 		else{
 			include_once('View/v_inscription.php');
 		}
-	}
-	else{
-		echo 'Vous ne pouvez pas vous inscrire car vous Ãªtes dÃ©jÃ  connectÃ© !';
-	}
+	
 
