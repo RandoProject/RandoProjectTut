@@ -25,9 +25,16 @@
                             <input type="texte" id="name" name="name"/><br/><br/>
 
                         <label for="day_birth">Date de naissance :</label>
-                            <input type="texte" id="day_birth" name="day_birth"/>
-                            <input type="texte" name="month_birth"/>
-                            <input type="texte" name="year_birth"/><br/><br/>
+                            <?php
+                                echo '<label for="day_birth">Jour</label>
+                                    <select id="day_birth" name="day_birth">';
+                                    $i = 1;
+                                    for($i; $i <= 31; $i++){
+                                        echo '<option value="'.$i.'">'.$i.'</option>';
+                                    }
+                                echo '</select>';
+                            ?>
+                        <label for"month_birth">Mois
 
                         <label for="street">Adresse :</label>
                             <input type="texte" id="street" name="street"/><br/><br/>
