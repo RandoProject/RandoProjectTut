@@ -218,7 +218,7 @@ section#rando form div#recherche_mot_cle input[type="text"]{
 section#rando form div#recherche_mot_cle input[type="text"]:hover,
 section#rando form div#recherche_mot_cle input[type="text"]:focus{
 	background-color: #FFFFFF;
-	box-shadow: 0px 0px 4px #0080FF, 0px 0px 4px #0080FF;
+	/*box-shadow: 0px 0px 4px #0066FF;*/
 }
 /* Recherche par critères */
 section#rando form div#recherche_criteres div.critere{
@@ -232,7 +232,7 @@ section#rando form div#recherche_criteres div.critere select{
 }
 section#rando form div#recherche_criteres div.critere select:hover{
 	background-color: #FFFFFF;
-	box-shadow: 0px 0px 4px #0080FF, 0px 0px 4px #0080FF;
+	/*box-shadow: 0px 0px 4px #0066FF;*/
 }
 section#rando form div#recherche_criteres div.critere select option:selected{
 	background-color: red;
@@ -243,6 +243,13 @@ section#rando form div#recherche_criteres input[type="submit"]{
 
 
 			/* Affichage randonnée */
+section#rando div#affichage_recherche div p#titre{
+	color: #2E9AFE;
+	text-align: center;
+	font-size: 1.5em;
+	text-shadow: 1px 1px 1px rgba(200, 200, 200, 1);
+	z-index: 9999;
+}
 section#rando div#affichage_recherche div#rando_pair{ background-color:#BDBDBD; }
 section#rando div#affichage_recherche div#rando_impair{ background-color:#E6E6E6; }
 section#rando div#affichage_recherche div#rando_pair,
@@ -259,39 +266,47 @@ section#rando div#affichage_recherche div div#rond{
 	display: block;
 	width: 250px;
 	height: 250px;
-	margin: auto;
+	margin-top: -42px;
 	overflow: hidden;
 	position: relative;
 	text-align: center;
 }
-section#rando div#affichage_recherche div#rando_impair div#rond a#lien{ border: 110px solid #BDBDBD; }
+section#rando div#affichage_recherche div#rando_pair div#rond a#lien{ border: 110px solid #BDBDBD; }
 section#rando div#affichage_recherche div#rando_impair div#rond a#lien{  border: 110px solid #E6E6E6; }
 section#rando div#affichage_recherche div div#rond a#lien{
 	display: block;
 	height: 190px;
+	width: 190px;
 	position: absolute;
 	margin-left: -80px;
 	margin-top: -80px;
-	width: 190px;
-	border: 110px solid #BDBDBD;
-	border-radius: 900px;
-	z-index: 99;
+	border-radius: 300px;	
 	transition: all 0.3s ease 0s;
+	box-shadow: 0px 0px 15px rgba(0, 0, 0, 1) inset;
+}
+section#rando div#affichage_recherche div div#rond a:hover{
+	transform: scale(1.3);
+	-webkit-transform: scale(1.3);
+	-moz-transform: scale(1.3);
 }
 section#rando div#affichage_recherche div div#rond img{
 	width: 250px;
 	height: 250px;
 }
-section#rando div#affichage_recherche div a:hover{
-	transform: scale(1.3);
-	-webkit-transform: scale(1.3);
-	-moz-transform: scale(1.3);
-}
-section#rando div#affichage_recherche div#affichage_text{
+section#rando div#affichage_recherche div#rando_pair div#affichage_text{ float: left; margin-left: 20%; }
+section#rando div#affichage_recherche div#rando_impair div#affichage_text{ float: right; margin-right: 20%; }
+section#rando div#affichage_recherche div div#affichage_text{
 	display: inline-block;
-	margin-left: 5%;
-	width: 60%;
-	height: 100%;
+	margin-top: 40px;
+}
+section#rando div#affichage_recherche div div#affichage_text div#cercle{
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	margin-right: 3px;
+	background-color: #2E9AFE;
+	box-shadow: 1px 1px 1px rgba(200, 200, 200, 1);
+	border-radius: 15px;
 }
 
 
@@ -330,7 +345,7 @@ section#connexion form input[type="password"]:hover,
 section#connexion form input[type="password"]:focus{
 	background-color: #FFFFFF;
 	font-weight: bold;
-	box-shadow: 0px 0px 4px #0080FF, 0px 0px 4px #0080FF;
+	/*box-shadow: 0px 0px 4px #0066FF;*/
 }
 section#connexion form input[type="submit"]{
 	cursor: pointer;

@@ -7,10 +7,11 @@ function affichage_title($title){
 	$mots = explode(' ', $req);
 	
 	if(count($mots) > 0){
-		$reqStr = '	SELECT rando.*, photo.nom AS nom_photo, galerie.nom AS nom_galerie 
-					FROM rando, photo, galerie 
+		$reqStr = '	SELECT rando.*,  departements.nom AS nom_departement, photo.nom AS nom_photo, galerie.nom AS nom_galerie 
+					FROM rando, photo, galerie, departements
 					WHERE rando.photo_principale = photo.numero 
-					AND photo.galerie = galerie.numero';
+					AND photo.galerie = galerie.numero
+					AND rando.departement = departements.num_departement';
 		$i = 0;
 		$parenthese = 0;
 		while($i < count($mots)){ // Ajoute AND si il y a un mot non vide dans le tableau
@@ -104,7 +105,7 @@ function affichage_f_rando_complet($region, $typeRegion, $MAX_distance, $MIN_dis
 		$reqValues['water'] = $water;
 	}
 
-	$reqStr = '	SELECT rando.*, photo.nom AS nom_photo, galerie.nom AS nom_galerie
+	$reqStr = '	SELECT rando.*, departements.nom AS nom_departement, photo.nom AS nom_photo, galerie.nom AS nom_galerie
 				FROM rando, photo, galerie, departements
 				WHERE rando.photo_principale = photo.numero
 				AND photo.galerie = galerie.numero
