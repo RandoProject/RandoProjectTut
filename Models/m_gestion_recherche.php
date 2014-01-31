@@ -1,9 +1,8 @@
 <?php
 
-function affichage_title($title, $page){
+function affichage_title($title){
 	global $bdd;
 	
-	$page = ($page - 1) * 10;
 	$req = htmlspecialchars($title);
 	$mots = explode(' ', $req);
 	
@@ -38,7 +37,7 @@ function affichage_title($title, $page){
 		if($parenthese === 1){
 			$reqStr .= ')';
 		}
-		$reqStr .= ' ORDER BY longueur ASC LIMIT '.$page.', 10';
+		$reqStr .= ' ORDER BY longueur ASC';
 
 		$requete= $bdd->query($reqStr) or die(print_r($erreur -> errorInfo()));
 		$res = $requete->fetchAll();

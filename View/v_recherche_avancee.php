@@ -143,16 +143,8 @@
                             affichage_rando($affichage_rando_complet);
                         }
                         else if(isset($_POST['envoie_titre'])){
-                            affichage_rando($affichage_titre_rando, $_GET['numPage']);
-							$i = 1;
-							while(count(affichage_title($_POST['title'], $i)) != 0){
-								echo '	<form method="post" action="index.php?page=recherche&numPage='.$i.'">
-											<input type="hidden" name="title" value="'.$_POST['title'].'">
-											<input type="submit" name="envoie_titre" value="'.$i.'"/>
-										</form>';
-								$i++;
-							}                            
-                       }
+                            affichage_rando($affichage_titre_rando);
+						}
                     ?>
                 </div>
             </section>

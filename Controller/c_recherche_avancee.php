@@ -5,7 +5,7 @@ include_once('Models/m_gestion_recherche.php');
 
 /* Recherche par mot clé */
 if(isset($_POST['title'])){
-		$affichage_titre_rando = affichage_title($_POST['title'], $_GET['numPage']);
+		$affichage_titre_rando = affichage_title($_POST['title']);
 }
 
 /* Recherche via le formulaire */
@@ -46,47 +46,38 @@ if(isset($_POST['s_region'], $_POST['distance'], $_POST['time'], $_POST['difficu
 	}
 
 	switch($time){
-
 		case "00:00:00":	
 				$MAX_time = 'inferieur_1h';
 				$MIN_time = '00:00:00';
 				break;
-		
 		case "01:00:00": 					
 				$MAX_time = '03:00:00';
 				$MIN_time = '01:00:00';
 				break;
-	
 		case "03:00:00":					
 				$MAX_time = '06:00:00';
 				$MIN_time = '03:00:00';
 				break;
-
 		case "10:00:00": // Changement à faire
 				$MAX_time = 'vide_10';
 				$MIN_time = '10:00:00';
 				break;
-
 		case "24:00:00": 					
 				$MAX_time = 'vide_24';
 				$MIN_time = '24:00:00';
 				break;
-
 		case "48:00:00":		 			
 				$MAX_time = '96:00:00';
 				$MIN_time = '48:00:00';
 				break;
-
 		case "96:00:00":
 				$MAX_time = 'vide_96';
 				$MIN_time = '96:00:00';
 				break;
-
 		case  "time_non_precise": 	
 				$MAX_time = 'vide';
 				$MIN_time = '00:00:00';
 				break;
-
 		default:
 				$MAX_time = false;
 				$MIN_time = false;
@@ -100,7 +91,6 @@ if(isset($_POST['s_region'], $_POST['distance'], $_POST['time'], $_POST['difficu
 	else{
 		$difficulty = 'non_precise';
 	}
-
 	if($water == "0" || $water== "1"){
 		$water = intval($water);
 	}
@@ -111,7 +101,9 @@ if(isset($_POST['s_region'], $_POST['distance'], $_POST['time'], $_POST['difficu
 	$affichage_rando_complet = affichage_f_rando_complet($_POST['s_region'], $typeRegion, $MAX_distance, $MIN_distance, $MAX_time, $MIN_time, $difficulty, $water);
 }
 
-/* Affichage des régions */
+/* Sélection des régions */
 $listeRegion = select_regions('num_region, nom');
+
+/* Récupération des sonnées */
 
 include_once('View/v_recherche_avancee.php');
