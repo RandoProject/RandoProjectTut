@@ -64,7 +64,7 @@ function affichage_f_rando_complet($region, $typeRegion, $MAX_distance, $MIN_dis
 	$reqArray = array();
 
 	if($typeRegion == 's_region_true'){
-		array_push($reqArray, "region = :region ");
+		array_push($reqArray, "departement IN (SELECT num_departement FROM departements WHERE num_region = :region)");
 		$reqValues['region'] = $region;
 	}
 
@@ -106,9 +106,10 @@ function affichage_f_rando_complet($region, $typeRegion, $MAX_distance, $MIN_dis
 	}
 
 	$reqStr = '	SELECT rando.*, photo.nom AS nom_photo, galerie.nom AS nom_galerie
-				FROM rando, photo, galerie
+				FROM rando, photo, galerie, departements
 				WHERE rando.photo_principale = photo.numero
-				AND photo.galerie = galerie.numero';
+				AND photo.galerie = galerie.numero
+				AND rando.departement = departements.num_departement';
 
 	if(!empty($reqArray)){
 		$reqStr .= ' AND '.implode(' AND ', $reqArray);
