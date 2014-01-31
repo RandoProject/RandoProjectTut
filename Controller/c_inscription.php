@@ -130,6 +130,7 @@ include_once('Models/m_inscription.php');
 				$error['mail'] = "Vous n'avez pas saisie votre mail !";
 			}
 
+			include_once('View/v_inscription.php');
 		}
 		else{
 			include_once('View/v_inscription.php');
@@ -139,4 +140,3 @@ include_once('Models/m_inscription.php');
 		echo 'Vous ne pouvez pas vous inscrire car vous êtes déjà connecté !';
 	}
 
-include_once('View/v_inscription.php');
