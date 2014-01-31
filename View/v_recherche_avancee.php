@@ -14,7 +14,7 @@
                     <p>Recherche avancée</p>
                 </div>
                 
-                <form method="post" action="index.php?page=recherche&numPage=1">
+                <form method="post" action="index.php?page=recherche">
                     <div id="recherche_mot_cle">
                         <p>Recherche par mots clés</p>
                         <input type="text" name="title" placeholder="mots clés.." autocomplete="off"/>
@@ -109,42 +109,32 @@
                 <!-- Zone pour afficher la recherche -->
                 <div id="affichage_recherche">   
                     <?php
-						function affichage_rando($randonnee){ // Fonction affcihage d'une randonnée
-							if(!empty($randonnee)){ 
-								$i=0;
-                                foreach($randonnee as $rando){
-									if($i % 2 === 0) $css = '_pair';
-									else $css = '_impair';
-									$i++;
-									echo '	<div id="rando'.$css.'">';
-									echo '		<div id="rond">';
-									echo '			<a id="lien" href="index.php?page=fiche_rando&code='.$rando['code'].'"></a>';
-									echo '			<img src="Resources/Galerie/'. $rando['nom_galerie'] .'/'. $rando['nom_photo'] .'"/>';
-									echo '		</div>';
-									echo '		<div id="affichage_text">';
-									echo '			Titre : '.$rando['titre'].'<br/>';
-									echo '			Longueur : '.$rando['longueur'].'<br/>';
-									echo '			Durée : '.$rando['duree'].'<br/>';
-									echo '			Point d\' eau : '.$rando['point_eau'].'<br/>';
-									echo '			Difficulté : '.$rando['difficulte'].'<br/>';
-									echo '			<a href="index.php?page=fiche_rando&code='.$rando['code'].'"><em>consulter la fiche..</em></a><br/>';
-									echo '		</div>';
-									echo '	</div>';
-									if($i === 10) break;
-                                }
-                            }
-                            else{
-                                echo 'Aucune randonnée trouvée';
-                            }
+						if(!empty($listeRando)){ 
+							$i=0;
+							foreach($listeRando as $rando){
+								if($i % 2 === 0) $css = '_pair';
+								else $css = '_impair';
+								$i++;
+								echo '	<div id="rando'.$css.'">';
+								echo '		<div id="rond">';
+								echo '			<a id="lien" href="index.php?page=fiche_rando&code='.$rando['code'].'"></a>';
+								echo '			<img src="Resources/Galerie/'. $rando['nom_galerie'] .'/'. $rando['nom_photo'] .'"/>';
+								echo '		</div>';
+								echo '		<div id="affichage_text">';
+								echo '			Titre : '.$rando['titre'].'<br/>';
+								echo '			Longueur : '.$rando['longueur'].'<br/>';
+								echo '			Durée : '.$rando['duree'].'<br/>';
+								echo '			Point d\' eau : '.$rando['point_eau'].'<br/>';
+								echo '			Difficulté : '.$rando['difficulte'].'<br/>';
+								echo '			<a href="index.php?page=fiche_rando&code='.$rando['code'].'"><em>consulter la fiche..</em></a><br/>';
+								echo '		</div>';
+								echo '	</div>';
+								if($i === 10) break;
+							}
 						}
-						
-						// Affichage résultats de la recherche
-						if(isset($_POST['envoie_formulaire'])){
-                            affichage_rando($affichage_rando_complet);
-                        }
-                        else if(isset($_POST['envoie_titre'])){
-                            affichage_rando($affichage_titre_rando);
-						}
+						else{
+							echo 'Aucune randonnée trouvée';
+						}						
                     ?>
                 </div>
             </section>

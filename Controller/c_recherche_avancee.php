@@ -105,5 +105,14 @@ if(isset($_POST['s_region'], $_POST['distance'], $_POST['time'], $_POST['difficu
 $listeRegion = select_regions('num_region, nom');
 
 /* Récupération des sonnées */
+if(isset($_POST['envoie_formulaire'])){
+	$listeRando = $affichage_rando_complet;
+}
+else if(isset($_POST['envoie_titre'])){
+	$listeRando = $affichage_titre_rando;
+}
+else{
+	$listeRando = NULL;
+}
 
 include_once('View/v_recherche_avancee.php');
