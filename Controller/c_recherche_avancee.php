@@ -104,7 +104,11 @@ if(isset($_POST['s_region'], $_POST['distance'], $_POST['time'], $_POST['difficu
 /* Sélection des régions */
 $listeRegion = select_regions('num_region, nom');
 
-/* Récupération des sonnées */
+
+/*Sélection randonnée récente, page recherche*/
+$rando_recente = selection_rando_recente();
+
+/* Récupération des données */
 if(isset($_POST['envoie_formulaire'])){
 	$listeRando = $affichage_rando_complet;
 }
