@@ -17,7 +17,7 @@ else{
 			break;
 
 		case 'galerie':
-			include_once('Controller/');
+			include_once('Controller/c_galerie.php');
 			break;
 
 		case 'ajout_rando':

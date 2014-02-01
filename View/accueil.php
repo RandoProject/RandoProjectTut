@@ -25,7 +25,7 @@
                             for($i = 0; $i < count($photo); $i++){
                                 echo '	<a href="#">
                                             <figure>
-                                                <img src="Resources/Images/'.$photo[$i].'" alt="" width="640" height="310"/>
+                                                <img src="Resources/Images/'.$photo[$i].'" alt="" width="960" height="465"/>
                                                 <figcaption>'.$legende[$i].'</figcaption>
                                             </figure>
                                         </a>
@@ -36,8 +36,18 @@
                     </div>
                 </div>
             </div>
-    
-            <div id="map"><img style="width:100%; height:100%;" src="Resources/Images/map.png"></div>
+    		
+            <div id="accueil">
+            	<div class="cadre"></div>
+            	<div class="cadre"></div>
+            	<div class="cadre"></div>
+            	<div class="cadre"></div>
+            	<div class="cadre"></div>
+            	<div class="cadre"></div>
+            </div>
+            <div id="map">
+            	<img style="width:100%; height:100%;" src="Resources/Images/map.png">
+            </div>
         </div>
     
         <?php include_once('Controller/c_footer.php'); ?>

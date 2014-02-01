@@ -1,9 +1,9 @@
 					/* Slidshow */
 div#slideshow{
     position: relative;
-	top: 130px;
-    width: 640px;
-    height: 310px;
+	top: 10px;
+    width: 960px;
+    height: 465px;
     padding: 15px;
     margin: auto;
     background: #E4DFD2;
@@ -15,8 +15,8 @@ div#slideshow{
 				/* Photo */
 div#slideshow div.container{  
     position: relative;  
-    width: 640px;  
-    height: 310px;  
+    width: 960px;  
+    height: 465px;  
     overflow: hidden;  
     border-radius: 2px;
 }
@@ -25,7 +25,7 @@ div#slideshow div.container div.slider{
     left: 0px;
 	top: 0px;
     width: 400%;
-    height: 310px; 
+    height: 465px; 
     -webkit-animation: slider 32s infinite; /* Ce qui fait l'animation */
     -moz-animation: slider 32s infinite;
     animation: slider 32s infinite;
@@ -87,4 +87,48 @@ div#slideshow div.container div.slider a figure figcaption{
     25%, 45%        { left: -100% }  
     50%, 70%        { left: -200% }  
     75%, 95%        { left: -300% }  
+}
+
+
+				/* Timeline */
+#timeline {  
+    position: absolute; 
+    bottom: 15px;  
+    left: 15px;  
+    height: 1px;  
+    background: #0080C0;
+    width: 0;  
+	opacity: 0.5;
+    -webkit-animation: timeliner 32s infinite; 
+    -moz-animation: timeliner 32s infinite; 
+    animation: timeliner 32s infinite;
+}
+@-webkit-keyframes timeliner{  
+    0%, 25%, 50%, 75%, 100% { width: 0;     }  
+    20%, 45%, 70%, 90%      { width: 960px; }  
+}
+@-moz-keyframes timeliner{  
+    0%, 25%, 50%, 75%, 100% { width: 0;     }  
+    20%, 45%, 70%, 90%      { width: 960px; }  
+}
+@keyframes timeliner{
+    0%, 25%, 50%, 75%, 100% { width: 0;     }  
+    20%, 45%, 70%, 90%      { width: 960px; }  
+}
+@-webkit-keyframes figcaptionner{  
+    0%, 20%, 45%, 70%, 95%                     { bottom: -55px;    }  
+    10%, 19%, 35%, 44%, 60%, 69%, 85%, 94%       { bottom: 5px;      }  
+}
+@-moz-keyframes figcaptionner{  
+    0%, 20%, 45%, 70%, 95%                     { bottom: -55px;    }  
+    10%, 19%, 35%, 44%, 60%, 69%, 85%, 94%       { bottom: 5px;      }  
+}
+@keyframes figcaptionner{  
+    0%, 20%, 45%, 70%, 95%                     { bottom: -55px;    }  
+    10%, 19%, 35%, 44%, 60%, 69%, 85%, 94%       { bottom: 5px;      }  
+}
+#slideshow figcaption{ 
+    -webkit-animation: figcaptionner 32s infinite;
+    -moz-animation: figcaptionner 32s infinite;  
+    animation: figcaptionner 32s infinite;  
 }
