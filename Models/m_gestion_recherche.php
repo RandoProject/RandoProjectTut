@@ -60,12 +60,14 @@ function select_regions($select){
 function selection_rando_recente(){
 	global $bdd;
 
-	$reqStr = "SELECT *, departements.nom AS nom_departement, photo.nom AS nom_photo, galerie.nom AS nom_galerie
+	$reqStr = '	SELECT *, departements.nom AS nom_departement, photo.nom AS nom_photo, galerie.nom AS nom_galerie
 				FROM rando, photo, galerie, departements
 				WHERE rando.photo_principale = photo.numero
 				AND photo.galerie = galerie.numero
 				AND rando.departement = departements.num_departement 
-				ORDER BY date_insertion DESC LIMIT 0,10";
+				ORDER BY date_insertion DESC 
+				LIMIT 0, 10';
+				
 	$req = $bdd->query($reqStr);
 	$result = $req->fetchAll();
 	$req->closeCursor();

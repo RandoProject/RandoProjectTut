@@ -139,7 +139,7 @@ if(strtolower($_SERVER['REQUEST_METHOD']) == 'post'){
 		$error['mail'] = "Vous n'avez pas saisie votre mail !";
 	}
 	// Erreure
-	if(isset($error) and !empty($error)){
+	if(!empty($error)){
 		if(!isset($error['pseudo'])){
 			$value['pseudo'] = $pseudo;
 		}
