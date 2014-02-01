@@ -109,49 +109,51 @@
                 <!-- Zone pour afficher la recherche -->
                 <div id="affichage_recherche">   
                     <?php
-						if(!empty($listeRando)){ 
-							$i=0;
-							foreach($listeRando as $rando){
-								// mise en variable
-								$code = $rando['code'];
-								$title = $rando['titre'];
-								$department = $rando['nom_departement'];
-								$lenght = $rando['longueur'].' Km';
-								$photo = 'Resources/Galerie/'.$rando['nom_galerie'].'/'.$rando['nom_photo'];
-								$difficulty = '';
-								for($j = 1; $j <= $rando['difficulte']; $j++){ $difficulty .= '<div id="cercle"></div>'; }
-								$time = new DateTime(trim($rando['duree']));
-								$duration = $time->format('h').'h'.$time->format('i');
-								if(empty($rando['note'])){ $note = '<em>non renseigné</em>'; }
-								else{ $note = $rando['note']; }
-								if(empty($rando['point_eau'])){ $water = '<em>non renseigné</em>'; }
-								else{ $water = 'oui'; }
-								// Couleur cadre
-								if($i % 2 === 0) $css = '_pair';
-								else $css = '_impair';
-								$i++;
-								// Affichage
-								echo '	<div id="rando'.$css.'">';
-								echo '		<p id="titre">'.$title.'</p><br/>';
-								echo '		<div id="rond">';
-								echo '			<a id="lien" href="index.php?page=fiche_rando&code='.$code.'"></a>';
-								echo '			<img src="'.$photo.'"/>';
-								echo '		</div>';
-								echo '		<div id="affichage_text">';
-								echo '			Longueur : '.$lenght.'<br/>';
-								echo '			Durée : '.$duration.'<br/>';
-								echo '			Point d\' eau : '.$water.'<br/>';
-								echo '			Difficulté : '.$difficulty.'<br/>';
-								echo '			Département : '.$department.'<br/>';
-								echo '			<br/><a href="index.php?page=fiche_rando&code='.$code.'"><em>consulter la fiche de cette randonnée</em></a>';
-								echo '		</div>';
-								echo '	</div>';
-								if($i === 10) break;
-							}
-						}
-						else{
-							echo '<center><em>Aucune randonnée trouvée</em></center>';
-						}						
+                        if(isset($_POST['envoie_formulaire']) or isset($_POST['envoie_titre'])){
+    						if(!empty($listeRando)){ 
+    							$i=0;
+    							foreach($listeRando as $rando){
+    								// mise en variable
+    								$code = $rando['code'];
+    								$title = $rando['titre'];
+    								$department = $rando['nom_departement'];
+    								$lenght = $rando['longueur'].' Km';
+    								$photo = 'Resources/Galerie/'.$rando['nom_galerie'].'/'.$rando['nom_photo'];
+    								$difficulty = '';
+    								for($j = 1; $j <= $rando['difficulte']; $j++){ $difficulty .= '<div id="cercle"></div>'; }
+    								$time = new DateTime(trim($rando['duree']));
+    								$duration = $time->format('h').'h'.$time->format('i');
+    								if(empty($rando['note'])){ $note = '<em>non renseigné</em>'; }
+    								else{ $note = $rando['note']; }
+    								if(empty($rando['point_eau'])){ $water = '<em>non renseigné</em>'; }
+    								else{ $water = 'oui'; }
+    								// Couleur cadre
+    								if($i % 2 === 0) $css = '_pair';
+    								else $css = '_impair';
+    								$i++;
+    								// Affichage
+    								echo '	<div id="rando'.$css.'">';
+    								echo '		<p id="titre">'.$title.'</p><br/>';
+    								echo '		<div id="rond">';
+    								echo '			<a id="lien" href="index.php?page=fiche_rando&code='.$code.'"></a>';
+    								echo '			<img src="'.$photo.'"/>';
+    								echo '		</div>';
+    								echo '		<div id="affichage_text">';
+    								echo '			Longueur : '.$lenght.'<br/>';
+    								echo '			Durée : '.$duration.'<br/>';
+    								echo '			Point d\' eau : '.$water.'<br/>';
+    								echo '			Difficulté : '.$difficulty.'<br/>';
+    								echo '			Département : '.$department.'<br/>';
+    								echo '			<br/><a href="index.php?page=fiche_rando&code='.$code.'"><em>consulter la fiche de cette randonnée</em></a>';
+    								echo '		</div>';
+    								echo '	</div>';
+    								if($i === 10) break;
+    							}
+    						}
+    						else{
+    							echo '<center><em>Aucune randonnée trouvée</em></center>';
+    						}
+                        }					
                     ?>
                 </div>
             </section>

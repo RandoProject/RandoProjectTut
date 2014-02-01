@@ -139,7 +139,7 @@ if(strtolower($_SERVER['REQUEST_METHOD']) == 'post'){
 		$error['mail'] = "Vous n'avez pas saisie votre mail !";
 	}
 	// Erreure
-	if(!empty($error)){
+	if(isset($error) and !empty($error)){
 		if(!isset($error['pseudo'])){
 			$value['pseudo'] = $pseudo;
 		}
@@ -165,7 +165,8 @@ if(strtolower($_SERVER['REQUEST_METHOD']) == 'post'){
 		include_once('View/v_inscription.php');
 	}
 	else{
-		$envoie = "envoye";
+
+		validation_inscription($pseudo, $password, $familly_name, $name, $day_birth, $month_birth, $year_birth, $street, $postal_code, $city, $mail);
 		include_once('View/v_inscription.php');
 	}
 }

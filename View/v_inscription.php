@@ -38,10 +38,7 @@
                 <?php if(isset($error['name'])) echo '<p>'.$error['name'].'</p>';?>
                 <label for="name">Prénom :</label>
                 <input type="text" id="name" name="name" value="<?php if(isset($value['name'])) echo $value['name']; ?>" maxlength="30" autocomplete="off" required/><br/><br/>
-                
-                <label for="birth">Date de naissance :</label>
-				<input type="date" id="birth"/><br/><br/>
-
+        
                 <?php if(isset($error['day_birth'])) echo '<p>'.$error['day_birth'].'</p>';?>
                 <label for="day_birth">Date de naissance :</label>
 				<?php

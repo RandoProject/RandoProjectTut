@@ -218,7 +218,7 @@ section#rando form div#recherche_mot_cle input[type="text"]{
 section#rando form div#recherche_mot_cle input[type="text"]:hover,
 section#rando form div#recherche_mot_cle input[type="text"]:focus{
 	background-color: #FFFFFF;
-	/*box-shadow: 0px 0px 4px #0066FF;*/
+	box-shadow: 0px 0px 6px #2E9AFE, 0px 0px 6px #2E9AFE,  0px 0px 6px #2E9AFE;
 }
 /* Recherche par critères */
 section#rando form div#recherche_criteres div.critere{
@@ -232,7 +232,7 @@ section#rando form div#recherche_criteres div.critere select{
 }
 section#rando form div#recherche_criteres div.critere select:hover{
 	background-color: #FFFFFF;
-	/*box-shadow: 0px 0px 4px #0066FF;*/
+	box-shadow: 0px 0px 6px #2E9AFE, 0px 0px 6px #2E9AFE,  0px 0px 6px #2E9AFE;
 }
 section#rando form div#recherche_criteres div.critere select option:selected{
 	background-color: red;
@@ -345,7 +345,7 @@ section#connexion form input[type="password"]:hover,
 section#connexion form input[type="password"]:focus{
 	background-color: #FFFFFF;
 	font-weight: bold;
-	/*box-shadow: 0px 0px 4px #0066FF;*/
+	box-shadow: 0px 0px 6px #2E9AFE, 0px 0px 6px #2E9AFE,  0px 0px 6px #2E9AFE;
 }
 section#connexion form input[type="submit"]{
 	cursor: pointer;
