@@ -14,7 +14,9 @@
 	    selector: "#description",
 	    browser_spellcheck: true,
 	    language: "fr_FR",
-	    nowrap: true
+	    nowrap: true,
+	    element_format : 'html',
+	    entities: '1,gg'
 	 });
 	</script>
 
