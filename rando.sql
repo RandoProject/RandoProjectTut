@@ -160,6 +160,11 @@ INSERT INTO `galerie` VALUES ('0',	'défaut');
 INSERT INTO `galerie` VALUES ('1',	'a');
 INSERT INTO `galerie` VALUES ('2',	'b');
 INSERT INTO `galerie` VALUES ('3',	'c');
+INSERT INTO `galerie` VALUES ('4',	'd');
+INSERT INTO `galerie` VALUES ('5',	'e');
+INSERT INTO `galerie` VALUES ('6',	'f');
+INSERT INTO `galerie` VALUES ('7',	'g');
+INSERT INTO `galerie` VALUES ('8',	'h');
 
 -- ____________________ PHOTO ____________________ --
 CREATE TABLE IF NOT EXISTS `photo` (
@@ -175,6 +180,51 @@ INSERT INTO `photo` VALUES ('0', 'défaut.png', '0', '');
 INSERT INTO `photo` VALUES ('1', 'PR1.jpg', '1', '');
 INSERT INTO `photo` VALUES ('2', 'PR11.jpg', '2', '');
 INSERT INTO `photo` VALUES ('3', 'saut-mounine-pr19.jpg', '3', '');
+INSERT INTO `photo` VALUES ('4', '6b87c7b2d1e3436170a1dc0527b0cdc9.jpg', '4', '');
+INSERT INTO `photo` VALUES ('5', '4733f897fda3d0b9dcec0805c049f02f.jpg', '5', '');
+INSERT INTO `photo` VALUES ('6', '127782b1036c50e8266f0b434d0bc1e6.jpg', '6', '');
+INSERT INTO `photo` VALUES ('7', 'Golfe-Morbihan-2.jpg', '7', '');
+INSERT INTO `photo` VALUES ('8', 'IMG_0253.jpg', '8', '');
+INSERT INTO `photo` VALUES ('9', 'IMG_0240.jpg', '8', '');
+INSERT INTO `photo` VALUES ('10', 'IMG_0242.jpg', '8', '');
+INSERT INTO `photo` VALUES ('11', 'IMG_0244.jpg', '8', '');
+INSERT INTO `photo` VALUES ('12', 'IMG_0245.jpg', '8', '');
+INSERT INTO `photo` VALUES ('13', 'IMG_0246.jpg', '8', '');
+INSERT INTO `photo` VALUES ('14', 'IMG_0247.jpg', '8', '');
+INSERT INTO `photo` VALUES ('15', 'IMG_0250.jpg', '8', '');
+INSERT INTO `photo` VALUES ('16', 'IMG_0252.jpg', '8', '');
+INSERT INTO `photo` VALUES ('17', 'IMG_0255.jpg', '8', '');
+INSERT INTO `photo` VALUES ('18', 'IMG_0257.jpg', '8', '');
+INSERT INTO `photo` VALUES ('19', 'IMG_0258.jpg', '8', '');
+INSERT INTO `photo` VALUES ('20', 'IMG_0259.jpg', '8', '');
+INSERT INTO `photo` VALUES ('21', 'IMG_0261.jpg', '8', '');
+INSERT INTO `photo` VALUES ('22', 'IMG_0263.jpg', '8', '');
+INSERT INTO `photo` VALUES ('23', 'IMG_0264.jpg', '8', '');
+INSERT INTO `photo` VALUES ('24', 'IMG_0265.jpg', '8', '');
+INSERT INTO `photo` VALUES ('25', 'IMG_0266.jpg', '8', '');
+INSERT INTO `photo` VALUES ('26', 'IMG_0268.jpg', '8', '');
+INSERT INTO `photo` VALUES ('27', 'IMG_0445.jpg', '8', '');
+INSERT INTO `photo` VALUES ('28', 'IMG_0447.jpg', '8', '');
+INSERT INTO `photo` VALUES ('29', 'IMG_0448.jpg', '8', '');
+INSERT INTO `photo` VALUES ('30', 'IMG_0449.jpg', '8', '');
+INSERT INTO `photo` VALUES ('31', 'IMG_0451.jpg', '8', '');
+INSERT INTO `photo` VALUES ('32', 'IMG_0452.jpg', '8', '');
+INSERT INTO `photo` VALUES ('33', 'IMG_0453.jpg', '8', '');
+INSERT INTO `photo` VALUES ('34', 'IMG_0468.jpg', '8', '');
+INSERT INTO `photo` VALUES ('35', 'IMG_0469.jpg', '8', '');
+INSERT INTO `photo` VALUES ('36', 'IMG_0472.jpg', '8', '');
+INSERT INTO `photo` VALUES ('37', 'IMG_0474.jpg', '8', '');
+INSERT INTO `photo` VALUES ('38', 'IMG_0475.jpg', '8', '');
+INSERT INTO `photo` VALUES ('39', 'IMG_0476.jpg', '8', '');
+INSERT INTO `photo` VALUES ('40', 'IMG_0477.jpg', '8', '');
+INSERT INTO `photo` VALUES ('41', 'IMG_0479.jpg', '8', '');
+INSERT INTO `photo` VALUES ('42', 'IMG_0489.jpg', '8', '');
+INSERT INTO `photo` VALUES ('43', 'IMG_0490.jpg', '8', '');
+INSERT INTO `photo` VALUES ('44', 'IMG_0493.jpg', '8', '');
+INSERT INTO `photo` VALUES ('45', 'IMG_0495.jpg', '8', '');
+INSERT INTO `photo` VALUES ('46', 'IMG_0497.jpg', '8', '');
+INSERT INTO `photo` VALUES ('47', 'IMG_0499.jpg', '8', '');
+INSERT INTO `photo` VALUES ('48', 'IMG_0505.jpg', '8', '');
 
 -- ____________________ MEMBRE ____________________ --
 CREATE TABLE IF NOT EXISTS `membre` (
@@ -327,6 +377,101 @@ VALUES (
 	'3',
 	'Pat',
 	'3'
+);
+INSERT INTO `rando` (`titre`, `longueur`, `duree`, `difficulte`, `descriptif`, `note`,`point_eau`, `denivele`, `equipement`,`date_insertion`,`valide`, `parcours`, `departement`, `photo_principale`, `auteur`, `galerie`)
+VALUES (
+	'Le sentier du Loup-Garoup',
+	'4,5',
+	'2:00',
+	'1',
+	'Partez découvrir le massif de la Serre et le village d\'Amange en vous plongeant dans l\'histoire du loup garou... Quand a lieu la fête du Loup-Garou (fin juin, début juillet), les spectateurs deviennent acteurs.',
+	'',
+	'1',
+	'',
+	'',
+	'2014-02-02 15:30:00',
+	'1',
+	'pr-le-sentier-du-loup-garou-9737.gpx',
+	'39',
+	'4',
+	'Pat',
+	'4'
+);
+INSERT INTO `rando` (`titre`, `longueur`, `duree`, `difficulte`, `descriptif`, `note`,`point_eau`, `denivele`, `equipement`,`date_insertion`,`valide`, `parcours`, `departement`, `photo_principale`, `auteur`, `galerie`)
+VALUES (
+	'Le sentier des étangs',
+	'7',
+	'2:30',
+	'2',
+	'Les étangs de la Bresse ont été créés et exploités par l\'homme depuis le Moyen-Âge. Tour à tour asséchés ou en eau, les étangs et leur écosystème évoluent au fil des saisons et donnent vie au paysage.',
+	'',
+	'1',
+	'',
+	'',
+	'2014-02-02 15:45:00',
+	'1',
+	'ped30003-le-sentier-des-etangs-920-9720.gpx',
+	'39',
+	'5',
+	'Pat',
+	'5'
+);
+INSERT INTO `rando` (`titre`, `longueur`, `duree`, `difficulte`, `descriptif`, `note`,`point_eau`, `denivele`, `equipement`,`date_insertion`,`valide`, `parcours`, `departement`, `photo_principale`, `auteur`, `galerie`)
+VALUES (
+	'Le sentier du guêpier',
+	'10',
+	'2:30',
+	'2',
+	'En forêt de Chaux, tout en parcourant le sentier botanique et ethnologique, vous serez initié au secret des bûcherons charbonniers qui peuplèrent jadis "la forêt qui n\'en finit pas".',
+	'',
+	'1',
+	'',
+	'',
+	'2014-02-02 16:00:00',
+	'1',
+	'pr-sentier-du-guepier-9741.gpx',
+	'39',
+	'6',
+	'Pat',
+	'6'
+);
+INSERT INTO `rando` (`titre`, `longueur`, `duree`, `difficulte`, `descriptif`, `note`,`point_eau`, `denivele`, `equipement`,`date_insertion`,`valide`, `parcours`, `departement`, `photo_principale`, `auteur`, `galerie`)
+VALUES (
+	'Circuit Killig Ar Mor',
+	'16,3',
+	'4:30',
+	'2',
+	'Ce Circuit, au départ du bourg d\'Ambon, traverse St Mamers avec sa chapelle et Bétahon, villages face aux marais maritimes de Billiers . En suivant le sentier côtier, il traverse les villages de Cromenac\'h avec sa chapelle et Tréhervé avec son amer. Son cheminement est en partie commun avec le GR 34 et 349 Rhuys-Vilaine.',
+	'',
+	'1',
+	'',
+	'',
+	'2014-02-02 16:15:00',
+	'1',
+	'point-info-tourisme-Ambon__Circuit_Killig_Ar_Mor.gpx',
+	'56',
+	'7',
+	'Pat',
+	'7'
+);
+INSERT INTO `rando` (`titre`, `longueur`, `duree`, `difficulte`, `descriptif`, `note`,`point_eau`, `denivele`, `equipement`,`date_insertion`,`valide`, `parcours`, `departement`, `photo_principale`, `auteur`, `galerie`)
+VALUES (
+	'La Montagne Verte',
+	'13,4',
+	'4:00',
+	'2',
+	'Circuit autour de la Montagne Verte au dessus du village des Eaux-Bonnes. Ce circuit permet de visiter les villages autour de la montagne verte et de découvrir l\'arrière pays. Belle vue sur le village des Eaux-Bonnes depuis la Montagne Verte.',
+	'',
+	'0',
+	'',
+	'',
+	'2014-02-02 16:30:00',
+	'1',
+	'650783.gpx',
+	'64',
+	'8',
+	'Pat',
+	'8'
 );
 
 -- ____________________ LOCALISER ____________________ --

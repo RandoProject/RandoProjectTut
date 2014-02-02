@@ -15,8 +15,8 @@
 	    browser_spellcheck: true,
 	    language: "fr_FR",
 	    nowrap: true,
-	    element_format : 'html',
-	    entities: '1,gg'
+	    element_format : 'html'
+
 	 });
 	</script>
 
@@ -82,7 +82,8 @@
                         </div>
 
                         <label for="description">Décrivez votre randonnée : </label><br>
-                        <textarea id="description"></textarea><br>
+                        <?php if(isset($error['description'])) echo '<p class="error">'.$error['description'].'</p><br>'; ?>
+                        <textarea id="description" name="description"><?php if(isset($value['description'])) echo $value['description']; ?></textarea><br>
 
                         <label for="difficulty">Difficulté : </label>
                         <input type="range" step="1" min="1" max="5" id="difficulty" name="difficulty"><br>
