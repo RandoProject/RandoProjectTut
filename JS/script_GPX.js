@@ -22,6 +22,9 @@ var fileInput = document.querySelector('#fileMap');
     					lon: NaN
     				}; 
     				var listPoints = gpxFile.getElementsByTagName('trkpt');
+                    if(listPoints.length == 0){ // Si on ne trouve pas de balise trkpt
+                        listPoints = gpxFile.getElementsByTagName('rtept');
+                    }
     				var listAttributes;
     				var i; // Nous permettra de calculer le nombre de points
 

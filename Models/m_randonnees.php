@@ -17,3 +17,18 @@ function get_rando($code){
 	
 	return $data;
 }
+
+function count_rando($title = false){
+	global $bdd;
+
+	$queryStr = 'SELECT COUNT(code) AS nb_rando FROM rando';
+	$queryArray = array();
+	if($title !== false){
+		$queryStr .= ' WHERE LOWER(titre) = :titre';
+		$queryArray[':titre'] = $title;
+	}
+
+	$query = $bdd->prepare($queryStr);
+	$query->execute($queryArray);
+	return $query->fetch(PDO::FETCH_OBJ);
+}
