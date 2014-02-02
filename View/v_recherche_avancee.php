@@ -135,12 +135,13 @@
 								// Affichage
 								echo '	<div id="rando'.$css.'">';
 								echo '		<p id="titre">'.$title.'</p><br/>';
+                                echo '      <div id="border_bottom"></div>';
 								echo '		<div id="rond">';
 								echo '			<a id="lien" href="index.php?page=fiche_rando&code='.$code.'"></a>';
 								echo '			<img src="'.$photo.'"/>';
 								echo '		</div>';
 								echo '		<div id="affichage_text">';
-								echo '			Longueur : '.$lenght.'<br/>';
+								echo '			<img id="image_critere'.$css.'" src="Resources/Images/walk.png"/><p id="longueur'.$css.'">Longueur : '.$lenght.'</p><br/>';
 								echo '			Durée : '.$duration.'<br/>';
 								echo '			Point d\' eau : '.$water.'<br/>';
 								echo '			Difficulté : '.$difficulty.'<br/>';

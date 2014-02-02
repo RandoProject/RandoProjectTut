@@ -46,7 +46,7 @@
             	<div class="cadre"></div>
             </div>
             <div id="map">
-            	<img style="width:100%; height:100%;" src="Resources/Images/map.png">
+            	<img style="width:100%; height:100%;" src="Resources/Images/map.png"/>
             </div>
         </div>
     
