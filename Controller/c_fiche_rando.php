@@ -12,7 +12,7 @@ if(isset($_GET['code'])){
 	$author = $rando->auteur;
 	$description = $rando->descriptif;
 	$difficulty = $rando->difficulte;
-	$region = $rando->region;
+	$department = $rando->nom_departement;
 	$lenght = $rando->longueur.' Km';
 	$path = $rando->parcours;
 	$galery = $rando->nom_galerie;
@@ -74,6 +74,9 @@ if(isset($_GET['code'])){
 	}
 	$insertion_date = $date->format('d').' '.$month.' '.$date->format('Y');
 	$insertion_hour = $date->format('h').'h'.$date->format('i');
+	
+	// Galerie
+	$listeImage = get_galery($code);
 }
 
 include_once('View/v_fiche_rando.php');

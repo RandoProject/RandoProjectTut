@@ -21,9 +21,15 @@
                 Dénivelé : <?php echo $altitude; ?><br/>
                 Equipement : <?php echo $equipment; ?><br/>
                 GPX : <?php echo $path; ?><br/>
-                Région : <?php echo $region; ?><br/>
+                Département : <?php echo $department; ?><br/>
                 Ajouté le <?php echo $insertion_date.' à '.$insertion_hour; ?>.<br/>
-                Rédigé par <?php echo $author; ?>.
+                Rédigé par <?php echo $author; ?>.<br/>
+                
+                <?php 
+					foreach($listeImage as $image) {
+						echo '<img src="Resources/Galerie/'.$galery.'/'.$image['nom'].'" width="420" height="310"/>';
+					}
+				?>
             </section>
         </div>
     
