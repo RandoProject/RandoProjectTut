@@ -133,24 +133,43 @@
 								$i++;
 								
 								// Affichage
-								echo '	<div id="rando'.$css.'">';
-								echo '		<p id="titre">'.$title.'</p><br/>';
-                                echo '      <div id="border_bottom"></div>';
-								echo '		<div id="rond">';
-								echo '			<a id="lien" href="index.php?page=fiche_rando&code='.$code.'"></a>';
-								echo '			<img src="'.$photo.'"/>';
-								echo '		</div>';
-								echo '		<div id="affichage_text">';
-								echo '			<img id="image_critere'.$css.'" src="Resources/Images/walk.png"/><p id="longueur'.$css.'">Longueur : '.$lenght.'</p><br/>';
-								echo '			Durée : '.$duration.'<br/>';
-								echo '			Point d\' eau : '.$water.'<br/>';
-								echo '			Difficulté : '.$difficulty.'<br/>';
-								echo '			Département : '.$department.'<br/>';
-								echo '			Note : '.$note.'<br/>';
-								echo '			<br/><a href="index.php?page=fiche_rando&code='.$code.'"><em>consulter la fiche de cette randonnée</em></a>';
-								echo '		</div>';
-								echo '	</div>';
-								// faire la limite de 10 rando par page
+								echo '	<div id="rando'.$css.'">
+											<p id="titre">'.$title.'</p>
+											<div id="rond">
+												<a id="lien" href="index.php?page=fiche_rando&code='.$code.'"></a>
+												<img src="'.$photo.'"/>
+											</div>
+											<div id="texte">
+												<div class="caracteristiques">
+													<img src="Resources/Images/longueur.png"/>
+													<span class="intitule_caract">Longueur</span><br/>
+													<span class="valeur_caract">'.$lenght.'</span>
+												</div>
+												<div class="caracteristiques">
+													<img src="Resources/Images/duree.png"/>
+													<span class="intitule_caract">Durée</span><br/>
+													<span class="valeur_caract">'.$duration.'</span>
+												</div>
+												<div class="caracteristiques">
+													<img src="Resources/Images/eau.png"/>
+													<span class="intitule_caract">Point d\' eau</span><br/>
+													<span class="valeur_caract">'.$water.'</span>
+												</div>
+												<div class="caracteristiques">
+													<img src="Resources/Images/difficulte.png"/>
+													<span class="intitule_caract">Difficulté</span><br/>
+													<span class="valeur_caract">'.$difficulty.'</span>
+												</div>
+												<div class="caracteristiques">
+													<img src="Resources/Images/departement.png"/>
+													<span class="intitule_caract">Département</span><br/>
+													<span class="valeur_caract">'.$department.'</span>
+												</div>
+												<br/>Note : '.$note.'<br/>
+												<br/><a href="index.php?page=fiche_rando&code='.$code.'"><em>consulter la fiche de cette randonnée</em></a>
+											</div>
+										</div>';
+								// faire la limite de 10 randos par page
 								// if($i === 10) break;
 							}
 						}
