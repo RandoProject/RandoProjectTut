@@ -33,6 +33,10 @@ else{
 			header('location:index.php?page=accueil');
 			break;
 
+		case 'connexion_inscription':
+			include_once('Controller/c_connexion_inscription.php');
+			break;
+
 		case 'inscription':
 			include_once('Controller/c_inscription.php');
 			break;
