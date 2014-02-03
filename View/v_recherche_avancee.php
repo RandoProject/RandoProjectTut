@@ -141,28 +141,37 @@
 											</div>
 											<div id="texte">
 												<div class="caracteristiques">
-													<img src="Resources/Images/longueur.png"/>
-													<span class="intitule_caract">Longueur</span><br/>
+													<span class="intitule_caract">
+														<img src="Resources/Images/longueur.png"/>
+														Longueur
+													</span><br/>
 													<span class="valeur_caract">'.$lenght.'</span>
 												</div>
 												<div class="caracteristiques">
-													<img src="Resources/Images/duree.png"/>
-													<span class="intitule_caract">Durée</span><br/>
+													<span class="intitule_caract">
+														<img src="Resources/Images/duree.png"/>
+														Durée</span><br/>
 													<span class="valeur_caract">'.$duration.'</span>
 												</div>
 												<div class="caracteristiques">
-													<img src="Resources/Images/eau.png"/>
-													<span class="intitule_caract">Point d\' eau</span><br/>
+													<span class="intitule_caract">
+														<img src="Resources/Images/eau.png"/>
+														Point d\' eau
+													</span><br/>
 													<span class="valeur_caract">'.$water.'</span>
 												</div>
 												<div class="caracteristiques">
-													<img src="Resources/Images/difficulte.png"/>
-													<span class="intitule_caract">Difficulté</span><br/>
+													<span class="intitule_caract">
+														<img src="Resources/Images/difficulte.png"/>
+														Difficulté
+													</span><br/>
 													<span class="valeur_caract">'.$difficulty.'</span>
 												</div>
 												<div class="caracteristiques">
-													<img src="Resources/Images/departement.png"/>
-													<span class="intitule_caract">Département</span><br/>
+													<span class="intitule_caract">
+														<img src="Resources/Images/departement.png"/>
+														Département
+													</span><br/>
 													<span class="valeur_caract">'.$department.'</span>
 												</div>
 												<br/>Note : '.$note.'<br/>

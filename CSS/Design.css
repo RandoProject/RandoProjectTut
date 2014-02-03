@@ -320,14 +320,13 @@ section#rando div#affichage_recherche div div#texte div.caracteristiques{
 	margin: 10px;
 	min-width: 240px;
 }
-section#rando div#affichage_recherche div div#texte div.caracteristiques img{
-	margin-right: 5px;
-	width: 25px;
-	height: 25px;
+section#rando div#affichage_recherche div div#texte div.caracteristiques span.intitule_caract img{
+	width: 20px;
+	height: 20px;
 }
 section#rando div#affichage_recherche div div#texte div.caracteristiques span.intitule_caract{
-	margin-right: 10px;
-	font-size: 25px;
+	margin-left: 10px;
+	font-size: 20px;
 }
 section#rando div#affichage_recherche div div#texte div.caracteristiques span.valeur_caract{
 	margin-left: 35px;
