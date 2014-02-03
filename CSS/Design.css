@@ -277,7 +277,7 @@ section#rando div#affichage_recherche div#rando_pair div#rond{ float: left; }
 section#rando div#affichage_recherche div#rando_impair div#rond{ float: right; }
 section#rando div#affichage_recherche div div#rond{
 	position: relative;
-	display: block;
+	display: inline-block;
 	width: 250px;
 	height: 250px;
 	margin-left: 25px;
@@ -310,28 +310,36 @@ section#rando div#affichage_recherche div div#rond img{
 }
 section#rando div#affichage_recherche div#rando_pair div#texte{ margin-left: 10%; }
 section#rando div#affichage_recherche div#rando_impair div#texte{ margin-left: 10%; }
-section#rando div#affichage_recherche div div#texte{
+section#rando div#affichage_recherche div#texte{
 	display: inline-block;
 	margin-top: 40px;
 	width: 50%;
 }
-section#rando div#affichage_recherche div div#texte div.caracteristiques{
+section#rando div#affichage_recherche div div#texte div.caracteristiques_pair{
 	display: inline-block;
 	margin: 10px;
 	min-width: 240px;
+	margin-left: 10%;
 }
-section#rando div#affichage_recherche div div#texte div.caracteristiques span.intitule_caract img{
+section#rando div#affichage_recherche div div#texte div.caracteristiques_impair{
+	display: inline-block;
+	margin: 10px;
+	min-width: 240px;
+	margin-left: 10%;
+}	
+
+section#rando div#affichage_recherche div div#texte div.caracteristiques_pair span.intitule_caract_pair img, span.intitule_caract_impair img{
 	width: 20px;
 	height: 20px;
 }
-section#rando div#affichage_recherche div div#texte div.caracteristiques span.intitule_caract{
+section#rando div#affichage_recherche div div#texte div.caracteristiques_pair span.intitule_caract_pair, span.intitule_caract_impair{
 	margin-left: 10px;
 	font-size: 20px;
 }
-section#rando div#affichage_recherche div div#texte div.caracteristiques span.valeur_caract{
+section#rando div#affichage_recherche div div#texte div.caracteristiques_pair span.valeur_caract_pair, span.valeur_caract_impair{
 	margin-left: 35px;
 }
-section#rando div#affichage_recherche div div#texte div.caracteristiques div#cercle{
+section#rando div#affichage_recherche div div#texte div.caracteristiques_pair div#cercle, div.caracteristiques_impair div#cercle{
 	display: inline-block;
 	width: 10px;
 	height: 10px;

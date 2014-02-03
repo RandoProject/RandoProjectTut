@@ -140,39 +140,39 @@
 												<img src="'.$photo.'"/>
 											</div>
 											<div id="texte">
-												<div class="caracteristiques">
-													<span class="intitule_caract">
+												<div class="caracteristiques'.$css.'">
+													<span class="intitule_caract'.$css.'">
 														<img src="Resources/Images/longueur.png"/>
 														Longueur
 													</span><br/>
-													<span class="valeur_caract">'.$lenght.'</span>
+													<span class="valeur_caract'.$css.'">'.$lenght.'</span>
 												</div>
-												<div class="caracteristiques">
-													<span class="intitule_caract">
+												<div class="caracteristiques'.$css.'">
+													<span class="intitule_caract'.$css.'">
 														<img src="Resources/Images/duree.png"/>
 														Durée</span><br/>
-													<span class="valeur_caract">'.$duration.'</span>
+													<span class="valeur_caract'.$css.'">'.$duration.'</span>
 												</div>
-												<div class="caracteristiques">
-													<span class="intitule_caract">
+												<div class="caracteristiques'.$css.'">
+													<span class="intitule_caract'.$css.'">
 														<img src="Resources/Images/eau.png"/>
 														Point d\' eau
 													</span><br/>
-													<span class="valeur_caract">'.$water.'</span>
+													<span class="valeur_caract'.$css.'">'.$water.'</span>
 												</div>
-												<div class="caracteristiques">
-													<span class="intitule_caract">
+												<div class="caracteristiques'.$css.'">
+													<span class="intitule_caract'.$css.'">
 														<img src="Resources/Images/difficulte.png"/>
 														Difficulté
 													</span><br/>
-													<span class="valeur_caract">'.$difficulty.'</span>
+													<span class="valeur_caract'.$css.'">'.$difficulty.'</span>
 												</div>
-												<div class="caracteristiques">
-													<span class="intitule_caract">
+												<div class="caracteristiques'.$css.'">
+													<span class="intitule_caract'.$css.'">
 														<img src="Resources/Images/departement.png"/>
 														Département
 													</span><br/>
-													<span class="valeur_caract">'.$department.'</span>
+													<span class="valeur_caract'.$css.'">'.$department.'</span>
 												</div>
 												<br/>Note : '.$note.'<br/>
 												<br/><a href="index.php?page=fiche_rando&code='.$code.'"><em>consulter la fiche de cette randonnée</em></a>
