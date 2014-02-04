@@ -264,7 +264,6 @@ section#rando div#affichage_recherche div#rando_impair{ background-color:#E6E6E6
 section#rando div#affichage_recherche div#rando_pair,
 section#rando div#affichage_recherche div#rando_impair{
 	min-height: 300px;
-	padding: 10px;
 	box-shadow: 0px 0px 5px #2E2E2E;
 }
 section#rando div#affichage_recherche div p#titre{
@@ -272,18 +271,21 @@ section#rando div#affichage_recherche div p#titre{
 	font-size: 1.5em;
 	text-shadow: 1px 1px 3px #585858;
 	text-align: center;
+	width: 100%;
 }
+/* Photo */
 section#rando div#affichage_recherche div#rando_pair div#rond{ float: left; }
 section#rando div#affichage_recherche div#rando_impair div#rond{ float: right; }
 section#rando div#affichage_recherche div div#rond{
 	position: relative;
-	display: inline-block;
+	display: block;
+	margin-top: -20px;
 	width: 250px;
 	height: 250px;
 	margin-left: 25px;
 	margin-right: 25px;
-	overflow: hidden;
 	text-align: center;
+	overflow: hidden;
 }
 section#rando div#affichage_recherche div#rando_pair div#rond a#lien{ border: 110px solid #BDBDBD; }
 section#rando div#affichage_recherche div#rando_impair div#rond a#lien{  border: 110px solid #E6E6E6; }
@@ -308,38 +310,33 @@ section#rando div#affichage_recherche div div#rond img{
 	width: 250px;
 	height: 250px;
 }
-section#rando div#affichage_recherche div#rando_pair div#texte{ margin-left: 10%; }
-section#rando div#affichage_recherche div#rando_impair div#texte{ margin-left: 10%; }
-section#rando div#affichage_recherche div#texte{
+/* Caractériqtiques */
+section#rando div#affichage_recherche div#rando_pair div#texte{ margin-left:2%; }
+section#rando div#affichage_recherche div#rando_impair div#texte{ float:right; margin-right:2%; }
+section#rando div#affichage_recherche div div#texte{
 	display: inline-block;
-	margin-top: 40px;
-	width: 50%;
+	margin-top: 50px;
+	max-width: 61%;
+	min-height: 170px;
 }
-section#rando div#affichage_recherche div div#texte div.caracteristiques_pair{
+section#rando div#affichage_recherche div#rando_impair div#texte div.caracteristiques{ float: right; }
+section#rando div#affichage_recherche div div#texte div.caracteristiques{
 	display: inline-block;
-	margin: 10px;
-	min-width: 240px;
-	margin-left: 10%;
+	margin: 1%;
+	min-width: 200px;
 }
-section#rando div#affichage_recherche div div#texte div.caracteristiques_impair{
-	display: inline-block;
-	margin: 10px;
-	min-width: 240px;
-	margin-left: 10%;
-}	
-
-section#rando div#affichage_recherche div div#texte div.caracteristiques_pair span.intitule_caract_pair img, span.intitule_caract_impair img{
+section#rando div#affichage_recherche div div#texte div.caracteristiques span.intitule_caract img{
 	width: 20px;
 	height: 20px;
 }
-section#rando div#affichage_recherche div div#texte div.caracteristiques_pair span.intitule_caract_pair, span.intitule_caract_impair{
+section#rando div#affichage_recherche div div#texte div.caracteristiques span.intitule_caract{
 	margin-left: 10px;
 	font-size: 20px;
 }
-section#rando div#affichage_recherche div div#texte div.caracteristiques_pair span.valeur_caract_pair, span.valeur_caract_impair{
-	margin-left: 35px;
+section#rando div#affichage_recherche div div#texte div.caracteristiques span.valeur_caract{
+	margin-left: 37px;
 }
-section#rando div#affichage_recherche div div#texte div.caracteristiques_pair div#cercle, div.caracteristiques_impair div#cercle{
+section#rando div#affichage_recherche div div#texte div.caracteristiques div#cercle{
 	display: inline-block;
 	width: 10px;
 	height: 10px;
@@ -347,6 +344,21 @@ section#rando div#affichage_recherche div div#texte div.caracteristiques_pair di
 	background-color: #FE642E;
 	box-shadow: 1px 1px 1px rgba(200, 200, 200, 1);
 	border-radius: 15px;
+}
+/* Note */
+section#rando div#affichage_recherche div#rando_pair div#note{ text-align: right; }
+section#rando div#affichage_recherche div div#note{
+	position:relative;
+	top: -20px;
+	margin-left: 1%;
+	margin-right: 1%;
+}
+/* Fiche */
+section#rando div#affichage_recherche div#rando_pair div#fiche{ text-align:right; margin-top: 15px;}
+section#rando div#affichage_recherche div#rando_impair div#fiche{ margin-top: 235px;}
+section#rando div#affichage_recherche div div#fiche{
+	margin-left: 1%;
+	margin-right: 1%;
 }
 
 

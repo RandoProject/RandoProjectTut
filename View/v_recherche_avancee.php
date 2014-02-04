@@ -135,47 +135,49 @@
 								// Affichage
 								echo '	<div id="rando'.$css.'">
 											<p id="titre">'.$title.'</p>
+											<div id="note">Note : '.$note.'</div>
 											<div id="rond">
 												<a id="lien" href="index.php?page=fiche_rando&code='.$code.'"></a>
 												<img src="'.$photo.'"/>
 											</div>
 											<div id="texte">
-												<div class="caracteristiques'.$css.'">
-													<span class="intitule_caract'.$css.'">
+												<div class="caracteristiques">
+													<span class="intitule_caract">
 														<img src="Resources/Images/longueur.png"/>
 														Longueur
 													</span><br/>
-													<span class="valeur_caract'.$css.'">'.$lenght.'</span>
+													<span class="valeur_caract">'.$lenght.'</span>
 												</div>
-												<div class="caracteristiques'.$css.'">
-													<span class="intitule_caract'.$css.'">
+												<div class="caracteristiques">
+													<span class="intitule_caract">
 														<img src="Resources/Images/duree.png"/>
 														Durée</span><br/>
-													<span class="valeur_caract'.$css.'">'.$duration.'</span>
+													<span class="valeur_caract">'.$duration.'</span>
 												</div>
-												<div class="caracteristiques'.$css.'">
-													<span class="intitule_caract'.$css.'">
+												<div class="caracteristiques">
+													<span class="intitule_caract">
 														<img src="Resources/Images/eau.png"/>
 														Point d\' eau
 													</span><br/>
-													<span class="valeur_caract'.$css.'">'.$water.'</span>
+													<span class="valeur_caract">'.$water.'</span>
 												</div>
-												<div class="caracteristiques'.$css.'">
-													<span class="intitule_caract'.$css.'">
+												<div class="caracteristiques">
+													<span class="intitule_caract">
 														<img src="Resources/Images/difficulte.png"/>
 														Difficulté
 													</span><br/>
-													<span class="valeur_caract'.$css.'">'.$difficulty.'</span>
+													<span class="valeur_caract">'.$difficulty.'</span>
 												</div>
-												<div class="caracteristiques'.$css.'">
-													<span class="intitule_caract'.$css.'">
+												<div class="caracteristiques">
+													<span class="intitule_caract">
 														<img src="Resources/Images/departement.png"/>
 														Département
 													</span><br/>
-													<span class="valeur_caract'.$css.'">'.$department.'</span>
+													<span class="valeur_caract">'.$department.'</span>
 												</div>
-												<br/>Note : '.$note.'<br/>
-												<br/><a href="index.php?page=fiche_rando&code='.$code.'"><em>consulter la fiche de cette randonnée</em></a>
+											</div>
+											<div id="fiche">
+												<a href="index.php?page=fiche_rando&code='.$code.'"><em>consulter la fiche..</em></a>
 											</div>
 										</div>';
 								// faire la limite de 10 randos par page
