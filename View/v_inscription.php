@@ -7,6 +7,8 @@
         <?php menu(); ?>
         
         <div id="corps">
+            <?php include_once('Controller/c_activitees_recentes.php'); ?>
+            
             <section>
 
             <?php
