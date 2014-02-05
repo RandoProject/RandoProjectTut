@@ -122,8 +122,11 @@
 								for($j = 1; $j <= $rando['difficulte']; $j++){ $difficulty .= '<div id="cercle"></div>'; }
 								$time = new DateTime(trim($rando['duree']));
 								$duration = $time->format('h').'h'.$time->format('i');
-								if(empty($rando['note'])){ $note = '<em>non renseigné</em>'; }
-								else{ $note = $rando['note']; }
+								$note = '';
+                                if(empty($rando['note'])){ 
+                                    for($j = 1; $j <= 5; $j++){ $note .= '<img src="Resources/Images/stars.png"/>';}
+                                }
+								else{ $note = $rando['note'];}
 								if(empty($rando['point_eau'])){ $water = '<em>non renseigné</em>'; }
 								else{ $water = 'oui'; }
 								
