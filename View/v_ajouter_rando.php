@@ -31,71 +31,87 @@
 
 	<body>	
 		<script type="text/javascript">
-		function initialize(arrayCoordinates){
+		function initialize(arrayCoordinates, center){
 
-				var mapOptions = {
-					center: new google.maps.LatLng(arrayCoordinates[0].lat, arrayCoordinates[0].lon), // On met la carte sur le premier point du parcours
-					zoom: 12
-				};
-				document.getElementById('map-canvas').style.height = '350px';
-				document.getElementById('container-map').style.height = '350px'; // On agrandi la taille du conteneur pour qu'il puisse contenir la carte
-				map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
-
-				var ramblePathCoordinates = new Array();
-
-				for(var i=0; i < arrayCoordinates.length; i++){
-					ramblePathCoordinates.push(new google.maps.LatLng(arrayCoordinates[i].lat, arrayCoordinates[i].lon));
-				}
-
-
-				var ramblePath = new google.maps.Polyline({
-					path: ramblePathCoordinates,
-					strokeColor: '#0000FF',
-					strokeOpacity: 0.8,
-					strokeWeight: 4
-				});
-
-				ramblePath.setMap(map);
+			if(center === 'undefined'){ // Valeur par défaut
+				center = new google.maps.LatLng(arrayCoordinates[0].lat, arrayCoordinates[0].lon);
 			}
+			
+
+			var mapOptions = {
+				center: center, // On met la carte sur le premier point du parcours
+				zoom: 12
+			};
+			document.getElementById('map-canvas').style.height = '350px';
+			document.getElementById('container-map').style.height = '350px'; // On agrandi la taille du conteneur pour qu'il puisse contenir la carte
+			map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+
+			var ramblePathCoordinates = new Array();
+
+			for(var i=0; i < arrayCoordinates.length; i++){
+				ramblePathCoordinates.push(new google.maps.LatLng(arrayCoordinates[i].lat, arrayCoordinates[i].lon));
+			}
+
+
+			var ramblePath = new google.maps.Polyline({
+				path: ramblePathCoordinates,
+				strokeColor: '#0000FF',
+				strokeOpacity: 0.8,
+				strokeWeight: 4
+			});
+
+			ramblePath.setMap(map);
+		}
 		</script>
 
 			<?php menu(); ?>
 			
 			<div id="corps">
-				<?php
-                    //include_once('Controller/c_activitees_recentes.php');
-                ?>
 
                 <section>
                     <h2>Ajouter une randonnée</h2>
                     
-                    <?php if(isset($error) and !empty($error)) echo '<p class="error">Impossible de créer votre randonnée, certaines informations ne sont pas valides : </p>';?>
+                    <?php if(isset($error) and !empty($error)) echo '<p class="error">Impossible de créer votre randonnée, certaines informations ne sont pas valides...</p>';?>
                     <form method="post" action="index.php?page=ajout_rando" id="insert_rando">
-                    	<?php if(isset($error['name'])) echo '<p class="error">'.$error['name'].'</p>';?><br>
                         <label for="name">Nom de la randonnée : </label><br>
-                        <input type="texte" id="name" name="name" <?php if(isset($value['name'])) echo 'value="'.$value['name'].'"'; ?> ><br>
+                        <?php if(isset($error['name'])) echo '<p class="error">'.$error['name'].'</p>';?>
+                        <input type="texte" id="name" name="name" autocomplete="off" required <?php if(isset($value['name'])) echo 'value="'.$value['name'].'"'; ?> ><br>
                         
                         <label for="fileMap">Votre parcours (fichier GPX) : </label>
-                        <input type="file" id="fileMap" name="path"><br>
+                        <input type="file" id="fileMap" name="path" required><br>
                         <div id="container-map">
                         	<div id="map-canvas"></div><br>
                         </div>
 
                         <label for="description">Décrivez votre randonnée : </label><br>
-                        <?php if(isset($error['description'])) echo '<p class="error">'.$error['description'].'</p><br>'; ?>
+                        <?php if(isset($error['description'])) echo '<p class="error">'.$error['description'].'</p>'; ?>
                         <textarea id="description" name="description"><?php if(isset($value['description'])) echo $value['description']; ?></textarea><br>
 
                         <label for="difficulty">Difficulté : </label>
-                        <input type="range" step="1" min="1" max="5" id="difficulty" name="difficulty"><br>
+                        <?php if(isset($error['difficulty'])) echo '<p class="error">'.$error['difficulty'].'</p>'; ?>
+                        <input type="range" step="1" min="1" max="5" id="difficulty" name="difficulty" <?php  if(isset($value['difficulty'])) echo 'value="'.$value['difficulty'].'"'; else echo 'value="1"'; ?> ><br>
 
                         <labe>Durée :</label><br>
-                        <input type="text" id="day" name="day"><label for="day">Jours </label>
-                        <input type="text" id="hour"name="hour"><label for="hour">h </label>
-                        <input type="text" id="minutes" name="minutes"><label for="minutes">min</label><br>
+                        <?php 
+                        if (isset($error['day']) or isset($error['hour']) or isset($error['minutes'])){
+                        	echo '<ul class="error">';
+                        		if(isset($error['day'])) echo '<li>'.$error['day'].'</li>';
+                        		if(isset($error['hour'])) echo '<li>'.$error['hour'].'</li>';
+                        		if(isset($error['minutes'])) echo '<li>'.$error['minutes'].'</li>';
+                        	echo '</ul>';
+                        }
+                        ?>
+                        <label for="day">Jours : </label>
+                        <input type="text" id="day" name="day" maxlength="2"  autocomplete="off" style="width:20px;"<?php if(isset($value['day'])) echo 'value="'.$value['day'].'"'; ?> >
+                        <label for="hour">heures : </label>
+                        <input type="text" id="hour"name="hour" maxlength="2" autocomplete="off" style="width:20px;" <?php if(isset($value['hour'])) echo 'value="'.$value['hour'].'"'; ?> >
+                        <label for="minutes">minutes</label>
+                        <input type="text" id="minutes" name="minutes" axlength="2" autocomplete="off" style="width:20px;" <?php if(isset($value['minutes'])) echo 'value="'.$value['minutes'].'"'; ?> ><br>
 
                         <label>Votre randonnée contient-elle un point d'eau ?</label><br>
-                        <input type="radio" id="non" name="water" value="non"><label type="non">Non</label><br>
-                        <input type="radio" id="oui" name="water" value="oui"><label type="oui">Oui</label><br><br>
+                        <?php if(isset($error['water'])) echo '<p class="error">'.$error['water'].'</p>'; ?>
+                        <input type="radio" id="non" name="water" value="non" <?php if(isset($value['water']) and $value['water'] == 0) echo 'checked'; ?> ><label type="non">Non</label><br>
+                        <input type="radio" id="oui" name="water" value="oui" <?php if(isset($value['water']) and $value['water'] == 1) echo 'checked'; ?> ><label type="oui">Oui</label><br><br>
 
 
                         <input type="submit" value="Ajouter"> 

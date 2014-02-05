@@ -20,11 +20,21 @@ var fileInput = document.querySelector('#fileMap');
     				var Coordinate = { // Longitude et lattitude
     					lat: NaN,
     					lon: NaN
-    				}; 
+    				};
     				var listPoints = gpxFile.getElementsByTagName('trkpt');
                     if(listPoints.length == 0){ // Si on ne trouve pas de balise trkpt
                         listPoints = gpxFile.getElementsByTagName('rtept');
                     }
+
+                    /* Les points aux extrémités de du parcours, point le plus au Sud, le plus à l'Est...
+                       Ces point permetteront de trouver le centre du parcours*/
+                    var limitPoint = { 
+                        north: NaN,
+                        south: NaN,
+                        east: NaN,
+                        west: NaN
+                    };
+
     				var listAttributes;
     				var i; // Nous permettra de calculer le nombre de points
 
@@ -41,14 +51,38 @@ var fileInput = document.querySelector('#fileMap');
     						}
     					}
 
-    					if(Coordinate.lat != NaN && Coordinate.lon != NaN){ // Si la coordonnée est valide
-    						listCoordinates.push(Coordinate);
+    					if(!isNaN(Coordinate.lat) && !isNaN(Coordinate.lon)){ // Si la coordonnée est valide
+                            listCoordinates.push(Coordinate);
+                            if(isNaN(limitPoint.north)){
+                                /* Si la lattitude est plus grande, ça veut dire que le point est plus au nord 
+                                (Sur google API la longitude du sud est négative)*/
+                                limitPoint.north = Coordinate.lat;
+                                limitPoint.south = Coordinate.lat;
+                                limitPoint.east = Coordinate.lon;
+                                limitPoint.west = Coordinate.lon;
+
+                            }
+                            else{
+                                if(Coordinate.lat > limitPoint.north){ 
+                                    limitPoint.north = Coordinate.lat;
+                                }
+                                else if(Coordinate.lat < limitPoint.south){
+                                    limitPoint.south = Coordinate.lat;
+                                }
+
+                                if(Coordinate.lon > limitPoint.east){
+                                    limitPoint.east = Coordinate.lon;
+                                }
+                                else if(Coordinate.lon < limitPoint.west){
+                                    limitPoint.west = Coordinate.lon;
+                                }
+                            }
     					}
 
-    					Coordinate = { // Longitude et lattitude
+    					Coordinate = { // Réinitialise Longitude et lattitude
 	    					lat: NaN,
 	    					lon: NaN
-    					}; 
+    					};
     				}
 
     				infoFile = document.createElement('div');
@@ -56,7 +90,8 @@ var fileInput = document.querySelector('#fileMap');
     				infoFile.id = 'info-map';
 
     				if(listCoordinates.length > 0){
-    					initialize(listCoordinates); // On appelle la carte
+                        var center = new google.maps.LatLng((limitPoint.north + limitPoint.south) / 2, (limitPoint.east + limitPoint.west) / 2);
+    					initialize(listCoordinates, center); // On appelle la carte
 	    				var h3 = document.createElement('h3');
 	    				
 
