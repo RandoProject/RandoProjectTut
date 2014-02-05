@@ -29,18 +29,15 @@
 
 
 
-	<body>	
+	<body>
 		<script type="text/javascript">
-		function initialize(arrayCoordinates, center){
-
-			if(center === 'undefined'){ // Valeur par défaut
-				center = new google.maps.LatLng(arrayCoordinates[0].lat, arrayCoordinates[0].lon);
-			}
-			
+		function initialize(arrayCoordinates, limitPoints){
+			var sw = new google.maps.LatLng(limitPoints.south, limitPoints.west);
+			var ne = new google.maps.LatLng(limitPoints.north, limitPoints.east);
+			var frameMap = new google.maps.LatLngBounds(sw, ne); // Permet de définir le cadre de la carte
 
 			var mapOptions = {
-				center: center, // On met la carte sur le premier point du parcours
-				zoom: 12
+				// Arguments
 			};
 			document.getElementById('map-canvas').style.height = '350px';
 			document.getElementById('container-map').style.height = '350px'; // On agrandi la taille du conteneur pour qu'il puisse contenir la carte
@@ -60,6 +57,7 @@
 				strokeWeight: 4
 			});
 
+			map.fitBounds(frameMap); // On ajouste le zoom et le centre en fonction du parcours
 			ramblePath.setMap(map);
 		}
 		</script>
@@ -69,6 +67,16 @@
 			<div id="corps">
 
                 <section>
+                <?php 
+                if(isset($validation)){ ?>
+					<h2>Randonnées ajoutée</h2>
+					<p>
+						Votre randonnées a bien été ajoutée.<br>
+						Elle sera visible sur le site, dès que le modérateur l'aura validé.<br>
+						Vous pouvez en attendant consulter les <a href="index.php?page=recherche">autres randonnées</a> ou retouner sur la <a href="index.php">page d'accueil</a>.
+					</p>
+				<?php }
+				else{ ?>
                     <h2>Ajouter une randonnée</h2>
                     
                     <?php if(isset($error) and !empty($error)) echo '<p class="error">Impossible de créer votre randonnée, certaines informations ne sont pas valides...</p>';?>
@@ -116,6 +124,7 @@
 
                         <input type="submit" value="Ajouter"> 
                     </form>
+                    <?php } // On fermet le else?>
                 </section>
 	        </div>
 

@@ -85,7 +85,12 @@ if(isset($_SESSION['statut']) and in_array($_SESSION['statut'], array('administr
 		}
 
 		if(empty($error)){
-				/// Si bon...
+				$delay = $day.':'.$hour.':'.$minutes;
+				include_once('bin/params.php');
+				include_once('Models/m_randonnees.php');
+				insert_rando($name, $delay, $difficulty, $_POST['description'], $water, $_SESSION['pseudo']);
+				$validation = true; // Cette variable d'afficher la validation dans la page
+				include_once('View/v_ajouter_rando.php');
 		}
 		else{
 			if(!isset($error['name'])){
