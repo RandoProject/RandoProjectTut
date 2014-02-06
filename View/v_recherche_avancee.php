@@ -122,11 +122,22 @@
 								for($j = 1; $j <= $rando['difficulte']; $j++){ $difficulty .= '<div id="cercle"></div>'; }
 								$time = new DateTime(trim($rando['duree']));
 								$duration = $time->format('h').'h'.$time->format('i');
-								$note = '';
+                                $etoile = '';
                                 if(empty($rando['note'])){ 
-                                    for($j = 1; $j <= 5; $j++){ $note .= '<img src="Resources/Images/stars.png"/>';}
+                                    for($j = 1; $j <= 5; $j++){ $etoile .= '<img id="stars_vide" src="Resources/Images/stars_vide.png"/>';}
                                 }
-								else{ $note = $rando['note'];}
+                                else{
+                                    $k = intval($rando['note']);
+                                    $z = 5 - intval($rando['note']);
+                                    while($k >= 1){ 
+                                    $etoile .= '<img id="stars" src="Resources/Images/stars_pleines.png"/>';
+                                    $k--;
+                                    }
+                                    while($z >= 1){
+                                    $etoile .= '<img id="stars_vide" src="Resources/Images/stars_vide.png"/>';
+                                    $z--;
+                                    }
+                                }
 								if(empty($rando['point_eau'])){ $water = '<em>non renseigné</em>'; }
 								else{ $water = 'oui'; }
 								
@@ -138,7 +149,7 @@
 								// Affichage
 								echo '	<div id="rando'.$css.'">
 											<p id="titre">'.$title.'</p>
-											<div id="note">Note : '.$note.'</div>
+											<div id="note">'.$etoile.'</div>
 											<div id="rond">
 												<a id="lien" href="index.php?page=fiche_rando&code='.$code.'"></a>
 												<img src="'.$photo.'"/>
@@ -180,7 +191,7 @@
 												</div>
 											</div>
 											<div id="fiche">
-												<a href="index.php?page=fiche_rando&code='.$code.'"><em>consulter la fiche..</em></a>
+												<a id="lien_consulter_fiche" href="index.php?page=fiche_rando&code='.$code.'">consulter la fiche..</a>
 											</div>
 										</div>';
 								// faire la limite de 10 randos par page
