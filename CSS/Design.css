@@ -346,12 +346,12 @@ section#rando div#affichage_recherche div div#texte div.caracteristiques div#cer
 	border-radius: 15px;
 }
 /* Note */
-section#rando div#affichage_recherche div#rando_pair div#note{ text-align: right; }
+section#rando div#affichage_recherche div#rando_pair div#note{ text-align: right; margin-right: 2%; }
 section#rando div#affichage_recherche div div#note{
 	display: block;
 	position:relative;
 	top: -20px;
-	margin-left: 1%;
+	margin-left: 2%;
 	margin-right: 1%;
 }
 section#rando div#affichage_recherche div div#note img#stars_vide{
@@ -369,22 +369,14 @@ section#rando div#affichage_recherche div div#fiche{
 	margin-left: 1%;
 	margin-right: 1%;
 }
-section#rando div#affichage_recherche div#rando_pair div#fiche a#lien_consulter_fiche{
+section#rando div#affichage_recherche div#rando_pair div#fiche a#lien_consulter_fiche{ padding-right: 7%;}
+section#rando div#affichage_recherche div#rando_impair div#fiche a#lien_consulter_fiche{ padding-left: 7%;}
+section#rando div#affichage_recherche div div#fiche a#lien_consulter_fiche{
 	display: block;
 	color: #2E2E2E;
 	font-style: italic;
 	font-size: 1.4em;
 	padding-bottom: 2%;
-	padding-right: 13%;
-	text-shadow: 0px 0px 1px #585858;
-}
-section#rando div#affichage_recherche div#rando_impair div#fiche a#lien_consulter_fiche{
-	display: block;
-	color: #2E2E2E;
-	font-style: italic;
-	font-size: 1.4em;
-	padding-bottom: 2%;
-	padding-left: 13%;
 	text-shadow: 0px 0px 1px #585858;
 }
 
