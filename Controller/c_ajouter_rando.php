@@ -125,5 +125,5 @@ if(isset($_SESSION['statut']) and in_array($_SESSION['statut'], array('administr
 
 }
 else{
-	header('Location:index.php?page=connexion_inscription&page_pre=ajout_rando');
+	header('Location:index.php?page=connexion&page_pre=ajout_rando');
 }
