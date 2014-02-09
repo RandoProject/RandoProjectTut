@@ -80,13 +80,13 @@
                     <h2>Ajouter une randonnée</h2>
                     
                     <?php if(isset($error) and !empty($error)) echo '<p class="error">Impossible de créer votre randonnée, certaines informations ne sont pas valides...</p>';?>
-                    <form method="post" action="index.php?page=ajout_rando" id="insert_rando">
+                    <form method="post" action="index.php?page=ajout_rando" id="insert_rando" enctype="multipart/form-data">
                         <label for="name">Nom de la randonnée : </label><br>
                         <?php if(isset($error['name'])) echo '<p class="error">'.$error['name'].'</p>';?>
                         <input type="texte" id="name" name="name" autocomplete="off" required <?php if(isset($value['name'])) echo 'value="'.$value['name'].'"'; ?> ><br>
                         
                         <label for="fileMap">Votre parcours (fichier GPX) : </label>
-                        <input type="file" id="fileMap" name="path" required><br>
+                        <input type="file" id="fileMap" name="fileMap" required><br>
                         <div id="container-map">
                         	<div id="map-canvas"></div><br>
                         </div>
@@ -118,7 +118,7 @@
 
                         <label>Votre randonnée contient-elle un point d'eau ?</label><br>
                         <?php if(isset($error['water'])) echo '<p class="error">'.$error['water'].'</p>'; ?>
-                        <input type="radio" id="non" name="water" value="non" <?php if(isset($value['water']) and $value['water'] == 0) echo 'checked'; ?> ><label type="non">Non</label><br>
+                        <input type="radio" id="non" name="water" value="non" <?php if(!isset($value['water']) or $value['water'] == 0) echo 'checked'; ?> ><label type="non">Non</label><br>
                         <input type="radio" id="oui" name="water" value="oui" <?php if(isset($value['water']) and $value['water'] == 1) echo 'checked'; ?> ><label type="oui">Oui</label><br><br>
 
 

@@ -84,11 +84,38 @@ if(isset($_SESSION['statut']) and in_array($_SESSION['statut'], array('administr
 			$error['water'] = "Vous n'avez pas précisé si votre randonnée comportait un point d'eau.";
 		}
 
+		if(isset($_FILES['fileMap']) and $_FILES['fileMap']['error'] == UPLOAD_ERR_OK and is_uploaded_file($_FILES['fileMap']['tmp_name'])){
+			if($_FILES['fileMap']['size'] <= 2000000){ // taille de fichier max <= 2Mo
+				$infosFile = pathinfo($_FILES['fileMap']['name']);
+				$extension = strtolower($infosFile['extension']);
+				
+				if(in_array($extension, array('gpx'))){
+					$nameFile = strip_tags(basename($_FILES['fileMap']['name']));
+					// Le nom session_id permet de pas avoir de problème avec des fichiers ayant le même nom en même temps
+					move_uploaded_file($_FILES['fileMap']['tmp_name'], 'Resources/GPX/tmp/'.session_id());
+					$gpx = simplexml_load_file('Resources/GPX/tmp/'.session_id());
+					print_r($gpx);
+
+				}
+				else{
+					$error['fileMap'] = "Votre fichier n'est pas de type gpx.";
+				}
+			}
+			else{
+				$error['fileMap'] = "Votre fichier doit faire moins de 2Mo";
+			}
+		}
+		else{
+			$error['fileMap'] = "Le fichier sélectionné est invalide.";
+		}
+
 		if(empty($error)){
 				$delay = $day.':'.$hour.':'.$minutes;
 				include_once('bin/params.php');
 				include_once('Models/m_randonnees.php');
 				insert_rando($name, $delay, $difficulty, $_POST['description'], $water, $_SESSION['pseudo']);
+				
+
 				$validation = true; // Cette variable d'afficher la validation dans la page
 				include_once('View/v_ajouter_rando.php');
 		}

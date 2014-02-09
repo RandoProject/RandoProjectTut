@@ -21,8 +21,8 @@ function get_rando($code){
 
 function insert_rando($title, $delay, $difficulty, $description, $water, $autor){
 	global $bdd;
-	$queryStr = 'INSERT INTO rando(titre, duree, difficulte, descriptif, point_eau, auteur, departement)
-				VALUES(:title, :delay, :difficulty, :description, :water, :autor, 12)';
+	$queryStr = 'INSERT INTO rando(titre, duree, difficulte, descriptif, point_eau, auteur, date_insertion, departement)
+				VALUES(:title, :delay, :difficulty, :description, :water, :autor, NOW(), 12)';
 	$query = $bdd->prepare($queryStr);
 	$query->execute(array(':title' => $title,
 						  ':delay' => $delay,
