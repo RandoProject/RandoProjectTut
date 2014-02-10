@@ -474,15 +474,6 @@ VALUES (
 	'8'
 );
 
--- ____________________ LOCALISER ____________________ --
-CREATE TABLE IF NOT EXISTS `localiser` (
-	`code_rando` int(10) NOT NULL,
-	`num_dept` varchar(2) NOT NULL,
-	PRIMARY KEY (`code_rando`,`num_dept`),
-	FOREIGN KEY (`code_rando`) REFERENCES `rando`(`code`),
-	FOREIGN KEY (`num_dept`) REFERENCES `departements`(`num_departement`)
-); 
-
 -- ____________________ COMMENTAIRE ____________________ --
 CREATE TABLE IF NOT EXISTS `commentaire` (
 	`numero` int(10) NOT NULL AUTO_INCREMENT,
