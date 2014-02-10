@@ -10,10 +10,10 @@ function menu(){
 
 	if(isset($_SESSION['statut'])){
 		if($_SESSION['statut'] == 'administrateur'){
-			echo '	<li><a href="#">Administration</a></li>';
+			echo '	<li><a href="index.php?page=administration">Administration</a></li>';
 		}
 		else if($_SESSION['statut'] == 'moderateur'){
-			echo '	<li><a href="#">Validation</a></li>';
+			echo '	<li><a href="index.php?page=moderation">Modération</a></li>';
 		}
 	}
 
