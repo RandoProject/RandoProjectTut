@@ -385,11 +385,25 @@ section#rando div#affichage_recherche div div#fiche a#lien_consulter_fiche{
 section#connexion{
 	text-align: center;
 }
+section#connexion form{
+	display: inline-block;
+	width: 40%;
+	margin-left: -10%;
+	border-right: 1px solid;
+	margin-right: 18%;
+}
+section#connexion h1#connexion{margin-left: -28%;}
 section#connexion h1{
 	margin-top: 50px;
 	margin-bottom: 30px;
 	font-weight: bold;
 	font-size: 1.3em;
+}
+section#connexion p.connexion{
+	margin-left: -28%;
+	margin-bottom: 15px;
+	margin-top: -10px;
+	color: #F30;
 }
 section#connexion p.error{
 	color: #F30;
@@ -406,6 +420,13 @@ section#connexion form input{
 section#connexion form input[type="text"],
 section#connexion form input[type="password"]{
 	width: 200px;
+}
+
+section#connexion div#div_lien_inscription{
+	display: inline-block;
+	vertical-align: top;
+	margin-left: -5%;
+	margin-top: 5%;
 }
 
 
