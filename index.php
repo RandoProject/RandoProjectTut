@@ -45,6 +45,14 @@ else{
 			include_once('Controller/c_fiche_rando.php');
 			break;
 
+		case 'administration':
+			include_once('Controller/c_administration.php');
+			break;
+
+		case 'administration':
+			include_once('Controller/c_administration.php');
+			break;
+
 		default:
 			include_once('View/error_page.php');
 			break;

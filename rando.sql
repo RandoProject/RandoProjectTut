@@ -10,6 +10,7 @@ DROP TABLE IF EXISTS `departements`;
 DROP TABLE IF EXISTS `galerie`;
 DROP TABLE IF EXISTS `photo`;
 DROP TABLE IF EXISTS `membre`;
+DROP TABLE IF EXISTS `parcours`;
 DROP TABLE IF EXISTS `rando`;
 DROP TABLE IF EXISTS `localiser`;
 DROP TABLE IF EXISTS `commentaire`;
@@ -293,6 +294,23 @@ INSERT INTO `membre` VALUES (
 	''
 );
 
+-- ____________________ PARCOURS ____________________ --
+CREATE TABLE IF NOT EXISTS `parcours` (
+	`id` int(10) NOT NULL AUTO_INCREMENT,
+	`nom` blob NOT NULL,
+	`nb_point` int NOT NULL,
+	PRIMARY KEY (`id`)
+);
+
+INSERT INTO `parcours` VALUES ('1',	'a.gpx', '0');
+INSERT INTO `parcours` VALUES ('2', 'b.gpx', '0');
+INSERT INTO `parcours` VALUES ('3', 'c.gpx', '0');
+INSERT INTO `parcours` VALUES ('4', 'pr-le-sentier-du-loup-garou-9737.gpx', '0');
+INSERT INTO `parcours` VALUES ('5', 'ped30003-le-sentier-des-etangs-920-9720.gpx', '0');
+INSERT INTO `parcours` VALUES ('6', 'pr-sentier-du-guepier-9741.gpx', '0');
+INSERT INTO `parcours` VALUES ('7', 'point-info-tourisme-Ambon__Circuit_Killig_Ar_Mor.gpx', '0');
+INSERT INTO `parcours` VALUES ('8', '650783.gpx', '0');
+
 -- ____________________ RANDO ____________________ --
 CREATE TABLE IF NOT EXISTS `rando` (
 	`code` int(10) NOT NULL AUTO_INCREMENT,
@@ -307,12 +325,13 @@ CREATE TABLE IF NOT EXISTS `rando` (
 	`equipement` varchar(150) DEFAULT NULL,
 	`date_insertion` datetime NOT NULL,
 	`valide` tinyint(1) NOT NULL,
-	`parcours` blob NOT NULL,
+	`parcours` int(10) NOT NULL,
 	`departement` varchar(2) NOT NULL,
 	`photo_principale` int(10) NOT NULL,
 	`auteur` varchar(30) NOT NULL,
 	`galerie` int(10) DEFAULT NULL,
 	PRIMARY KEY (`code`),
+	FOREIGN KEY (`parcours`) REFERENCES `parcours`(`id`),
 	FOREIGN KEY (`departement`) REFERENCES `departements`(`num_departement`),
 	FOREIGN KEY (`photo_principale`) REFERENCES `photo`(`numero`),
 	FOREIGN KEY (`auteur`) REFERENCES `membre`(`pseudo`),
@@ -334,7 +353,7 @@ VALUES (
 	'',
 	'2014-01-15 14:30:00',
 	'1',
-	'a.gpx',
+	'1',
 	'12',
 	'1',
 	'Pat',
@@ -353,7 +372,7 @@ VALUES (
 	'',
 	'2014-01-15 14:35:00',
 	'1',
-	'b.gpx',
+	'2',
 	'12',
 	'2',
 	'Pat',
@@ -372,7 +391,7 @@ VALUES (
 	'',
 	'2014-01-15 14:40:00',
 	'1',
-	'c.gpx',
+	'3',
 	'12',
 	'3',
 	'Pat',
@@ -391,7 +410,7 @@ VALUES (
 	'',
 	'2014-02-02 15:30:00',
 	'1',
-	'pr-le-sentier-du-loup-garou-9737.gpx',
+	'4',
 	'39',
 	'4',
 	'Pat',
@@ -410,7 +429,7 @@ VALUES (
 	'',
 	'2014-02-02 15:45:00',
 	'1',
-	'ped30003-le-sentier-des-etangs-920-9720.gpx',
+	'5',
 	'39',
 	'5',
 	'Pat',
@@ -429,7 +448,7 @@ VALUES (
 	'',
 	'2014-02-02 16:00:00',
 	'1',
-	'pr-sentier-du-guepier-9741.gpx',
+	'6',
 	'39',
 	'6',
 	'Pat',
@@ -448,7 +467,7 @@ VALUES (
 	'',
 	'2014-02-02 16:15:00',
 	'1',
-	'point-info-tourisme-Ambon__Circuit_Killig_Ar_Mor.gpx',
+	'7',
 	'56',
 	'7',
 	'Pat',
@@ -467,21 +486,12 @@ VALUES (
 	'',
 	'2014-02-02 16:30:00',
 	'1',
-	'650783.gpx',
+	'8',
 	'64',
 	'8',
 	'Pat',
 	'8'
 );
-
--- ____________________ LOCALISER ____________________ --
-CREATE TABLE IF NOT EXISTS `localiser` (
-	`code_rando` int(10) NOT NULL,
-	`num_dept` varchar(2) NOT NULL,
-	PRIMARY KEY (`code_rando`,`num_dept`),
-	FOREIGN KEY (`code_rando`) REFERENCES `rando`(`code`),
-	FOREIGN KEY (`num_dept`) REFERENCES `departements`(`num_departement`)
-); 
 
 -- ____________________ COMMENTAIRE ____________________ --
 CREATE TABLE IF NOT EXISTS `commentaire` (

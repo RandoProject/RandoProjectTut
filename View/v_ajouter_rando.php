@@ -20,15 +20,6 @@
 	 });
 	</script>
 
-	  <style type="text/css">
-      html { height: 100% }
-      body { height: 100%; margin: 0; padding: 0 }
-      #map-canvas {width: 550px;}
-      #container-map {width: 550px;}
-    </style>
-
-
-
 	<body>
 		<script type="text/javascript">
 		function initialize(arrayCoordinates, limitPoints){
@@ -83,7 +74,7 @@
                     <form method="post" action="index.php?page=ajout_rando" id="insert_rando" enctype="multipart/form-data">
                         <label for="name">Nom de la randonnée : </label><br>
                         <?php if(isset($error['name'])) echo '<p class="error">'.$error['name'].'</p>';?>
-                        <input type="texte" id="name" name="name" autocomplete="off" required <?php if(isset($value['name'])) echo 'value="'.$value['name'].'"'; ?> ><br>
+                        <input type="text" id="name" name="name" autocomplete="off" required <?php if(isset($value['name'])) echo 'value="'.$value['name'].'"'; ?> ><br>
                         
                         <label for="fileMap">Votre parcours (fichier GPX) : </label>
                         <input type="file" id="fileMap" name="fileMap" required><br>

@@ -18,8 +18,8 @@
                             echo '<h1>Vous êtes déjà connecté.</h1>';
                     }
                     else{ ?>
-                        <h1>Connectez vous</h1>
-                        <?php if(isset($_GET['page_pre'])) echo '<p>Vous devez être connecté pour accéder à cette page.</p>'; ?>
+                        <h1 id="connexion">Connectez vous</h1>
+                        <?php if(isset($_GET['page_pre'])) echo '<p class="connexion">Vous devez être connecté pour accéder à cette page.</p>'; ?>
                         <form method="post" action="index.php?page=connexion<?php echo isset($_GET['page_pre'])? '&page_pre='.$_GET['page_pre'] : ''; ?>">
                             <label for="pseudo">Identifiant :</label><br/>
                             <input type="text" name="pseudo" <?php if(isset($value['pseudo'])) echo 'value="'.$value['pseudo'].'"'; ?> maxlength="30" required/>
@@ -31,7 +31,14 @@
                             
                             <input type="submit" value="connexion">
                         </form>
-                    <?php } ?>
+                    <?php 
+                            if(isset($_GET['page_pre']) and $_GET['page_pre'] == 'ajout_rando'){
+                                echo '<div id="div_lien_inscription">';
+                                    echo'<a id="lien_inscription" href="index.php?page=inscription">Inscrivez-vous</a>';
+                                echo '</div>';
+                            }
+                        } 
+                    ?>
                 </section>
 	        </div>
 
