@@ -94,7 +94,18 @@ if(isset($_SESSION['statut']) and in_array($_SESSION['statut'], array('administr
 					// Le nom session_id permet de pas avoir de problème avec des fichiers ayant le même nom en même temps
 					move_uploaded_file($_FILES['fileMap']['tmp_name'], 'Resources/GPX/tmp/'.session_id());
 					$gpx = simplexml_load_file('Resources/GPX/tmp/'.session_id());
-					print_r($gpx);
+					$gpx->registerXPathNamespace('x', "http://www.topografix.com/GPX/1/0"); // Chargement de l'espace de nom contenant le vocabulaire des GPX
+					
+					$points = $gpx->xpath('//x:trkpt');
+					if($points === false){ // Si il y a une erreur
+						$error['fileMap'] = "Le fichier GPX est invalide";
+					}
+					else if(empty($points)){
+						$points = $gpx->xpath('//x:rtept');
+						if($points === false or empty($points)){
+							$error['fileMap'] = "Le fichier GPX est invalide";
+						}
+					}
 
 				}
 				else{
@@ -110,9 +121,33 @@ if(isset($_SESSION['statut']) and in_array($_SESSION['statut'], array('administr
 		}
 
 		if(empty($error)){
-				$delay = $day.':'.$hour.':'.$minutes;
 				include_once('bin/params.php');
 				include_once('Models/m_randonnees.php');
+
+				foreach($points as $point){
+					$lon = NULL;
+					$lat = NULL;
+					$ele = NULL;
+
+					foreach($point->attributes() as $name => $value){ // Récupère longitude et latitude
+						if($name == 'lon'){
+							$lon = (float)$value;
+						}
+						else if($name == 'lat'){
+							$lat = (float)$value;
+						}
+					}
+
+					// Récupère l'élèvation
+					foreach ($point->children() as $child){ // Peut être plus optimiser d'utiliser des iterateurs
+						if($child->getName() == 'ele'){
+							$ele = (float)$child;
+						}
+					}
+    
+				}
+
+				$delay = $day.':'.$hour.':'.$minutes;
 				insert_rando($name, $delay, $difficulty, $_POST['description'], $water, $_SESSION['pseudo']);
 				
 
