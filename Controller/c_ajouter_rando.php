@@ -92,16 +92,18 @@ if(isset($_SESSION['statut']) and in_array($_SESSION['statut'], array('administr
 				if(in_array($extension, array('gpx'))){
 					$nameFile = strip_tags(basename($_FILES['fileMap']['name']));
 					// Le nom session_id permet de pas avoir de problème avec des fichiers ayant le même nom en même temps
-					move_uploaded_file($_FILES['fileMap']['tmp_name'], 'Resources/GPX/tmp/'.session_id());
-					$gpx = simplexml_load_file('Resources/GPX/tmp/'.session_id());
-					$gpx->registerXPathNamespace('x', "http://www.topografix.com/GPX/1/0"); // Chargement de l'espace de nom contenant le vocabulaire des GPX
+					move_uploaded_file($_FILES['fileMap']['tmp_name'], 'Resources/GPX/tmp/gpx_'.session_id());
+					$gpx = simplexml_load_file('Resources/GPX/tmp/gpx_'.session_id());
+					$gpx->registerXPathNamespace('gpx', "http://www.topografix.com/GPX/1/0"); // Chargement de l'espace de nom contenant le vocabulaire des GPX
 					
-					$points = $gpx->xpath('//x:trkpt');
+					// Remplacer le fichier télécharger par un nouveau mieux formaté
+
+					$points = $gpx->xpath('//gpx:trkpt');
 					if($points === false){ // Si il y a une erreur
 						$error['fileMap'] = "Le fichier GPX est invalide";
 					}
 					else if(empty($points)){
-						$points = $gpx->xpath('//x:rtept');
+						$points = $gpx->xpath('//gpx:rtept');
 						if($points === false or empty($points)){
 							$error['fileMap'] = "Le fichier GPX est invalide";
 						}
@@ -150,8 +152,12 @@ if(isset($_SESSION['statut']) and in_array($_SESSION['statut'], array('administr
 				$delay = $day.':'.$hour.':'.$minutes;
 				insert_rando($name, $delay, $difficulty, $_POST['description'], $water, $_SESSION['pseudo']);
 				
+				rename('Resources/GPX/tmp/gpx_'.session_id(), 'Resources/GPX/0'.session_id().'.gpx'); // A changer
+				
 
-				$validation = true; // Cette variable d'afficher la validation dans la page
+				echo session_save_path().'/'.session_id(); /// A utiliser !!!
+
+				$validation = true; // Cette variable permet d'afficher la page de validation
 				include_once('View/v_ajouter_rando.php');
 		}
 		else{
