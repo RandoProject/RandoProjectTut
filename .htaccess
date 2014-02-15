@@ -1,1 +1,2 @@
+php_value session.auto_start 1
 ErrorDocument 404 http://127.0.0.1/../error_page.php

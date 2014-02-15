@@ -7,18 +7,18 @@ if(isset($_SESSION['statut']) and in_array($_SESSION['statut'], array('administr
 		if(isset($_POST['name']) and $_POST['name'] != ""){
 			$name = strip_tags($_POST['name']);
 			if(strlen($name) > 150){
-				$error['name'] = "Le nom de la randonnée doit faire moins de 150 caractères.";
+				$error['name'] = "Le nom de la randonnÃ©e doit faire moins de 150 caractÃ¨res.";
 			}
 			else{
 				include_once('bin/params.php');
 				include_once('Models/m_randonnees.php');
 				if(count_rando(strtolower($name))->nb_rando != 0){
-					$error['name'] = "Le nom de randonnée que vous voulez enregistrer existe déjà.";
+					$error['name'] = "Le nom de randonnÃ©e que vous voulez enregistrer existe dÃ©jÃ .";
 				}
 			}
 		}
 		else{
-			$error['name'] = "Vous n'avez pas donné de nom à la randonnée";
+			$error['name'] = "Vous n'avez pas donnÃ© de nom Ã  la randonnÃ©e";
 		}
 
 		if(!isset($_POST['description']) or $_POST['description'] == ""){
@@ -27,20 +27,20 @@ if(isset($_SESSION['statut']) and in_array($_SESSION['statut'], array('administr
 
 
 		if(!isset($_POST['difficulty'])){
-			$error['difficulty'] = "Vous n'avez pas précisé la difficulté";
+			$error['difficulty'] = "Vous n'avez pas prÃ©cisÃ© la difficultÃ©";
 		}else{
 			if(is_numeric($_POST['difficulty'])){
 				$difficulty = intval($_POST['difficulty']);
 				if($difficulty < 1 and $difficulty > 5){
-					$error['difficulty'] = "La difficulté doit être comprise entre 1 et 5.";
+					$error['difficulty'] = "La difficultÃ© doit Ãªtre comprise entre 1 et 5.";
 				}
 			}
 			else{
-				$error['difficulty'] = "La difficulté que vous avez entré n'est pas valide.";
+				$error['difficulty'] = "La difficultÃ© que vous avez entrÃ© n'est pas valide.";
 			}
 		}
 
-		// Vérification de la durée
+		// VÃ©rification de la durÃ©e
 		if(!isset($_POST['day']) or $_POST['day'] == ""){
 			$day = 0;
 		}
@@ -48,7 +48,7 @@ if(isset($_SESSION['statut']) and in_array($_SESSION['statut'], array('administr
 				$day = intval($_POST['day']);
 		}
 		else{
-			$error['day'] = "Le nombre de jours que vous avez entré n'est pas valide.";
+			$error['day'] = "Le nombre de jours que vous avez entrÃ© n'est pas valide.";
 		}
 
 		if(!isset($_POST['hour']) or $_POST['hour'] == ""){
@@ -57,11 +57,11 @@ if(isset($_SESSION['statut']) and in_array($_SESSION['statut'], array('administr
 		else if(is_numeric($_POST['hour'])){
 			$hour = intval($_POST['hour']);
 			if($hour < 0 or $hour > 23){
-				$error['hour'] = "Le nombre d'heure doit être compris entre 0 et 23.";
+				$error['hour'] = "Le nombre d'heure doit Ãªtre compris entre 0 et 23.";
 			}
 		}
 		else{
-			$error['hour'] = "L'heure entrée est invalide";
+			$error['hour'] = "L'heure entrÃ©e est invalide";
 		}
 
 		if(!isset($_POST['minutes']) or $_POST['minutes'] == ""){
@@ -70,18 +70,18 @@ if(isset($_SESSION['statut']) and in_array($_SESSION['statut'], array('administr
 		else if(is_numeric($_POST['minutes'])){
 			$minutes = intval($_POST['minutes']);
 			if($minutes < 0 or $minutes > 59){
-				$error['minutes'] = "Le nombre de minutes doit être compris entre 0 et 59.";
+				$error['minutes'] = "Le nombre de minutes doit Ãªtre compris entre 0 et 59.";
 			}
 		}
 		else{
-			$error['minutes'] = "Le nombre de minutes entré est invalide.";
+			$error['minutes'] = "Le nombre de minutes entrÃ© est invalide.";
 		}
 
 		if(isset($_POST['water']) and ($_POST['water'] == 'oui' or $_POST['water'] == 'non')){
 			$water = ($_POST['water'] == 'oui')? 1 : 0;
 		}
 		else{
-			$error['water'] = "Vous n'avez pas précisé si votre randonnée comportait un point d'eau.";
+			$error['water'] = "Vous n'avez pas prÃ©cisÃ© si votre randonnÃ©e comportait un point d'eau.";
 		}
 
 		if(isset($_FILES['fileMap']) and $_FILES['fileMap']['error'] == UPLOAD_ERR_OK and is_uploaded_file($_FILES['fileMap']['tmp_name'])){
@@ -91,12 +91,12 @@ if(isset($_SESSION['statut']) and in_array($_SESSION['statut'], array('administr
 				
 				if(in_array($extension, array('gpx'))){
 					$nameFile = strip_tags(basename($_FILES['fileMap']['name']));
-					// Le nom session_id permet de pas avoir de problème avec des fichiers ayant le même nom en même temps
+					// Le nom session_id permet de pas avoir de problÃ¨me avec des fichiers ayant le mÃªme nom en mÃªme temps
 					move_uploaded_file($_FILES['fileMap']['tmp_name'], 'Resources/GPX/tmp/gpx_'.session_id());
 					$gpx = simplexml_load_file('Resources/GPX/tmp/gpx_'.session_id());
 					$gpx->registerXPathNamespace('gpx', "http://www.topografix.com/GPX/1/0"); // Chargement de l'espace de nom contenant le vocabulaire des GPX
 					
-					// Remplacer le fichier télécharger par un nouveau mieux formaté
+					// Remplacer le fichier tÃ©lÃ©charger par un nouveau mieux formatÃ©
 
 					$points = $gpx->xpath('//gpx:trkpt');
 					if($points === false){ // Si il y a une erreur
@@ -119,7 +119,7 @@ if(isset($_SESSION['statut']) and in_array($_SESSION['statut'], array('administr
 			}
 		}
 		else{
-			$error['fileMap'] = "Le fichier sélectionné est invalide.";
+			$error['fileMap'] = "Le fichier sÃ©lectionnÃ© est invalide.";
 		}
 
 		if(empty($error)){
@@ -131,19 +131,19 @@ if(isset($_SESSION['statut']) and in_array($_SESSION['statut'], array('administr
 					$lat = NULL;
 					$ele = NULL;
 
-					foreach($point->attributes() as $name => $value){ // Récupère longitude et latitude
+					foreach($point->attributes() as $name => $value){ // RÃ©cupÃ¨re longitude et latitude
 						if($name == 'lon'){
-							$lon = (float)$value;
+							$lon = intval($value);
 						}
 						else if($name == 'lat'){
-							$lat = (float)$value;
+							$lat = intval($value);
 						}
 					}
 
-					// Récupère l'élèvation
-					foreach ($point->children() as $child){ // Peut être plus optimiser d'utiliser des iterateurs
+					// RÃ©cupÃ¨re l'Ã©lÃ¨vation
+					foreach ($point->children() as $child){ // Peut Ãªtre plus optimiser d'utiliser des iterateurs
 						if($child->getName() == 'ele'){
-							$ele = (float)$child;
+							$ele = intval($child);
 						}
 					}
     
@@ -155,7 +155,10 @@ if(isset($_SESSION['statut']) and in_array($_SESSION['statut'], array('administr
 				rename('Resources/GPX/tmp/gpx_'.session_id(), 'Resources/GPX/0'.session_id().'.gpx'); // A changer
 				
 
-				echo session_save_path().'/'.session_id(); /// A utiliser !!!
+
+				
+
+				
 
 				$validation = true; // Cette variable permet d'afficher la page de validation
 				include_once('View/v_ajouter_rando.php');
