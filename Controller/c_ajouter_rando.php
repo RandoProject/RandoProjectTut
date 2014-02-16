@@ -5,14 +5,14 @@ if(isset($_SESSION['statut']) and in_array($_SESSION['statut'], array('administr
 	if(strtolower($_SERVER['REQUEST_METHOD']) == 'post'){
 		$error = array();
 		if(isset($_POST['name']) and $_POST['name'] != ""){
-			$name = strip_tags($_POST['name']);
-			if(strlen($name) > 150){
+			$title = strip_tags($_POST['name']);
+			if(strlen($title) > 150){
 				$error['name'] = "Le nom de la randonnée doit faire moins de 150 caractères.";
 			}
 			else{
 				include_once('bin/params.php');
 				include_once('Models/m_randonnees.php');
-				if(count_rando(strtolower($name))->nb_rando != 0){
+				if(count_rando(strtolower($title))->nb_rando != 0){
 					$error['name'] = "Le nom de randonnée que vous voulez enregistrer existe déjà.";
 				}
 			}
@@ -94,21 +94,24 @@ if(isset($_SESSION['statut']) and in_array($_SESSION['statut'], array('administr
 					// Le nom session_id permet de pas avoir de problème avec des fichiers ayant le même nom en même temps
 					move_uploaded_file($_FILES['fileMap']['tmp_name'], 'Resources/GPX/tmp/gpx_'.session_id());
 					$gpx = simplexml_load_file('Resources/GPX/tmp/gpx_'.session_id());
-					$gpx->registerXPathNamespace('gpx', "http://www.topografix.com/GPX/1/0"); // Chargement de l'espace de nom contenant le vocabulaire des GPX
-					
-					// Remplacer le fichier télécharger par un nouveau mieux formaté
-
-					$points = $gpx->xpath('//gpx:trkpt');
-					if($points === false){ // Si il y a une erreur
-						$error['fileMap'] = "Le fichier GPX est invalide";
-					}
-					else if(empty($points)){
-						$points = $gpx->xpath('//gpx:rtept');
-						if($points === false or empty($points)){
+					$namespace = $gpx->getNamespaces(true); // On récupère l'espace de nom du fichier
+					if(!empty($namespace)){
+						$gpx->registerXPathNamespace('gpx', current($namespace)); // Chargement de l'espace de nom contenant le vocabulaire des GPX
+						
+						$points = $gpx->xpath('//gpx:trkpt');
+						if($points === false){ // Si il y a une erreur
 							$error['fileMap'] = "Le fichier GPX est invalide";
 						}
+						else if(empty($points)){
+							$points = $gpx->xpath('//gpx:rtept');
+							if($points === false or empty($points)){
+								$error['fileMap'] = "Le fichier GPX est invalide";
+							}
+						}
 					}
-
+					else{
+						$error['fileMap'] = "L'espace de nom du fichier n'est pas valide";
+					}
 				}
 				else{
 					$error['fileMap'] = "Votre fichier n'est pas de type gpx.";
@@ -150,22 +153,21 @@ if(isset($_SESSION['statut']) and in_array($_SESSION['statut'], array('administr
 				}
 
 				$delay = $day.':'.$hour.':'.$minutes;
-				insert_rando($name, $delay, $difficulty, $_POST['description'], $water, $_SESSION['pseudo']);
+				insert_rando($title, $delay, $difficulty, $_POST['description'], $water, $_SESSION['pseudo']);
 				
+
 				rename('Resources/GPX/tmp/gpx_'.session_id(), 'Resources/GPX/0'.session_id().'.gpx'); // A changer
-				
+				include('bin/functions.php');
+				cleanTmp(); // Supprime les fichiers temporaires de parcours plus utiles
 
 
-				
-
-				
 
 				$validation = true; // Cette variable permet d'afficher la page de validation
 				include_once('View/v_ajouter_rando.php');
 		}
 		else{
 			if(!isset($error['name'])){
-				$value['name'] = $name;
+				$value['name'] = $title;
 			}
 			if(!isset($error['description'])){
 				$value['description'] = $_POST['description'];

@@ -62,14 +62,13 @@
                 if(isset($validation)){ ?>
 					<h2>Randonnées ajoutée</h2>
 					<p>
-						Votre randonnées a bien été ajoutée.<br>
+						Votre randonnée a bien été ajoutée.<br>
 						Elle sera visible sur le site, dès que le modérateur l'aura validé.<br>
 						Vous pouvez en attendant consulter les <a href="index.php?page=recherche">autres randonnées</a> ou retouner sur la <a href="index.php">page d'accueil</a>.
 					</p>
 				<?php }
 				else{ ?>
                     <h2>Ajouter une randonnée</h2>
-                    
                     <?php if(isset($error) and !empty($error)) echo '<p class="error">Impossible de créer votre randonnée, certaines informations ne sont pas valides...</p>';?>
                     <form method="post" action="index.php?page=ajout_rando" id="insert_rando" enctype="multipart/form-data">
                         <label for="name">Nom de la randonnée : </label><br>

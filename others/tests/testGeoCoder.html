@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <style type="text/css">
+      html { height: 100% }
+      body { height: 100%; margin: 0; padding: 0 }
+      #map-canvas { height: 500px; width: 700px; }
+    </style>
+
+		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC8ydWcT7L0z-S-g7DJf0Nh985GSMDjSf0&sensor=false&region=FR">
+		</script>
+		<script type="text/javascript">
+			var map;
+			var msg;
+			function initialize(){
+				var mapOptions = {
+					center: new google.maps.LatLng(45.75839157779, 4.883079528808),
+					zoom: 7
+				};
+				geocoder = new google.maps.Geocoder();
+				map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+
+
+
+				google.maps.event.addDomListener(map, 'click', function(event){localCursor(event.latLng)});
+			}
+
+			function localCursor(posCursor){;
+				document.getElementById('lat').value = posCursor.lat();
+				document.getElementById('lng').value = posCursor.lng();
+				geocoder.geocode( {'latLng': posCursor}, function(results, status){
+					if(status == google.maps.GeocoderStatus.OK){
+						var str;
+						var elem = results[0].address_components;
+						for(i in elem){
+							if(elem[i].types[0] == 'locality'){
+								document.getElementById('city').value = elem[i].long_name;
+							}
+							else if(elem[i].types[0] == 'postal_code'){
+								document.getElementById('code').value = elem[i].long_name;
+							}
+						}
+					}
+					else{
+						alert("Erreur de géolocalisation" + status);
+					}
+				});
+			}
+
+
+			google.maps.event.addDomListener(window, 'onload', initialize);
+
+			
+		</script>
+	</head>
+		<body onload="initialize()">
+		<h1>Test géocode</h1>
+		<label for="lat">Lat :</label>
+		<input type="text" id="lat" size="15"/>
+		<label for="lng">     Lon :</label>
+		<input type="text" id="lng" size="15"/>
+		<label for="city">    Ville : </label>
+		<input type="text" id="city" size="30" />
+		<lable for="code">    Code postal</lable>
+		<input type="text" id="code" size="7"/>
+		<div id="map-canvas"/>
+		
+
+	</body>
+</html>
