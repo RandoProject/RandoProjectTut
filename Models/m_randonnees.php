@@ -19,17 +19,18 @@ function get_rando($code){
 	return $data;
 }
 
-function insert_rando($title, $delay, $difficulty, $description, $water, $autor){
+function insert_rando($title, $delay, $difficulty, $description, $water, $autor, $departement){
 	global $bdd;
-	$queryStr = 'INSERT INTO rando(titre, duree, difficulte, descriptif, point_eau, auteur, date_insertion, departement)
-				VALUES(:title, :delay, :difficulty, :description, :water, :autor, NOW(), 12)';
+	$queryStr = 'INSERT INTO rando(titre, duree, difficulte, descriptif, point_eau, auteur, date_insertion, departement, parcours)
+				VALUES(:title, :delay, :difficulty, :description, :water, :autor, NOW(), :departement, 1)';
 	$query = $bdd->prepare($queryStr);
 	$query->execute(array(':title' => $title,
 						  ':delay' => $delay,
 						  ':difficulty' => $difficulty,
 						  ':description' => $description,
 						  ':water' => $water,
-						  ':autor' => $autor));
+						  ':autor' => $autor,
+						  ':departement' => $departement));
 }
 
 function get_galery($code){

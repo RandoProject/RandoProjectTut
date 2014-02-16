@@ -129,6 +129,7 @@ if(isset($_SESSION['statut']) and in_array($_SESSION['statut'], array('administr
 				include_once('bin/params.php');
 				include_once('Models/m_randonnees.php');
 
+
 				foreach($points as $point){
 					$lon = NULL;
 					$lat = NULL;
@@ -142,23 +143,47 @@ if(isset($_SESSION['statut']) and in_array($_SESSION['statut'], array('administr
 							$lat = intval($value);
 						}
 					}
-
 					// Récupère l'élèvation
 					foreach ($point->children() as $child){ // Peut être plus optimiser d'utiliser des iterateurs
 						if($child->getName() == 'ele'){
 							$ele = intval($child);
 						}
 					}
-    
+					if(!isset($firstPoint) and $lon !== NULL and $lat !== NULL){ // Récupère le premier point du parcours
+						$firstPoint['lat'] = $lat;
+						$firstPoint['lon'] = $lon;
+					}
 				}
 
+				if(isset($firstPoint)){ 
+					/* On utilise un fichier xml de l'API google map pour touver le code postal de ces coordonnées */
+					$xmlResult = simplexml_load_file('https://maps.googleapis.com/maps/api/geocode/xml?latlng='.$firstPoint['lat'].','.$firstPoint['lon'].'&sensor=false'); // Pas besoin de la clée d'API...
+					$status = $xmlResult->status;
+					if($status == 'OK'){
+						$listAddressComponent = $xmlResult->result[0]->address_component;
+						foreach($listAddressComponent as $adressComponent){
+							if($adressComponent->type == 'postal_code'){
+								$postalCode = $adressComponent->long_name;
+								break;
+							}
+						}
+					}
+				}
+
+				if(isset($postalCode)){
+					$departement = intval(substr($postalCode, 0, 2)); // On récupère seulement le département
+				}
+				else{
+					$departement = 0; // Département invalide
+				}
+				echo $departement;
 				$delay = $day.':'.$hour.':'.$minutes;
-				insert_rando($title, $delay, $difficulty, $_POST['description'], $water, $_SESSION['pseudo']);
+				insert_rando($title, $delay, $difficulty, $_POST['description'], $water, $_SESSION['pseudo'], $departement);
 				
 
 				rename('Resources/GPX/tmp/gpx_'.session_id(), 'Resources/GPX/0'.session_id().'.gpx'); // A changer
-				include('bin/functions.php');
-				cleanTmp(); // Supprime les fichiers temporaires de parcours plus utiles
+				include_once('bin/functions.php');
+				cleanTmp(); // Supprime les fichiers temporaires de parcours qui ne sont plus utiles
 
 
 
