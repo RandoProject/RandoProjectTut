@@ -29,7 +29,7 @@
 			function localCursor(posCursor){;
 				document.getElementById('lat').value = posCursor.lat();
 				document.getElementById('lng').value = posCursor.lng();
-				geocoder.geocode( {'latLng': posCursor}, function(results, status){
+				geocoder.geocode( {'location': posCursor}, function(results, status){
 					if(status == google.maps.GeocoderStatus.OK){
 						var str;
 						var elem = results[0].address_components;
@@ -43,7 +43,7 @@
 						}
 					}
 					else{
-						alert("Erreur de géolocalisation" + status);
+						alert("Erreur de géolocalisation : " + status);
 					}
 				});
 			}
