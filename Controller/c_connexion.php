@@ -43,6 +43,3 @@ else{
 	include_once('View/v_connexion.php');
 }
 
-
-
-
