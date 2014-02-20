@@ -44,12 +44,12 @@ else{
 			include_once('Controller/c_fiche_rando.php');
 			break;
 
-		case 'administration':
-			include_once('Controller/c_administration.php');
+		case 'administrateur':
+			include_once('Controller/c_administrateur.php');
 			break;
 
-		case 'administration':
-			include_once('Controller/c_administration.php');
+		case 'moderateur':
+			include_once('Controller/c_moderateur.php');
 			break;
 
 		default:

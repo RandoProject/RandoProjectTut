@@ -71,4 +71,12 @@ function get_galery(){
 	$req->closeCursor();
 	return $result;
 }
-	
+
+function delete_comment($numero){
+	global $bdd;
+
+	$query = '	DELETE FROM commentaire
+				WHERE numero = '.$numero;
+				
+	$exec = $bdd->query($query) or die(print_r($erreur -> errorInfo()));
+}
