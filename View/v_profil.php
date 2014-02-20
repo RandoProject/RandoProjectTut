@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 
-	<?php head("Recherche avancée"); ?>
+	<?php head("Profil"); ?>
 
 	<body>
 		<?php menu(); ?>

@@ -1,7 +1,7 @@
 <?php
 
 if($_SESSION['statut'] !== 'administrateur'){
-	header('location:index.php?page=connexion');
+	header('location:index.php?page=accueil');
 }
 
 include_once('bin/params.php');
@@ -12,4 +12,4 @@ $listeMember = get_liste_member();
 $listeComment = get_liste_comment();
 $galery = get_galery();
 
-include_once('View/v_administration.php');
+include_once('View/v_administrateur.php');
