@@ -2,6 +2,7 @@
 
 include_once('bin/params.php');
 include_once('Models/m_randonnees.php');
+include_once('Models/m_commentaire.php');
 
 if(isset($_GET['code'])){
 	$code = $_GET['code'];
@@ -77,6 +78,10 @@ if(isset($_GET['code'])){
 	
 	// Galerie
 	$listeImage = get_galery($code);
+
+
+	//Commentaire
+	
 }
 
 include_once('View/v_fiche_rando.php');
