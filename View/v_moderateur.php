@@ -8,12 +8,10 @@
         
         <div id="corps">    
             <section id="administration">
-            <textarea ></textarea>
             	<table>
                 	<tr>
                     	<td width="500px">Commentaire</td>
                     	<td width="100px">Auteur</td>
-                    	<td width="100px">Supprimer</td>
 					</tr>
                 	<?php
                         foreach($listeComment as $comment){
@@ -21,8 +19,22 @@
                                         <td>'.$comment['commentaire'].'</td>
                                         <td>'.$comment['auteur'].'</td>
                     					<td>
-											<a href="Scripts/delete_ski.php?id=$id" title=\"Supprimer\">X</a>
+											<form method="post" action="index.php?page=moderateur&code='.$comment['numero'].'">
+												<input type="submit" value="X">
+											</form>
 										</td>
+                                    </tr>';
+                        }
+                    ?>
+                </table>
+                <table>
+                	<tr>
+                    	<td width="500px">Nom</td>
+					</tr>
+                	<?php
+                        foreach($listeRandoInvalide as $rando){
+                            echo '	<tr>
+                                        <td>'.$rando['titre'].'</td>
                                     </tr>';
                         }
                     ?>

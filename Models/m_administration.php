@@ -8,15 +8,15 @@ tableau rando, membre, commentaire, photo
 dernier ajout de rando, galerie ajouté
 */
 
-function get_liste_rando(){
+function get_liste_rando($condition){
 	global $bdd;
 
 	$query = '	SELECT rando.*, departements.nom AS nom_departement, photo.nom AS nom_photo , galerie.nom AS nom_galerie
 				FROM rando, photo, galerie, departements
 				WHERE rando.photo_principale = photo.numero
 				AND photo.galerie = galerie.numero
-				AND rando.departement = departements.num_departement';
-
+				AND rando.departement = departements.num_departement '.$condition;
+				
 	$exec = $bdd->query($query) or die(print_r($erreur -> errorInfo()));
 	$data = $exec->fetchAll();
 	$exec->closeCursor();
@@ -77,6 +77,16 @@ function delete_comment($numero){
 
 	$query = '	DELETE FROM commentaire
 				WHERE numero = '.$numero;
+				
+	$exec = $bdd->query($query) or die(print_r($erreur -> errorInfo()));
+}
+
+function validate_rano($numero){
+	global $bdd;
+
+	$query = '	UPDATE  rando 
+				SET valide = 1
+				WHERE code = '.$numero;
 				
 	$exec = $bdd->query($query) or die(print_r($erreur -> errorInfo()));
 }
