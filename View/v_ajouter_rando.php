@@ -2,7 +2,7 @@
 <html lang="fr">
 
 	<?php 
-		head("Connexion",
+		head("Ajout rando",
 			array(
 				array('type' => 'meta', 'name' => 'viewport', 'content' => 'initial-scale=1.0, user-scalable=no'),
 				array('type' => 'javascript', 'src' => 'https://maps.googleapis.com/maps/api/js?key=AIzaSyC8ydWcT7L0z-S-g7DJf0Nh985GSMDjSf0&sensor=false&region=FR'),

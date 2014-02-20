@@ -385,7 +385,7 @@ section#rando div#affichage_recherche div div#fiche a#lien_consulter_fiche{
 section#connexion{
 	text-align: center;
 }
-section#connexion form{
+section#connexion form#form_connexion{
 	display: inline-block;
 	width: 40%;
 	margin-left: -10%;

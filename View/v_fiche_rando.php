@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 
-	<?php head("Recherche avancée"); ?>
+	<?php head("Fiche : $title"); ?>
 
 	<body>
 		<?php menu(); ?>
@@ -30,6 +30,21 @@
 						echo '<img src="Resources/Galerie/'.$galery.'/'.$image['nom'].'" width="420" height="310"/>';
 					}
 				?>
+
+                <?php
+                    if($_SESSION){
+                ?>
+                <form action="index.php?page=fiche_rando" method="post">
+                    <label for="commentaire">Commentaires : </label><br/>
+                    <textarea id="commentaire" name="commentaire"></textarea>
+                    <input type="submit" name="envoie_commentaire" value="Envoyer"/>
+                </form>
+                <?php
+                    }
+                ?>
+
+                
+
             </section>
         </div>
     
