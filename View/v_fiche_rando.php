@@ -9,7 +9,7 @@
         <div id="corps">
             <?php include_once('Controller/c_activitees_recentes.php'); ?>
     
-            <section id="fihce_rando">
+            <section id="fiche_rando">
                 <?php echo $title; ?><br/>
                 <img src="<?php echo $photo; ?>"/>
                 <?php echo $description; ?>
@@ -34,8 +34,8 @@
                 <?php
                     if($_SESSION){
                 ?>
-                <form action="index.php?page=fiche_rando" method="post">
-                    <label for="commentaire">Commentaires : </label><br/>
+                <form action="index.php?page=fiche_rando&code=<?php echo $code; ?>" method="post">
+                    <p><label for="commentaire">Commentaires : </label></p><br/>
                     <textarea id="commentaire" name="commentaire"></textarea>
                     <input type="submit" name="envoie_commentaire" value="Envoyer"/>
                 </form>

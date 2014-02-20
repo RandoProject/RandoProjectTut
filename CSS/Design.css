@@ -194,6 +194,8 @@ input[type="text"]:hover,
 input[type="text"]:focus,
 input[type="password"]:hover,
 input[type="password"]:focus,
+textarea:hover,
+textarea:focus,
 select:hover{
 	background-color: #FFFFFF;
 	box-shadow: 0px 0px 3px rgba(0, 100, 255, 1),
@@ -461,4 +463,33 @@ footer{
 	box-shadow:	0px 0px 10px 0px rgba(0, 0, 0, 0.7);
 	border-top-left-radius: 2px;
 	border-top-right-radius: 2px;
+}
+
+
+
+			/* Fiche rando */
+section#fiche_rando form{
+	display: block;
+	width: 100%;
+	text-align: center;
+}
+
+section#fiche_rando form textarea{
+	display: block;
+	width: 60%;
+	height: 125px;
+	margin-left: 20%;
+	margin-bottom: 1%;
+	border-radius: 2px;
+	border: solid 1px #CCC;
+	background-color: #F5F5F5;
+}
+
+section#fiche_rando form label{
+	font-size: 1.3em;
+	font-weight: bold;
+}
+
+section#fiche_rando form input{
+	margin-bottom: 1%;
 }

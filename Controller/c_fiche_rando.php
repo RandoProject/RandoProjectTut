@@ -81,7 +81,17 @@ if(isset($_GET['code'])){
 
 
 	//Commentaire
-	
+	if($_SESSION){
+		if(strtolower($_SERVER['REQUEST_METHOD']) == 'post'){
+			if(!empty($_POST['envoie_commentaire'])){
+				$commentaire = strip_tags($_POST['envoie_commentaire']);
+				if($commentaire != ""){
+					validation_commentaire($commentaire,$_SESSION['pseudo'], $code);
+					include_once('View/v_fiche_rando.php');
+				}
+			}
+		}
+	}
 }
 
 include_once('View/v_fiche_rando.php');
