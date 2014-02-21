@@ -41,6 +41,13 @@
                 </form>
                 <?php
                     }
+
+                $i = 0;
+                foreach($nombre_commentaire as $nb_commentaire){
+                    echo '<div id="cadre_commentaire">';
+                        echo $nb_commentaire['commentaire'];
+                    echo '</div>';
+                }
                 ?>
 
                 

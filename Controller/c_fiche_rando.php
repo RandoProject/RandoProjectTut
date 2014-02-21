@@ -83,15 +83,18 @@ if(isset($_GET['code'])){
 	//Commentaire
 	if($_SESSION){
 		if(strtolower($_SERVER['REQUEST_METHOD']) == 'post'){
-			if(!empty($_POST['envoie_commentaire'])){
-				$commentaire = strip_tags($_POST['envoie_commentaire']);
+			if(!empty($_POST['commentaire'])){
+				$commentaire = strip_tags($_POST['commentaire']);
 				if($commentaire != ""){
 					validation_commentaire($commentaire,$_SESSION['pseudo'], $code);
+					$nombre_commentaire = recuperation_commentaire($code);
 					include_once('View/v_fiche_rando.php');
 				}
 			}
 		}
 	}
+
+	$nombre_commentaire = recuperation_commentaire($code);
 }
 
 include_once('View/v_fiche_rando.php');
