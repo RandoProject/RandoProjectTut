@@ -2,10 +2,10 @@
 
 if(strtolower($_SERVER['REQUEST_METHOD']) == "post"){
 	if(!isset($_POST['pseudo']) or $_POST['pseudo'] == ""){
-		$error['pseudo'] = 'Vous n\'avez pas entré d\'identifiant.';
+		$error['pseudo'] = 'Vous n\'avez pas entrÃ© d\'identifiant.';
 	}
 	if(!isset($_POST['pass']) or $_POST['pass'] == ""){
-		$error['pass'] = 'Vous n\'avez pas entré de mot de passe.';
+		$error['pass'] = 'Vous n\'avez pas entrÃ© de mot de passe.';
 	}
 	
 
@@ -20,7 +20,7 @@ if(strtolower($_SERVER['REQUEST_METHOD']) == "post"){
 				$_SESSION['prenom'] = $member->prenom;
 				$_SESSION['statut'] = $member->statut;
 
-				// Il est possible de revenir à la page sur laquelle était l'utilisateur avant la connexion
+				// Il est possible de revenir Ã  la page sur laquelle Ã©tait l'utilisateur avant la connexion
 				$page = (isset($_GET['page_pre']))? strip_tags($_GET['page_pre']) : 'accueil';
 				header('Location:index.php?page='.$page); 
 			}
@@ -42,4 +42,3 @@ if(strtolower($_SERVER['REQUEST_METHOD']) == "post"){
 else{
 	include_once('View/v_connexion.php');
 }
-
