@@ -11,17 +11,30 @@ include_once('Models/m_administration.php');
 	delete_comment($_GET['code']);
 }*/
 
-/* Validation Rando */
-if(!empty($_POST['rando']) && !empty($_POST['validate'])){
-	validate_rando($_POST['rando']);
+/* Rando */
+if($_GET['section'] === 'randonnees'){
+	if(!empty($_POST['rando'])){
+		if(!empty($_POST['validate'])){
+			validate_rando($_POST['rando']);
+		}
+		else if(!empty($_POST['delete'])){
+			delete_rando($_POST['rando']);
+		}
+	}
+	$listeRandoInvalide = get_liste_rando('AND valide = 0');
 }
 
-/* Suppression Rando */
-if(!empty($_POST['rando']) && !empty($_POST['delete'])){
-	delete_rando($_POST['rando']);
+/* Commenaire */
+else if($_GET['section'] === 'commentaires'){
+	if(!empty($_POST['comment'])){
+		if(!empty($_POST['validate'])){
+			validate_comment($_POST['comment']);
+		}
+		else if(!empty($_POST['delete'])){
+			delete_comment($_POST['comment']);
+		}
+	}
+	$listeComment = get_liste_comment('WHERE valide = 0');
 }
-
-$listeComment = get_liste_comment();
-$listeRandoInvalide = get_liste_rando('AND valide = 0');
 
 include_once('View/v_moderateur.php');

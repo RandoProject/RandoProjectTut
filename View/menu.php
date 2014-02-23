@@ -13,7 +13,7 @@ function menu(){
 			echo '	<li><a href="index.php?page=administrateur">Administration</a></li>';
 		}
 		else if($_SESSION['statut'] == 'moderateur'){
-			echo '	<li><a href="index.php?page=moderateur">Modération</a></li>';
+			echo '	<li><a href="index.php?page=moderateur&section=randonnees">Modération</a></li>';
 		}
 	}
 

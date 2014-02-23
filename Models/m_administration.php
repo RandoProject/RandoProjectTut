@@ -27,11 +27,11 @@ function get_liste_rando($condition){
 	return $result;
 }
 
-function get_liste_member(){
+function get_liste_comment($condition){
 	global $bdd;
 
 	$query = '	SELECT *
-				FROM membre';
+				FROM commentaire '.$condition;
 
 	$exec = $bdd->query($query) or die(print_r($erreur -> errorInfo()));
 	$data = $exec->fetchAll();
@@ -42,11 +42,11 @@ function get_liste_member(){
 	return $result;
 }
 
-function get_liste_comment(){
+function get_liste_member(){
 	global $bdd;
 
 	$query = '	SELECT *
-				FROM commentaire';
+				FROM membre';
 
 	$exec = $bdd->query($query) or die(print_r($erreur -> errorInfo()));
 	$data = $exec->fetchAll();
@@ -73,15 +73,37 @@ function get_galery(){
 	return $result;
 }
 
+
 /* ACTION sur les COMMENTAIRES */
-function delete_comment($numero){
+function validate_comment($listeCode){
+	global $bdd;
+
+	$query = '	UPDATE commentaire 
+				SET valide = 1
+				WHERE numero IN (';
+				
+	foreach($listeCode as $code){
+		$query .= $code.', ';
+	}
+	$query = substr($query, 0, -2).')';
+
+	$exec = $bdd->query($query) or die(print_r($erreur -> errorInfo()));
+}
+
+function delete_comment($listeNumero){
 	global $bdd;
 
 	$query = '	DELETE FROM commentaire
-				WHERE numero = '.$numero;
+				WHERE numero IN (';
 				
+	foreach($listeNumero as $numero){
+		$query .= $numero.', ';
+	}
+	$query = substr($query, 0, -2).')';
+
 	$exec = $bdd->query($query) or die(print_r($erreur -> errorInfo()));
 }
+
 
 /* ACTION sur les RANDONEES */
 function validate_rando($listeCode){
