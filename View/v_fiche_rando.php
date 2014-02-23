@@ -44,9 +44,10 @@
 
                 $i = 0;
                 foreach($nombre_commentaire as $nb_commentaire){
+                    $date = $nb_commentaire['date'];
                     echo '<div id="cadre_commentaire">';
-                        echo $nb_commentaire['commentaire'];
-                        echo $nb_commentaire['date'];
+                        echo $insertion_date .'<br/>';
+                        echo $nb_commentaire['commentaire'].'<br/>';
                         echo $nb_commentaire['auteur'];
                     echo '</div>';
                 }
