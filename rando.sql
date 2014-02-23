@@ -501,6 +501,7 @@ CREATE TABLE IF NOT EXISTS `commentaire` (
 	`code_rando` int(10) NOT NULL,
 	`commentaire` text NOT NULL,
 	`note` int(1) DEFAULT NULL,
+	`valide` tinyint(1) DEFAULT NULL,
 	PRIMARY KEY (`numero`),
 	FOREIGN KEY (`code_rando`) REFERENCES `rando`(`code`),
 	FOREIGN KEY (`auteur`) REFERENCES `membre`(`pseudo`),
@@ -513,6 +514,7 @@ INSERT INTO `commentaire` VALUES (
 	'Pat',
 	'1',
 	'Bonne rando !',
+	'',
 	''
 );
 
