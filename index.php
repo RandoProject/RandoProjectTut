@@ -52,6 +52,10 @@ else{
 			include_once('Controller/c_moderateur.php');
 			break;
 
+		case 'contact':
+			include_once('Controller/c_contact.php');
+			break;
+
 		default:
 			include_once('View/error_page.php');
 			break;

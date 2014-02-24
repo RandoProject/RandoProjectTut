@@ -132,7 +132,7 @@ function affichage_f_rando_complet($region, $typeRegion, $MAX_distance, $MIN_dis
 	if(!empty($reqArray)){
 		$reqStr .= ' AND '.implode(' AND ', $reqArray);
 	}
-	$reqStr .= ' ORDER BY longueur ASC';
+	$reqStr .= ' ORDER BY note DESC';
 
 	$req = $bdd->prepare($reqStr);
 	$req->execute($reqValues) or die(print_r($erreur -> errorInfo()));
