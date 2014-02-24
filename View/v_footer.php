@@ -7,7 +7,7 @@
 		<?php echo $nb_connecte; ?> personnes sont connectées
     </p>
     <p>
-        <a href="#">Qui sommes-nous ?</a> | <a href="#">Contact</a>
+        <a href="#">Qui sommes-nous ?</a> | <a href="index.php?page=contact">Contact</a>
     </p>
     <p>
         &copy; 2014 RandoPassion

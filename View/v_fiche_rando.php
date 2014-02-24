@@ -34,6 +34,25 @@
                 <?php
                     if($_SESSION){
                 ?>
+                                    <!--Stars-->
+                <span class="star-rating">
+                  <input type="radio" name="rating" value="1"><i></i>
+                  <input type="radio" name="rating" value="2"><i></i>
+                  <input type="radio" name="rating" value="3"><i></i>
+                  <input type="radio" name="rating" value="4"><i></i>
+                  <input type="radio" name="rating" value="5"><i></i>
+                </span>
+                <strong class="choice">Choose a rating</strong>
+
+                <script type="text/javascript">
+                    $(':radio').change(
+                        function(){
+                            $('.choice').text( this.value + ' stars' );
+                        } 
+                    )
+                </script>
+
+
                 <form action="index.php?page=fiche_rando&code=<?php echo $code; ?>" method="post">
                     <p><label for="commentaire">Commentaires : </label></p><br/>
                     <textarea id="commentaire" name="commentaire"></textarea>
