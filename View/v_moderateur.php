@@ -14,7 +14,8 @@
                 <!-- Partie RANDONNEES -->
             	<?php if($_GET['section'] === 'randonnees'){ ?>
                     <form method="post" action="index.php?page=moderateur&section=randonnees">
-                        <input type="submit" value="Valider les randonnées" name="validate"/> 
+                        <input type="submit" value="Valider les randonnées" name="validate"/>
+                        <input type="submit" value="Modifier les randonnées" name="modify"/>
                         <input type="submit" value="Supprimer les randonnées" name="delete"/>
                         <input type="reset" value="Déselectionner tout"/>
                         <table>
