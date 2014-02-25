@@ -519,7 +519,42 @@ section#fiche_rando div#cadre_commentaire{
 	text-align: center;
 }
 
-
+		/* Etoile_commentaire */
+section#fiche_rando ul.notes{
+	margin:0;
+	padding:0;
+}
+section#fiche_rando ul.notes li{
+	display: block;
+	float:left;
+	margin:0;
+	padding:0;
+	list-style:none;
+	min-width:20px;
+	min-height:20px;
+}
+section#fiche_rando ul.notes li label{
+	display:block;
+	width: 45px;
+	height: 45px;
+	text-align:center;
+	line-height:40px;
+	background:url(../Resources/Images/etoile_jaune_vide.png) center no-repeat;
+	cursor:pointer;
+}
+section#fiche_rando ul.notes li label:hover{
+	display:block;
+	width: 45px;
+	height: 45px;
+	text-align:center;
+	line-height:40px;
+	background:url(../Resources/Images/etoile_jaune_pleine.png) center no-repeat;
+	cursor:pointer;
+}
+section#fiche_rando ul.notes li input{
+	position: absolute;
+	left: -999%;
+}
 
 
 			/* Contact */
@@ -667,7 +702,7 @@ textarea#text_area_contact:focus, input[type=text].input_contact:focus{
 }
 
 #form_wrap:hover input:hover[type=submit].input_contact{
-	color: #0080C0;
+	color: #E13E42;
 }
 
 #form_wrap input[type=submit].input_contact:hover{

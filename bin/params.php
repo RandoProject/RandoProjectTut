@@ -12,3 +12,4 @@ $bdd;
 		die('Erreur : ' . $e->getMessage());
 	}
 ?>
+
