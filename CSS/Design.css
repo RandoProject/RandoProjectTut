@@ -523,6 +523,7 @@ section#fiche_rando div#cadre_commentaire{
 section#fiche_rando ul.notes{
 	margin:0;
 	padding:0;
+	display: inline-block;
 }
 section#fiche_rando ul.notes li{
 	display: block;
