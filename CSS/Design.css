@@ -1,5 +1,15 @@
 @charset "iso-8859-1";
 
+@font-face {
+	font-family: 'YanoneKaffeesatzRegular';
+	src: url('../Resources/Polisse/Yano/yanonekaffeesatz-regular-webfont.eot');
+	src: url('../Resources/Polisse/Yano/yanonekaffeesatz-regular-webfont.eot?#iefix') format('embedded-opentype'),
+	url('../Resources/Polisse/Yano/yanonekaffeesatz-regular-webfont.woff') format('woff'),
+	url('../Resources/Polisse/Yano/yanonekaffeesatz-regular-webfont.ttf') format('truetype'),
+	url('../Resources/Polisse/Yano/yanonekaffeesatz-regular-webfont.svg#YanoneKaffeesatzRegular') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}	
 
 			/* Reglage par default des pages */
 *{
@@ -194,6 +204,8 @@ input[type="text"]:hover,
 input[type="text"]:focus,
 input[type="password"]:hover,
 input[type="password"]:focus,
+textarea:hover,
+textarea:focus,
 select:hover{
 	background-color: #FFFFFF;
 	box-shadow: 0px 0px 3px rgba(0, 100, 255, 1),
@@ -385,7 +397,7 @@ section#rando div#affichage_recherche div div#fiche a#lien_consulter_fiche{
 section#connexion{
 	text-align: center;
 }
-section#connexion form{
+section#connexion form#form_connexion{
 	display: inline-block;
 	width: 40%;
 	margin-left: -10%;
@@ -461,4 +473,293 @@ footer{
 	box-shadow:	0px 0px 10px 0px rgba(0, 0, 0, 0.7);
 	border-top-left-radius: 2px;
 	border-top-right-radius: 2px;
+}
+
+
+
+			/* Fiche rando */
+section#fiche_rando div#cadre_photo{
+	display: block;
+	width: 50%;
+	min-width: 60%;
+	height: 400px;
+	margin-top: 5%;
+	margin-bottom: 5%;
+	margin-left: 20%;
+	text-align: center;
+	position: relative;
+	text-align: center;
+	border: 4px solid #2E2E2E;
+	box-shadow: 1px 1px 10px #2E2E2E;
+		-moz-box-shadow: 1px 1px 10px #2E2E2E; 
+			-webkit-box-shadow: 1px 1px 10px #2E2E2E;
+}			
+section#fiche_rando div#cadre_photo img{
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+section#fiche_rando form{
+	display: inline-block;
+	width: 100%;
+	text-align: center;
+	padding-top: 2%;
+}
+
+section#fiche_rando form textarea{
+	display: block;
+	width: 60%;
+	height: 125px;
+	margin-top: 3%;
+	margin-left: 20%;
+	margin-bottom: 1%;
+	border-radius: 2px;
+	border: solid 1px #CCC;
+	background-color: #F5F5F5;
+}
+
+section#fiche_rando form label{
+	font-size: 1.3em;
+	font-weight: bold;
+}
+
+section#fiche_rando form input{
+	margin-bottom: 1%;
+}
+
+
+			/* Commentaire */
+section#fiche_rando div#cadre_affichage_commentaire{
+	display: block;
+	width: 60%;
+	height: auto;
+	padding-bottom: 10px;
+	padding-top: 10px;
+	margin-left: 20%;
+	border-radius: 2px;
+	border: solid 1px #CCC;
+	background-color: #F5F5F5;
+	text-align: center;
+}
+
+		/* Etoile_commentaire */
+section#fiche_rando p{
+	display: inline-block;
+	width: 50px;
+	margin-top: 5%;
+}
+section#fiche_rando ul.notes{
+	display: inline-block;
+	vertical-align: top;
+	float: right;
+	width: 250px;
+	padding:0;
+	margin-top: 0%;
+	margin-right: 20%;
+}
+section#fiche_rando ul.notes li{
+	display: block;
+	float:right;
+	margin:0;	
+	padding:0;
+	list-style:none;
+	min-width:20px;
+	min-height:20px;
+}
+section#fiche_rando ul.notes li label{
+	display:block;
+	width: 35px;
+	height: 45px;
+	text-align:center;
+	line-height:40px;
+	background:url(../Resources/Images/etoile_jaune_vide.png) center no-repeat;
+	cursor:pointer;
+}
+section#fiche_rando ul.notes li label:hover{
+	display:block;
+	width: 35px;
+	height: 45px;
+	text-align:center;
+	line-height:40px;
+	background:url(../Resources/Images/etoile_jaune_pleine.png) center no-repeat;
+	cursor:pointer;
+}
+section#fiche_rando ul.notes li input{
+	position: absolute;
+	left: -999%;
+}
+section#fiche_rando li.note-off label{
+	background-position:center -60px;
+}
+section#fiche_rando ul.notes-echelle li.note-checked {
+	font-weight:bold;
+}
+section#fiche_rando ul.notes-echelle.js li.note-focus {
+	outline:1px dotted #000;
+}
+
+			/* Contact */
+#mail_non_valider{
+	font-size: 1.5em;
+	margin-top: 25%;
+}
+
+#mail_non_valider_lien{
+	font-size: 1.5em;
+	margin-top: 1%;
+	margin-bottom: 60%;
+}
+
+
+#mail_lien:hover{
+	color: #0099CC;
+}
+
+#message_contact{
+	font-family: 'YanoneKaffeesatzRegular';
+	font-size: 1.8em;
+	text-align: center;
+	margin-bottom: 10%;
+	margin-top: -10%;
+}
+
+body#Contact_body, body#mail_pas_envoyer{
+	font-family: 'YanoneKaffeesatzRegular';
+}
+
+p#text_lettre{
+	text-shadow:0 1px 0 #fff;
+	font-size:24px;
+}
+
+#wrap{
+	width: 530px; 
+	margin: 20px auto 0; 
+	margin-top: 15%;
+	height: auto;
+	text-align: left;
+}
+
+.input_contact{
+	border: 0px;
+}
+
+#form_wrap { 
+	overflow:hidden; height:446px; position:relative; top:0px;
+	-webkit-transition: all 1s ease-in-out .3s;
+	-moz-transition: all 1s ease-in-out .3s;
+	-o-transition: all 1s ease-in-out .3s;
+	transition: all 1s ease-in-out .3s;
+}
+	
+#form_wrap:before {
+	content:"";
+	position:absolute;
+	bottom:128px;left:0px;
+	background:url('../Resources/Images/before.png');
+	width:530px;height: 316px;
+}
+	
+#form_wrap:after {
+	content:"";position:absolute;
+	bottom:0px;left:0;
+	background:url('../Resources/Images/after.png');
+	width:530px;height: 260px; 
+}
+
+#form_wrap.hide:after, #form_wrap.hide:before {
+	display:none; 
+}
+
+#form_wrap:hover {
+	height:850px;top:-200px;
+}
+
+
+form#form_contact{
+	background:#f7f2ec url('../images/letter_bg.png'); 
+	position:relative;top:200px;overflow:hidden;
+	height:200px;width:400px;margin:0px auto;padding:20px; 
+	border: 1px solid #fff;
+	border-radius: 3px; 
+	-moz-border-radius: 3px; -webkit-border-radius: 3px;
+	box-shadow: 0px 0px 3px #9d9d9d, inset 0px 0px 27px #fff;
+	-moz-box-shadow: 0px 0px 3px #9d9d9d, inset 0px 0px 14px #fff;
+	-webkit-box-shadow: 0px 0px 3px #9d9d9d, inset 0px 0px 27px #fff;
+	-webkit-transition: all 1s ease-in-out .3s;
+	-moz-transition: all 1s ease-in-out .3s;
+	-o-transition: all 1s ease-in-out .3s;
+	transition: all 1s ease-in-out .3s;
+}
+
+
+#form_wrap:hover form {
+	height:530px;
+}
+
+label#label_contact{
+	margin: 11px 20px 0 0; 
+	font-size: 16px; color: #b3aba1;
+	text-transform: uppercase; 
+	text-shadow: 0px 1px 0px #fff;
+}
+
+input[type=text].input_contact, textarea#text_area_contact {
+	font: 14px normal normal uppercase helvetica, arial, serif;
+	color: #7c7873;background:none;
+	width: 380px; height: 36px; padding: 0px 10px; margin: 0 0 10px 0;
+	border:1px solid #f8f5f1;
+	-moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px;
+	-moz-box-shadow: inset 0px 0px 1px #726959;
+	-webkit-box-shadow:  inset 0px 0px 1px #b3a895; 
+	box-shadow:  inset 0px 0px 1px #b3a895;
+}	
+
+textarea#text_area_contact { height: 80px; padding-top:14px;}
+
+textarea#text_area_contact:focus, input[type=text].input_contact:focus{
+	background:rgba(255,255,255,.35);
+}
+
+#form_wrap input[type=submit].input_contact {
+	position:relative;font-family: 'YanoneKaffeesatzRegular'; 
+	font-size:24px; color: #7c7873;text-shadow:0 1px 0 #fff;
+	width:100%; text-align:center;opacity:0;
+	background:none;
+	cursor: pointer;
+	-moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; 
+	-webkit-transition: opacity .6s ease-in-out 0s;
+	-moz-transition: opacity .6s ease-in-out 0s;
+	-o-transition: opacity .6s ease-in-out 0s;
+	transition: opacity .6s ease-in-out 0s;
+}
+
+#form_wrap:hover input[type=submit].input_contact{
+	z-index:1;opacity:1;
+	-webkit-transition: opacity .5s ease-in-out 1.3s;
+	-moz-transition: opacity .5s ease-in-out 1.3s;
+	-o-transition: opacity .5s ease-in-out 1.3s;
+	transition: opacity .5s ease-in-out 1.3s;
+}
+
+#form_wrap:hover input:hover[type=submit].input_contact{
+	color: #E13E42;
+}
+
+#form_wrap input[type=submit].input_contact:hover{
+	border: none;
 }

@@ -2,6 +2,7 @@
 
 include_once('bin/params.php');
 include_once('Models/m_randonnees.php');
+include_once('Models/m_commentaire.php');
 
 if(isset($_GET['code'])){
 	$code = $_GET['code'];
@@ -20,7 +21,7 @@ if(isset($_GET['code'])){
 	
 	// Durée
 	$time = new DateTime(trim($rando->duree));
-	$duration = $time->format('h').'h'.$time->format('i');
+	$duration = $time->format('H').'h'.$time->format('i');
 	
 	// Note
 	if(empty($rando->note)){
@@ -73,10 +74,29 @@ if(isset($_GET['code'])){
 		default: $month =''; break;
 	}
 	$insertion_date = $date->format('d').' '.$month.' '.$date->format('Y');
-	$insertion_hour = $date->format('h').'h'.$date->format('i');
+	$insertion_hour = $date->format('H').'h'.$date->format('i');
 	
 	// Galerie
 	$listeImage = get_galery($code);
+
+
+	//Commentaire
+	if($_SESSION){
+		if(strtolower($_SERVER['REQUEST_METHOD']) == 'post'){
+			if(!empty($_POST['commentaire'])){
+				$commentaire = strip_tags($_POST['commentaire']);
+				if($commentaire != ""){
+					validation_commentaire($commentaire,$_SESSION['pseudo'], $code);
+					$nombre_commentaire = recuperation_commentaire($code);
+					$insertion_date = $date->format('d').' '.$month.' '.$date->format('Y');
+					include_once('View/v_fiche_rando.php');
+				}
+			}
+		}
+	}
+
+	$nombre_commentaire = recuperation_commentaire($code);
+	$insertion_date = $date->format('d').' '.$month.' '.$date->format('Y');
 }
 
 include_once('View/v_fiche_rando.php');

@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html lang="fr">
 
-	<?php head("Recherche avancée"); ?>
+	<?php head("Fiche : $title"); ?>
+
+    <script scr="JS/etoile.js">
+    </script>
 
 	<body>
 		<?php menu(); ?>
@@ -9,9 +12,11 @@
         <div id="corps">
             <?php include_once('Controller/c_activitees_recentes.php'); ?>
     
-            <section id="fihce_rando">
+            <section id="fiche_rando">
                 <?php echo $title; ?><br/>
-                <img src="<?php echo $photo; ?>"/>
+                <div id="cadre_photo">
+                    <img src="<?php echo $photo; ?>"/>
+                </div>
                 <?php echo $description; ?>
                 Longueur : <?php echo $lenght; ?><br/>
                 Durée : <?php echo $duration; ?><br/>
@@ -22,7 +27,7 @@
                 Equipement : <?php echo $equipment; ?><br/>
                 GPX : <?php echo $path; ?><br/>
                 Département : <?php echo $department; ?><br/>
-                Ajouté le <?php echo $insertion_date.' à '.$insertion_hour; ?>.<br/>
+                Ajout&eacute; le <?php echo $insertion_date.' à '.$insertion_hour; ?>.<br/>
                 Rédigé par <?php echo $author; ?>.<br/>
                 
                 <?php 
@@ -30,6 +35,56 @@
 						echo '<img src="Resources/Galerie/'.$galery.'/'.$image['nom'].'" width="420" height="310"/>';
 					}
 				?>
+
+                <?php
+                    $i = 0;
+                foreach($nombre_commentaire as $nb_commentaire){
+                    $date = $nb_commentaire['date'];
+                    echo '<div id="cadre_affichage_commentaire">';
+                        echo $insertion_date .'<br/>';
+                        echo $nb_commentaire['commentaire'].'<br/>';
+                        echo $nb_commentaire['auteur'];
+                    echo '</div>';
+                }
+                    if($_SESSION){
+                ?>
+                <!--Etoile-->
+                
+                    <form action="index.php?page=fiche_rando&code=<?php echo $code; ?>" method="post">
+                        <label for="commentaire">Commentaires : </label><br/>
+                            <ul class="notes">
+                                <p> Note : </p>
+                                <li>
+                                    <label for="note5" title="Note : 5 sur 5"></label>
+                                    <input type="radio" name="note" id="note5" value="5"/>
+                                </li>
+                                <li>
+                                    <label for="note4" title="Note : 4 sur 5"></label>
+                                    <input type="radio" name="note" id="note4" value="4"/>
+                                </li>
+                                <li>
+                                    <label for="note3" title="Note : 3 sur 5"></label>
+                                    <input type="radio" name="note" id="note3" value="3"/>
+                                </li>
+                                <li>
+                                    <label for="note2" title="Note : 2 sur 5"></label>
+                                    <input type="radio" name="note" id="note2" value="2"/>
+                                </li>
+                                <li>
+                                    <label for="note1" title="Note : 1 sur 5"></label>
+                                    <input type="radio" name="note" id="note1" value="1"/>
+                                </li>
+                            </ul>
+                        <textarea id="commentaire" name="commentaire"></textarea>
+                        <input type="submit" name="envoie_commentaire" value="Envoyer"/>
+                    </form>
+
+                <?php
+                    }
+                ?>
+
+                
+
             </section>
         </div>
     
