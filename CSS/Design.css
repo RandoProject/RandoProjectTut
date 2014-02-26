@@ -580,7 +580,7 @@ section#fiche_rando ul.notes li{
 	min-width:20px;
 	min-height:20px;
 }
-section#fiche_rando ul.notes li label{
+section#fiche_rando ul.notes li label.etoile_vide{
 	display:block;
 	width: 35px;
 	height: 45px;
@@ -589,7 +589,7 @@ section#fiche_rando ul.notes li label{
 	background:url(../Resources/Images/etoile_jaune_vide.png) center no-repeat;
 	cursor:pointer;
 }
-section#fiche_rando ul.notes li label:hover{
+section#fiche_rando ul.notes li label.etoile_select{
 	display:block;
 	width: 35px;
 	height: 45px;
