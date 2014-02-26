@@ -8,7 +8,7 @@
        		<?php menu(); ?>
             <?php include_once('Controller/c_activitees_recentes.php'); ?>
             
-            <section>
+            <section id="inscription">
 
             <?php
                 if(isset($_POST['submit']) and !isset($error)){
@@ -17,7 +17,7 @@
                 }
                 else{
             ?>
-            <h2>Bienvenue sur RandoPassion, inscrivez-vous dès maintenant !</h2><br/> 
+            <div class="titre">Inscription</div><br/> 
 
             <form action="index.php?page=inscription" method="post">
 

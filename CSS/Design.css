@@ -17,9 +17,9 @@ body{
 	background-image: url(../Resources/Images/wall.jpg);
 	background-color: #000;
 	background-repeat: no-repeat;
-	background-position: top left;
+	background-position: 0 0;
 	background-attachment: fixed;
-	background-position: top right;
+	background-size: 100% auto;
 	width: 100%;
 	height: 100%;
 	min-width: 1000px;
@@ -27,12 +27,68 @@ body{
 hr{
 	margin: 18px 0;
 	border: 0;
-	border-top: 1px solid #eeeeee;
-	border-bottom: 1px solid #ffffff;
+	border-top: 1px solid #EEEEEE;
+	border-bottom: 1px solid #FFFFFF;
 }
 h1{
 	color: #A8BF75;
 	font-size: 16px;
+	margin-bottom: 10px;
+}
+h2{
+	color: #A8BF75;
+	font-size: 15px;
+	text-align: center;
+	margin-bottom: 10px;
+}
+.titre{
+	background-color: #A8BF75;
+	text-align: center;
+	line-height: 40px;
+	font-family: Kalinga;
+	font-size: 20px;
+	color: #FFF;
+	border-bottom-left-radius:25px;
+	border-top-left-radius:25px;
+	margin-bottom: 10px;
+}
+
+
+/* - - - - - - - - - - Formulaires - - - - - - - - - - */
+input,
+select{
+	margin-top: 5px;
+	padding: 5px;
+	border-radius: 2px;
+	border: solid 1px #CCC;
+	background-color: #F5F5F5;
+}
+select,
+input[type="file"]{
+	cursor: pointer;
+}
+input[type="text"]:hover,
+input[type="text"]:focus,
+input[type="password"]:hover,
+input[type="password"]:focus,
+input[type="file"]:hover,
+input[type="file"]:focus,
+input[type="range"]:hover,
+input[type="range"]:focus,
+textarea:hover,
+textarea:focus,
+select:hover,
+select:focus{
+	background-color: #FFFFFF;
+}
+input[type="submit"]{
+	cursor: pointer;
+	font-weight: bold;
+}
+input[type="submit"]:hover{
+	background-color: #A8BF75;
+	color: #F5F6F7;
+	border: solid 1px #A8BF75;
 }
 
 
@@ -54,7 +110,7 @@ nav{
 	display: inline-block;
 	width: 100%;
 	min-width: 800px;
-	margin-bottom: 25px;
+	margin-bottom: 40px;
 }
 nav ul li{
 	display: block;
@@ -92,7 +148,7 @@ nav ul#account li a{
 	padding: 3px 8px;
 	font-size: 12px;
 	line-height: 15px;
-	background-color: #E9E9E9;
+	background-color: #EAEAEA;
 	-webkit-transition: background-color .5s ease, color .8s ease;
 }
 nav ul#account li a:hover{ color: #FFF; }
@@ -139,43 +195,9 @@ aside img{
 section{
 	display: inline-block;
 	float: right;
-	width: 80%;
+	width: 78%;
 	height: auto;
 	overflow: hidden;
-}
-
-
-/* - - - - - - - - - - Formulaires - - - - - - - - - - */
-input,
-select{
-	margin-top: 5px;
-	padding: 5px;
-	border-radius: 2px;
-	border: solid 1px #CCC;
-	background-color: #F5F5F5;
-}
-select{
-	cursor: pointer;
-}
-input[type="text"]:hover,
-input[type="text"]:focus,
-input[type="password"]:hover,
-input[type="password"]:focus,
-textarea:hover,
-textarea:focus,
-select:hover{
-	background-color: #FFFFFF;
-	box-shadow: 0px 0px 3px rgba(0, 100, 255, 1),
-				0px 0px 3px rgba(0, 100, 255, 1);
-}
-input[type="submit"]{
-	cursor: pointer;
-	font-weight: bold;
-}
-input[type="submit"]:hover{
-	background-color: #2E9AFE;
-	color: #F5F6F7;
-	border: solid 1px #2E9AFE;
 }
 
 
@@ -196,7 +218,7 @@ section#rando div#titre_recherche_avancee p{
 }
 section#rando form div{
 	margin-top: 15px;
-	margin-bottom: 40px;
+	margin-bottom: 15x;
 	text-align: center;
 }
 section#rando form div p{
@@ -204,36 +226,31 @@ section#rando form div p{
 	margin-bottom: 10px;
 	font-size: 1.3em;
 }
-section#rando form div input[type="submit"]{
-	margin-left: 50px;
-}
 section#rando form div select{
 	min-width: 123px;
 }
 					/* Recherche par mots clés */
 section#rando form div#recherche_mot_cle input[type="text"]{
 	width: 300px;
-	font-weight: bold;
+}
+section#rando form div#recherche_mot_cle input[type="submit"]{
+	margin-left: 50px;
 }
 					/* Recherche par critères */
 section#rando form div#recherche_criteres div.critere{
 	display: inline-block;
 	margin-top: 0px;
-	margin-left: 1.3%;
-	margin-right: 1.3%;
-}
-section#rando form div#recherche_criteres input[type="submit"]{
-	margin-right: 50px;
+	margin-left: 6px;
+	margin-right: 6px;
 }
 
 
 /* - - - - - - - - - - Affichage randonnée - - - - - - - - - - */
-section#rando div#affichage_recherche div#rando_pair{ background-color:#BDBDBD; }
-section#rando div#affichage_recherche div#rando_impair{ background-color:#E6E6E6; }
+section#rando div#affichage_recherche div#rando_pair{ background-color: #FFFFFF; }
+section#rando div#affichage_recherche div#rando_impair{ background-color: #EAEAEA; }
 section#rando div#affichage_recherche div#rando_pair,
 section#rando div#affichage_recherche div#rando_impair{
 	min-height: 300px;
-	box-shadow: 0px 0px 5px #2E2E2E;
 }
 section#rando div#affichage_recherche div p#titre{
 	color: #2E2E2E;
@@ -256,8 +273,8 @@ section#rando div#affichage_recherche div div#rond{
 	text-align: center;
 	overflow: hidden;
 }
-section#rando div#affichage_recherche div#rando_pair div#rond a#lien{ border: 110px solid #BDBDBD; }
-section#rando div#affichage_recherche div#rando_impair div#rond a#lien{  border: 110px solid #E6E6E6; }
+section#rando div#affichage_recherche div#rando_pair div#rond a#lien{ border: 110px solid #FFFFFF; }
+section#rando div#affichage_recherche div#rando_impair div#rond a#lien{  border: 110px solid #EAEAEA; }
 section#rando div#affichage_recherche div div#rond a#lien{
 	display: block;
 	height: 190px;
@@ -280,18 +297,18 @@ section#rando div#affichage_recherche div div#rond img{
 	height: 250px;
 }
 					/* Caractériqtiques */
-section#rando div#affichage_recherche div#rando_pair div#texte{ margin-left:2%; }
-section#rando div#affichage_recherche div#rando_impair div#texte{ float:right; margin-right:2%; }
+section#rando div#affichage_recherche div#rando_pair div#texte{ float:left; }
+section#rando div#affichage_recherche div#rando_impair div#texte{ float:right; }
 section#rando div#affichage_recherche div div#texte{
 	display: inline-block;
-	margin-top: 50px;
-	max-width: 61%;
-	min-height: 170px;
+	margin-top: 10px;
+	width: 450px;
+	height: 170px;
 }
 section#rando div#affichage_recherche div#rando_impair div#texte div.caracteristiques{ float: right; }
 section#rando div#affichage_recherche div div#texte div.caracteristiques{
 	display: inline-block;
-	margin: 1%;
+	margin: 10px;
 	min-width: 200px;
 }
 section#rando div#affichage_recherche div div#texte div.caracteristiques span.intitule_caract img{
@@ -315,38 +332,79 @@ section#rando div#affichage_recherche div div#texte div.caracteristiques div#cer
 	border-radius: 15px;
 }
 					/* Note */
-section#rando div#affichage_recherche div#rando_pair div#note{ text-align: right; margin-right: 2%; }
+section#rando div#affichage_recherche div#rando_pair div#note{ text-align: right; margin-right: 15px; }
 section#rando div#affichage_recherche div div#note{
 	display: block;
 	position:relative;
-	top: -20px;
-	margin-left: 2%;
-	margin-right: 1%;
+	top: -30px;
+	margin-left: 15px;
+	margin-right: 15px;
 }
+section#rando div#affichage_recherche div div#note img#stars,
 section#rando div#affichage_recherche div div#note img#stars_vide{
-	width: 25px;
-	height: 25px;
-}
-section#rando div#affichage_recherche div div#note img#stars{
-	width: 25px;
-	height: 25px;
+	width: 20px;
+	height: 20px;
+	margin-left: 1px;
+	margin-right: 1px;
 }
 					/* Fiche */
-section#rando div#affichage_recherche div#rando_pair div#fiche{ text-align:right; margin-top: 15px;}
+section#rando div#affichage_recherche div#rando_pair div#fiche{ text-align:right; margin-top: 230px;}
 section#rando div#affichage_recherche div#rando_impair div#fiche{ margin-top: 235px;}
 section#rando div#affichage_recherche div div#fiche{
-	margin-left: 1%;
-	margin-right: 1%;
+	margin-left: 15px;
+	margin-right: 15px;
 }
-section#rando div#affichage_recherche div#rando_pair div#fiche a#lien_consulter_fiche{ padding-right: 7%;}
-section#rando div#affichage_recherche div#rando_impair div#fiche a#lien_consulter_fiche{ padding-left: 7%;}
+section#rando div#affichage_recherche div#rando_pair div#fiche a#lien_consulter_fiche{ padding-right: 10px;}
+section#rando div#affichage_recherche div#rando_impair div#fiche a#lien_consulter_fiche{ padding-left: 10px;}
 section#rando div#affichage_recherche div div#fiche a#lien_consulter_fiche{
 	display: block;
-	color: #2E2E2E;
 	font-style: italic;
-	font-size: 1.4em;
-	padding-bottom: 2%;
-	text-shadow: 0px 0px 1px #585858;
+	font-size: 14px;
+	padding-bottom: 15px;
+}
+
+
+/* - - - - - - - - - - Ajout Randonnée - - - - - - - - - - */
+section#ajoutrando{
+	width: 990px;
+	text-align: center;
+}
+section#ajoutrando form input[type=range] {
+	height:10px;
+	width:280px;
+	padding:0px;
+	color:#1C1C1C;
+    -webkit-appearance:none;
+	border-radius:10px;
+}
+section#ajoutrando form input[type=range]::-webkit-slider-thumb {
+    background:#555;
+    height:10px;
+    width:10px;
+	border-radius:10px;
+	border:solid 1px #FFFFFF;
+    -webkit-appearance:none;
+}
+section#ajoutrando form input[type=range]::-moz-range-thumb {
+    background:#555;
+    height:10px;
+    width:10px;
+	border-radius:10px;
+	border:solid 1px #FFFFFF;
+}
+section#ajoutrando form input[type=range]::-moz-range-track {
+	width:0px;
+    -moz-appearance:none;
+}
+section#ajoutrando form input[type=range]::-ms-fill-lower {
+    background:#FFFFFF;
+}
+section#ajoutrando form input[type=range]::-ms-fill-upper {
+    background:#FFFFFF;
+}
+section#ajoutrando form input#difficulte{
+	background: none;
+	border: none;
 }
 
 
@@ -444,28 +502,14 @@ section#fiche_rando div#cadre_photo{
 	text-align: center;
 	border: 4px solid #2E2E2E;
 	box-shadow: 1px 1px 10px #2E2E2E;
-		-moz-box-shadow: 1px 1px 10px #2E2E2E; 
-			-webkit-box-shadow: 1px 1px 10px #2E2E2E;
+	-moz-box-shadow: 1px 1px 10px #2E2E2E; 
+	-webkit-box-shadow: 1px 1px 10px #2E2E2E;
 }			
 section#fiche_rando div#cadre_photo img{
 	display: block;
 	width: 100%;
 	height: 100%;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 section#fiche_rando form{
 	display: inline-block;
 	width: 100%;
@@ -564,6 +608,10 @@ section#fiche_rando ul.notes-echelle li.note-checked {
 section#fiche_rando ul.notes-echelle.js li.note-focus {
 	outline:1px dotted #000;
 }
+
+
+/* - - - - - - - - - - Inscription - - - - - - - - - - */
+section#fiche_rando div#cadre_photo{
 
 
 

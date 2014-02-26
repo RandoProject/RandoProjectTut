@@ -9,19 +9,18 @@
             <?php include_once('Controller/c_activitees_recentes.php'); ?>
     
             <section id="rando">
-                <div class="titre">
-                    <p>Recherche avancée</p>
-                </div>
+                <div class="titre"> Recherche avancée </div>
+                <br/>
                 
                 <form method="post" action="index.php?page=recherche">
                     <div id="recherche_mot_cle">
-                        <p>Recherche par mots clés</p>
+                        <h1>Recherche par mots clés</h1>
                         <input type="text" name="title" placeholder="mots clés.." autocomplete="off"/>
                         <input type="submit" name="envoie_titre" value="Rechercher"/>
                     </div>
-                    
+                    <br/><br/>
                     <div id="recherche_criteres">
-                    	<p>Recherche par critères</p>
+                    	<h1>Recherche par critères</h1>
                         
                         <div class="critere">
                             <label for="s_region">Région</label><br/>
@@ -99,14 +98,16 @@
                                 <option value="1">Oui</option>
                             </select>
                         </div>
-                        
+                        <br/><br/>
                         <input type="submit" value="Rechercher" name="envoie_formulaire"/>
                     </div>
                 </form>
-                
+                <br/><br/><br/>
     
                 <!-- Zone pour afficher la recherche -->
-                <div id="affichage_recherche">   
+                <div id="affichage_recherche">
+                    <div class="titre"> Randonnées </div>
+                    <br/>
                     <?php
 						if(!empty($listeRando)){ 
 							$i=0;
@@ -147,7 +148,8 @@
 								
 								// Affichage
 								echo '	<div id="rando'.$css.'">
-											<p id="titre">'.$title.'</p>
+											<br/>
+											<center><h2>'.$title.'</h2></center>
 											<div id="note">'.$etoile.'</div>
 											<div id="rond">
 												<a id="lien" href="index.php?page=fiche_rando&code='.$code.'"></a>

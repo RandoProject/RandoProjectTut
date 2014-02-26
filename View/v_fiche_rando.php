@@ -12,7 +12,7 @@
             <?php include_once('Controller/c_activitees_recentes.php'); ?>
     
             <section id="fiche_rando">
-                <?php echo $title; ?><br/>
+                <div class="titre"><?php echo $title; ?></div>
                 <div id="cadre_photo">
                     <img src="<?php echo $photo; ?>"/>
                 </div>
@@ -31,7 +31,7 @@
                 
                 <?php 
 					foreach($listeImage as $image) {
-						echo '<img src="Resources/Galerie/'.$galery.'/'.$image['nom'].'" width="420" height="310"/>';
+						echo '<img src="Resources/Galerie/'.$galery.'/'.$image['nom'].'" width="105" height="77"/>';
 					}
 				?>
 
