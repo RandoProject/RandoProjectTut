@@ -478,6 +478,41 @@ footer{
 
 
 			/* Fiche rando */
+section#fiche_rando div#cadre_photo{
+	display: block;
+	width: 50%;
+	min-width: 60%;
+	height: 400px;
+	margin-top: 5%;
+	margin-bottom: 5%;
+	margin-left: 20%;
+	text-align: center;
+	position: relative;
+	text-align: center;
+	border: 4px solid #2E2E2E;
+	box-shadow: 1px 1px 10px #2E2E2E;
+		-moz-box-shadow: 1px 1px 10px #2E2E2E; 
+			-webkit-box-shadow: 1px 1px 10px #2E2E2E;
+}			
+section#fiche_rando div#cadre_photo img{
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 section#fiche_rando form{
 	display: inline-block;
 	width: 100%;
