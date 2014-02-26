@@ -13,10 +13,8 @@
     
             <section id="fiche_rando">
                 <div class="titre"><?php echo $title; ?></div>
-                <div id="cadre_photo">
-                    <img src="<?php echo $photo; ?>"/>
-                </div>
-                <?php echo $description; ?>
+                <center><img id="photo" src="<?php echo $photo; ?>"/></center>
+                <?php echo $description; ?><br/>
                 Longueur : <?php echo $lenght; ?><br/>
                 Durée : <?php echo $duration; ?><br/>
                 Difficulté : <?php echo $difficulty; ?><br/>

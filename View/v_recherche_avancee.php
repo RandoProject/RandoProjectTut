@@ -10,7 +10,6 @@
     
             <section id="rando">
                 <div class="titre"> Recherche avancée </div>
-                <br/>
                 
                 <form method="post" action="index.php?page=recherche">
                     <div id="recherche_mot_cle">
@@ -106,8 +105,7 @@
     
                 <!-- Zone pour afficher la recherche -->
                 <div id="affichage_recherche">
-                    <div class="titre"> Randonnées </div>
-                    <br/>
+                    <div class="titre">Randonnées</div>
                     <?php
 						if(!empty($listeRando)){ 
 							$i=0;

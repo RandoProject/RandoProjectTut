@@ -39,8 +39,7 @@
 				for(var i=0; i < arrayCoordinates.length; i++){
 					ramblePathCoordinates.push(new google.maps.LatLng(arrayCoordinates[i].lat, arrayCoordinates[i].lon));
 				}
-	
-	
+
 				var ramblePath = new google.maps.Polyline({
 					path: ramblePathCoordinates,
 					strokeColor: '#0000FF',
