@@ -17,16 +17,16 @@
                 <img src="<?php echo $photo; ?>"/>
                 <?php echo $description; ?>
                 Longueur : <?php echo $lenght; ?><br/>
-                Dur√©e : <?php echo $duration; ?><br/>
-                Difficult√© : <?php echo $difficulty; ?><br/>
+                DurÈe : <?php echo $duration; ?><br/>
+                DifficultÈ : <?php echo $difficulty; ?><br/>
                 Note : <?php echo $note; ?><br/>
                 Point d'eau : <?php echo $water; ?><br/>
-                D√©nivel√© : <?php echo $altitude; ?><br/>
+                DÈnivelÈ : <?php echo $altitude; ?><br/>
                 Equipement : <?php echo $equipment; ?><br/>
                 GPX : <?php echo $path; ?><br/>
-                D√©partement : <?php echo $department; ?><br/>
-                Ajout√© le <?php echo $insertion_date.' √† '.$insertion_hour; ?>.<br/>
-                R√©dig√© par <?php echo $author; ?>.<br/>
+                DÈpartement : <?php echo $department; ?><br/>
+                Ajout&eacute; le <?php echo $insertion_date.' ‡ '.$insertion_hour; ?>.<br/>
+                RÈdigÈ par <?php echo $author; ?>.<br/>
                 
                 <?php 
 					foreach($listeImage as $image) {
