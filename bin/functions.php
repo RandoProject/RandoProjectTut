@@ -7,7 +7,6 @@ function cleanTmp($dirGpxTmp = 'Resources/GPX/tmp'){
 	
 	$listSession = array();
 
-
 	$dir = opendir(session_save_path()); // Chemin des fichiers de session
 	while($file = readdir($dir)) {
 		if($file != '.' && $file != '..' && !is_dir($dir.'/'.$file)){
