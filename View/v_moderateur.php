@@ -4,9 +4,9 @@
 	<?php head("Modération"); ?>
 
 	<body>
-		<?php menu(); ?>
-        
-        <div id="corps">    
+        <div id="corps">   
+			<?php menu(); ?>
+         
             <section id="administration">
             	<a href="index.php?page=moderateur&section=commentaires">[commentaire]</a>
             	<a href="index.php?page=moderateur&section=randonnees">[randonnees]</a>
@@ -85,8 +85,8 @@
                     </form>
                 <?php } ?>
             </section>
-        </div>
 
-        <?php include_once('Controller/c_footer.php'); ?>
+        	<?php include_once('Controller/c_footer.php'); ?>
+        </div>
 	</body>
 </html>

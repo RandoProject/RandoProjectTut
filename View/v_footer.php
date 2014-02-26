@@ -1,4 +1,5 @@
 <footer>
+	<hr/>
 	<p>
     	<?php echo $nb_membre; ?> inscrits | 
 		<?php echo $nb_photo; ?> photos | 

@@ -4,9 +4,9 @@
 	<?php head("Administration"); ?>
 
 	<body>
-		<?php menu(); ?>
-        
-        <div id="corps">    
+        <div id="corps">  
+			<?php menu(); ?>  
+            
             <section id="administration">
 				<?php			
 					foreach($listeRando as $rando){
@@ -29,8 +29,8 @@
 					}
 				?>
             </section>
-        </div>
     
-        <?php include_once('Controller/c_footer.php'); ?>
+        	<?php include_once('Controller/c_footer.php'); ?>
+        </div>
 	</body>
 </html>

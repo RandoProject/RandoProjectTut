@@ -4,9 +4,9 @@
 	<?php head("Contact")?>
 
 	<body>
-		<?php menu(); ?>
-
         <div id="corps">
+			<?php menu(); ?>
+
             <?php include_once('Controller/c_activitees_recentes.php'); ?>
 
             <section id="contact">
@@ -30,10 +30,8 @@
 
             </section>
 
-
+       		<?php include_once('Controller/c_footer.php'); ?>
         </div>
-
-        <?php include_once('Controller/c_footer.php'); ?>
 	</body>
 </html>
 

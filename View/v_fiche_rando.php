@@ -7,9 +7,8 @@
     </script>
 
 	<body>
-		<?php menu(); ?>
-        
         <div id="corps">
+			<?php menu(); ?>
             <?php include_once('Controller/c_activitees_recentes.php'); ?>
     
             <section id="fiche_rando">
@@ -86,8 +85,8 @@
                 
 
             </section>
-        </div>
     
-        <?php include_once('Controller/c_footer.php'); ?>
+        	<?php include_once('Controller/c_footer.php'); ?>
+        </div>
 	</body>
 </html>

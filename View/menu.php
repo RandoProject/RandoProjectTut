@@ -1,19 +1,33 @@
+
+
 <?php
 
 function menu(){
+	if(!isset($_GET['page'])) $currentpage = 'accueil';
+	else $currentpage = $_GET['page'];
+	
+	echo '	<style>
+			nav ul#menu li a#'.$currentpage.'{
+				background-position: 0px;
+				color: #FFF;
+			}
+			</style>
+	';
+	
+	
 	echo '	<nav>
 				<ul id="menu">
-					<li><a href="index.php">Accueil</a></li>
-					<li><a href="index.php?page=recherche">Randonnées</a></li>
-					<li><a href="index.php?page=galerie">Galerie</a></li>
-					<li><a href="index.php?page=ajout_rando">Ajouter une rando</a></li>';
+					<li><a id="accueil" href="index.php">Accueil</a></li>
+					<li><a id="recherche" href="index.php?page=recherche">Randonnées</a></li>
+					<li><a id="galerie" href="index.php?page=galerie">Galerie</a></li>
+					<li><a id="ajout_rando" href="index.php?page=ajout_rando">Ajouter une rando</a></li>';
 
 	if(isset($_SESSION['statut'])){
 		if($_SESSION['statut'] == 'administrateur'){
-			echo '	<li><a href="index.php?page=administrateur">Administration</a></li>';
+			echo '	<li><a id="administrateur" href="index.php?page=administrateur">Administration</a></li>';
 		}
 		else if($_SESSION['statut'] == 'moderateur'){
-			echo '	<li><a href="index.php?page=moderateur&section=randonnees">Modération</a></li>';
+			echo '	<li><a id="moderateur" href="index.php?page=moderateur&section=randonnees">Modération</a></li>';
 		}
 	}
 
