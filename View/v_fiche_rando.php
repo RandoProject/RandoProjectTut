@@ -3,7 +3,7 @@
 
 	<?php head("Fiche : $title"); ?>
 
-    <script scr="JS/etoile.js">
+    <script src="JS/stars.js">
     </script>
 
 	<body>
@@ -48,29 +48,30 @@
                     if($_SESSION){
                 ?>
                 <!--Etoile-->
+
                 
                     <form action="index.php?page=fiche_rando&code=<?php echo $code; ?>" method="post">
                         <label for="commentaire">Commentaires : </label><br/>
-                            <ul class="notes">
+                            <ul name="notes" class="notes">
                                 <p> Note : </p>
                                 <li>
-                                    <label for="note5" title="Note : 5 sur 5"></label>
+                                    <label class="etoile_vide" id="et5" for="note5" title="Note : 5 sur 5"></label>
                                     <input type="radio" name="note" id="note5" value="5"/>
                                 </li>
                                 <li>
-                                    <label for="note4" title="Note : 4 sur 5"></label>
+                                    <label class="etoile_vide" id="et4" for="note4" title="Note : 4 sur 5"></label>
                                     <input type="radio" name="note" id="note4" value="4"/>
                                 </li>
                                 <li>
-                                    <label for="note3" title="Note : 3 sur 5"></label>
+                                    <label class="etoile_vide" id="et3" for="note3" title="Note : 3 sur 5"></label>
                                     <input type="radio" name="note" id="note3" value="3"/>
                                 </li>
                                 <li>
-                                    <label for="note2" title="Note : 2 sur 5"></label>
+                                    <label class="etoile_vide" id="et2" for="note2" title="Note : 2 sur 5"></label>
                                     <input type="radio" name="note" id="note2" value="2"/>
                                 </li>
                                 <li>
-                                    <label for="note1" title="Note : 1 sur 5"></label>
+                                    <label class="etoile_vide" id="et1" for="note1" title="Note : 1 sur 5"></label>
                                     <input type="radio" name="note" id="note1" value="1"/>
                                 </li>
                             </ul>
