@@ -3,6 +3,9 @@
 
 	<?php head("Fiche : $title"); ?>
 
+    <script scr="JS/etoile.js">
+    </script>
+
 	<body>
 		<?php menu(); ?>
         
@@ -35,7 +38,7 @@
                     $i = 0;
                 foreach($nombre_commentaire as $nb_commentaire){
                     $date = $nb_commentaire['date'];
-                    echo '<div id="cadre_commentaire">';
+                    echo '<div id="cadre_affichage_commentaire">';
                         echo $insertion_date .'<br/>';
                         echo $nb_commentaire['commentaire'].'<br/>';
                         echo $nb_commentaire['auteur'];
@@ -44,33 +47,35 @@
                     if($_SESSION){
                 ?>
                 <!--Etoile-->
-                <ul class="notes">
-                    <li>
-                        <label for="note1" title="Note;: 1 sur 5"></label>
-                        <input type="radio" name="note1" id="note1" value="1"/>
-                    </li>
-                    <li>
-                        <label for="note2" title="Note;: 2 sur 5"></label>
-                        <input type="radio" name="note2" id="note2" value="2"/>
-                    </li>
-                    <li>
-                        <label for="note3" title="Note;: 3 sur 5"></label>
-                        <input type="radio" name="note3" id="note3" value="3"/>
-                    </li>
-                    <li>
-                        <label for="note4" title="Note;: 4 sur 5"></label>
-                        <input type="radio" name="note4" id="note4" value="4"/>
-                    </li>
-                    <li>
-                        <label for="note5" title="Note;: 5 sur 5"></label>
-                        <input type="radio" name="note5" id="note5" value="5"/>
-                    </li>
-                </ul>
-                <form action="index.php?page=fiche_rando&code=<?php echo $code; ?>" method="post">
-                    <p><label for="commentaire">Commentaires : </label></p><br/>
-                    <textarea id="commentaire" name="commentaire"></textarea>
-                    <input type="submit" name="envoie_commentaire" value="Envoyer"/>
-                </form>
+                
+                    <form action="index.php?page=fiche_rando&code=<?php echo $code; ?>" method="post">
+                        <label for="commentaire">Commentaires : </label><br/>
+                            <ul class="notes">
+                                <p> Note : </p>
+                                <li>
+                                    <label for="note1" title="Note; 1 sur 5"></label>
+                                    <input type="radio" name="note1" id="note1" value="1"/>
+                                </li>
+                                <li>
+                                    <label for="note2" title="Note: 2 sur 5"></label>
+                                    <input type="radio" name="note2" id="note2" value="2"/>
+                                </li>
+                                <li>
+                                    <label for="note3" title="Note: 3 sur 5"></label>
+                                    <input type="radio" name="note3" id="note3" value="3"/>
+                                </li>
+                                <li>
+                                    <label for="note4" title="Note: 4 sur 5"></label>
+                                    <input type="radio" name="note4" id="note4" value="4"/>
+                                </li>
+                                <li>
+                                    <label for="note5" title="Note: 5 sur 5"></label>
+                                    <input type="radio" name="note5" id="note5" value="5"/>
+                                </li>
+                            </ul>
+                        <textarea id="commentaire" name="commentaire"></textarea>
+                        <input type="submit" name="envoie_commentaire" value="Envoyer"/>
+                    </form>
 
                 <?php
                     }
