@@ -1,20 +1,9 @@
 @charset "iso-8859-1";
 
-@font-face {
-	font-family: 'YanoneKaffeesatzRegular';
-	src: url('../Resources/Polisse/Yano/yanonekaffeesatz-regular-webfont.eot');
-	src: url('../Resources/Polisse/Yano/yanonekaffeesatz-regular-webfont.eot?#iefix') format('embedded-opentype'),
-	url('../Resources/Polisse/Yano/yanonekaffeesatz-regular-webfont.woff') format('woff'),
-	url('../Resources/Polisse/Yano/yanonekaffeesatz-regular-webfont.ttf') format('truetype'),
-	url('../Resources/Polisse/Yano/yanonekaffeesatz-regular-webfont.svg#YanoneKaffeesatzRegular') format('svg');
-	font-weight: normal;
-	font-style: normal;
-}	
-
-			/* Reglage par default des pages */
+/* - - - - - - - - - - Réglages par default - - - - - - - - - - */
 *{
-	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-	font-size: 13px;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	font-size: 12px;
 	color: #555555;
 	padding: 0px;
 	margin: 0px;
@@ -24,141 +13,114 @@
 	resize: none;
 	border: none;
 }
-html,
 body{
-	height: 100%;
+	background-image: url(../Resources/Images/wall.jpg);
+	background-color: #000;
+	background-repeat: no-repeat;
+	background-position: top left;
+	background-attachment: fixed;
+	background-position: top right;
 	width: 100%;
-	min-width: 1000px;
 	height: 100%;
-	background-color: #444444;
+	min-width: 1000px;
+}
+hr{
+	margin: 18px 0;
+	border: 0;
+	border-top: 1px solid #eeeeee;
+	border-bottom: 1px solid #ffffff;
+}
+h1{
+	color: #A8BF75;
+	font-size: 16px;
 }
 
 
-			/* Menu */
+/* - - - - - - - - - - Corps - - - - - - - - - - */
+div#corps{
+	height: auto;
+	width: 1000px;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #FFF;
+	background-image: url(../Resources/Images/rayure.png);
+	background-repeat: repeat;
+	box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.7);
+}
+
+
+/* - - - - - - - - - - Menu - - - - - - - - - - */
 nav{
-	text-align: center;
-	width: 100%;
-	min-width: 1000px;
-	height: 60px;
-}
-nav ul{
 	display: inline-block;
-	height: 60px;
+	width: 100%;
+	min-width: 800px;
+	margin-bottom: 25px;
 }
 nav ul li{
-	display: inline-block;
+	display: block;
+	float: left;
+	margin-top: 15px;
+	margin-left: 20px;
 }
 nav ul li a{
 	display: block;
-	margin-left: 5px;
-	margin-right: 5px;
-	font-weight: bold;
-	background-color: #E5E5E5;
-	box-shadow:	0px 0px 10px 0px rgba(0, 0, 0, 0.7);
-	transition: 0.5s 0s;
+	font-family: Kalinga;
+	color: #999;
 }
-/* Menu */
+					/* Menu */
 nav ul#menu li a{
-	padding-top: 15px;
-	padding-bottom: 15px;
-	padding-left: 17px;
-	padding-right: 17px;
-	border-bottom-left-radius: 2px;
-	border-bottom-right-radius: 2px;
+	padding: 5px 10px 2px 10px;
+	font-size: 17px;
+	line-height: 22px;
+	background-image: url(../Resources/Images/vert.png);
+	background-size: 100%;
+	background-position: -200px -10px;
+	background-repeat: no-repeat;
+	-webkit-transition: background-position .5s ease, color .8s ease;
 }
 nav ul#menu li a:hover{
-	padding-bottom: 25px;
-	transition: 0.4s 0s;
+	color: #FFF;
+	background-position: 0 0;
 }
-/* Compte */
+					/* Compte */
 nav ul#account{
-	display: block;
-	text-align: right;
-	margin-right: 1%;
-	margin-top: -50px;
-}
-nav ul#account li{
-	margin-right: -4px;
+	margin-top: 5px;
+	float: right;
+	margin-right: 15px;
 }
 nav ul#account li a{
-	padding-top: 10px;
-	padding-bottom: 10px;
-	padding-left: 15px;
-	padding-right: 15px;
-	border-radius: 2px;
+	padding: 3px 8px;
+	font-size: 12px;
+	line-height: 15px;
+	background-color: #E9E9E9;
+	-webkit-transition: background-color .5s ease, color .8s ease;
 }
-nav ul#account li a:hover{
-	color: #E5E5E5;
-	transition: 0.3s 0s all;
-}
-nav ul#account li a.profil:hover{
-	background-color: #0080C0;
-}
-nav ul#account li a.connexion:hover{
-	background-color: #E13E42;
-}
+nav ul#account li a:hover{ color: #FFF; }
+nav ul#account li a.profil:hover{ background-color: #639FFA; }
+nav ul#account li a.connexion:hover{ background-color: #F26265; }
 
 
-			/* Accueil */
-div#corps div#presentation{
-	width: 98%;
-	height: 600px;
-	margin-top: 5%;
-	margin-left: auto;
-	margin-right: auto;
-}
-div#corps div#accueil{
+/* - - - - - - - - - - Accueil - - - - - - - - - - */
+div#corps div.cadre{
 	display: inline-block;
-	width: 49%;
-	margin-left: 1%;
-	overflow: hidden;
-}
-div#corps div#accueil div.cadre{
-	display: inline-block;
+	width: 400px;
 	margin: 10px;
-	width: 200px;
-	height: 300px;
-	background-color: #E5E5E5;
-	border-radius: 2px;
-	box-shadow:	0px 0px 10px 0px rgba(0, 0, 0, 0.7);
+	overflow: hidden;
 }
 div#corps div#map{
-	display: inline-block;
+	display: block;
 	float: right;
-	width: 48%;
-	height: 600px;
-	margin-top: 10px;
-	margin-right: 1%;
-	background-color: #E5E5E5;
-	border-radius: 2px;
-	box-shadow:	0px 0px 10px 0px rgba(0, 0, 0, 0.7);
+	margin: 10px;
 	overflow: hidden;
 }
 
 
-			/* Corps */
-div#corps{
-	height: auto;
-	min-height: 85%;
-	width: 100%;
-	min-width: 1000px;	
-	margin-top: 15px;
-	margin-bottom: 15px;
-	margin-left: auto;
-	margin-right: auto;
-}
-
-
-			/* Activite_recente */
+/* - - - - - - - - - - Activite_recente - - - - - - - - - - */
 aside{
 	display: inline-block;
-	width: 15%;
-	height: 725px;
-	margin-left: 1%;
-	margin-right: -4px;
-	background-color: #E5E5E5;
-	border-radius: 2px;
-	box-shadow:	0px 0px 10px 0px rgba(0, 0, 0, 0.7);
+	float: left;
+	width: 20%;
+	height: auto;
 	overflow: hidden;
 }
 aside p{
@@ -173,22 +135,17 @@ aside img{
 }
 
 
-			/* Section */
+/* - - - - - - - - - - Section - - - - - - - - - - */
 section{
 	display: inline-block;
-	width: 82%;
-	min-height: 500px;
-	margin-left: 1%;
-	margin-right: auto;
-	background-color: #E5E5E5;
-	vertical-align: top;
-	border-radius: 2px;
-	box-shadow:	0px 0px 8px 0px rgba(0, 0, 0, 0.7);
+	float: right;
+	width: 80%;
+	height: auto;
 	overflow: hidden;
 }
 
 
-			/* Formulaires */
+/* - - - - - - - - - - Formulaires - - - - - - - - - - */
 input,
 select{
 	margin-top: 5px;
@@ -222,7 +179,7 @@ input[type="submit"]:hover{
 }
 
 
-			/* Formulaire de recherche */
+/* - - - - - - - - - - Formulaire de recherche - - - - - - - - - - */
 section#rando div#titre_recherche_avancee{
 	width: 100%;
 	height: 50px;
@@ -253,12 +210,12 @@ section#rando form div input[type="submit"]{
 section#rando form div select{
 	min-width: 123px;
 }
-/* Recherche par mots clés */
+					/* Recherche par mots clés */
 section#rando form div#recherche_mot_cle input[type="text"]{
 	width: 300px;
 	font-weight: bold;
 }
-/* Recherche par critères */
+					/* Recherche par critères */
 section#rando form div#recherche_criteres div.critere{
 	display: inline-block;
 	margin-top: 0px;
@@ -270,7 +227,7 @@ section#rando form div#recherche_criteres input[type="submit"]{
 }
 
 
-			/* Affichage randonnée */
+/* - - - - - - - - - - Affichage randonnée - - - - - - - - - - */
 section#rando div#affichage_recherche div#rando_pair{ background-color:#BDBDBD; }
 section#rando div#affichage_recherche div#rando_impair{ background-color:#E6E6E6; }
 section#rando div#affichage_recherche div#rando_pair,
@@ -285,7 +242,7 @@ section#rando div#affichage_recherche div p#titre{
 	text-align: center;
 	width: 100%;
 }
-/* Photo */
+					/* Photo */
 section#rando div#affichage_recherche div#rando_pair div#rond{ float: left; }
 section#rando div#affichage_recherche div#rando_impair div#rond{ float: right; }
 section#rando div#affichage_recherche div div#rond{
@@ -322,7 +279,7 @@ section#rando div#affichage_recherche div div#rond img{
 	width: 250px;
 	height: 250px;
 }
-/* Caractériqtiques */
+					/* Caractériqtiques */
 section#rando div#affichage_recherche div#rando_pair div#texte{ margin-left:2%; }
 section#rando div#affichage_recherche div#rando_impair div#texte{ float:right; margin-right:2%; }
 section#rando div#affichage_recherche div div#texte{
@@ -357,7 +314,7 @@ section#rando div#affichage_recherche div div#texte div.caracteristiques div#cer
 	box-shadow: 1px 1px 1px rgba(200, 200, 200, 1);
 	border-radius: 15px;
 }
-/* Note */
+					/* Note */
 section#rando div#affichage_recherche div#rando_pair div#note{ text-align: right; margin-right: 2%; }
 section#rando div#affichage_recherche div div#note{
 	display: block;
@@ -374,7 +331,7 @@ section#rando div#affichage_recherche div div#note img#stars{
 	width: 25px;
 	height: 25px;
 }
-/* Fiche */
+					/* Fiche */
 section#rando div#affichage_recherche div#rando_pair div#fiche{ text-align:right; margin-top: 15px;}
 section#rando div#affichage_recherche div#rando_impair div#fiche{ margin-top: 235px;}
 section#rando div#affichage_recherche div div#fiche{
@@ -393,7 +350,7 @@ section#rando div#affichage_recherche div div#fiche a#lien_consulter_fiche{
 }
 
 
-			/* Connexion */
+/* - - - - - - - - - - Connexion - - - - - - - - - - */
 section#connexion{
 	text-align: center;
 }
@@ -442,7 +399,7 @@ section#connexion div#div_lien_inscription{
 }
 
 
-			/* Profil */
+/* - - - - - - - - - - Profil - - - - - - - - - - */
 section#profil div#pseudo{
 	margin-top: 50px;
 	margin-bottom: 20px;
@@ -460,8 +417,9 @@ section#profil table tr td img{
 }
 
 
-			/* Footer */
+/* - - - - - - - - - - Footer - - - - - - - - - - */
 footer{
+	display: inline-block;
 	padding-top: 10px;
 	padding-bottom: 5px;
 	margin-left: auto;
@@ -469,15 +427,10 @@ footer{
 	margin-top: 25px;
 	width: 98%;
 	text-align: center;
-	background-color: #E5E5E5;
-	box-shadow:	0px 0px 10px 0px rgba(0, 0, 0, 0.7);
-	border-top-left-radius: 2px;
-	border-top-right-radius: 2px;
 }
 
 
-
-			/* Fiche rando */
+/* - - - - - - - - - - Fiche rando - - - - - - - - - - */
 section#fiche_rando div#cadre_photo{
 	display: block;
 	width: 50%;
@@ -612,7 +565,28 @@ section#fiche_rando ul.notes-echelle.js li.note-focus {
 	outline:1px dotted #000;
 }
 
+
+
+
+
+
+
+
+
 			/* Contact */
+			
+
+@font-face {
+	font-family: 'YanoneKaffeesatzRegular';
+	src: url('../Resources/Polisse/Yano/yanonekaffeesatz-regular-webfont.eot');
+	src: url('../Resources/Polisse/Yano/yanonekaffeesatz-regular-webfont.eot?#iefix') format('embedded-opentype'),
+	url('../Resources/Polisse/Yano/yanonekaffeesatz-regular-webfont.woff') format('woff'),
+	url('../Resources/Polisse/Yano/yanonekaffeesatz-regular-webfont.ttf') format('truetype'),
+	url('../Resources/Polisse/Yano/yanonekaffeesatz-regular-webfont.svg#YanoneKaffeesatzRegular') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}	
+
 #mail_non_valider{
 	font-size: 1.5em;
 	margin-top: 25%;

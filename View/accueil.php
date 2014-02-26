@@ -4,52 +4,62 @@
 	<?php head("Accueil", array(array('type' => 'css', 'href' => 'CSS', 'name' => 'Diaporama'))); ?>
 
 	<body>
-		<?php menu(); ?>
-        
-        <div id="corps">
-            <div id="presentation">
-                <div id="slideshow">
-                    <div class="container">
-                        <div class="slider">
-                            <?php
-                            $photo = array(	"galerie_1.jpg",
-                                            "galerie_2.jpg",
-                                            "galerie_3.jpg",
-                                            "galerie_4.jpg");
-                                            
-                            $legende = array(	"slide 1",
-                                                "slide 2",
-                                                "slide 3",
-                                                "slide 4");
-                                    
-                            for($i = 0; $i < count($photo); $i++){
-                                echo '	<a href="#">
-                                            <figure>
-                                                <img src="Resources/Images/'.$photo[$i].'" alt="" width="960" height="465"/>
-                                                <figcaption>'.$legende[$i].'</figcaption>
-                                            </figure>
-                                        </a>
-                                ';
-                            }
-                            ?>
-                        </div>
+    	<div id="corps">
+			<?php menu(); ?>
+        	<div id="slideshow">
+                <div class="container">
+                    <div class="slider">
+                        <?php
+                        $photo = array(	"galerie_1.jpg",
+                                        "galerie_2.jpg",
+                                        "galerie_3.jpg",
+                                        "galerie_4.jpg");
+                                        
+                        $legende = array(	"slide 1",
+                                            "slide 2",
+                                            "slide 3",
+                                            "slide 4");
+                                
+                        for($i = 0; $i < count($photo); $i++){
+                            echo '	<a href="#">
+                                        <figure>
+                                            <img src="Resources/Images/'.$photo[$i].'" alt="" width="1000" height="385"/>
+                                            <figcaption>'.$legende[$i].'</figcaption>
+                                        </figure>
+                                    </a>
+                            ';
+                        }
+                        ?>
                     </div>
                 </div>
             </div>
     		
-            <div id="accueil">
-            	<div class="cadre"></div>
-            	<div class="cadre"></div>
-            	<div class="cadre"></div>
-            	<div class="cadre"></div>
-            	<div class="cadre"></div>
-            	<div class="cadre"></div>
-            </div>
+            <br/><br/><hr/><br/>
             <div id="map">
-            	<img style="width:100%; height:100%;" src="Resources/Images/map.png"/>
+                <img width="500" src="Resources/Images/map.png"/>
             </div>
+            
+            <div class="cadre">
+            	<h1>Le sentier du guêpier</h1>
+                En forêt de Chaux, tout en parcourant le sentier botanique et ethnologique, vous serez initié au secret des bûcherons charbonniers qui peuplèrent jadis "la forêt qui n'en finit pas".
+            </div><div class="cadre">
+            	<h1>Le sentier du guêpier</h1>
+                En forêt de Chaux, tout en parcourant le sentier botanique et ethnologique, vous serez initié au secret des bûcherons charbonniers qui peuplèrent jadis "la forêt qui n'en finit pas".
+            </div><div class="cadre">
+            	<h1>Le sentier du guêpier</h1>
+                En forêt de Chaux, tout en parcourant le sentier botanique et ethnologique, vous serez initié au secret des bûcherons charbonniers qui peuplèrent jadis "la forêt qui n'en finit pas".
+            </div><div class="cadre">
+            	<h1>Le sentier du guêpier</h1>
+                En forêt de Chaux, tout en parcourant le sentier botanique et ethnologique, vous serez initié au secret des bûcherons charbonniers qui peuplèrent jadis "la forêt qui n'en finit pas".
+            </div><div class="cadre">
+            	<h1>Le sentier du guêpier</h1>
+                En forêt de Chaux, tout en parcourant le sentier botanique et ethnologique, vous serez initié au secret des bûcherons charbonniers qui peuplèrent jadis "la forêt qui n'en finit pas".
+            </div><div class="cadre">
+            	<h1>Le sentier du guêpier</h1>
+                En forêt de Chaux, tout en parcourant le sentier botanique et ethnologique, vous serez initié au secret des bûcherons charbonniers qui peuplèrent jadis "la forêt qui n'en finit pas".
+            </div>
+
+        	<?php include_once('Controller/c_footer.php'); ?>
         </div>
-    
-        <?php include_once('Controller/c_footer.php'); ?>
 	</body>
 </html>

@@ -4,9 +4,8 @@
     <?php head("Recherche avancée"); ?>
 
     <body>
-        <?php menu(); ?>
-        
         <div id="corps">
+       		<?php menu(); ?>
             <?php include_once('Controller/c_activitees_recentes.php'); ?>
             
             <section>
@@ -97,15 +96,10 @@
 
                 <input type="submit" value"S'inscrire" name="submit"/>
             </form> 
-            <?php
-                }
-            ?>
-
-                    
-
-            </section>
-        </div>
+            <?php } ?>
+    		</section>
     
-        <?php include_once('Controller/c_footer.php'); ?>
+        	<?php include_once('Controller/c_footer.php'); ?>
+        </div>
     </body>
 </html>

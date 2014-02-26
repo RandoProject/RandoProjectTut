@@ -4,13 +4,12 @@
 	<?php head("Recherche avancée"); ?>
 
 	<body>
-		<?php menu(); ?>
-        
         <div id="corps">
+			<?php menu(); ?>
             <?php include_once('Controller/c_activitees_recentes.php'); ?>
     
             <section id="rando">
-                <div id="titre_recherche_avancee">
+                <div class="titre">
                     <p>Recherche avancée</p>
                 </div>
                 
@@ -204,8 +203,8 @@
                     ?>
                 </div>
             </section>
-        </div>
     
-        <?php include_once('Controller/c_footer.php'); ?>
+        	<?php include_once('Controller/c_footer.php'); ?>
+        </div>
 	</body>
 </html>
