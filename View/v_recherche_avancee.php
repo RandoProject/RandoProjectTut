@@ -25,7 +25,7 @@
                             <label for="s_region">Région</label><br/>
                             <?php
                                 echo'<select id="s_region" name="s_region">';
-                                echo'<option value="not_clarify">Non précisé</option>';
+                                echo'<option value="not_clarify">Non précisée</option>';
                                 foreach ($listeRegion as $l_region){
                                     echo'<option value="'.$l_region['num_region'].'">'.$l_region['nom'].'</option>';
                                 }
@@ -36,7 +36,7 @@
                         <div class="critere">
                             <label for="distance">Longueur</label><br/>
                             <select id="distance" name="distance">
-                                <option value="non_precise" selected="selected">Non précisé</option>
+                                <option value="non_precise" selected="selected">Non précisée</option>
                                 <?php
                                     $n=0;
                                     $m=5;
@@ -55,7 +55,7 @@
                         <div class="critere">
                             <label for="time">Durée</label><br/>
                             <select id="time" name="time">
-                                <option value="time_non_precise" selected="selected">Non précisé</option>
+                                <option value="time_non_precise" selected="selected">Non précisée</option>
                                 <?php
                                     $d=0;
                                     $m=1;
@@ -78,7 +78,7 @@
                         <div class="critere">
                             <label for="difficulty">Difficulté</label><br/>
                             <select id="difficulty" name="difficulty">
-                                <option value="difficulte_non_precise" selected="selected">Non précisé</option>
+                                <option value="difficulte_non_precise" selected="selected">Non précisée</option>
                                 <?php
                                     $n=1;
                                     $number_of_ligne=0;
