@@ -102,7 +102,7 @@ input[type="submit"]:hover{
 /* - - - - - - - - - - Corps - - - - - - - - - - */
 div#corps{
 	height: auto;
-	width: 1000px;
+	width: 1200px;
 	margin-left: auto;
 	margin-right: auto;
 	background-color: #FFF;
@@ -250,8 +250,8 @@ section#rando form div#recherche_mot_cle input[type="submit"]{
 section#rando form div#recherche_criteres div.critere{
 	display: inline-block;
 	margin-top: 0px;
-	margin-left: 6px;
-	margin-right: 6px;
+	margin-left: 22px;
+	margin-right: 22px;
 }
 
 
@@ -483,8 +483,11 @@ section#fiche_rando ul.notes-echelle.js li.note-focus {
 
 /* - - - - - - - - - - Ajout Randonnée - - - - - - - - - - */
 section#ajoutrando{
-	width: 990px;
+	width: 1150px;
 	text-align: center;
+}
+section#ajoutrando form{
+	margin-right: 50px;
 }
 section#ajoutrando form input[type=range] {
 	height:10px;

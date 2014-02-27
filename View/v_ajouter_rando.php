@@ -84,7 +84,7 @@
                     <textarea id="description" name="description"><?php if(isset($value['description'])) echo $value['description']; ?></textarea><br/>
 
                     <label for="difficulty">Difficulté :</label>
-                    <input type="text" id="difficulte" size="1" value="1" readonly/><br/>
+                    <input type="text" id="difficulte" size="1" value="1" pattern="\d+" readonly/><br/>
                     <?php if(isset($error['difficulty'])) echo '<p class="error">'.$error['difficulty'].'</p>'; ?>
                     <input type="range" step="1" min="1" max="5" id="difficulty" name="difficulty" <?php  if(isset($value['difficulty'])) echo 'value="'.$value['difficulty'].'"'; else echo 'value="1"'; ?> onchange="document.getElementById('difficulte').value=this.value;"><br/><br/>
                 	
@@ -100,11 +100,11 @@
                     }
                     ?>
                     <label for="day">Jours : </label>
-                    <input type="text" id="day" name="day" maxlength="2"  autocomplete="off" style="width:20px;"<?php if(isset($value['day'])) echo 'value="'.$value['day'].'"'; ?> >
+                    <input type="text" id="day" name="day" maxlength="2"  autocomplete="off" pattern="\d+" style="width:20px;"<?php if(isset($value['day'])) echo 'value="'.$value['day'].'"'; ?> >
                     <label for="hour">heures : </label>
-                    <input type="text" id="hour"name="hour" maxlength="2" autocomplete="off" style="width:20px;" <?php if(isset($value['hour'])) echo 'value="'.$value['hour'].'"'; ?> >
+                    <input type="text" id="hour"name="hour" maxlength="2" autocomplete="off" pattern="\d+" style="width:20px;" <?php if(isset($value['hour'])) echo 'value="'.$value['hour'].'"'; ?> >
                     <label for="minutes">minutes</label>
-                    <input type="text" id="minutes" name="minutes" axlength="2" autocomplete="off" style="width:20px;" <?php if(isset($value['minutes'])) echo 'value="'.$value['minutes'].'"'; ?> ><br/><br/>
+                    <input type="text" id="minutes" name="minutes" axlength="2" autocomplete="off" pattern="\d+" style="width:20px;" <?php if(isset($value['minutes'])) echo 'value="'.$value['minutes'].'"'; ?> ><br/><br/>
 
                     <label>Votre randonnée contient-elle un point d'eau ?</label><br/>
                     <?php if(isset($error['water'])) echo '<p class="error">'.$error['water'].'</p>'; ?>
