@@ -108,13 +108,13 @@
 
                     <label>Votre randonnée contient-elle un point d'eau ?</label><br/>
                     <?php if(isset($error['water'])) echo '<p class="error">'.$error['water'].'</p>'; ?>
-                    <input type="radio" id="non" name="water" value="non" <?php if(!isset($value['water']) or $value['water'] == 0) echo 'checked'; ?> ><label type="non">Non</label>&emsp;&emsp;&emsp;&emsp;
-                    <input type="radio" id="oui" name="water" value="oui" <?php if(isset($value['water']) and $value['water'] == 1) echo 'checked'; ?> ><label type="oui">Oui</label><br/><br/><br/>
+                    <input type="radio" id="non" name="water" value="non" <?php if(!isset($value['water']) or $value['water'] == 0) echo 'checked'; ?> ><label for="non">Non</label>&emsp;&emsp;&emsp;&emsp;
+                    <input type="radio" id="oui" name="water" value="oui" <?php if(isset($value['water']) and $value['water'] == 1) echo 'checked'; ?> ><label for="oui">Oui</label><br/><br/><br/>
 
 
                     <input type="submit" value="Ajouter"> 
                 </form>
-                <?php } // On fermet le else?>
+                <?php } // Ferme le else?>
             </section>
 
 			<?php include_once('Controller/c_footer.php'); ?>

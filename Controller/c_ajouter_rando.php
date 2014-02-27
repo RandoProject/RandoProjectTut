@@ -129,7 +129,7 @@ if(isset($_SESSION['statut']) and in_array($_SESSION['statut'], array('administr
 				include_once('bin/params.php');
 				include_once('Models/m_randonnees.php');
 
-
+				$nbPoints = 0;
 				foreach($points as $point){
 					$lon = NULL;
 					$lat = NULL;
@@ -144,14 +144,17 @@ if(isset($_SESSION['statut']) and in_array($_SESSION['statut'], array('administr
 						}
 					}
 					// Récupère l'élèvation
-					foreach ($point->children() as $child){ // Peut être plus optimiser d'utiliser des iterateurs
+					foreach ($point->children() as $child){ // Meilleur optimisation en utilisant les iterateurs
 						if($child->getName() == 'ele'){
 							$ele = intval($child);
 						}
 					}
-					if(!isset($firstPoint) and $lon !== NULL and $lat !== NULL){ // Récupère le premier point du parcours
-						$firstPoint['lat'] = $lat;
-						$firstPoint['lon'] = $lon;
+					if($lon !== NULL and $lat !== NULL){
+						$nbPoints++;
+						if(!isset($firstPoint)){ // Récupère le premier point du parcours
+							$firstPoint['lat'] = $lat;
+							$firstPoint['lon'] = $lon;
+						}
 					}
 				}
 
@@ -176,12 +179,15 @@ if(isset($_SESSION['statut']) and in_array($_SESSION['statut'], array('administr
 				else{
 					$departement = 0; // Département invalide
 				}
-				echo $departement;
+				include_once('Models/m_parcours.php');
+				$idRoute = insert_parcours('Resources/GPX/'.session_id().'.gpx', $nbPoints);
+
+				rename('Resources/GPX/tmp/gpx_'.session_id(), 'Resources/GPX/'.$idRoute.'_'.substr($title, 150).'.gpx'); // A changer
 				$delay = $day.':'.$hour.':'.$minutes;
 				insert_rando($title, $delay, $difficulty, $_POST['description'], $water, $_SESSION['pseudo'], $departement);
 				
 
-				rename('Resources/GPX/tmp/gpx_'.session_id(), 'Resources/GPX/0'.session_id().'.gpx'); // A changer
+				
 				include_once('bin/functions.php');
 				cleanTmp(); // Supprime les fichiers temporaires de parcours qui ne sont plus utiles
 
