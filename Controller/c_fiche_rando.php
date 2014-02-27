@@ -85,18 +85,28 @@ if(isset($_GET['code'])){
 		if(strtolower($_SERVER['REQUEST_METHOD']) == 'post'){
 			if(!empty($_POST['commentaire'])){
 				$commentaire = strip_tags($_POST['commentaire']);
-				if($commentaire != ""){
-					validation_commentaire($commentaire,$_SESSION['pseudo'], $code);
+			}
+			if(!isset($_POST['note'])){
+				$note = 0;
+			}
+			else if(is_numeric($_POST['note']) and intval($_POST['note']) <= 5 and intval($_POST['note']) >= 1){
+				$note = intval($_POST['note']);
+			}
+
+			if($commentaire != ""){
+					validation_commentaire($commentaire,$_SESSION['pseudo'], $code, $note);
 					$nombre_commentaire = recuperation_commentaire($code);
 					$insertion_date = $date->format('d').' '.$month.' '.$date->format('Y');
+					$somme = intval(some_note_rando($code));
+					$nombre_note = intval(calcul_note_rando($code));
+					$note_final = $somme/$nombre_note;
+					mise_a_jour_note($code, $note_final);
 					include_once('View/v_fiche_rando.php');
-				}
 			}
 		}
 	}
 
 	$nombre_commentaire = recuperation_commentaire($code);
-	$insertion_date = $date->format('d').' '.$month.' '.$date->format('Y');
 }
 
 include_once('View/v_fiche_rando.php');
