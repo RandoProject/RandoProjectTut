@@ -24,11 +24,15 @@ body{
 	height: 100%;
 	min-width: 1000px;
 }
-a{
+p.error{
+	color: #F30;
+	font-style: italic;
+}
+a.lien{
 	color: #A8BF75;
 	font-style: italic;
 }
-a:hover{
+a.lien:hover{
 	font-weight: bold;
 }
 hr{
@@ -549,10 +553,6 @@ section#inscription{
 /* - - - - - - - - - - Connexion - - - - - - - - - - */
 section#connexion{
 	text-align: center;
-}
-section#connexion p.error{
-	color: #F30;
-	font-style: italic;
 }
 section#connexion form input{
 	margin-top: 5px;
