@@ -293,6 +293,21 @@ INSERT INTO `membre` VALUES (
 	'',
 	''
 );
+INSERT INTO `membre` VALUES (
+	'modo',
+	'0000',
+	'moderateur',
+	'modo',
+	'modo',
+	'1994-01-11',
+	'',
+	'',
+	'',
+	'sylvio.menubarbe@univ-lyon1.fr',
+	'',
+	'',
+	''
+);
 
 -- ____________________ PARCOURS ____________________ --
 CREATE TABLE IF NOT EXISTS `parcours` (

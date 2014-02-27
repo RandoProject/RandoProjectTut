@@ -46,45 +46,42 @@
                 }
                     if($_SESSION){
                 ?>
-                <!--Etoile-->
+                <br/><br/>
 
                 
-                    <form action="index.php?page=fiche_rando&code=<?php echo $code; ?>" method="post">
-                        <label for="commentaire">Commentaires : </label><br/>
-                            <ul name="notes" class="notes">
-                                <p> Note : </p>
-                                <li>
-                                    <label class="etoile_vide" id="et5" for="note5" title="Note : 5 sur 5"></label>
-                                    <input type="radio" name="note" id="note5" value="5"/>
-                                </li>
-                                <li>
-                                    <label class="etoile_vide" id="et4" for="note4" title="Note : 4 sur 5"></label>
-                                    <input type="radio" name="note" id="note4" value="4"/>
-                                </li>
-                                <li>
-                                    <label class="etoile_vide" id="et3" for="note3" title="Note : 3 sur 5"></label>
-                                    <input type="radio" name="note" id="note3" value="3"/>
-                                </li>
-                                <li>
-                                    <label class="etoile_vide" id="et2" for="note2" title="Note : 2 sur 5"></label>
-                                    <input type="radio" name="note" id="note2" value="2"/>
-                                </li>
-                                <li>
-                                    <label class="etoile_vide" id="et1" for="note1" title="Note : 1 sur 5"></label>
-                                    <input type="radio" name="note" id="note1" value="1"/>
-                                </li>
-                            </ul>
-                        <textarea id="commentaire" name="commentaire" required autocomplete="off" pattern="[a-z]"></textarea>
-                        <input type="submit" name="envoie_commentaire" value="Envoyer"/>
-                    </form>
+                <form action="index.php?page=fiche_rando&code=<?php echo $code; ?>" method="post">
+                    <label for="commentaire"><h1>Commentaires :</h1></label><br/>
+                        <ul name="notes" class="notes">
+                            <p> Note : </p>
+                            <li>
+                                <label class="etoile_vide" id="et5" for="note5" title="Note : 5 sur 5"></label>
+                                <input type="radio" name="note" id="note5" value="5"/>
+                            </li>
+                            <li>
+                                <label class="etoile_vide" id="et4" for="note4" title="Note : 4 sur 5"></label>
+                                <input type="radio" name="note" id="note4" value="4"/>
+                            </li>
+                            <li>
+                                <label class="etoile_vide" id="et3" for="note3" title="Note : 3 sur 5"></label>
+                                <input type="radio" name="note" id="note3" value="3"/>
+                            </li>
+                            <li>
+                                <label class="etoile_vide" id="et2" for="note2" title="Note : 2 sur 5"></label>
+                                <input type="radio" name="note" id="note2" value="2"/>
+                            </li>
+                            <li>
+                                <label class="etoile_vide" id="et1" for="note1" title="Note : 1 sur 5"></label>
+                                <input type="radio" name="note" id="note1" value="1"/>
+                            </li>
+                        </ul>
+                    <textarea id="commentaire" name="commentaire" required autocomplete="off" pattern="[a-z]"></textarea>
+                    <input type="submit" name="envoie_commentaire" value="Envoyer"/>
+                </form>
 
-                <?php
+				<?php
                     }
                 ?>
-
-                
-
-            </section>
+			</section>
     
         	<?php include_once('Controller/c_footer.php'); ?>
         </div>
