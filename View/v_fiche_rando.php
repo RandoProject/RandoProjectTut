@@ -12,11 +12,9 @@
             <?php include_once('Controller/c_activitees_recentes.php'); ?>
     
             <section id="fiche_rando">
-                <?php echo $title; ?><br/>
-                <div id="cadre_photo">
-                    <img src="<?php echo $photo; ?>"/>
-                </div>
-                <?php echo $description; ?>
+                <div class="titre"><?php echo $title; ?></div>
+                <center><img id="photo" src="<?php echo $photo; ?>"/></center>
+                <?php echo $description; ?><br/>
                 Longueur : <?php echo $lenght; ?><br/>
                 Durée : <?php echo $duration; ?><br/>
                 Difficulté : <?php echo $difficulty; ?><br/>
@@ -31,7 +29,7 @@
                 
                 <?php 
 					foreach($listeImage as $image) {
-						echo '<img src="Resources/Galerie/'.$galery.'/'.$image['nom'].'" width="420" height="310"/>';
+						echo '<img src="Resources/Galerie/'.$galery.'/'.$image['nom'].'" width="105" height="77"/>';
 					}
 				?>
 
@@ -42,7 +40,8 @@
                     echo '<div id="cadre_affichage_commentaire">';
                         echo $insertion_date .'<br/>';
                         echo $nb_commentaire['commentaire'].'<br/>';
-                        echo $nb_commentaire['auteur'];
+                        echo $nb_commentaire['auteur'].'<br/>';;
+                        echo $nb_commentaire['note'];
                     echo '</div>';
                 }
                     if($_SESSION){
@@ -55,27 +54,27 @@
                             <ul name="notes" class="notes">
                                 <p> Note : </p>
                                 <li>
-                                    <label class="etoile_vide" id="et5" for="note5" title="Note : 5 sur 5"></label>
-                                    <input type="radio" name="note" id="note5" value="5"/>
+                                    <label class="etoile_vide" id="et5" for="5" title="Note : 5 sur 5"></label>
+                                    <input type="radio" name="note" id="5" value="5"/>
                                 </li>
                                 <li>
-                                    <label class="etoile_vide" id="et4" for="note4" title="Note : 4 sur 5"></label>
-                                    <input type="radio" name="note" id="note4" value="4"/>
+                                    <label class="etoile_vide" id="et4" for="4" title="Note : 4 sur 5"></label>
+                                    <input type="radio" name="note" id="4" value="4"/>
                                 </li>
                                 <li>
-                                    <label class="etoile_vide" id="et3" for="note3" title="Note : 3 sur 5"></label>
-                                    <input type="radio" name="note" id="note3" value="3"/>
+                                    <label class="etoile_vide" id="et3" for="3" title="Note : 3 sur 5"></label>
+                                    <input type="radio" name="note" id="3" value="3"/>
                                 </li>
                                 <li>
-                                    <label class="etoile_vide" id="et2" for="note2" title="Note : 2 sur 5"></label>
-                                    <input type="radio" name="note" id="note2" value="2"/>
+                                    <label class="etoile_vide" id="et2" for="2" title="Note : 2 sur 5"></label>
+                                    <input type="radio" name="note" id="2" value="2"/>
                                 </li>
                                 <li>
-                                    <label class="etoile_vide" id="et1" for="note1" title="Note : 1 sur 5"></label>
-                                    <input type="radio" name="note" id="note1" value="1"/>
+                                    <label class="etoile_vide" id="et1" for="1" title="Note : 1 sur 5"></label>
+                                    <input type="radio" name="note" id="1" value="1"/>
                                 </li>
                             </ul>
-                        <textarea id="commentaire" name="commentaire"></textarea>
+                        <textarea id="commentaire" name="commentaire" required autocomplete="off" pattern="[a-z]"></textarea>
                         <input type="submit" name="envoie_commentaire" value="Envoyer"/>
                     </form>
 

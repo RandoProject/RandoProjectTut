@@ -9,25 +9,23 @@
             <?php include_once('Controller/c_activitees_recentes.php'); ?>
     
             <section id="rando">
-                <div class="titre">
-                    <p>Recherche avancée</p>
-                </div>
+                <div class="titre"> Recherche avancée </div>
                 
                 <form method="post" action="index.php?page=recherche">
                     <div id="recherche_mot_cle">
-                        <p>Recherche par mots clés</p>
+                        <h1>Recherche par mots clés</h1>
                         <input type="text" name="title" placeholder="mots clés.." autocomplete="off"/>
                         <input type="submit" name="envoie_titre" value="Rechercher"/>
                     </div>
-                    
+                    <br/><br/>
                     <div id="recherche_criteres">
-                    	<p>Recherche par critères</p>
+                    	<h1>Recherche par critères</h1>
                         
                         <div class="critere">
                             <label for="s_region">Région</label><br/>
                             <?php
                                 echo'<select id="s_region" name="s_region">';
-                                echo'<option value="not_clarify">Non précisé</option>';
+                                echo'<option value="not_clarify">Non précisée</option>';
                                 foreach ($listeRegion as $l_region){
                                     echo'<option value="'.$l_region['num_region'].'">'.$l_region['nom'].'</option>';
                                 }
@@ -38,7 +36,7 @@
                         <div class="critere">
                             <label for="distance">Longueur</label><br/>
                             <select id="distance" name="distance">
-                                <option value="non_precise" selected="selected">Non précisé</option>
+                                <option value="non_precise" selected="selected">Non précisée</option>
                                 <?php
                                     $n=0;
                                     $m=5;
@@ -57,7 +55,7 @@
                         <div class="critere">
                             <label for="time">Durée</label><br/>
                             <select id="time" name="time">
-                                <option value="time_non_precise" selected="selected">Non précisé</option>
+                                <option value="time_non_precise" selected="selected">Non précisée</option>
                                 <?php
                                     $d=0;
                                     $m=1;
@@ -80,7 +78,7 @@
                         <div class="critere">
                             <label for="difficulty">Difficulté</label><br/>
                             <select id="difficulty" name="difficulty">
-                                <option value="difficulte_non_precise" selected="selected">Non précisé</option>
+                                <option value="difficulte_non_precise" selected="selected">Non précisée</option>
                                 <?php
                                     $n=1;
                                     $number_of_ligne=0;
@@ -99,14 +97,15 @@
                                 <option value="1">Oui</option>
                             </select>
                         </div>
-                        
+                        <br/><br/>
                         <input type="submit" value="Rechercher" name="envoie_formulaire"/>
                     </div>
                 </form>
-                
+                <br/><br/><br/>
     
                 <!-- Zone pour afficher la recherche -->
-                <div id="affichage_recherche">   
+                <div id="affichage_recherche">
+                    <div class="titre">Randonnées</div>
                     <?php
 						if(!empty($listeRando)){ 
 							$i=0;
@@ -147,7 +146,8 @@
 								
 								// Affichage
 								echo '	<div id="rando'.$css.'">
-											<p id="titre">'.$title.'</p>
+											<br/>
+											<center><h2>'.$title.'</h2></center>
 											<div id="note">'.$etoile.'</div>
 											<div id="rond">
 												<a id="lien" href="index.php?page=fiche_rando&code='.$code.'"></a>

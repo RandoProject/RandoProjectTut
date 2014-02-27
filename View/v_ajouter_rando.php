@@ -39,8 +39,7 @@
 				for(var i=0; i < arrayCoordinates.length; i++){
 					ramblePathCoordinates.push(new google.maps.LatLng(arrayCoordinates[i].lat, arrayCoordinates[i].lon));
 				}
-	
-	
+
 				var ramblePath = new google.maps.Polyline({
 					path: ramblePathCoordinates,
 					strokeColor: '#0000FF',
@@ -56,39 +55,41 @@
         <div id="corps">
 			<?php menu(); ?>
 			
-            <section>
+            <section id="ajoutrando">
 			<?php 
             if(isset($validation)){ ?>
-                <h2>Randonnées ajoutée</h2>
+                <div class="titre">Randonnées ajoutée</div>
                 <p>
-                    Votre randonnée a bien été ajoutée.<br>
-                    Elle sera visible sur le site, dès que le modérateur l'aura validé.<br>
+                    Votre randonnée a bien été ajoutée.<br/>
+                    Elle sera visible sur le site, dès que le modérateur l'aura validé.<br/>
                     Vous pouvez en attendant consulter les <a href="index.php?page=recherche">autres randonnées</a> ou retouner sur la <a href="index.php">page d'accueil</a>.
                 </p>
             <?php }
             else{ ?>
-                <h2>Ajouter une randonnée</h2>
+                <div class="titre">Ajouter une randonnée</div>
                 <?php if(isset($error) and !empty($error)) echo '<p class="error">Impossible de créer votre randonnée, certaines informations ne sont pas valides...</p>';?>
                 <form method="post" action="index.php?page=ajout_rando" id="insert_rando" enctype="multipart/form-data">
-                    <label for="name">Nom de la randonnée : </label><br>
+                    <label for="name">Nom de la randonnée : </label><br/>
                     <?php if(isset($error['name'])) echo '<p class="error">'.$error['name'].'</p>';?>
-                    <input type="text" id="name" name="name" autocomplete="off" required <?php if(isset($value['name'])) echo 'value="'.$value['name'].'"'; ?> ><br>
+                    <input type="text" id="name" name="name" size="71" autocomplete="off" maxlength="150" required <?php if(isset($value['name'])) echo 'value="'.$value['name'].'"'; ?> ><br/><br/>
                     
                     <label for="fileMap">Votre parcours (fichier GPX) : </label>
-                    <input type="file" id="fileMap" name="fileMap" required><br>
+                    <input type="file" id="fileMap" name="fileMap" required><br/><br/>
                     <div id="container-map">
-                        <div id="map-canvas"></div><br>
+                        <div id="map-canvas"></div><br/>
                     </div>
 
-                    <label for="description">Décrivez votre randonnée : </label><br>
+                    <label for="description">Décrivez votre randonnée : </label><br/>
                     <?php if(isset($error['description'])) echo '<p class="error">'.$error['description'].'</p>'; ?>
-                    <textarea id="description" name="description"><?php if(isset($value['description'])) echo $value['description']; ?></textarea><br>
+                    <textarea id="description" name="description"><?php if(isset($value['description'])) echo $value['description']; ?></textarea><br/>
 
-                    <label for="difficulty">Difficulté : </label>
+                    <label for="difficulty">Difficulté :</label>
+                    <input type="text" id="difficulte" size="1" value="1" pattern="\d+" readonly/><br/>
                     <?php if(isset($error['difficulty'])) echo '<p class="error">'.$error['difficulty'].'</p>'; ?>
-                    <input type="range" step="1" min="1" max="5" id="difficulty" name="difficulty" <?php  if(isset($value['difficulty'])) echo 'value="'.$value['difficulty'].'"'; else echo 'value="1"'; ?> ><br>
+                    <input type="range" step="1" min="1" max="5" id="difficulty" name="difficulty" <?php  if(isset($value['difficulty'])) echo 'value="'.$value['difficulty'].'"'; else echo 'value="1"'; ?> onchange="document.getElementById('difficulte').value=this.value;"><br/><br/>
+                	
 
-                    <labe>Durée :</label><br>
+                    <labe>Durée :</label><br/>
                     <?php 
                     if (isset($error['day']) or isset($error['hour']) or isset($error['minutes'])){
                         echo '<ul class="error">';
@@ -99,16 +100,16 @@
                     }
                     ?>
                     <label for="day">Jours : </label>
-                    <input type="text" id="day" name="day" maxlength="2"  autocomplete="off" style="width:20px;"<?php if(isset($value['day'])) echo 'value="'.$value['day'].'"'; ?> >
+                    <input type="text" id="day" name="day" maxlength="2"  autocomplete="off" pattern="\d+" style="width:20px;"<?php if(isset($value['day'])) echo 'value="'.$value['day'].'"'; ?> >
                     <label for="hour">heures : </label>
-                    <input type="text" id="hour"name="hour" maxlength="2" autocomplete="off" style="width:20px;" <?php if(isset($value['hour'])) echo 'value="'.$value['hour'].'"'; ?> >
+                    <input type="text" id="hour"name="hour" maxlength="2" autocomplete="off" pattern="\d+" style="width:20px;" <?php if(isset($value['hour'])) echo 'value="'.$value['hour'].'"'; ?> >
                     <label for="minutes">minutes</label>
-                    <input type="text" id="minutes" name="minutes" axlength="2" autocomplete="off" style="width:20px;" <?php if(isset($value['minutes'])) echo 'value="'.$value['minutes'].'"'; ?> ><br>
+                    <input type="text" id="minutes" name="minutes" axlength="2" autocomplete="off" pattern="\d+" style="width:20px;" <?php if(isset($value['minutes'])) echo 'value="'.$value['minutes'].'"'; ?> ><br/><br/>
 
-                    <label>Votre randonnée contient-elle un point d'eau ?</label><br>
+                    <label>Votre randonnée contient-elle un point d'eau ?</label><br/>
                     <?php if(isset($error['water'])) echo '<p class="error">'.$error['water'].'</p>'; ?>
-                    <input type="radio" id="non" name="water" value="non" <?php if(!isset($value['water']) or $value['water'] == 0) echo 'checked'; ?> ><label type="non">Non</label><br>
-                    <input type="radio" id="oui" name="water" value="oui" <?php if(isset($value['water']) and $value['water'] == 1) echo 'checked'; ?> ><label type="oui">Oui</label><br><br>
+                    <input type="radio" id="non" name="water" value="non" <?php if(!isset($value['water']) or $value['water'] == 0) echo 'checked'; ?> ><label type="non">Non</label>&emsp;&emsp;&emsp;&emsp;
+                    <input type="radio" id="oui" name="water" value="oui" <?php if(isset($value['water']) and $value['water'] == 1) echo 'checked'; ?> ><label type="oui">Oui</label><br/><br/><br/>
 
 
                     <input type="submit" value="Ajouter"> 
