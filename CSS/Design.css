@@ -307,18 +307,27 @@ section#rando div#affichage_recherche div div#rond img{
 	height: 250px;
 }
 					/* Caractériqtiques */
+section#rando div#affichage_recherche{
+	background: #FFFFFF;
+	border-top-left-radius: 20px;
+}
 section#rando div#affichage_recherche div#rando_pair div#texte{ float:left; }
 section#rando div#affichage_recherche div#rando_impair div#texte{ float:right; }
 section#rando div#affichage_recherche div div#texte{
 	display: inline-block;
-	margin-top: 10px;
-	width: 450px;
+	margin-top: 30px;
+	margin-left: 50px;
+	margin-right: 50px;
+	width: 500px;
 	height: 170px;
 }
 section#rando div#affichage_recherche div#rando_impair div#texte div.caracteristiques{ float: right; }
 section#rando div#affichage_recherche div div#texte div.caracteristiques{
 	display: inline-block;
-	margin: 10px;
+	margin-left: 20px;
+	margin-right: 20px;
+	margin-top: 10px;
+	margin-top: 10px;
 	min-width: 200px;
 }
 section#rando div#affichage_recherche div div#texte div.caracteristiques span.intitule_caract img{
@@ -326,7 +335,7 @@ section#rando div#affichage_recherche div div#texte div.caracteristiques span.in
 	height: 20px;
 }
 section#rando div#affichage_recherche div div#texte div.caracteristiques span.intitule_caract{
-	margin-left: 10px;
+	margin-left:10px;
 	font-size: 20px;
 }
 section#rando div#affichage_recherche div div#texte div.caracteristiques span.valeur_caract{
@@ -358,7 +367,7 @@ section#rando div#affichage_recherche div div#note img#stars_vide{
 	margin-right: 1px;
 }
 					/* Fiche */
-section#rando div#affichage_recherche div#rando_pair div#fiche{ text-align:right; margin-top: 230px;}
+section#rando div#affichage_recherche div#rando_pair div#fiche{ text-align:right; margin-top: 240px;}
 section#rando div#affichage_recherche div#rando_impair div#fiche{ margin-top: 235px;}
 section#rando div#affichage_recherche div div#fiche{
 	margin-left: 15px;
