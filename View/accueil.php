@@ -36,7 +36,7 @@
     		
             <br/><br/><hr/><br/>
             <div id="map">
-                <img width="500" src="Resources/Images/map.png"/>
+                <img width="650" src="Resources/Carte/carte.png"/>
             </div>
             
             <div class="cadre">
