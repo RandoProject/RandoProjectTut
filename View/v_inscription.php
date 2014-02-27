@@ -40,7 +40,7 @@
                     <input type="text" id="name" name="name" value="<?php if(isset($value['name'])) echo $value['name']; ?>" maxlength="30" autocomplete="off" required/><br/><br/>
             
                     <?php if(isset($error['day_birth'])) echo '<p>'.$error['day_birth'].'</p>';?>
-                    <label for="day_birth">Date de naissance :</label>
+                    <label for="day_birth">Date de naissance :</label><br/>
                     <?php
                         echo '<label for="day_birth">Jour</label>
                             <select id="day_birth" name="day_birth">';
