@@ -23,7 +23,7 @@
                         for($i = 0; $i < count($photo); $i++){
                             echo '	<a href="#">
                                         <figure>
-                                            <img src="Resources/Images/'.$photo[$i].'" alt="" width="1000" height="385"/>
+                                            <img src="Resources/Images/'.$photo[$i].'" alt="" width="1200" height="465"/>
                                             <figcaption>'.$legende[$i].'</figcaption>
                                         </figure>
                                     </a>

@@ -3,8 +3,8 @@
 div#slideshow{
 	position: relative;
 	display: inline-block;
-    width: 1000px;
-    height: 385px;
+    width: 1200px;
+    height: 465px;
 	-webkit-box-shadow: 0px 0px 5px rgba(0,0,0, 1);
 	-moz-box-shadow: 0px 0px 5px rgba(0,0,0, 1);
 	box-shadow: 0px 0px 5px rgba(0,0,0, 1);
@@ -14,8 +14,8 @@ div#slideshow{
 /* - - - - - - - - - - Photo - - - - - - - - - - */
 div#slideshow div.container{
     position: relative;
-    width: 1000px;  
-    height: 385px;  
+    width: 1200px;  
+    height: 465px;  
     overflow: hidden;
 }
 div#slideshow div.container div.slider{  
@@ -23,7 +23,7 @@ div#slideshow div.container div.slider{
     left: 0px;
 	top: 0px;
     width: 400%;
-    height: 385px; 
+    height: 465px; 
     -webkit-animation: slider 32s infinite;
     -moz-animation: slider 32s infinite;
     animation: slider 32s infinite;
