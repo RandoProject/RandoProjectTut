@@ -28,7 +28,7 @@
 				var frameMap = new google.maps.LatLngBounds(sw, ne); // Permet de définir le cadre de la carte
 	
 				var mapOptions = {
-					// Arguments
+					mapTypeId: google.maps.MapTypeId.TERRAIN
 				};
 				document.getElementById('map-canvas').style.height = '350px';
 				document.getElementById('container-map').style.height = '350px'; // On agrandi la taille du conteneur pour qu'il puisse contenir la carte
