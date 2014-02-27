@@ -6,7 +6,7 @@
 		$reqArray = array('pseudo' => $pseudo, 'code' => $code, 'commentaire' => $commentaire, 'note' => $note);
 
 		$req = $bdd->prepare($reqStr);
-		$req->execute($reqArray)  or die(print_r($erreur -> errorInfo()));
+		$req->execute($reqArray)  or die(print_r($erreur->errorInfo()));
 		$req->closeCursor();
 	}
 
@@ -18,46 +18,33 @@
 		$reqArray = array('code' => $code);
 
 		$req = $bdd->prepare($reqStr);
-		$req->execute($reqArray)  or die(print_r($erreur -> errorInfo()));
+		$req->execute($reqArray)  or die(print_r($erreur->errorInfo()));
 		$res = $req->fetchAll();
 		$req->closeCursor();
 		return $res;
 	}
 
 
-	function some_note_rando($code){
+	function moyenne_note_rando($code){
 		global $bdd;
 
-		$reqStr = "SELECT SUM(note) FROM commentaire WHERE code_rando = :code";
+		$reqStr = "SELECT AVG(note) as moyenne_note FROM commentaire WHERE code_rando = :code AND note != 0";
 		$reqArray = array('code' => $code);
 
 		$req = $bdd->prepare($reqStr);
-		$req->execute($reqArray) or die(print_r($erreur -> errorInfo()));
-		$res = $req->fetchAll();
+		$req->execute($reqArray) or die(print_r($erreur->errorInfo()));
+		$res = $req->fetch();
 		$req->closeCursor();
 		return $res;
 	}
 
-	function calcul_note_rando($code){
+	function mise_a_jour_note($code, $moyenne){
 		global $bdd;
 
-		$reqStr = "SELECT COUNT(note) FROM commentaire WHERE code_rando = :code";
-		$reqArray = array('code' => $code);
+		$reqStr = "UPDATE rando SET note = :moyenne WHERE code = :code";
+		$reqArray = array('moyenne' => $moyenne, 'code' => $code);
 
 		$req = $bdd->prepare($reqStr);
-		$req->execute($reqArray) or die(print_r($erreur -> errorInfo()));
-		$res = $req->fetchAll();
-		$req->closeCursor();
-		return $res;
-	}
-
-	function mise_a_jour_note($code, $note_final){
-		global $bdd;
-
-		$reqStr = "UPDATE rando SET note = :note_final WHERE code = :code";
-		$reqArray = array('note_final' => $note_final, 'code' => $code);
-
-		$req = $bdd->prepare($reqStr);
-		$req->execute($reqArray)  or die(print_r($erreur -> errorInfo()));
+		$req->execute($reqArray)  or die(print_r($erreur->errorInfo()));
 		$req->closeCursor();
 	}

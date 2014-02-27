@@ -97,10 +97,8 @@ if(isset($_GET['code'])){
 					validation_commentaire($commentaire,$_SESSION['pseudo'], $code, $note);
 					$nombre_commentaire = recuperation_commentaire($code);
 					$insertion_date = $date->format('d').' '.$month.' '.$date->format('Y');
-					$somme = intval(some_note_rando($code));
-					$nombre_note = intval(calcul_note_rando($code));
-					$note_final = $somme/$nombre_note;
-					mise_a_jour_note($code, $note_final);
+					$moyenne = moyenne_note_rando($code);
+					mise_a_jour_note($code, $moyenne['moyenne_note']);
 					include_once('View/v_fiche_rando.php');
 			}
 		}
