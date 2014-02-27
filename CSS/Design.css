@@ -24,6 +24,13 @@ body{
 	height: 100%;
 	min-width: 1000px;
 }
+a{
+	color: #A8BF75;
+	font-style: italic;
+}
+a:hover{
+	font-weight: bold;
+}
 hr{
 	margin: 18px 0;
 	border: 0;
@@ -524,6 +531,13 @@ section#ajoutrando form input#difficulte{
 	background: none;
 	border: none;
 }
+
+
+/* - - - - - - - - - - Inscription - - - - - - - - - - */
+section#administration{
+	width: 100%;
+}
+
 
 
 /* - - - - - - - - - - Inscription - - - - - - - - - - */

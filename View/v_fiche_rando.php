@@ -32,7 +32,8 @@
 						echo '<img src="Resources/Galerie/'.$galery.'/'.$image['nom'].'" width="105" height="77"/>';
 					}
 				?>
-
+				<br/><br/><br/><br/>
+                <div class="titre">Commentaires</div>
                 <?php
                     $i = 0;
                 foreach($nombre_commentaire as $nb_commentaire){
@@ -42,15 +43,15 @@
                         echo $nb_commentaire['commentaire'].'<br/>';
                         echo $nb_commentaire['auteur'].'<br/>';;
                         echo $nb_commentaire['note'];
-                    echo '</div>';
+                    echo '</div><br/>';
                 }
                     if($_SESSION){
                 ?>
-                <br/><br/>
+                <br/>
 
                 
                 <form action="index.php?page=fiche_rando&code=<?php echo $code; ?>" method="post">
-                    <label for="commentaire"><h1>Commentaires :</h1></label><br/>
+                    <label for="commentaire"><h1>Ajouter un commentaire :</h1></label><br/>
                         <ul name="notes" class="notes">
                             <p> Note : </p>
                             <li>

@@ -18,7 +18,7 @@
                         <input type="submit" value="Modifier les randonnées" name="modify"/>
                         <input type="submit" value="Supprimer les randonnées" name="delete"/>
                         <input type="reset" value="Déselectionner tout"/>
-                        <table>
+                        <table width="500">
                             <tr>
                                 <td>Code</td>
                                 <td>Titre</td>
