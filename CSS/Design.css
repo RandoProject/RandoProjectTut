@@ -82,6 +82,8 @@ input[type="file"]:hover,
 input[type="file"]:focus,
 input[type="range"]:hover,
 input[type="range"]:focus,
+input[type="mail"]:hover,
+input[type="mail"]:focus,
 textarea:hover,
 textarea:focus,
 select:hover,
@@ -393,33 +395,6 @@ section#fiche_rando center img#photo{
 	border-color: rgba(168, 191, 117, 0.7);
 	border-width: 10px;
 }
-section#fiche_rando form{
-	display: inline-block;
-	width: 100%;
-	text-align: center;
-	padding-top: 2%;
-}
-
-section#fiche_rando form textarea{
-	display: block;
-	width: 60%;
-	height: 125px;
-	margin-top: 3%;
-	margin-left: 20%;
-	margin-bottom: 1%;
-	border-radius: 2px;
-	border: solid 1px #CCC;
-	background-color: #F5F5F5;
-}
-
-section#fiche_rando form label{
-	font-size: 1.3em;
-	font-weight: bold;
-}
-
-section#fiche_rando form input{
-	margin-bottom: 1%;
-}
 					/* Commentaire */
 section#fiche_rando div#cadre_affichage_commentaire{
 	display: block;
@@ -433,20 +408,36 @@ section#fiche_rando div#cadre_affichage_commentaire{
 	background-color: #F5F5F5;
 	text-align: center;
 }
+section#fiche_rando form{
+	display: inline-block;
+	width: 100%;
+	text-align: center;
+}
+section#fiche_rando form textarea{
+	display: block;
+	width: 500px;
+	height: 125px;
+	margin-top: 50px;
+	margin-bottom: 20px;
+	margin-left: auto;
+	margin-right: auto;
+	border: solid 1px #CCC;
+}
+section#fiche_rando form input{
+	margin-bottom: 1%;
+}
 					/* Etoile_commentaire */
 section#fiche_rando p{
 	display: inline-block;
 	width: 50px;
-	margin-top: 5%;
+	margin-top: 15px;
 }
 section#fiche_rando ul.notes{
 	display: inline-block;
 	vertical-align: top;
 	float: right;
 	width: 250px;
-	padding:0;
-	margin-top: 0%;
-	margin-right: 20%;
+	margin-right: 100px;
 }
 section#fiche_rando ul.notes li{
 	display: block;
