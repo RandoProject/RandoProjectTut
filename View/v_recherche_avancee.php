@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="fr">
 
-	<?php head("Recherche avancée"); ?>
+    <?php head("Recherche avancée"); ?>
 
-	<body>
+    <body>
         <div id="corps">
-			<?php menu(); ?>
+            <?php menu(); ?>
             <?php include_once('Controller/c_activitees_recentes.php'); ?>
     
             <section id="rando">
@@ -19,7 +19,7 @@
                     </div>
                     <br/><br/>
                     <div id="recherche_criteres">
-                    	<h1>Recherche par critères</h1>
+                        <h1>Recherche par critères</h1>
                         
                         <div class="critere">
                             <label for="s_region">Région</label><br/>
@@ -31,7 +31,7 @@
                                 }
                                 echo'</select>';
                             ?>
-    					</div>
+                        </div>
                         
                         <div class="critere">
                             <label for="distance">Longueur</label><br/>
@@ -107,19 +107,23 @@
                 <div id="affichage_recherche">
                     <div class="titre">Randonnées</div>
                     <?php
-						if(!empty($listeRando)){ 
-							$i=0;
-							foreach($listeRando as $rando){
-								// mise en variable
-								$code = $rando['code'];
-								$title = $rando['titre'];
-								$department = $rando['nom_departement'];
-								$lenght = $rando['longueur'].' Km';
-								$photo = 'Resources/Galerie/'.$rando['nom_galerie'].'/'.$rando['nom_photo'];
-								$difficulty = '';
-								for($j = 1; $j <= $rando['difficulte']; $j++){ $difficulty .= '<div id="cercle"></div>'; }
-								$time = new DateTime(trim($rando['duree']));
-								$duration = $time->format('h').'h'.$time->format('i');
+                        if(!empty($listeRando)){ 
+                            $i=0;
+                            foreach($listeRando as $rando){
+                                // mise en variable
+                                $code = $rando['code'];
+                                $title = $rando['titre'];
+                                $department = $rando['nom_departement'];
+                                $lenght = $rando['longueur'].' Km';
+                                $photo = 'Resources/Galerie/'.$rando['nom_galerie'].'/'.$rando['nom_photo'];
+                                $difficulty = '';
+                                for($j = 1; $j <= $rando['difficulte']; $j++){ $difficulty .= '<div id="cercle"></div>'; }
+                                $time = explode(':', $rando['duree']);
+                                $minutes = intVal($time[1]);
+                                $hour = intVal($time[0]);
+                                $day = (int)($hour / 24);
+                                $hour = ($hour % 24);
+                                $duration = (($day > 0)?$day.' Jour'.(($day > 1)? 's ' : ' '): "").$hour.'h'.$minutes;
                                 $etoile = '';
                                 if(empty($rando['note'])){ 
                                     for($j = 1; $j <= 5; $j++){ $etoile .= '<img id="stars_vide" src="Resources/Images/stars_vide.png"/>';}
@@ -136,75 +140,75 @@
                                     $z--;
                                     }
                                 }
-								if(empty($rando['point_eau'])){ $water = '<em>non renseigné</em>'; }
-								else{ $water = 'oui'; }
-								
-								// Couleur cadre
-								if($i % 2 === 0) $css = '_pair';
-								else $css = '_impair';
-								$i++;
-								
-								// Affichage
-								echo '	<div id="rando'.$css.'">
-											<br/>
-											<center><h2>'.$title.'</h2></center>
-											<div id="note">'.$etoile.'</div>
-											<div id="rond">
-												<a id="lien" href="index.php?page=fiche_rando&code='.$code.'"></a>
-												<img src="'.$photo.'"/>
-											</div>
-											<div id="texte">
-												<div class="caracteristiques">
-													<span class="intitule_caract">
-														<img src="Resources/Images/longueur.png"/>
-														Longueur
-													</span><br/>
-													<span class="valeur_caract">'.$lenght.'</span>
-												</div>
-												<div class="caracteristiques">
-													<span class="intitule_caract">
-														<img src="Resources/Images/duree.png"/>
-														Durée</span><br/>
-													<span class="valeur_caract">'.$duration.'</span>
-												</div>
-												<div class="caracteristiques">
-													<span class="intitule_caract">
-														<img src="Resources/Images/eau.png"/>
-														Point d\' eau
-													</span><br/>
-													<span class="valeur_caract">'.$water.'</span>
-												</div>
-												<div class="caracteristiques">
-													<span class="intitule_caract">
-														<img src="Resources/Images/difficulte.png"/>
-														Difficulté
-													</span><br/>
-													<span class="valeur_caract">'.$difficulty.'</span>
-												</div>
-												<div class="caracteristiques">
-													<span class="intitule_caract">
-														<img src="Resources/Images/departement.png"/>
-														Département
-													</span><br/>
-													<span class="valeur_caract">'.$department.'</span>
-												</div>
-											</div>
-											<div id="fiche">
-												<a id="lien_consulter_fiche" href="index.php?page=fiche_rando&code='.$code.'">consulter la fiche..</a>
-											</div>
-										</div>';
-								// faire la limite de 10 randos par page
-								// if($i === 10) break;
-							}
-						}
-						else{
-							echo '<center><em>Aucune randonnée trouvée</em></center>';
-						}
+                                if(empty($rando['point_eau'])){ $water = '<em>non renseigné</em>'; }
+                                else{ $water = 'oui'; }
+                                
+                                // Couleur cadre
+                                if($i % 2 === 0) $css = '_pair';
+                                else $css = '_impair';
+                                $i++;
+                                
+                                // Affichage
+                                echo '  <div id="rando'.$css.'">
+                                            <br/>
+                                            <center><h2>'.$title.'</h2></center>
+                                            <div id="note">'.$etoile.'</div>
+                                            <div id="rond">
+                                                <a id="lien" href="index.php?page=fiche_rando&code='.$code.'"></a>
+                                                <img src="'.$photo.'"/>
+                                            </div>
+                                            <div id="texte">
+                                                <div class="caracteristiques">
+                                                    <span class="intitule_caract">
+                                                        <img src="Resources/Images/longueur.png"/>
+                                                        Longueur
+                                                    </span><br/>
+                                                    <span class="valeur_caract">'.$lenght.'</span>
+                                                </div>
+                                                <div class="caracteristiques">
+                                                    <span class="intitule_caract">
+                                                        <img src="Resources/Images/duree.png"/>
+                                                        Durée</span><br/>
+                                                    <span class="valeur_caract">'.$duration.'</span>
+                                                </div>
+                                                <div class="caracteristiques">
+                                                    <span class="intitule_caract">
+                                                        <img src="Resources/Images/eau.png"/>
+                                                        Point d\' eau
+                                                    </span><br/>
+                                                    <span class="valeur_caract">'.$water.'</span>
+                                                </div>
+                                                <div class="caracteristiques">
+                                                    <span class="intitule_caract">
+                                                        <img src="Resources/Images/difficulte.png"/>
+                                                        Difficulté
+                                                    </span><br/>
+                                                    <span class="valeur_caract">'.$difficulty.'</span>
+                                                </div>
+                                                <div class="caracteristiques">
+                                                    <span class="intitule_caract">
+                                                        <img src="Resources/Images/departement.png"/>
+                                                        Département
+                                                    </span><br/>
+                                                    <span class="valeur_caract">'.$department.'</span>
+                                                </div>
+                                            </div>
+                                            <div id="fiche">
+                                                <a id="lien_consulter_fiche" href="index.php?page=fiche_rando&code='.$code.'">consulter la fiche..</a>
+                                            </div>
+                                        </div>';
+                                // faire la limite de 10 randos par page
+                                // if($i === 10) break;
+                            }
+                        }
+                        else{
+                            echo '<center><em>Aucune randonnée trouvée</em></center>';
+                        }
                     ?>
                 </div>
             </section>
     
-        	<?php include_once('Controller/c_footer.php'); ?>
+            <?php include_once('Controller/c_footer.php'); ?>
         </div>
-	</body>
+    </body>
 </html>

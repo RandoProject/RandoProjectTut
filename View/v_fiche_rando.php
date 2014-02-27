@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="fr">
 
-	<?php head("Fiche : $title"); ?>
+    <?php head("Fiche : $title"); ?>
 
     <script src="JS/stars.js">
     </script>
 
-	<body>
+    <body>
         <div id="corps">
-			<?php menu(); ?>
+            <?php menu(); ?>
             <?php include_once('Controller/c_activitees_recentes.php'); ?>
     
             <section id="fiche_rando">
@@ -28,11 +28,11 @@
                 Rédigé par <?php echo $author; ?>.<br/>
                 
                 <?php 
-					foreach($listeImage as $image) {
-						echo '<img src="Resources/Galerie/'.$galery.'/'.$image['nom'].'" width="105" height="77"/>';
-					}
-				?>
-				<br/><br/><br/><br/>
+                    foreach($listeImage as $image) {
+                        echo '<img src="Resources/Galerie/'.$galery.'/'.$image['nom'].'" width="105" height="77"/>';
+                    }
+                ?>
+                <br/><br/><br/><br/>
                 <div class="titre">Commentaires</div>
                 <?php
                     $i = 0;
@@ -79,12 +79,12 @@
                     <input type="submit" name="envoie_commentaire" value="Envoyer"/>
                 </form>
 
-				<?php
+                <?php
                     }
                 ?>
-			</section>
+            </section>
     
-        	<?php include_once('Controller/c_footer.php'); ?>
+            <?php include_once('Controller/c_footer.php'); ?>
         </div>
-	</body>
+    </body>
 </html>
