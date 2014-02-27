@@ -121,4 +121,5 @@ else{
 	$listeRando = NULL;
 }
 
+
 include_once('View/v_recherche_avancee.php');
