@@ -154,6 +154,7 @@ nav ul#menu li a{
 	background-position: -200px -10px;
 	background-repeat: no-repeat;
 	-webkit-transition: background-position .5s ease, color .8s ease;
+	transition: background-position .5s ease, color .8s ease;
 }
 nav ul#menu li a:hover{
 	color: #FFF;
@@ -171,6 +172,7 @@ nav ul#account li a{
 	line-height: 15px;
 	background-color: #EAEAEA;
 	-webkit-transition: background-color .5s ease, color .8s ease;
+	transition: background-color .5s ease, color .8s ease;
 }
 nav ul#account li a:hover{ color: #FFF; }
 nav ul#account li a.profil:hover{ background-color: #639FFA; }
