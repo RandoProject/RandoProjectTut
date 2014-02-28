@@ -545,6 +545,7 @@ section#administration table{
 	width: 1150px;
 	margin-left: auto;
 	margin-right: auto;
+	border: solid 1px #CCC;
 }
 section#administration table tr.ligne_impair{ background-color: #rgba(200, 200, 200, 0.5); }
 section#administration table tr.ligne_pair{ background-color: rgba(255, 255, 255, 0.5); }

@@ -2,12 +2,6 @@
 
 /* Les fonctions de ce fichier concernent les opération sur l'administration et la modération */
 
-/*
-a faire : 
-tableau rando, membre, commentaire, photo
-dernier ajout de rando, galerie ajouté
-*/
-
 /* GETTERS */
 function get_liste_rando($condition){
 	global $bdd;
@@ -22,9 +16,6 @@ function get_liste_rando($condition){
 	$data = $exec->fetchAll();
 	$exec->closeCursor();
 	return $data;
-	
-	$req->closeCursor();
-	return $result;
 }
 
 function get_liste_comment($condition){
@@ -37,9 +28,6 @@ function get_liste_comment($condition){
 	$data = $exec->fetchAll();
 	$exec->closeCursor();
 	return $data;
-	
-	$req->closeCursor();
-	return $result;
 }
 
 function get_liste_member(){
@@ -52,9 +40,6 @@ function get_liste_member(){
 	$data = $exec->fetchAll();
 	$exec->closeCursor();
 	return $data;
-	
-	$req->closeCursor();
-	return $result;
 }
 
 function get_galery(){
@@ -68,9 +53,6 @@ function get_galery(){
 	$data = $exec->fetchAll();
 	$exec->closeCursor();
 	return $data;
-	
-	$req->closeCursor();
-	return $result;
 }
 
 
@@ -133,6 +115,42 @@ function delete_rando($listeCode){
 	$query = substr($query, 0, -2).')';
 
 	$exec = $bdd->query($query) or die(print_r($erreur -> errorInfo()));
+}
+
+function update_rando($listeCode){
+	global $bdd;
+
+	$query = '	UPDATE  rando 
+				SET '.$modification .'
+				WHERE code IN (';
+				
+	foreach($listeCode as $code){
+		$query .= $code.', ';
+	}
+	$query = substr($query, 0, -2).')';
+
+	$exec = $bdd->query($query) or die(print_r($erreur -> errorInfo()));
+}
+
+function liste_update($listeCode){
+	global $bdd;
+
+	$query = '	SELECT rando.*, departements.nom AS nom_departement, photo.nom AS nom_photo , galerie.nom AS nom_galerie
+				FROM rando, photo, galerie, departements
+				WHERE rando.photo_principale = photo.numero
+				AND photo.galerie = galerie.numero
+				AND rando.departement = departements.num_departement 
+				AND code IN (';
+				
+	foreach($listeCode as $code){
+		$query .= $code.', ';
+	}
+	$query = substr($query, 0, -2).')';
+
+	$exec = $bdd->query($query) or die(print_r($erreur -> errorInfo()));
+	$data = $exec->fetchAll();
+	$exec->closeCursor();
+	return $data;
 }
 
 /* UTILITAIRES */
