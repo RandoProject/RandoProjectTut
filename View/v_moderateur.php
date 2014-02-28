@@ -10,7 +10,10 @@
             <section id="administration">
             	<a href="index.php?page=moderateur&section=commentaires">[commentaire]</a>
             	<a href="index.php?page=moderateur&section=randonnees">[randonnees]</a>
+            	<a href="index.php?page=moderateur&section=photos">[photos]</a>
             
+            	<?php $i = 0; ?>
+               
                 <!-- Partie RANDONNEES -->
             	<?php if($_GET['section'] === 'randonnees'){ ?>
                     <form method="post" action="index.php?page=moderateur&section=randonnees">
@@ -18,10 +21,11 @@
                         <input type="submit" value="Modifier les randonnées" name="modify"/>
                         <input type="submit" value="Supprimer les randonnées" name="delete"/>
                         <input type="reset" value="Déselectionner tout"/>
-                        <table width="500">
-                            <tr>
-                                <td>Code</td>
+                        <table>
+                            <tr align="center">
+                                <td></td>
                                 <td>Titre</td>
+                                <td >Auteur</td>
                                 <td>Difficulté</td>
                                 <td>Longueur</td>
                                 <td>Durée</td>
@@ -31,15 +35,16 @@
                                 <td>Equipement</td>
                                 <td>Déscription</td>
                                 <td>Date insertion</td>
-                                <td>Auteur</td>
                                 <td>Photo</td>
-                                <td>Galerie</td>
                             </tr>	
                             <?php
                                 foreach($listeRandoInvalide as $rando){
-                                    echo '	<tr>
+									if(($i % 2) === 0) $ligneColor = 'pair';
+									else $ligneColor = 'impair';
+                                    echo '	<tr class="ligne_'.$ligneColor.'">
                                                 <td>'.$rando['code'].'</td>
                                                 <td>'.$rando['titre'].'</td>
+                                                <td>'.$rando['auteur'].'</td>
                                                 <td>'.$rando['difficulte'].'</td>
                                                 <td>'.$rando['longueur'].'</td>
                                                 <td>'.$rando['duree'].'</td>
@@ -49,12 +54,11 @@
                                                 <td>'.$rando['equipement'].'</td>
                                                 <td>'.truncate($rando['descriptif'], 50).'</td>
                                                 <td>'.print_date($rando['date_insertion']).'</td>
-                                                <td>'.$rando['auteur'].'</td>
-                                                <td>'.$rando['nom_photo'].'</td>
-                                                <td>'.$rando['nom_galerie'].'</td>
+                                                <td><img src="Resources/Galerie/'.$rando['nom_galerie'].'/'.$rando['nom_photo'].'" width="100px"/></td>
                                                 <td><input type="checkbox" value="'.$rando['code'].'" name="rando[]"/></td>
                                             </tr>';
-                                }
+                                	$i++;
+								}
                             ?>
                         </table>
                     </form>
@@ -73,12 +77,15 @@
                             </tr>
                             <?php
                                 foreach($listeComment as $comment){
-                                    echo '	<tr title="'.$comment['commentaire'].'">
+									if(($i % 2) === 0) $ligneColor = 'pair';
+									else $ligneColor = 'impair';
+                                    echo '	<tr class="ligne_'.$ligneColor.'" title="'.$comment['commentaire'].'">
                                                 <td>'.$comment['numero'].'</td>
                                                 <td>'.$comment['auteur'].'</td>
                                                 <td>'.truncate($comment['commentaire'], 200).'</td>
                                                 <td><input type="checkbox" value="'.$comment['numero'].'" name="comment[]"/></td>
                                             </tr>';
+									$i++;
                                 }
                             ?>
                         </table>
