@@ -74,7 +74,10 @@
                     <input type="text" id="name" name="name" size="71" autocomplete="off" maxlength="150" required <?php if(isset($value['name'])) echo 'value="'.$value['name'].'"'; ?> ><br/><br/>
                     
                     <label for="fileMap">Votre parcours (fichier GPX) : </label>
-                    <input type="file" id="fileMap" name="fileMap" required><br/><br/>
+                    <div id="chooseFile">
+                        <button type="button">Choisissez un fichier</button>
+                        <input type="file" id="fileMap" name="fileMap" required><br/><br/>
+                    </div>
                     <div id="container-map">
                         <div id="map-canvas"></div><br/>
                     </div>

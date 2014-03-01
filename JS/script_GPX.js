@@ -1,4 +1,16 @@
+var chooser;
 
+window.addEventListener('load', function(){
+    var divFile = document.getElementById('chooseFile');
+    var chooser = divFile.getElementsByTagName('button')[0];
+    chooser.addEventListener('click', chooseFile, false);
+    
+}, false);
+
+function chooseFile(ev){
+    var file = document.getElementById('fileMap');
+    file.click();
+}
 
 var fileInput = document.querySelector('#fileMap');
 
@@ -25,7 +37,6 @@ var fileInput = document.querySelector('#fileMap');
                     if(listPoints.length == 0){ // Si on ne trouve pas de balise trkpt
                         listPoints = gpxFile.getElementsByTagName('rtept');
                     }
-
                     /* Les points aux extrémités de du parcours, point le plus au Sud, le plus à l'Est...
                        Ces point permetteront de trouver le centre du parcours*/
                     var limitPoints = {
@@ -98,7 +109,7 @@ var fileInput = document.querySelector('#fileMap');
 	    				h3.appendChild(document.createTextNode('Informations fichier : '));
 	    				infoFile.appendChild(h3);
 	    				infoFile.appendChild(p);
-	    				
+
 	    				
     				}
     				else{
@@ -117,7 +128,5 @@ var fileInput = document.querySelector('#fileMap');
     				}
 
     			};
-
-
     			reader.readAsText(fileInput.files[0]);
     		}
