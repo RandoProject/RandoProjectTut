@@ -7,6 +7,7 @@ function last_rando($nombre){
 				FROM rando, photo, galerie
 				WHERE rando.photo_principale = photo.numero
 				AND photo.galerie = galerie.numero
+				AND valide = 1
 				ORDER BY date_insertion DESC
 				LIMIT 0, '.$nombre;
 					 

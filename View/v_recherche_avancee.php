@@ -202,7 +202,7 @@
                             }
                         }
                         else{
-                            echo '<center><em>Aucune randonnée trouvée</em></center>';
+                            echo '</div><h2>Aucune randonnée trouvée</h2><div>';
                         }
                     ?>
                 </div>
