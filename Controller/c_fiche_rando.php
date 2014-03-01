@@ -20,8 +20,13 @@ if(isset($_GET['code'])){
 	$photo = 'Resources/Galerie/'.$galery.'/'.$rando->nom_photo;
 	
 	// Durée
-	$time = new DateTime(trim($rando->duree));
-	$duration = $time->format('H').'h'.$time->format('i');
+	$time = explode(':', $rando->duree);
+	$minutes = intVal($time[1]);
+	$hour = intVal($time[0]);
+	$day = (int)($hour / 24);
+	$hour = ($hour % 24);
+	$duration = (($day > 0)?$day.' Jour'.(($day > 1)? 's ' : ' '): "").$hour.'h'.(($minutes > 0)? $minutes : "");
+	
 	
 	// Note
 	if(empty($rando->note)){

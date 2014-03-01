@@ -123,7 +123,7 @@
                                 $hour = intVal($time[0]);
                                 $day = (int)($hour / 24);
                                 $hour = ($hour % 24);
-                                $duration = (($day > 0)?$day.' Jour'.(($day > 1)? 's ' : ' '): "").$hour.'h'.$minutes;
+                                $duration = (($day > 0)?$day.' Jour'.(($day > 1)? 's ' : ' '): "").$hour.'h'.(($minutes > 0)? $minutes : "");
                                 $etoile = '';
                                 if(empty($rando['note'])){ 
                                     for($j = 1; $j <= 5; $j++){ $etoile .= '<img id="stars_vide" src="Resources/Images/stars_vide.png"/>';}
