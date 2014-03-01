@@ -6,7 +6,7 @@
     	<div id="corps">
 			<?php menu(); ?>
         	
-            <h2>Merci de nous avoir contactÃ© !</h2>
+            <h2>Merci de nous avoir contacté !</h2>
 
         	<?php include_once('Controller/c_footer.php'); ?>
         </div>
