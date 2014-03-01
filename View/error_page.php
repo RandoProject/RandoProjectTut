@@ -10,7 +10,7 @@
     	<div id="corps">
 			<?php menu(); ?>
         	
-            <h1>Erreur 404 : page non trouvée !</h1>
+            <h2>Erreur 404 : page non trouvée !</h2>
 
         	<?php include_once('Controller/c_footer.php'); ?>
         </div>
