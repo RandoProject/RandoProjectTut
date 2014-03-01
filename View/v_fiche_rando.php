@@ -22,7 +22,7 @@
                 Equipement : <?php echo $equipment; ?><br/>
                 GPX : <?php echo $path; ?><br/>
                 Département : <?php echo $department; ?><br/>
-                Ajout&eacute; le <?php echo $insertion_date.' à '.$insertion_hour; ?>.<br/>
+                Ajouté le <?php echo $insertion_date.' à '.$insertion_hour; ?>.<br/>
                 Rédigé par <?php echo $author; ?>.<br/>
                 
                 <?php 

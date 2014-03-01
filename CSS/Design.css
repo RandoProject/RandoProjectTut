@@ -13,6 +13,7 @@
 	resize: none;
 	border: none;
 }
+html,
 body{
 	background-image: url(../Resources/Images/wall.jpg);
 	background-color: #A8BF75;
@@ -117,10 +118,9 @@ input[type="submit"]:hover{
 
 /* - - - - - - - - - - Corps - - - - - - - - - - */
 div#corps{
-	display: compact;
-	bottom: 0px;
-	min-height: 100%;
 	width: 1200px;
+	height: auto;
+	min-height: 100%;
 	margin-left: auto;
 	margin-right: auto;
 	background-color: #FFFFFF;
