@@ -8,7 +8,7 @@ if(strtolower($_SERVER['REQUEST_METHOD']) == 'post'){
 				$mail_verif = false;
 			}
 			else{
-				$destinataire = "benoit.rongeard@etu.univ-lyon1.fr";
+				$destinataire = "rongeardb@gmail.com";
 				$sujet = strip_tags($_POST['objet']);
 				$nom = strip_tags($_POST['nom']);
 				$email = strip_tags($_POST['adresse_mail']);
@@ -29,11 +29,3 @@ if(strtolower($_SERVER['REQUEST_METHOD']) == 'post'){
 
 
 include_once('View/v_contact.php');
-
-
-if(isset($_POST['mail']) or $_POST['mail'] != ""){
-		$mail = strip_tags($_POST['mail']);
-		if(!filter_var($mail, FILTER_VALIDATE_EMAIL)){
-			$error['mail'] = "Le mail rentré n'est pas valide !";
-		}
-	}
