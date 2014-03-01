@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="fr">
+    <?php
+        if($verif != false){
+        
+        head("Fiche : $title");
 
-    <?php head("Fiche : $title"); ?>
-
+    ?>
     <script src="JS/stars.js">
     </script>
 
     <body>
         <div id="corps">
             <?php menu(); ?>
-            <?php include_once('Controller/c_activitees_recentes.php'); ?>
+            <?php include_once('Controller/c_activitees_recentes.php');?> 
     
             <section id="fiche_rando">
                 <div class="titre"><?php echo $title; ?></div>
@@ -80,11 +83,14 @@
                 </form>
 
                 <?php
-                    }
+                        }
                 ?>
             </section>
     
             <?php include_once('Controller/c_footer.php'); ?>
         </div>
     </body>
+    <?php
+        }
+    ?>
 </html>
