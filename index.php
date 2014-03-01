@@ -56,8 +56,12 @@ else{
 			include_once('Controller/c_contact.php');
 			break;
 
-		default:
+		case 'erreur':
 			include_once('View/error_page.php');
+			break;
+			
+		default:
+			header('Location:index.php?page=erreur');
 			break;
 	}
 }
