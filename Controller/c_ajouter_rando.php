@@ -133,7 +133,6 @@ if(isset($_SESSION['statut']) and in_array($_SESSION['statut'], array('administr
 					$lon = NULL;
 					$lat = NULL;
 					$ele = NULL;
-
 					foreach($point->attributes() as $name => $value){ // Récupère longitude et latitude
 						if($name == 'lon'){
 							$lon = intval($value);
@@ -179,19 +178,15 @@ if(isset($_SESSION['statut']) and in_array($_SESSION['statut'], array('administr
 					$departement = 0; // Département invalide
 				}
 				include_once('Models/m_parcours.php');
-				$idRoute = insert_parcours(substr($title,  0, 150), $nbPoints);
-
+				$idRoute = insert_parcours($title, $nbPoints);
 				rename('Resources/GPX/tmp/gpx_'.session_id(), 'Resources/GPX/'.$idRoute.'_'.substr($title,  0, 150).'.gpx'); // A changer
 				
 				$delay = ($day*24) + $hour.':'.$minutes.':0';
 				insert_rando($title, $delay, $difficulty, $_POST['description'], $water, $_SESSION['pseudo'], $departement, $idRoute);
 				
-
-				
+			
 				include_once('bin/functions.php');
 				cleanTmp(); // Supprime les fichiers temporaires de parcours qui ne sont plus utiles
-
-
 
 				$validation = true; // Cette variable permet d'afficher la page de validation
 				include_once('View/v_ajouter_rando.php');

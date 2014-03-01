@@ -540,6 +540,9 @@ section#ajoutrando form input#difficulte{
 	border: none;
 }
 
+section#ajoutrando form input#fileMap{
+	display: none;
+}
 
 /* - - - - - - - - - - Administration - - - - - - - - - - */
 section#administration{
