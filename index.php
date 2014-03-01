@@ -61,7 +61,7 @@ else{
 			break;
 			
 		default:
-			include_once('View/error_page.php');
+			header('Location:index.php?page=erreur');
 			break;
 	}
 }

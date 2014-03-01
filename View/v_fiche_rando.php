@@ -1,11 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
-    <?php
-        if($verif != false){
-        
-        head("Fiche : $title");
-
-    ?>
+    <?php head("Fiche : $title"); ?>
     <script src="JS/stars.js">
     </script>
 
@@ -39,20 +34,19 @@
                 <div class="titre">Commentaires</div>
                 <?php
                     $i = 0;
-                foreach($nombre_commentaire as $nb_commentaire){
-                    $date = $nb_commentaire['date'];
-                    echo '<div id="cadre_affichage_commentaire">';
-                        echo $insertion_date .'<br/>';
-                        echo $nb_commentaire['commentaire'].'<br/>';
-                        echo $nb_commentaire['auteur'].'<br/>';;
-                        echo $nb_commentaire['note'];
-                    echo '</div><br/>';
-                }
+					foreach($nombre_commentaire as $nb_commentaire){
+						$date = $nb_commentaire['date'];
+						echo '<div id="cadre_affichage_commentaire">';
+							echo $insertion_date .'<br/>';
+							echo $nb_commentaire['commentaire'].'<br/>';
+							echo $nb_commentaire['auteur'].'<br/>';;
+							echo $nb_commentaire['note'];
+						echo '</div><br/>';
+					}
                     if($_SESSION){
                 ?>
                 <br/>
 
-                
                 <form action="index.php?page=fiche_rando&code=<?php echo $code; ?>" method="post">
                     <label for="commentaire"><h1>Ajouter un commentaire :</h1></label><br/>
                         <ul name="notes" class="notes">
@@ -82,15 +76,10 @@
                     <input type="submit" name="envoie_commentaire" value="Envoyer"/>
                 </form>
 
-                <?php
-                        }
-                ?>
+                <?php } ?>
             </section>
     
             <?php include_once('Controller/c_footer.php'); ?>
         </div>
     </body>
-    <?php
-        }
-    ?>
 </html>

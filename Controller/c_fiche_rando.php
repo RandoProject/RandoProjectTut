@@ -7,14 +7,9 @@ include_once('Models/m_commentaire.php');
 if(isset($_GET['code'])){
 	$code = $_GET['code'];
 	
-	$rando = get_rando($code);
-
-	if($rando->valide == 0){
-		$verif = false;
-		include_once('View/error_page.php');
-	}
-	else{
-		$verif = true;
+	if(get_rando($code)->valide === '1'){
+		$rando = get_rando($code);
+		
 		$title = $rando->titre;
 		$author = $rando->auteur;
 		$description = $rando->descriptif;
@@ -103,7 +98,6 @@ if(isset($_GET['code'])){
 				else if(is_numeric($_POST['note']) and intval($_POST['note']) <= 5 and intval($_POST['note']) >= 1){
 					$note = intval($_POST['note']);
 				}
-
 				if($commentaire != ""){
 						validation_commentaire($commentaire,$_SESSION['pseudo'], $code, $note);
 						$nombre_commentaire = recuperation_commentaire($code);
@@ -114,8 +108,10 @@ if(isset($_GET['code'])){
 				}
 			}
 		}
-
 		$nombre_commentaire = recuperation_commentaire($code);
+	}
+	else{
+		header('Location:index.php?page=erreur');
 	}
 }
 
