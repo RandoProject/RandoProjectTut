@@ -79,6 +79,8 @@ h3{
 input,
 select,
 textarea{
+	display: inline-block;
+	border-radius: 50px;
 	margin-top: 5px;
 	padding: 5px;
 	border: solid 1px #CCC;
@@ -108,8 +110,11 @@ select:focus{
                 0px 0px 8px rgba(82, 168, 236, 0.6);
 }
 input[type="submit"]{
+	display: inline-block;
+	border-radius: 50px;
 	cursor: pointer;
 	font-weight: bold;
+	width: 150px;
 }
 input[type="submit"]:hover{
 	background-color: #A8BF75;
@@ -594,16 +599,47 @@ section#administration form table tr{
 /* - - - - - - - - - - Inscription - - - - - - - - - - */
 section#inscription form label{
 	display: inline-block;
+	vertical-align: top;
 	text-align: left;
-	margin-left: 40%;
+	margin-left: 10px;
+	margin-top: 15px;
 	width: 90px;
 }
+section#inscription form label#day{
+	display: inline-block;
+	vertical-align: top;
+	margin-top: 15px;
+	width: 50px;
+	margin-left: 10px;
+}
 section#inscription form label#mois_annee{
-	margin-left: 0%;
+	display: inline-block;
+	vertical-align: top;
+	margin-top: 15px;
+	margin-left: 20px;
+	width: 50px;
 }
 section#inscription form p#titre_birth{
 	font-weight: bold;
-	margin-left: 49%;
+	margin-left: 53%;
+}
+section#inscription form input, select{
+	display: inline-block;
+	vertical-align: top;
+	margin-top: 10px;
+	border-radius: 50px;
+}
+section#inscription form img#img_formulaire_inscription{
+	display: inline-block;
+	width: 28px;
+	height: 28px;
+	margin-left: 35%;
+	margin-top: 1%;
+}
+section#inscription form input[type="submit"]{
+	margin-left: 40%;
+	width: 200px;
+	margin-top: 50px;
 }
 
 /* - - - - - - - - - - Connexion - - - - - - - - - - */
