@@ -592,10 +592,19 @@ section#administration form table tr{
 
 
 /* - - - - - - - - - - Inscription - - - - - - - - - - */
-section#inscription{
-	text-align: center;
+section#inscription form label{
+	display: inline-block;
+	text-align: left;
+	margin-left: 40%;
+	width: 90px;
 }
-
+section#inscription form label#mois_annee{
+	margin-left: 0%;
+}
+section#inscription form p#titre_birth{
+	font-weight: bold;
+	margin-left: 49%;
+}
 
 /* - - - - - - - - - - Connexion - - - - - - - - - - */
 section#connexion{
@@ -623,7 +632,9 @@ section#connexion form#form_connexion{
 section#connexion div#div_lien_inscription{
 	display: inline-block;
 	vertical-align: top;
-	margin-top: 75px;
+}
+section#connexion div#div_lien_inscription img#img_inscription{
+	margin-top: 40px;
 }
 
 

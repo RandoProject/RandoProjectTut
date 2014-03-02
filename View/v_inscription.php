@@ -40,7 +40,7 @@
                     <input type="text" id="name" name="name" value="<?php if(isset($value['name'])) echo $value['name']; ?>" maxlength="30" autocomplete="off" required/><br/><br/>
             
                     <?php if(isset($error['day_birth'])) echo '<p>'.$error['day_birth'].'</p>';?>
-                    <label for="day_birth">Date de naissance :</label><br/>
+                    <p id="titre_birth">Date de naissance :</p><br/>
                     <?php
                         echo '<label for="day_birth">Jour</label>
                             <select id="day_birth" name="day_birth">';
@@ -52,7 +52,7 @@
                     ?>
     
                     <?php if(isset($error['month_birth'])) echo '<p>'.$error['month_birth'].'</p>';?>
-                    <label for"month_birth">Mois :</label>
+                    <label for"month_birth" id="mois_annee">Mois :</label>
                     <?php
                         echo '<select id="month_birth" name="month_birth">';
                             $i = 1;
@@ -67,7 +67,7 @@
                     ?>
                         
                     <?php if(isset($error['year_birth'])) echo '<p>'.$error['year_birth'].'</p>';?>
-                    <label for"year_birth">Année :</label>
+                    <label for"year_birth" id="mois_annee">Année :</label>
                     <?php
                         echo '<select id="year_birth" name="year_birth">';
                             $i = date('Y');
