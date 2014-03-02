@@ -81,7 +81,6 @@ select,
 textarea{
 	margin-top: 5px;
 	padding: 5px;
-	border-radius: 2px;
 	border: solid 1px #CCC;
 	background-color: #F5F5F5;
 }
@@ -105,8 +104,8 @@ select:hover,
 select:focus{
 	background-color: #FFFFFF;
 	border-color: rgba(82, 168, 236, 0.8);
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 
-                0 0 8px rgba(82, 168, 236, 0.6);
+    box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.075) inset, 
+                0px 0px 8px rgba(82, 168, 236, 0.6);
 }
 input[type="submit"]{
 	cursor: pointer;
@@ -439,8 +438,6 @@ section#fiche_rando form textarea{
 	margin-bottom: 20px;
 	margin-left: auto;
 	margin-right: auto;
-	padding: 10px;
-	border: solid 1px #CCC;
 }
 					/* Etoile_commentaire */
 section#fiche_rando p{
@@ -551,16 +548,46 @@ section#ajoutrando form input#fileMap{
 section#administration{
 	width: 100%;
 }
-section#administration table{
-	width: 1150px;
+section#administration div.titre{
+	margin-left: 50px;
+}
+section#administration a.menu_administration{
+	float: left;
+	font-family: Kalinga;
+	color: #999;
+	padding: 5px 10px 2px 10px;
+	margin-top: 5px;
+	margin-left: 20px;
+	font-size: 17px;
+	line-height: 22px;
+	background-image: url(../Resources/Images/vert.png);
+	background-size: 100%;
+	background-position: -200px -10px;
+	background-repeat: no-repeat;
+	-webkit-transition: background-position .5s ease, color .8s ease;
+	transition: background-position .5s ease, color .8s ease;
+}
+section#administration a:hover{
+	color: #FFF;
+	background-position: 0 0;
+}
+section#administration form input[type=submit]{
+	float: right;
+	margin-right: 20px;
+	margin-left: 10px;
+	margin-bottom: 30px;
+}
+section#administration form table{
+	width: 1160px;
 	margin-left: auto;
 	margin-right: auto;
 	border: solid 1px #CCC;
 }
-section#administration table tr.ligne_impair{ background-color: #rgba(200, 200, 200, 0.5); }
-section#administration table tr.ligne_pair{ background-color: rgba(255, 255, 255, 0.5); }
-section#administration table tr{
+section#administration form table tr.ligne_impair{ background-color: #rgba(200, 200, 200, 0.5); }
+section#administration form table tr.ligne_pair{ background-color: rgba(255, 255, 255, 0.5); }
+section#administration form table tr{
 	text-align: center;
+	cursor: pointer;
 }
 
 
@@ -617,11 +644,13 @@ section#profil table tr td img{
 	height: 128px;
 }
 
-/* - - - - - - - - - - Fiche rando - - - - - - - - - - */
+/* - - - - - - - - - - Contact - - - - - - - - - - */
 section#contact form#form_contact{
 	text-align: center;
 }
-section#contact form#form_contact input#mail, input#nom, input#objet{
+section#contact form#form_contact input#mail,
+section#contact form#form_contact input#nom,
+section#contact form#form_contact input#objet{
     margin-left: -37.5%;
     width: 350px;
 }
