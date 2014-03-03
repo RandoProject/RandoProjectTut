@@ -79,7 +79,7 @@
                         Note
                     </span><br/>
                     <span class="valeur_caract">
-                    	<?php echo $etoile.'<br/>'.$vote['nb_note']; ?>
+                    	<?php echo $etoile.'<br/>&emsp;&emsp;&emsp; '.$number_of_note; ?>
                     </span>
                 </div>
                 

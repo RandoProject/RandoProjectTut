@@ -3,7 +3,13 @@
 function get_rando($code){
 	global $bdd;
 
-	$queryStr = '	SELECT rando.*, departements.nom AS nom_departement, photo.nom AS nom_photo , galerie.nom AS nom_galerie
+	$queryStr = '	SELECT rando.*, departements.nom AS nom_departement, photo.nom AS nom_photo, galerie.nom AS nom_galerie, galerie.nom AS nom_galerie, (	SELECT COUNT(*) 
+																														FROM commentaire
+																														WHERE note
+																														BETWEEN 1 
+																														AND 5 
+																														AND code_rando = rando.code
+																														) AS nb_note
 					FROM rando, photo, galerie, departements
 					WHERE rando.photo_principale = photo.numero
 					AND photo.galerie = galerie.numero

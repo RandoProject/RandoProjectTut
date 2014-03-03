@@ -111,21 +111,28 @@
                             $i=0;
                             foreach($listeRando as $rando){
                                 // mise en variable
-                                //$nombre_de_vote = $rando['nb_note'];
                                 $code = $rando['code'];
                                 $title = $rando['titre'];
                                 $department = $rando['nom_departement'];
                                 $lenght = $rando['longueur'].' Km';
                                 $photo = 'Resources/Galerie/'.$rando['nom_galerie'].'/'.$rando['nom_photo'];
-                                $difficulty = '';
+                                
+								$difficulty = '';
                                 for($j = 1; $j <= $rando['difficulte']; $j++){ $difficulty .= '<div id="cercle"></div>'; }
-                                $time = explode(':', $rando['duree']);
+                                
+								$time = explode(':', $rando['duree']);
                                 $minutes = intVal($time[1]);
                                 $hour = intVal($time[0]);
                                 $day = (int)($hour / 24);
                                 $hour = ($hour % 24);
                                 $duration = (($day > 0)?$day.' Jour'.(($day > 1)? 's ' : ' '): "").$hour.'h'.(($minutes > 0)? $minutes : "");
-                                $etoile = '';
+                                
+								$number_of_note = '';
+								if($rando['nb_note'] !== '0'){
+									$number_of_note = $rando['nb_note'].' vote'.(($rando['nb_note'] > 1)? 's' : '');
+								}
+								
+								$etoile = '';
                                 if(empty($rando['note'])){ 
                                     for($j = 1; $j <= 5; $j++){ 
 										$etoile .= '<img id="stars_vide" src="Resources/Images/stars_vide.png"/>'; 
@@ -143,7 +150,8 @@
 										$z--;
                                     }
                                 }
-                                if(empty($rando['point_eau'])){ $water = '<em>non renseigné</em>'; }
+                                
+								if(empty($rando['point_eau'])){ $water = '<em>non renseigné</em>'; }
                                 else{ $water = 'oui'; }
                                 
                                 // Couleur cadre
@@ -155,7 +163,7 @@
                                 echo '  <div id="rando'.$css.'">
                                             <br/>
                                             <center><h2>'.$title.'</h2></center>
-                                            <div id="note">'.$etoile.'<br/><span id="nb_vote">'.$nombre_de_vote.'</span>'.'</div>
+                                            <div id="note">'.$etoile.'<br/><span id="nb_vote">'.$number_of_note.'</span></div>
                                             <div id="rond">
                                                 <a id="lien" href="index.php?page=fiche_rando&code='.$code.'"></a>
                                                 <img src="'.$photo.'"/>
