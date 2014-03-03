@@ -13,12 +13,14 @@
                 <div class="titre"><?php echo $title; ?></div>
                 <center><img id="photo" src="<?php echo $photo; ?>"/></center>
                 <?php echo $description; ?><br/>
-                Longueur : <?php echo $lenght; ?><br/>
-                Durée : <?php echo $duration; ?><br/>
-                Difficulté : <?php echo $difficulty; ?><br/>
-                Note : <?php echo $note; ?><br/>
-                Point d'eau : <?php echo $water; ?><br/>
-                Dénivelé : <?php echo $altitude; ?><br/>
+                <ul>
+                    <li><label>Longueur : </label><?php echo $lenght; ?></li>
+                    <li><label id="duree">Durée : </label><?php echo $duration; ?></li>
+                    <li><label id="difficulte">Difficulté : </label><?php echo $difficulty; ?></li>
+                    <li><label>Note : </label><?php echo $note; ?></li>
+                    <li><label id="point_eau">Point d'eau : </label><?php echo $water; ?></li>
+                    <li><label id="denivele">Dénivelé : </label><?php echo $altitude; ?></li>
+                </ul><br/>             
                 Equipement : <?php echo $equipment; ?><br/>
                 GPX : <?php echo $path; ?><br/>
                 Département : <?php echo $department; ?><br/>

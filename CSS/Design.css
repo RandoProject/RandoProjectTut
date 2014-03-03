@@ -418,6 +418,22 @@ section#fiche_rando center img#photo{
 	border-color: rgba(168, 191, 117, 0.7);
 	border-width: 10px;
 }
+section#fiche_rando ul{
+	display: inline-block;
+}
+section#fiche_rando ul li{
+	display: inline-block;
+}
+section#fiche_rando ul li label{
+	display: inline-block;
+	width: auto;
+	margin-left: 170px;
+}
+section#fiche_rando ul li label#duree{margin-left: 185px;}
+section#fiche_rando ul li label#difficulte{margin-left: 200px;}
+section#fiche_rando ul li label#point_eau{margin-left: 243px;}
+section#fiche_rando ul li label#denivele{margin-left: 103px;}
+
 					/* Commentaire */
 section#fiche_rando div#cadre_affichage_commentaire{
 	display: block;
