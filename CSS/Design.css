@@ -79,14 +79,11 @@ h3{
 input,
 select,
 textarea{
-	border-radius: 50px;
+	border-radius: 15px;
 	margin-top: 5px;
 	padding: 5px 10px 5px 10px;
 	border: solid 1px #CCC;
 	background-color: #F5F5F5;
-}
-textarea{
-	border-radius: 15px;
 }
 select,
 input[type="file"]{
@@ -741,17 +738,20 @@ section#profil table tr td img{
 }
 
 /* - - - - - - - - - - Contact - - - - - - - - - - */
-section#contact form#form_contact{
-	text-align: center;
-}
 section#contact form#form_contact input[type=text],
 section#contact form#form_contact input[type=email]{
-    margin-left: -37.5%;
     width: 350px;
+	margin-left: 10%;
 }
 section#contact form#form_contact textarea{
-	width: 700px;
-	height: 200px;
+	width: 80%;
+	height: 250px;
+	margin-left: 10%;
+}
+section#contact form#form_contact input[type=submit]{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 

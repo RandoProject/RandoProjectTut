@@ -18,7 +18,6 @@ function affichage_title($title){
 					WHERE rando.photo_principale = photo.numero 
 					AND photo.galerie = galerie.numero
 					AND rando.departement = departements.num_departement
-					AND commentaire.note != 0
 					AND rando.valide = 1';
 		$i = 0;
 		$parenthese = 0;
@@ -46,7 +45,7 @@ function affichage_title($title){
 		if($parenthese === 1){
 			$reqStr .= ')';
 		}
-		$reqStr .= ' ORDER BY longueur ASC';
+		$reqStr .= ' ORDER BY note DESC';
 
 		$requete= $bdd->query($reqStr) or die(print_r($erreur -> errorInfo()));
 		$res = $requete->fetchAll();
