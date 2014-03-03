@@ -426,13 +426,47 @@ section#fiche_rando ul li{
 }
 section#fiche_rando ul li label{
 	display: inline-block;
+	vertical-align: top;
+	margin-top: 12px;
+	margin-left: 5px;
 	width: auto;
-	margin-left: 170px;
 }
-section#fiche_rando ul li label#duree{margin-left: 185px;}
-section#fiche_rando ul li label#difficulte{margin-left: 200px;}
-section#fiche_rando ul li label#point_eau{margin-left: 243px;}
-section#fiche_rando ul li label#denivele{margin-left: 103px;}
+
+section#fiche_rando ul li div#div_val_fiche{
+	display: inline-block;
+	vertical-align: top;
+	margin-top: 12px;
+	margin-left: 5px;
+	width: 60px;
+}
+section#fiche_rando ul li div#div_val_fiche_eau_denivele{
+	display: inline-block;
+	vertical-align: top;
+	margin-top: 12px;
+	margin-left: 5px;
+	width: auto;
+}
+section#fiche_rando ul li img{
+	width: 40px;
+	height: 40px;
+	margin-left: 80px;
+}
+section#fiche_rando ul li img#img_fiche_duree{margin-left: 135px;}
+section#fiche_rando ul li img#img_fiche_difficulte{margin-left: 161px;}
+section#fiche_rando ul li img#img_fiche_point_eau{margin-left: 130px;}
+section#fiche_rando ul li img#img_fiche_denivele{margin-left: 115px;}
+
+section#fiche_rando ul li div#cercle{
+	display: inline-block;
+	vertical-align: top;
+	margin-top: 3px;
+	width: 10px;
+	height: 10px;
+	margin-right: 3px;
+	background-color: #FE642E;
+	box-shadow: 1px 1px 1px rgba(200, 200, 200, 1);
+	border-radius: 15px;
+}
 
 					/* Commentaire */
 section#fiche_rando div#cadre_affichage_commentaire{
