@@ -25,6 +25,18 @@ function recuperation_commentaire($code){
 	return $res;
 }
 
+function nombre_vote($code){
+	global $bdd;
+
+	$reqStr = "SELECT COUNT(note) as nb_note FROM commentaire WHERE code_rando = :code AND note != 0";
+	$reqArray = array('code' => $code);
+
+	$req = $bdd->prepare($reqStr);
+	$req->execute($reqArray) or die(print_r($erreur->errorInfo()));
+	$res = $req->fetch();
+	$req->closeCursor();
+	return $res;
+}
 
 function moyenne_note_rando($code){
 	global $bdd;

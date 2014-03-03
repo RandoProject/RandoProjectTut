@@ -152,7 +152,7 @@
                                 echo '  <div id="rando'.$css.'">
                                             <br/>
                                             <center><h2>'.$title.'</h2></center>
-                                            <div id="note">'.$etoile.'</div>
+                                            <div id="note">'.$etoile.'<br/><span id="nb_vote">nb de vote</span>'.'</div>
                                             <div id="rond">
                                                 <a id="lien" href="index.php?page=fiche_rando&code='.$code.'"></a>
                                                 <img src="'.$photo.'"/>

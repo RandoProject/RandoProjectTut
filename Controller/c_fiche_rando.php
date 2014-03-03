@@ -19,6 +19,7 @@ if(isset($_GET['code'])){
 		$path = $rando->parcours;
 		$galery = $rando->nom_galerie;
 		$photo = 'Resources/Galerie/'.$galery.'/'.$rando->nom_photo;
+		$vote = nombre_vote($code);
 		
 		// Durée
 		$time = explode(':', $rando->duree);
@@ -93,13 +94,13 @@ if(isset($_GET['code'])){
 					$commentaire = strip_tags($_POST['commentaire']);
 				}
 				if(!isset($_POST['note'])){
-					$note = 0;
+					$note2 = 0;
 				}
 				else if(is_numeric($_POST['note']) and intval($_POST['note']) <= 5 and intval($_POST['note']) >= 1){
-					$note = intval($_POST['note']);
+					$note2 = intval($_POST['note']);
 				}
 				if($commentaire != ""){
-						validation_commentaire($commentaire,$_SESSION['pseudo'], $code, $note);
+						validation_commentaire($commentaire,$_SESSION['pseudo'], $code, $note2);
 						$nombre_commentaire = recuperation_commentaire($code);
 						$insertion_date = $date->format('d').' '.$month.' '.$date->format('Y');
 						$moyenne = moyenne_note_rando($code);

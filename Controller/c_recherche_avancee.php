@@ -2,6 +2,7 @@
 
 include_once('bin/params.php');
 include_once('Models/m_gestion_recherche.php');
+include_once('Models/m_commentaire.php');
 
 /* Recherche par mot clé */
 if(isset($_POST['title'])){
