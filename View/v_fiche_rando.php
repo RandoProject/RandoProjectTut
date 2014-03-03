@@ -13,12 +13,31 @@
                 <div class="titre"><?php echo $title; ?></div>
                 <center><img id="photo" src="<?php echo $photo; ?>"/></center>
                 <?php echo $description; ?><br/>
-                <?php $difficulte_rond = ''; ?>
+                <?php 
+                    $difficulte_rond = '';
+                    $etoile = '';
+                ?>
                 <ul>
                     <li><img id="img_fiche" src="Resources/Images/longueur.png"/><label>Longueur : </label><?php echo '<div id="div_val_fiche">'.$lenght.'</div>'; ?></li>
                     <li><img id="img_fiche_duree" src="Resources/Images/duree.png"/><label>Durée : </label><?php echo '<div id="div_val_fiche">'.$duration.'</div>'; ?></li>
                     <li><img id="img_fiche_point_eau" src="Resources/Images/eau.png"/><label>Point d'eau : </label><?php echo '<div id="div_val_fiche_eau_denivele">'.$water.'</div>'; ?></li>
-                    <li><img id="img_fiche" src="Resources/Images/star-pleine_fiche.png"/><label>Note : </label><?php echo '<div id="div_val_fiche">'.$note.'</div>'; ?></li>
+                    <?php   if($note == 'non renseigné'){ 
+                                    for($j = 1; $j <= 5; $j++){ $etoile .= '<img id="img_fiche_etoile" src="Resources/Images/star_vide_fiche.png"/>';}
+                            }
+                            else{
+                                $k = intval($note);
+                                $z = 5 - intval($note);
+                                while($k >= 1){ 
+                                $etoile .= '<img id="img_fiche_etoile" src="Resources/Images/star-pleine_fiche.png"/>';
+                                $k--;
+                                }
+                                while($z >= 1){
+                                $etoile .= '<img id="img_fiche_etoile" src="Resources/Images/star_vide_fiche.png"/>';
+                                $z--;
+                                }
+                            }
+                    ?>
+                    <li><img id="img_fiche" src="Resources/Images/star-pleine_fiche.png"/><label>Note : </label><?php echo '<div id="div_val_fiche_etoile">'.$etoile.'<span id="nb_note_etoile">blabla</span>'.'</div>'; ?></li>
                     <li><?php for($j = 1; $j <= $difficulty; $j++){$difficulte_rond .= '<div id="cercle"></div>'; }?><img id="img_fiche_difficulte" src="Resources/Images/difficulte.png"/><label>Difficulté : </label><?php echo '<div id="div_val_fiche">'.$difficulte_rond.'</div>'; ?></li>
                     <li><img id="img_fiche_denivele" src="Resources/Images/mountain.png"/><label>Dénivelé : </label><?php echo '<div id="div_val_fiche_eau_denivele">'.$altitude.'</div>'; ?></li>
                 </ul><br/>             

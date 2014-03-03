@@ -446,15 +446,33 @@ section#fiche_rando ul li div#div_val_fiche_eau_denivele{
 	margin-left: 5px;
 	width: auto;
 }
+section#fiche_rando ul li div#div_val_fiche_etoile{
+	display: inline-block;
+	vertical-align: top;
+	margin-left: 5px;
+	width: 125px;
+}
+section#fiche_rando ul li div#div_val_fiche_etoile span#nb_note_etoile{
+	font-style: italic;
+	margin-left: 80px;
+}
 section#fiche_rando ul li img{
 	width: 40px;
 	height: 40px;
 	margin-left: 80px;
 }
 section#fiche_rando ul li img#img_fiche_duree{margin-left: 135px;}
-section#fiche_rando ul li img#img_fiche_difficulte{margin-left: 161px;}
+section#fiche_rando ul li img#img_fiche_difficulte{margin-left: 97px;}
 section#fiche_rando ul li img#img_fiche_point_eau{margin-left: 130px;}
 section#fiche_rando ul li img#img_fiche_denivele{margin-left: 115px;}
+section#fiche_rando ul li img#img_fiche_etoile{
+	display: inline-block;
+	vertical-align: top;
+	width: 25px;
+	height: 25px;
+	margin-left: 0px;
+	margin-top: 8px;
+}
 
 section#fiche_rando ul li div#cercle{
 	display: inline-block;
