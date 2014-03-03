@@ -79,15 +79,15 @@ h3{
 input,
 select,
 textarea{
-	display: inline-block;
 	border-radius: 50px;
 	margin-top: 5px;
-	padding: 5px;
+	padding: 5px 10px 5px 10px;
 	border: solid 1px #CCC;
 	background-color: #F5F5F5;
 }
-textarea{border-radius: 15px;}
-
+textarea{
+	border-radius: 15px;
+}
 select,
 input[type="file"]{
 	cursor: pointer;
@@ -112,8 +112,6 @@ select:focus{
                 0px 0px 8px rgba(82, 168, 236, 0.6);
 }
 input[type="submit"]{
-	display: inline-block;
-	border-radius: 50px;
 	cursor: pointer;
 	font-weight: bold;
 	width: 150px;
@@ -277,8 +275,8 @@ section#rando form div#recherche_mot_cle input[type="submit"]{
 section#rando form div#recherche_criteres div.critere{
 	display: inline-block;
 	margin-top: 0px;
-	margin-left: 22px;
-	margin-right: 22px;
+	margin-left: 19px;
+	margin-right: 19px;
 }
 
 
@@ -424,63 +422,40 @@ section#fiche_rando img#photo{
 	border-color: rgba(168, 191, 117, 0.7);
 	border-width: 10px;
 }
-section#fiche_rando ul#caracteristique_fiche_rando{
+					/* Carte */
+section#fiche_rando div#carte{
 	display: inline-block;
+	float: right;
+	margin: 5px;
+	border: 1px solid black;
+	width: 500px;
+	height: 400px;
 }
-section#fiche_rando ul#caracteristique_fiche_rando li{
+					/* Caractéristiques */
+section#fiche_rando div.caracteristique{
 	display: inline-block;
+	width: 200px;
+	height: 70px;
+	margin-top: 25px;
+	margin-right: 10px;
 }
-section#fiche_rando ul#caracteristique_fiche_rando li label{
-	display: inline-block;
-	vertical-align: top;
-	margin-top: 12px;
-	margin-left: 5px;
-	width: auto;
+section#fiche_rando div.caracteristique span.intitule_caract{
+	font-size: 20px;
 }
-
-section#fiche_rando ul#caracteristique_fiche_rando li div#div_val_fiche{
-	display: inline-block;
-	vertical-align: top;
-	margin-top: 12px;
-	margin-left: 5px;
-	width: 60px;
+section#fiche_rando div.caracteristique span.intitule_caract img{
+	position: relative;
+	width: 30px;
+	height: 30px;
+	top: 5px;
 }
-section#fiche_rando ul#caracteristique_fiche_rando li div#div_val_fiche_eau_denivele{
-	display: inline-block;
-	vertical-align: top;
-	margin-top: 12px;
-	margin-left: 5px;
-	width: auto;
+section#fiche_rando div.caracteristique span.valeur_caract{
+	margin-left: 36px;
 }
-section#fiche_rando ul#caracteristique_fiche_rando li div#div_val_fiche_etoile{
-	display: inline-block;
-	vertical-align: top;
-	margin-left: 5px;
-	width: 125px;
-}
-section#fiche_rando ul#caracteristique_fiche_rando li div#div_val_fiche_etoile span#nb_note_etoile{
-	font-style: italic;
-	margin-left: 80px;
-}
-section#fiche_rando ul#caracteristique_fiche_rando li img{
-	width: 40px;
-	height: 40px;
-	margin-left: 80px;
-}
-section#fiche_rando ul#caracteristique_fiche_rando li img#img_fiche_duree{margin-left: 135px;}
-section#fiche_rando ul#caracteristique_fiche_rando li img#img_fiche_difficulte{margin-left: 97px;}
-section#fiche_rando ul#caracteristique_fiche_rando li img#img_fiche_point_eau{margin-left: 130px;}
-section#fiche_rando ul#caracteristique_fiche_rando li img#img_fiche_denivele{margin-left: 115px;}
-section#fiche_rando ul#caracteristique_fiche_rando li img#img_fiche_etoile{
-	display: inline-block;
-	vertical-align: top;
+section#fiche_rando div.caracteristique span.valeur_caract img.etoile{
 	width: 25px;
 	height: 25px;
-	margin-left: 0px;
-	margin-top: 8px;
 }
-
-section#fiche_rando ul#caracteristique_fiche_rando li div#cercle{
+section#fiche_rando div.caracteristique span.valeur_caract div#cercle{
 	display: inline-block;
 	vertical-align: top;
 	margin-top: 3px;
@@ -491,7 +466,6 @@ section#fiche_rando ul#caracteristique_fiche_rando li div#cercle{
 	box-shadow: 1px 1px 1px rgba(200, 200, 200, 1);
 	border-radius: 15px;
 }
-
 					/* Commentaire */
 section#fiche_rando div#cadre_affichage_commentaire{
 	display: block;
@@ -697,7 +671,8 @@ section#inscription form p#titre_birth{
 	font-weight: bold;
 	margin-left: 53%;
 }
-section#inscription form input, select{
+section#inscription form input, 
+section#inscription form select{
 	display: inline-block;
 	vertical-align: top;
 	margin-top: 10px;
@@ -769,11 +744,14 @@ section#profil table tr td img{
 section#contact form#form_contact{
 	text-align: center;
 }
-section#contact form#form_contact input#mail,
-section#contact form#form_contact input#nom,
-section#contact form#form_contact input#objet{
+section#contact form#form_contact input[type=text],
+section#contact form#form_contact input[type=email]{
     margin-left: -37.5%;
     width: 350px;
+}
+section#contact form#form_contact textarea{
+	width: 700px;
+	height: 200px;
 }
 
 

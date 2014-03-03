@@ -111,7 +111,7 @@
                             $i=0;
                             foreach($listeRando as $rando){
                                 // mise en variable
-                                $nombre_de_vote = $rando['nb_note'];
+                                //$nombre_de_vote = $rando['nb_note'];
                                 $code = $rando['code'];
                                 $title = $rando['titre'];
                                 $department = $rando['nom_departement'];
@@ -127,18 +127,20 @@
                                 $duration = (($day > 0)?$day.' Jour'.(($day > 1)? 's ' : ' '): "").$hour.'h'.(($minutes > 0)? $minutes : "");
                                 $etoile = '';
                                 if(empty($rando['note'])){ 
-                                    for($j = 1; $j <= 5; $j++){ $etoile .= '<img id="stars_vide" src="Resources/Images/stars_vide.png"/>';}
+                                    for($j = 1; $j <= 5; $j++){ 
+										$etoile .= '<img id="stars_vide" src="Resources/Images/stars_vide.png"/>'; 
+									}
                                 }
                                 else{
                                     $k = intval($rando['note']);
                                     $z = 5 - intval($rando['note']);
                                     while($k >= 1){ 
-                                    $etoile .= '<img id="stars" src="Resources/Images/stars_pleines.png"/>';
-                                    $k--;
+										$etoile .= '<img id="stars" src="Resources/Images/stars_pleines.png"/>';
+										$k--;
                                     }
                                     while($z >= 1){
-                                    $etoile .= '<img id="stars_vide" src="Resources/Images/stars_vide.png"/>';
-                                    $z--;
+										$etoile .= '<img id="stars_vide" src="Resources/Images/stars_vide.png"/>';
+										$z--;
                                     }
                                 }
                                 if(empty($rando['point_eau'])){ $water = '<em>non renseigné</em>'; }

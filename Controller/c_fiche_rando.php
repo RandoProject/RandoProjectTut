@@ -13,13 +13,18 @@ if(isset($_GET['code'])){
 		$title = $rando->titre;
 		$author = $rando->auteur;
 		$description = $rando->descriptif;
-		$difficulty = $rando->difficulte;
 		$department = $rando->nom_departement;
 		$lenght = $rando->longueur.' Km';
 		$path = $rando->parcours;
 		$galery = $rando->nom_galerie;
 		$photo = 'Resources/Galerie/'.$galery.'/'.$rando->nom_photo;
 		$vote = nombre_vote($code);
+		
+		// Difficulté
+		$difficulty = '';
+        for($j = 1; $j <= $rando->difficulte; $j++){ 
+			$difficulty .= '<div id="cercle"></div>'; 
+		}
 		
 		// Durée
 		$time = explode(':', $rando->duree);
@@ -31,12 +36,24 @@ if(isset($_GET['code'])){
 		
 		
 		// Note
-		if(empty($rando->note)){
-			$note = '<em>non renseigné</em>';
-		}
-		else{
-			$note = $rando->note;
-		}
+        $etoile = '';
+		if(empty($rando->note)){ 
+			for($j = 1; $j <= 5; $j++){ 
+				$etoile .= '<img class="etoile" src="Resources/Images/star_vide_fiche.png"/>';
+			}
+        }
+        else{
+            $k = intval($rando->note);
+            $z = 5 - intval($rando->note);
+            while($k >= 1){ 
+                $etoile .= '<img class="etoile" src="Resources/Images/star-pleine_fiche.png"/>';
+                $k--;
+            }
+            while($z >= 1){
+                $etoile .= '<img class="etoile" src="Resources/Images/star_vide_fiche.png"/>';
+                $z--;
+            }
+        }
 		
 		// Point d'eau
 		if(empty($rando->point_eau)){
