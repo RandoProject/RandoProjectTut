@@ -7,11 +7,12 @@ function affichage_title($title){
 	$mots = explode(' ', $req);
 	
 	if(count($mots) > 0){
-		$reqStr = '	SELECT rando.*,  departements.nom AS nom_departement, photo.nom AS nom_photo, galerie.nom AS nom_galerie 
-					FROM rando, photo, galerie, departements
+		$reqStr = '	SELECT rando.*,  departements.nom AS nom_departement, photo.nom AS nom_photo, galerie.nom AS nom_galerie, count(commentaire.*) AS nb_note
+					FROM rando, photo, galerie, departements, commentaire
 					WHERE rando.photo_principale = photo.numero 
 					AND photo.galerie = galerie.numero
 					AND rando.departement = departements.num_departement
+					AND commentaire.note != 0
 					AND rando.valide = 1';
 		$i = 0;
 		$parenthese = 0;
@@ -61,11 +62,12 @@ function select_regions($select){
 function selection_rando_recente(){
 	global $bdd;
 
-	$reqStr = '	SELECT *, departements.nom AS nom_departement, photo.nom AS nom_photo, galerie.nom AS nom_galerie
-				FROM rando, photo, galerie, departements
+	$reqStr = '	SELECT *, departements.nom AS nom_departement, photo.nom AS nom_photo, galerie.nom AS nom_galerie, count(commentaire.*) AS nb_note
+				FROM rando, photo, galerie, departements, commentaire
 				WHERE rando.photo_principale = photo.numero
 				AND photo.galerie = galerie.numero
-				AND rando.departement = departements.num_departement 
+				AND rando.departement = departements.num_departement
+				AND commentaire.note != 0
 				AND rando.valide = 1
 				ORDER BY date_insertion DESC 
 				LIMIT 0, 10';
@@ -125,11 +127,12 @@ function affichage_f_rando_complet($region, $typeRegion, $MAX_distance, $MIN_dis
 		$reqValues['water'] = $water;
 	}
 
-	$reqStr = '	SELECT rando.*, departements.nom AS nom_departement, photo.nom AS nom_photo, galerie.nom AS nom_galerie
-				FROM rando, photo, galerie, departements
+	$reqStr = '	SELECT rando.*, departements.nom AS nom_departement, photo.nom AS nom_photo, galerie.nom AS nom_galerie, count(commentaire.*) as nb_note
+				FROM rando, photo, galerie, departements, commentaire
 				WHERE rando.photo_principale = photo.numero
 				AND photo.galerie = galerie.numero
 				AND rando.departement = departements.num_departement
+				AND commentaire.note != 0
 				AND rando.valide = 1';
 
 	if(!empty($reqArray)){

@@ -111,6 +111,7 @@
                             $i=0;
                             foreach($listeRando as $rando){
                                 // mise en variable
+                                $nombre_de_vote = $rando['nb_note'];
                                 $code = $rando['code'];
                                 $title = $rando['titre'];
                                 $department = $rando['nom_departement'];
@@ -152,7 +153,7 @@
                                 echo '  <div id="rando'.$css.'">
                                             <br/>
                                             <center><h2>'.$title.'</h2></center>
-                                            <div id="note">'.$etoile.'<br/><span id="nb_vote">nb de vote</span>'.'</div>
+                                            <div id="note">'.$etoile.'<br/><span id="nb_vote">'.$nombre_de_vote.'</span>'.'</div>
                                             <div id="rond">
                                                 <a id="lien" href="index.php?page=fiche_rando&code='.$code.'"></a>
                                                 <img src="'.$photo.'"/>
