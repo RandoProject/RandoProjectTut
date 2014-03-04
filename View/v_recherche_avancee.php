@@ -128,9 +128,7 @@
                                 $duration = (($day > 0)?$day.' Jour'.(($day > 1)? 's ' : ' '): "").$hour.'h'.(($minutes > 0)? $minutes : "");
                                 
 								$number_of_note = '';
-								if($rando['nb_note'] !== '0'){
-									$number_of_note = $rando['nb_note'].' vote'.(($rando['nb_note'] > 1)? 's' : '');
-								}
+								$number_of_note = $rando['nb_note'].' vote'.(($rando['nb_note'] > 1)? 's' : '');
 								
 								$etoile = '';
                                 if(empty($rando['note'])){ 

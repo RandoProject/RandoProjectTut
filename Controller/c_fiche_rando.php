@@ -20,9 +20,7 @@ if(isset($_GET['code'])){
 		$photo = 'Resources/Galerie/'.$galery.'/'.$rando->nom_photo;
 		
 		// Nombre de note
-		if( $rando->nb_note !== '0'){
 			$number_of_note = $rando->nb_note.' vote'.(( $rando->nb_note > 1)? 's' : '');
-		}
 		
 		// Difficulté
 		$difficulty = '';
