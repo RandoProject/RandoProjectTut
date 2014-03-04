@@ -76,6 +76,7 @@
                     <label for="fileMap">Votre parcours (fichier GPX) : </label>
                     <div id="chooseFile">
                         <button type="button">Choisissez un fichier</button>
+                        <p id="pathFile"></p>
                         <input type="file" id="fileMap" name="fileMap" required><br/><br/>
                     </div>
                     <div id="container-map">
