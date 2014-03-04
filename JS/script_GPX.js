@@ -1,9 +1,13 @@
 var chooser;
+var fileInput;
 
 window.addEventListener('load', function(){
     var divFile = document.getElementById('chooseFile');
     var chooser = divFile.getElementsByTagName('button')[0];
     chooser.addEventListener('click', chooseFile, false);
+
+    fileInput = document.getElementById('fileMap');
+
     
 }, false);
 
@@ -12,7 +16,7 @@ function chooseFile(ev){
     file.click();
 }
 
-var fileInput = document.querySelector('#fileMap');
+var fileInput = document.getElementById('fileMap');
 
 		   		fileInput.onchange = function() {
     			var reader = new FileReader();
