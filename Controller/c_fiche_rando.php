@@ -124,7 +124,7 @@ if(isset($_GET['code'])){
 						$insertion_date = $date->format('d').' '.$month.' '.$date->format('Y');
 						$moyenne = moyenne_note_rando($code);
 						mise_a_jour_note($code, $moyenne['moyenne_note']);
-						include_once('View/v_fiche_rando.php');
+						header('Location:index.php?page=commentaire_valide&code='.$code);
 				}
 			}
 		}
