@@ -10,13 +10,15 @@
             <?php include_once('Controller/c_activitees_recentes.php'); ?>
 
             <section id="contact">
-                <form action="index.php?page=contact" method="post">
-                    <input type="text" name="name" placeholder="Nom" autocomplete="off" maxlength="30" required/><br/>
-                    <input type="text" name="adresse_mail" placeholder="Email" required/><br/>
-                    <input type="text" name="objet" placeholder="Objet" required/><br/>
-                    <textarea name="mail_message" id="textarea_mail"  style="width: 500px; height: 100px" placeholder="Message"></textarea><br/>
-                    <input type="submit" name="envoi_mail" value="Envoyer"/>      
-                </form>
+                <div class="titre">Nous contacter</div><br/><br/>
+                    <form action="index.php?page=contact" method="post" id="form_contact">
+                        <input type="text" name="nom" placeholder="Nom" autocomplete="off" maxlength="30" required/><br/>
+                        <input type="email" name="adresse_mail" placeholder="Email" autocomplete="off" required/><br/>
+                        <input type="text" name="objet" placeholder="Objet" autocomplete="off" required/><br/>
+                        <textarea id="message" name="message" placeholder="Message" autocomplete="off" required></textarea><br/>
+                        <?php if(isset($mail_verif)) echo '<p> Votre adresse email n\'est pas valide </p>';?>
+                        <input type="submit" name="envoi_mail" value="Envoyer"/>      
+                    </form>
             </section>
 
        		<?php include_once('Controller/c_footer.php'); ?>

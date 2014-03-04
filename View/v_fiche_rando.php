@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html lang="fr">
     <?php head("Fiche : $title"); ?>
-    <script src="JS/stars.js">
-    </script>
-
+    <script src="JS/stars.js"></script>
+    
     <body>
         <div id="corps">
             <?php menu(); ?>
@@ -11,17 +10,81 @@
     
             <section id="fiche_rando">
                 <div class="titre"><?php echo $title; ?></div>
+                
                 <center><img id="photo" src="<?php echo $photo; ?>"/></center>
+                
                 <?php echo $description; ?><br/>
-                Longueur : <?php echo $lenght; ?><br/>
-                Durée : <?php echo $duration; ?><br/>
-                Difficulté : <?php echo $difficulty; ?><br/>
-                Note : <?php echo $note; ?><br/>
-                Point d'eau : <?php echo $water; ?><br/>
-                Dénivelé : <?php echo $altitude; ?><br/>
+                
+                <div id="carte">
+                	GPX : <?php echo $path; ?><br/>
+                </div>
+                
+                <div class="caracteristique">
+                	<span class="intitule_caract">
+                        <img id="img_fiche" src="Resources/Images/longueur.png"/>
+                        Longueur
+                    </span><br/>
+                    <span class="valeur_caract">
+						<?php echo $lenght; ?>
+                    </span>
+                </div>
+                <div class="caracteristique">
+                	<span class="intitule_caract">
+                        <img id="img_fiche_duree" src="Resources/Images/duree.png"/>
+                        Durée
+                    </span><br/>
+                    <span class="valeur_caract">
+						<?php echo $duration; ?>
+                    </span>
+                </div class="caracteristique">
+                <div class="caracteristique">
+                	<span class="intitule_caract">
+                        <img id="img_fiche_point_eau" src="Resources/Images/eau.png"/>
+                        Point d'eau
+                    </span><br/>
+                    <span class="valeur_caract">
+						<?php echo $water; ?>
+                    </span>
+                </div>
+                <div class="caracteristique">
+                	<span class="intitule_caract">
+                        <img id="img_fiche_difficulte" src="Resources/Images/difficulte.png"/>
+                        Difficulté
+                    </span><br/>
+                    <span class="valeur_caract">
+						<?php echo $difficulty; ?>
+                    </span>
+                </div>
+                <div class="caracteristique">
+                	<span class="intitule_caract">
+                        <img id="img_fiche_denivele" src="Resources/Images/mountain.png"/>
+                        Dénivelé
+                    </span><br/>
+                    <span class="valeur_caract">
+						<?php echo $altitude; ?>
+                    </span>
+                </div>
+                <div class="caracteristique">
+                	<span class="intitule_caract">
+                        <img id="img_fiche_denivele" src="Resources/Images/departement.png"/>
+                        Département
+                    </span><br/>
+                    <span class="valeur_caract">
+						<?php echo $department; ?>
+                    </span>
+                </div>
+                <div class="caracteristique">
+                	<span class="intitule_caract">
+                        <img id="img_fiche" src="Resources/Images/star-pleine_fiche.png"/>
+                        Note
+                    </span><br/>
+                    <span class="valeur_caract">
+                    	<?php echo $etoile.'<br/>&emsp;&emsp;&emsp; '.$number_of_note; ?>
+                    </span>
+                </div>
+                
+                <br/> <br/> <br/> <br/>             
                 Equipement : <?php echo $equipment; ?><br/>
-                GPX : <?php echo $path; ?><br/>
-                Département : <?php echo $department; ?><br/>
                 Ajouté le <?php echo $insertion_date.' à '.$insertion_hour; ?>.<br/>
                 Rédigé par <?php echo $author; ?>.<br/>
                 

@@ -9,7 +9,6 @@ include_once('Models/m_administration.php');
 
 /* Rando */
 if($_GET['section'] === 'randonnees'){
-	$listeRando = get_liste_rando('AND valide = 0');
 	if(!empty($_POST['rando'])){
 		if(!empty($_POST['validate'])){
 			validate_rando($_POST['rando']);
@@ -17,9 +16,13 @@ if($_GET['section'] === 'randonnees'){
 		else if(!empty($_POST['delete'])){
 			delete_rando($_POST['rando']);
 		}
-		else if(!empty($_POST['update'])){
-			$listeRando = liste_update($_POST['rando']);
+		else if(!empty($_POST['validUpdate'])){
+			update_rando($_POST['rando'], $_POST['title'], $_POST['equipment'], $_POST['description']);
 		}
+	}
+	$listeRando = get_liste_rando('AND valide = 0');
+	if(!empty($_POST['rando']) && !empty($_POST['update'])){
+		$listeRando = liste_update($_POST['rando']);
 	}
 }
 
@@ -31,6 +34,7 @@ else if($_GET['section'] === 'commentaires'){
 		}
 		else if(!empty($_POST['delete'])){
 			delete_comment($_POST['comment']);
+			update_note_rando($_POST['rando']);
 		}
 	}
 	$listeComment = get_liste_comment('WHERE valide = 0');

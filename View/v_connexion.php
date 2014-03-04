@@ -33,7 +33,8 @@
                     </form>
                 <?php
                             echo '<div id="div_lien_inscription">';
-                                echo'<a id="lien_inscription" href="index.php?page=inscription">Inscrivez-vous</a>';
+                                echo '<p>Inscrivez-vous !</p>';
+                                echo '<a href="index.php?page=inscription"><img id="img_inscription" src="Resources/Images/registration.png" /></a>';
                             echo '</div>';
                 }
                 else{

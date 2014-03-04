@@ -60,6 +60,14 @@ else{
 			include_once('View/error_page.php');
 			break;
 			
+		case 'mail_envoye':
+			include_once('View/v_mail_envoye.php');
+			break;
+
+		case 'mail_probleme':
+			include_once('View/v_mail_probleme.php');
+			break;
+
 		default:
 			header('Location:index.php?page=erreur');
 			break;

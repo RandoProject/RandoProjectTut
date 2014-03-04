@@ -7,7 +7,13 @@ function affichage_title($title){
 	$mots = explode(' ', $req);
 	
 	if(count($mots) > 0){
-		$reqStr = '	SELECT rando.*,  departements.nom AS nom_departement, photo.nom AS nom_photo, galerie.nom AS nom_galerie 
+		$reqStr = '	SELECT rando.*,  departements.nom AS nom_departement, photo.nom AS nom_photo, galerie.nom AS nom_galerie, (	SELECT COUNT(*) 
+																																FROM commentaire
+																																WHERE note
+																																BETWEEN 1 
+																																AND 5 
+																																AND code_rando = rando.code
+																																) AS nb_note
 					FROM rando, photo, galerie, departements
 					WHERE rando.photo_principale = photo.numero 
 					AND photo.galerie = galerie.numero
@@ -39,7 +45,7 @@ function affichage_title($title){
 		if($parenthese === 1){
 			$reqStr .= ')';
 		}
-		$reqStr .= ' ORDER BY longueur ASC';
+		$reqStr .= ' ORDER BY note DESC';
 
 		$requete= $bdd->query($reqStr) or die(print_r($erreur -> errorInfo()));
 		$res = $requete->fetchAll();
@@ -61,14 +67,20 @@ function select_regions($select){
 function selection_rando_recente(){
 	global $bdd;
 
-	$reqStr = '	SELECT *, departements.nom AS nom_departement, photo.nom AS nom_photo, galerie.nom AS nom_galerie
+	$reqStr = '	SELECT rando.* , departements.nom AS nom_departement, photo.nom AS nom_photo, galerie.nom AS nom_galerie, (	SELECT COUNT(*) 
+																															FROM commentaire
+																															WHERE note
+																															BETWEEN 1 
+																															AND 5 
+																															AND code_rando = rando.code
+																															) AS nb_note
 				FROM rando, photo, galerie, departements
 				WHERE rando.photo_principale = photo.numero
 				AND photo.galerie = galerie.numero
-				AND rando.departement = departements.num_departement 
-				AND rando.valide = 1
+				AND rando.departement = departements.num_departement
+				AND rando.valide =1
 				ORDER BY date_insertion DESC 
-				LIMIT 0, 10';
+				LIMIT 0 , 10';
 				
 	$req = $bdd->query($reqStr);
 	$result = $req->fetchAll();
@@ -125,7 +137,13 @@ function affichage_f_rando_complet($region, $typeRegion, $MAX_distance, $MIN_dis
 		$reqValues['water'] = $water;
 	}
 
-	$reqStr = '	SELECT rando.*, departements.nom AS nom_departement, photo.nom AS nom_photo, galerie.nom AS nom_galerie
+	$reqStr = '	SELECT rando.*, departements.nom AS nom_departement, photo.nom AS nom_photo, galerie.nom AS nom_galerie, (	SELECT COUNT(*) 
+																															FROM commentaire
+																															WHERE note
+																															BETWEEN 1 
+																															AND 5 
+																															AND code_rando = rando.code
+																															) AS nb_note
 				FROM rando, photo, galerie, departements
 				WHERE rando.photo_principale = photo.numero
 				AND photo.galerie = galerie.numero

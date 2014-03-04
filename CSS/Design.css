@@ -79,14 +79,15 @@ h3{
 input,
 select,
 textarea{
+	border-radius: 15px;
 	margin-top: 5px;
-	padding: 5px;
-	border-radius: 2px;
+	padding: 5px 10px 5px 10px;
 	border: solid 1px #CCC;
 	background-color: #F5F5F5;
 }
 select,
-input[type="file"]{
+input[type="file"],
+input[type="checkbox"]{
 	cursor: pointer;
 }
 input[type="text"]:hover,
@@ -97,17 +98,21 @@ input[type="file"]:hover,
 input[type="file"]:focus,
 input[type="range"]:hover,
 input[type="range"]:focus,
-input[type="mail"]:hover,
-input[type="mail"]:focus,
+input[type="email"]:hover,
+input[type="email"]:focus,
 textarea:hover,
 textarea:focus,
 select:hover,
 select:focus{
 	background-color: #FFFFFF;
+	border-color: rgba(82, 168, 236, 0.8);
+    box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.075) inset, 
+                0px 0px 8px rgba(82, 168, 236, 0.6);
 }
 input[type="submit"]{
 	cursor: pointer;
 	font-weight: bold;
+	width: 150px;
 }
 input[type="submit"]:hover{
 	background-color: #A8BF75;
@@ -268,8 +273,8 @@ section#rando form div#recherche_mot_cle input[type="submit"]{
 section#rando form div#recherche_criteres div.critere{
 	display: inline-block;
 	margin-top: 0px;
-	margin-left: 22px;
-	margin-right: 22px;
+	margin-left: 19px;
+	margin-right: 19px;
 }
 
 
@@ -384,6 +389,10 @@ section#rando div#affichage_recherche div div#note img#stars_vide{
 	margin-left: 1px;
 	margin-right: 1px;
 }
+section#rando div#affichage_recherche div div#note span#nb_vote{
+	font-style: italic;
+	margin-right: 15px;
+}
 					/* Fiche */
 section#rando div#affichage_recherche div#rando_pair div#fiche{ text-align:right; margin-top: 240px;}
 section#rando div#affichage_recherche div#rando_impair div#fiche{ margin-top: 235px;}
@@ -402,7 +411,7 @@ section#rando div#affichage_recherche div div#fiche a#lien_consulter_fiche{
 
 
 /* - - - - - - - - - - Fiche rando - - - - - - - - - - */
-section#fiche_rando center img#photo{
+section#fiche_rando img#photo{
 	width: 700px;
 	border-bottom-left-radius: 75px;
 	border-top-right-radius: 75px;
@@ -410,6 +419,50 @@ section#fiche_rando center img#photo{
 	border-style: solid;
 	border-color: rgba(168, 191, 117, 0.7);
 	border-width: 10px;
+}
+					/* Carte */
+section#fiche_rando div#carte{
+	display: inline-block;
+	float: right;
+	margin: 5px;
+	border: 1px solid black;
+	width: 500px;
+	height: 400px;
+}
+					/* Caractéristiques */
+section#fiche_rando div.caracteristique{
+	display: inline-block;
+	width: 200px;
+	height: 70px;
+	margin-top: 25px;
+	margin-right: 10px;
+}
+section#fiche_rando div.caracteristique span.intitule_caract{
+	font-size: 20px;
+}
+section#fiche_rando div.caracteristique span.intitule_caract img{
+	position: relative;
+	width: 30px;
+	height: 30px;
+	top: 5px;
+}
+section#fiche_rando div.caracteristique span.valeur_caract{
+	margin-left: 36px;
+}
+section#fiche_rando div.caracteristique span.valeur_caract img.etoile{
+	width: 25px;
+	height: 25px;
+}
+section#fiche_rando div.caracteristique span.valeur_caract div#cercle{
+	display: inline-block;
+	vertical-align: top;
+	margin-top: 3px;
+	width: 10px;
+	height: 10px;
+	margin-right: 3px;
+	background-color: #FE642E;
+	box-shadow: 1px 1px 1px rgba(200, 200, 200, 1);
+	border-radius: 15px;
 }
 					/* Commentaire */
 section#fiche_rando div#cadre_affichage_commentaire{
@@ -436,8 +489,6 @@ section#fiche_rando form textarea{
 	margin-bottom: 20px;
 	margin-left: auto;
 	margin-right: auto;
-	padding: 10px;
-	border: solid 1px #CCC;
 }
 					/* Etoile_commentaire */
 section#fiche_rando p{
@@ -548,21 +599,95 @@ section#ajoutrando form input#fileMap{
 section#administration{
 	width: 100%;
 }
-section#administration table{
-	width: 1150px;
+section#administration div.titre{
+	margin-left: 50px;
+}
+section#administration a.menu_administration{
+	float: left;
+	font-family: Kalinga;
+	color: #999;
+	padding: 5px 10px 2px 10px;
+	margin-top: 5px;
+	margin-left: 20px;
+	font-size: 17px;
+	line-height: 22px;
+	background-image: url(../Resources/Images/vert.png);
+	background-size: 100%;
+	background-position: -200px -10px;
+	background-repeat: no-repeat;
+	-webkit-transition: background-position .5s ease, color .8s ease;
+	transition: background-position .5s ease, color .8s ease;
+}
+section#administration a:hover{
+	color: #FFF;
+	background-position: 0 0;
+}
+section#administration form input[type=submit]{
+	float: right;
+	margin-right: 20px;
+	margin-left: 10px;
+	margin-bottom: 30px;
+}
+section#administration form table{
+	width: 1160px;
 	margin-left: auto;
 	margin-right: auto;
 	border: solid 1px #CCC;
 }
-section#administration table tr.ligne_impair{ background-color: #rgba(200, 200, 200, 0.5); }
-section#administration table tr.ligne_pair{ background-color: rgba(255, 255, 255, 0.5); }
+section#administration form table tr.ligne_impair{ background-color: #rgba(200, 200, 200, 0.5); }
+section#administration form table tr.ligne_pair{ background-color: rgba(255, 255, 255, 0.5); }
+section#administration form table tr{
+	text-align: center;
+	cursor: pointer;
+}
 
 
 /* - - - - - - - - - - Inscription - - - - - - - - - - */
-section#inscription{
-	text-align: center;
+section#inscription form label{
+	display: inline-block;
+	vertical-align: top;
+	text-align: left;
+	margin-left: 10px;
+	margin-top: 15px;
+	width: 90px;
 }
-
+section#inscription form label#day{
+	display: inline-block;
+	vertical-align: top;
+	margin-top: 15px;
+	width: 50px;
+	margin-left: 10px;
+}
+section#inscription form label#mois_annee{
+	display: inline-block;
+	vertical-align: top;
+	margin-top: 15px;
+	margin-left: 20px;
+	width: 50px;
+}
+section#inscription form p#titre_birth{
+	font-weight: bold;
+	margin-left: 53%;
+}
+section#inscription form input, 
+section#inscription form select{
+	display: inline-block;
+	vertical-align: top;
+	margin-top: 10px;
+	border-radius: 50px;
+}
+section#inscription form img#img_formulaire_inscription{
+	display: inline-block;
+	width: 28px;
+	height: 28px;
+	margin-left: 35%;
+	margin-top: 1%;
+}
+section#inscription form input[type="submit"]{
+	margin-left: 40%;
+	width: 200px;
+	margin-top: 50px;
+}
 
 /* - - - - - - - - - - Connexion - - - - - - - - - - */
 section#connexion{
@@ -590,7 +715,9 @@ section#connexion form#form_connexion{
 section#connexion div#div_lien_inscription{
 	display: inline-block;
 	vertical-align: top;
-	margin-top: 75px;
+}
+section#connexion div#div_lien_inscription img#img_inscription{
+	margin-top: 40px;
 }
 
 
@@ -609,6 +736,23 @@ section#profil table{
 section#profil table tr td img{
 	width: 128px;
 	height: 128px;
+}
+
+/* - - - - - - - - - - Contact - - - - - - - - - - */
+section#contact form#form_contact input[type=text],
+section#contact form#form_contact input[type=email]{
+    width: 350px;
+	margin-left: 10%;
+}
+section#contact form#form_contact textarea{
+	width: 80%;
+	height: 250px;
+	margin-left: 10%;
+}
+section#contact form#form_contact input[type=submit]{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 

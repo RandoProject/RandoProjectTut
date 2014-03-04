@@ -13,12 +13,20 @@ if(isset($_GET['code'])){
 		$title = $rando->titre;
 		$author = $rando->auteur;
 		$description = $rando->descriptif;
-		$difficulty = $rando->difficulte;
 		$department = $rando->nom_departement;
 		$lenght = $rando->longueur.' Km';
 		$path = $rando->parcours;
 		$galery = $rando->nom_galerie;
 		$photo = 'Resources/Galerie/'.$galery.'/'.$rando->nom_photo;
+		
+		// Nombre de note
+			$number_of_note = $rando->nb_note.' vote'.(( $rando->nb_note > 1)? 's' : '');
+		
+		// Difficulté
+		$difficulty = '';
+        for($j = 1; $j <= $rando->difficulte; $j++){ 
+			$difficulty .= '<div id="cercle"></div>'; 
+		}
 		
 		// Durée
 		$time = explode(':', $rando->duree);
@@ -30,12 +38,24 @@ if(isset($_GET['code'])){
 		
 		
 		// Note
-		if(empty($rando->note)){
-			$note = '<em>non renseigné</em>';
-		}
-		else{
-			$note = $rando->note;
-		}
+        $etoile = '';
+		if(empty($rando->note)){ 
+			for($j = 1; $j <= 5; $j++){ 
+				$etoile .= '<img class="etoile" src="Resources/Images/star_vide_fiche.png"/>';
+			}
+        }
+        else{
+            $k = intval($rando->note);
+            $z = 5 - intval($rando->note);
+            while($k >= 1){ 
+                $etoile .= '<img class="etoile" src="Resources/Images/star-pleine_fiche.png"/>';
+                $k--;
+            }
+            while($z >= 1){
+                $etoile .= '<img class="etoile" src="Resources/Images/star_vide_fiche.png"/>';
+                $z--;
+            }
+        }
 		
 		// Point d'eau
 		if(empty($rando->point_eau)){
@@ -93,13 +113,13 @@ if(isset($_GET['code'])){
 					$commentaire = strip_tags($_POST['commentaire']);
 				}
 				if(!isset($_POST['note'])){
-					$note = 0;
+					$note2 = 0;
 				}
 				else if(is_numeric($_POST['note']) and intval($_POST['note']) <= 5 and intval($_POST['note']) >= 1){
-					$note = intval($_POST['note']);
+					$note2 = intval($_POST['note']);
 				}
 				if($commentaire != ""){
-						validation_commentaire($commentaire,$_SESSION['pseudo'], $code, $note);
+						validation_commentaire($commentaire,$_SESSION['pseudo'], $code, $note2);
 						$nombre_commentaire = recuperation_commentaire($code);
 						$insertion_date = $date->format('d').' '.$month.' '.$date->format('Y');
 						$moyenne = moyenne_note_rando($code);

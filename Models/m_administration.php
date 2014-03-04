@@ -117,19 +117,19 @@ function delete_rando($listeCode){
 	$exec = $bdd->query($query) or die(print_r($erreur -> errorInfo()));
 }
 
-function update_rando($listeCode){
+function update_rando($listeCode, $listeTitre, $listeEquipement, $listeDescription){
 	global $bdd;
-
-	$query = '	UPDATE  rando 
-				SET '.$modification .'
-				WHERE code IN (';
-				
+	$i = 0;
 	foreach($listeCode as $code){
-		$query .= $code.', ';
-	}
-	$query = substr($query, 0, -2).')';
+		$query = '	UPDATE  rando 
+					SET titre = "'.$listeTitre[$i].'",
+						equipement = "'.$listeEquipement[$i].'",
+						descriptif = "'.$listeDescription[$i].'"
+					WHERE code = '.$code;
 
-	$exec = $bdd->query($query) or die(print_r($erreur -> errorInfo()));
+		$exec = $bdd->query($query) or die(print_r($erreur -> errorInfo()));
+		$i++;
+	}
 }
 
 function liste_update($listeCode){
@@ -152,6 +152,21 @@ function liste_update($listeCode){
 	$exec->closeCursor();
 	return $data;
 }
+
+function update_note_rando($listeCode){
+	global $bdd;
+
+	foreach($listeCode as $code){
+		$query = '	UPDATE rando 
+					SET note = (	SELECT AVG(note) 
+									FROM commentaire 
+									WHERE code_rando = '.$code.')
+					WHERE code = '.$code;
+
+		$exec = $bdd->query($query) or die(print_r($erreur -> errorInfo()));
+	}
+}
+
 
 /* UTILITAIRES */
 function truncate($string, $lenght = 150) {
