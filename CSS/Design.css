@@ -86,7 +86,8 @@ textarea{
 	background-color: #F5F5F5;
 }
 select,
-input[type="file"]{
+input[type="file"],
+input[type="checkbox"]{
 	cursor: pointer;
 }
 input[type="text"]:hover,

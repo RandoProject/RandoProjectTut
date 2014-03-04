@@ -153,6 +153,21 @@ function liste_update($listeCode){
 	return $data;
 }
 
+function update_note_rando($listeCode){
+	global $bdd;
+
+	foreach($listeCode as $code){
+		$query = '	UPDATE rando 
+					SET note = (	SELECT AVG(note) 
+									FROM commentaire 
+									WHERE code_rando = '.$code.')
+					WHERE code = '.$code;
+					echo $query;
+	$exec = $bdd->query($query) or die(print_r($erreur -> errorInfo()));
+	}
+}
+
+
 /* UTILITAIRES */
 function truncate($string, $lenght = 150) {
 	if (strlen($string) > $lenght) {
