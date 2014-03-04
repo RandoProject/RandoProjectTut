@@ -68,6 +68,10 @@ else{
 			include_once('View/v_mail_probleme.php');
 			break;
 
+		case 'commentaire_valide':
+			include_once('View/v_commentaire_envoye.php');
+			break;
+
 		default:
 			header('Location:index.php?page=erreur');
 			break;
