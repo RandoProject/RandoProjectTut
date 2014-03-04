@@ -30,6 +30,19 @@ function get_liste_comment($condition){
 	return $data;
 }
 
+function get_liste_photo($condition){
+	global $bdd;
+
+	$query = '	SELECT photo.*, galerie.nom AS nom_galerie
+				FROM photo, galerie
+				WHERE photo.galerie = galerie.numero '.$condition;
+
+	$exec = $bdd->query($query) or die(print_r($erreur -> errorInfo()));
+	$data = $exec->fetchAll();
+	$exec->closeCursor();
+	return $data;
+}
+
 function get_liste_member(){
 	global $bdd;
 
@@ -40,50 +53,6 @@ function get_liste_member(){
 	$data = $exec->fetchAll();
 	$exec->closeCursor();
 	return $data;
-}
-
-function get_galery(){
-	global $bdd;
-
-	$query = '	SELECT galerie.*, photo.nom AS nom_photo
-				FROM galerie, photo
-				WHERE photo.galerie = galerie.numero';
-
-	$exec = $bdd->query($query) or die(print_r($erreur -> errorInfo()));
-	$data = $exec->fetchAll();
-	$exec->closeCursor();
-	return $data;
-}
-
-
-/* ACTION sur les COMMENTAIRES */
-function validate_comment($listeCode){
-	global $bdd;
-
-	$query = '	UPDATE commentaire 
-				SET valide = 1
-				WHERE numero IN (';
-				
-	foreach($listeCode as $code){
-		$query .= $code.', ';
-	}
-	$query = substr($query, 0, -2).')';
-
-	$exec = $bdd->query($query) or die(print_r($erreur -> errorInfo()));
-}
-
-function delete_comment($listeNumero){
-	global $bdd;
-
-	$query = '	DELETE FROM commentaire
-				WHERE numero IN (';
-				
-	foreach($listeNumero as $numero){
-		$query .= $numero.', ';
-	}
-	$query = substr($query, 0, -2).')';
-
-	$exec = $bdd->query($query) or die(print_r($erreur -> errorInfo()));
 }
 
 
@@ -165,6 +134,68 @@ function update_note_rando($listeCode){
 
 		$exec = $bdd->query($query) or die(print_r($erreur -> errorInfo()));
 	}
+}
+
+
+/* ACTION sur les COMMENTAIRES */
+function validate_comment($listeCode){
+	global $bdd;
+
+	$query = '	UPDATE commentaire 
+				SET valide = 1
+				WHERE numero IN (';
+				
+	foreach($listeCode as $code){
+		$query .= $code.', ';
+	}
+	$query = substr($query, 0, -2).')';
+
+	$exec = $bdd->query($query) or die(print_r($erreur -> errorInfo()));
+}
+
+function delete_comment($listeNumero){
+	global $bdd;
+
+	$query = '	DELETE FROM commentaire
+				WHERE numero IN (';
+				
+	foreach($listeNumero as $numero){
+		$query .= $numero.', ';
+	}
+	$query = substr($query, 0, -2).')';
+
+	$exec = $bdd->query($query) or die(print_r($erreur -> errorInfo()));
+}
+
+
+/* ACTION sur les PHOTOS */
+function validate_photo($listeNumero){
+	global $bdd;
+
+	$query = '	UPDATE photo 
+				SET valide = 1
+				WHERE numero IN (';
+				
+	foreach($listeNumero as $numero){
+		$query .= $numero.', ';
+	}
+	$query = substr($query, 0, -2).')';
+
+	$exec = $bdd->query($query) or die(print_r($erreur -> errorInfo()));
+}
+
+function delete_photo($listeNumero){
+	global $bdd;
+
+	$query = '	DELETE FROM photo
+				WHERE numero IN (';
+				
+	foreach($listeNumero as $numero){
+		$query .= $numero.', ';
+	}
+	$query = substr($query, 0, -2).')';
+
+	$exec = $bdd->query($query) or die(print_r($erreur -> errorInfo()));
 }
 
 

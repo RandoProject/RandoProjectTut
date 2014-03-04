@@ -173,59 +173,60 @@ CREATE TABLE IF NOT EXISTS `photo` (
 	`nom` blob NOT NULL,
 	`galerie` int(10) NOT NULL,
 	`descriptif` text DEFAULT NULL,
+	`valide` tinyint(1) NOT NULL,
 	PRIMARY KEY (`numero`),
 	FOREIGN KEY (`galerie`) REFERENCES `galerie`(`numero`)
 );
 
-INSERT INTO `photo` VALUES ('0', 'défaut.png', '0', '');
-INSERT INTO `photo` VALUES ('1', 'PR1.jpg', '1', '');
-INSERT INTO `photo` VALUES ('2', 'PR11.jpg', '2', '');
-INSERT INTO `photo` VALUES ('3', 'saut-mounine-pr19.jpg', '3', '');
-INSERT INTO `photo` VALUES ('4', '6b87c7b2d1e3436170a1dc0527b0cdc9.jpg', '4', '');
-INSERT INTO `photo` VALUES ('5', '4733f897fda3d0b9dcec0805c049f02f.jpg', '5', '');
-INSERT INTO `photo` VALUES ('6', '127782b1036c50e8266f0b434d0bc1e6.jpg', '6', '');
-INSERT INTO `photo` VALUES ('7', 'Golfe-Morbihan-2.jpg', '7', '');
-INSERT INTO `photo` VALUES ('8', 'IMG_0253.jpg', '8', '');
-INSERT INTO `photo` VALUES ('9', 'IMG_0240.jpg', '8', '');
-INSERT INTO `photo` VALUES ('10', 'IMG_0242.jpg', '8', '');
-INSERT INTO `photo` VALUES ('11', 'IMG_0244.jpg', '8', '');
-INSERT INTO `photo` VALUES ('12', 'IMG_0245.jpg', '8', '');
-INSERT INTO `photo` VALUES ('13', 'IMG_0246.jpg', '8', '');
-INSERT INTO `photo` VALUES ('14', 'IMG_0247.jpg', '8', '');
-INSERT INTO `photo` VALUES ('15', 'IMG_0250.jpg', '8', '');
-INSERT INTO `photo` VALUES ('16', 'IMG_0252.jpg', '8', '');
-INSERT INTO `photo` VALUES ('17', 'IMG_0255.jpg', '8', '');
-INSERT INTO `photo` VALUES ('18', 'IMG_0257.jpg', '8', '');
-INSERT INTO `photo` VALUES ('19', 'IMG_0258.jpg', '8', '');
-INSERT INTO `photo` VALUES ('20', 'IMG_0259.jpg', '8', '');
-INSERT INTO `photo` VALUES ('21', 'IMG_0261.jpg', '8', '');
-INSERT INTO `photo` VALUES ('22', 'IMG_0263.jpg', '8', '');
-INSERT INTO `photo` VALUES ('23', 'IMG_0264.jpg', '8', '');
-INSERT INTO `photo` VALUES ('24', 'IMG_0265.jpg', '8', '');
-INSERT INTO `photo` VALUES ('25', 'IMG_0266.jpg', '8', '');
-INSERT INTO `photo` VALUES ('26', 'IMG_0268.jpg', '8', '');
-INSERT INTO `photo` VALUES ('27', 'IMG_0445.jpg', '8', '');
-INSERT INTO `photo` VALUES ('28', 'IMG_0447.jpg', '8', '');
-INSERT INTO `photo` VALUES ('29', 'IMG_0448.jpg', '8', '');
-INSERT INTO `photo` VALUES ('30', 'IMG_0449.jpg', '8', '');
-INSERT INTO `photo` VALUES ('31', 'IMG_0451.jpg', '8', '');
-INSERT INTO `photo` VALUES ('32', 'IMG_0452.jpg', '8', '');
-INSERT INTO `photo` VALUES ('33', 'IMG_0453.jpg', '8', '');
-INSERT INTO `photo` VALUES ('34', 'IMG_0468.jpg', '8', '');
-INSERT INTO `photo` VALUES ('35', 'IMG_0469.jpg', '8', '');
-INSERT INTO `photo` VALUES ('36', 'IMG_0472.jpg', '8', '');
-INSERT INTO `photo` VALUES ('37', 'IMG_0474.jpg', '8', '');
-INSERT INTO `photo` VALUES ('38', 'IMG_0475.jpg', '8', '');
-INSERT INTO `photo` VALUES ('39', 'IMG_0476.jpg', '8', '');
-INSERT INTO `photo` VALUES ('40', 'IMG_0477.jpg', '8', '');
-INSERT INTO `photo` VALUES ('41', 'IMG_0479.jpg', '8', '');
-INSERT INTO `photo` VALUES ('42', 'IMG_0489.jpg', '8', '');
-INSERT INTO `photo` VALUES ('43', 'IMG_0490.jpg', '8', '');
-INSERT INTO `photo` VALUES ('44', 'IMG_0493.jpg', '8', '');
-INSERT INTO `photo` VALUES ('45', 'IMG_0495.jpg', '8', '');
-INSERT INTO `photo` VALUES ('46', 'IMG_0497.jpg', '8', '');
-INSERT INTO `photo` VALUES ('47', 'IMG_0499.jpg', '8', '');
-INSERT INTO `photo` VALUES ('48', 'IMG_0505.jpg', '8', '');
+INSERT INTO `photo` VALUES ('0', 'défaut.png', '0', '', '0');
+INSERT INTO `photo` VALUES ('1', 'PR1.jpg', '1', '', '0');
+INSERT INTO `photo` VALUES ('2', 'PR11.jpg', '2', '', '0');
+INSERT INTO `photo` VALUES ('3', 'saut-mounine-pr19.jpg', '3', '', '0');
+INSERT INTO `photo` VALUES ('4', '6b87c7b2d1e3436170a1dc0527b0cdc9.jpg', '4', '', '0');
+INSERT INTO `photo` VALUES ('5', '4733f897fda3d0b9dcec0805c049f02f.jpg', '5', '', '0');
+INSERT INTO `photo` VALUES ('6', '127782b1036c50e8266f0b434d0bc1e6.jpg', '6', '', '0');
+INSERT INTO `photo` VALUES ('7', 'Golfe-Morbihan-2.jpg', '7', '', '0');
+INSERT INTO `photo` VALUES ('8', 'IMG_0253.jpg', '8', '', '0');
+INSERT INTO `photo` VALUES ('9', 'IMG_0240.jpg', '8', '', '0');
+INSERT INTO `photo` VALUES ('10', 'IMG_0242.jpg', '8', '', '0');
+INSERT INTO `photo` VALUES ('11', 'IMG_0244.jpg', '8', '', '0');
+INSERT INTO `photo` VALUES ('12', 'IMG_0245.jpg', '8', '', '0');
+INSERT INTO `photo` VALUES ('13', 'IMG_0246.jpg', '8', '', '0');
+INSERT INTO `photo` VALUES ('14', 'IMG_0247.jpg', '8', '', '0');
+INSERT INTO `photo` VALUES ('15', 'IMG_0250.jpg', '8', '', '0');
+INSERT INTO `photo` VALUES ('16', 'IMG_0252.jpg', '8', '', '0');
+INSERT INTO `photo` VALUES ('17', 'IMG_0255.jpg', '8', '', '0');
+INSERT INTO `photo` VALUES ('18', 'IMG_0257.jpg', '8', '', '0');
+INSERT INTO `photo` VALUES ('19', 'IMG_0258.jpg', '8', '', '0');
+INSERT INTO `photo` VALUES ('20', 'IMG_0259.jpg', '8', '', '0');
+INSERT INTO `photo` VALUES ('21', 'IMG_0261.jpg', '8', '', '0');
+INSERT INTO `photo` VALUES ('22', 'IMG_0263.jpg', '8', '', '0');
+INSERT INTO `photo` VALUES ('23', 'IMG_0264.jpg', '8', '', '0');
+INSERT INTO `photo` VALUES ('24', 'IMG_0265.jpg', '8', '', '0');
+INSERT INTO `photo` VALUES ('25', 'IMG_0266.jpg', '8', '', '0');
+INSERT INTO `photo` VALUES ('26', 'IMG_0268.jpg', '8', '', '0');
+INSERT INTO `photo` VALUES ('27', 'IMG_0445.jpg', '8', '', '0');
+INSERT INTO `photo` VALUES ('28', 'IMG_0447.jpg', '8', '', '0');
+INSERT INTO `photo` VALUES ('29', 'IMG_0448.jpg', '8', '', '0');
+INSERT INTO `photo` VALUES ('30', 'IMG_0449.jpg', '8', '', '0');
+INSERT INTO `photo` VALUES ('31', 'IMG_0451.jpg', '8', '', '0');
+INSERT INTO `photo` VALUES ('32', 'IMG_0452.jpg', '8', '', '0');
+INSERT INTO `photo` VALUES ('33', 'IMG_0453.jpg', '8', '', '0');
+INSERT INTO `photo` VALUES ('34', 'IMG_0468.jpg', '8', '', '0');
+INSERT INTO `photo` VALUES ('35', 'IMG_0469.jpg', '8', '', '0');
+INSERT INTO `photo` VALUES ('36', 'IMG_0472.jpg', '8', '', '0');
+INSERT INTO `photo` VALUES ('37', 'IMG_0474.jpg', '8', '', '0');
+INSERT INTO `photo` VALUES ('38', 'IMG_0475.jpg', '8', '', '0');
+INSERT INTO `photo` VALUES ('39', 'IMG_0476.jpg', '8', '', '0');
+INSERT INTO `photo` VALUES ('40', 'IMG_0477.jpg', '8', '', '0');
+INSERT INTO `photo` VALUES ('41', 'IMG_0479.jpg', '8', '', '0');
+INSERT INTO `photo` VALUES ('42', 'IMG_0489.jpg', '8', '', '0');
+INSERT INTO `photo` VALUES ('43', 'IMG_0490.jpg', '8', '', '0');
+INSERT INTO `photo` VALUES ('44', 'IMG_0493.jpg', '8', '', '0');
+INSERT INTO `photo` VALUES ('45', 'IMG_0495.jpg', '8', '', '0');
+INSERT INTO `photo` VALUES ('46', 'IMG_0497.jpg', '8', '', '0');
+INSERT INTO `photo` VALUES ('47', 'IMG_0499.jpg', '8', '', '0');
+INSERT INTO `photo` VALUES ('48', 'IMG_0505.jpg', '8', '', '0');
 
 -- ____________________ MEMBRE ____________________ --
 CREATE TABLE IF NOT EXISTS `membre` (
