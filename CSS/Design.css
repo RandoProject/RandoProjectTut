@@ -465,7 +465,7 @@ section#fiche_rando div.caracteristique span.valeur_caract div#cercle{
 	border-radius: 15px;
 }
 					/* Commentaire */
-section#fiche_rando div#cadre_affichage_commentaire{
+section#fiche_rando div#cadre_affichage_commentaire_pair, div#cadre_affichage_commentaire_impair{
 	display: block;
 	width: 600px;
 	height: auto;
@@ -473,8 +473,27 @@ section#fiche_rando div#cadre_affichage_commentaire{
 	margin-left: auto;
 	margin-right: auto;
 	border: solid 1px #CCC;
-	background-color: #FFFFFF;
-	text-align: center;
+}
+section#fiche_rando div#cadre_affichage_commentaire_impair{ background-color: rgba(255, 255, 255, 0.4);}
+section#fiche_rando div div#ligne1 span#auteur{
+	font-weight: bold;
+	font-size: 1.2em;
+}
+section#fiche_rando div div#ligne1 span#date{
+	font-style: italic;
+	margin-left: 380px;
+}
+section#fiche_rando div span#note{
+	font-style: italic;
+	margin-left: 460px;
+	font-size: 1.1em;
+}
+section#fiche_rando div div#ligne1{
+	margin-bottom: 15px;
+}
+section#fiche_rando div div#ligne2{
+	text-align: left;
+	margin-bottom: 15px;
 }
 section#fiche_rando form{
 	display: inline-block;
@@ -634,7 +653,7 @@ section#administration form table{
 	margin-right: auto;
 	border: solid 1px #CCC;
 }
-section#administration form table tr.ligne_impair{ background-color: #rgba(200, 200, 200, 0.5); }
+section#administration form table tr.ligne_impair{}
 section#administration form table tr.ligne_pair{ background-color: rgba(255, 255, 255, 0.5); }
 section#administration form table tr{
 	text-align: center;
@@ -742,7 +761,7 @@ section#profil table tr td img{
 section#contact form#form_contact input[type=text],
 section#contact form#form_contact input[type=email]{
     width: 350px;
-	margin-left: 10%;
+    margin-left: 10px;
 }
 section#contact form#form_contact textarea{
 	width: 80%;
@@ -754,7 +773,11 @@ section#contact form#form_contact input[type=submit]{
 	margin-left: auto;
 	margin-right: auto;
 }
-
+section#contact form#form_contact img{
+	width: 20px;
+	height: 20px;
+	margin-left: 60px;
+}
 
 /* - - - - - - - - - - Footer - - - - - - - - - - */
 footer{
