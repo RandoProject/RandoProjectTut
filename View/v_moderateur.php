@@ -148,7 +148,10 @@
 											<td>'.$comment['numero'].'</td>
 											<td title="'.$comment['auteur'].'">'.$comment['auteur'].'</td>
 											<td title="'.$comment['commentaire'].'">'.truncate($comment['commentaire'], 250).'</td>
-											<td onClick="unCheck(\''.$i.'\');"><input type="checkbox" name="comment[]" value="'.$comment['numero'].'" id="'.$i.'" onclick="check(\''.$i.'\');"/></td>
+											<td onClick="unCheck(\''.$i.'\');">
+												<input type="checkbox" name="comment[]" value="'.$comment['numero'].'" id="'.$i.'" onclick="check(\''.$i.'\');"/>
+												<input type="hidden" value="'.$comment['code_rando'].'" name="rando[]"/>
+											</td>
 										</tr>
 							';
 							$i++;

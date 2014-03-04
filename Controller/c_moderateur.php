@@ -34,7 +34,7 @@ else if($_GET['section'] === 'commentaires'){
 		}
 		else if(!empty($_POST['delete'])){
 			delete_comment($_POST['comment']);
-			update_note_rando($_POST['comment']);
+			update_note_rando($_POST['rando']);
 		}
 	}
 	$listeComment = get_liste_comment('WHERE valide = 0');

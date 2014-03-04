@@ -162,8 +162,8 @@ function update_note_rando($listeCode){
 									FROM commentaire 
 									WHERE code_rando = '.$code.')
 					WHERE code = '.$code;
-					echo $query;
-	$exec = $bdd->query($query) or die(print_r($erreur -> errorInfo()));
+
+		$exec = $bdd->query($query) or die(print_r($erreur -> errorInfo()));
 	}
 }
 
