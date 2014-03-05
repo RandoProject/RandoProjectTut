@@ -10,7 +10,7 @@
         }
         ?>
     <br/>
-	<h3>Dernièrs Commentaires</h3>
+	<h3>Derniers Commentaires</h3>
 		<?php
         foreach($liste_com as $com){
 			echo $com['commentaire'].'</br>';
