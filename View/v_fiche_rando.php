@@ -1,7 +1,22 @@
 <!DOCTYPE html>
 <html lang="fr">
-    <?php head("Fiche : $title"); ?>
-    <script src="JS/stars.js"></script>
+
+    <?php head("Fiche : $title",
+                array(
+                    array('type' => 'meta', 'name' => 'viewport', 'content' => 'initial-scale=1.0, user-scalable=no'),
+                    array('type' => 'javascript', 'src' => 'https://maps.googleapis.com/maps/api/js?key=AIzaSyC8ydWcT7L0z-S-g7DJf0Nh985GSMDjSf0&sensor=false&region=FR'),
+                    array('type' => 'javascript', 'src' => 'JS/script_GPX2.js'),
+                    array('type' => 'javascript', 'src' => 'JS/stars.js')
+                )); ?>
+    <script type="text/javascript">
+        var divMap;
+        window.addEventListener('load', function(){
+            divMap = document.getElementById('carte');
+            divMap.style.height = '350px';
+            
+            initializeMap()
+        }, false);
+    </script>
     
     <body>
         <div id="corps">
@@ -16,6 +31,7 @@
                 <?php echo $description; ?><br/>
                 
                 <div id="carte">
+                    
                 	GPX : <?php echo $path; ?><br/>
                 </div>
                 
@@ -98,13 +114,25 @@
                 <?php
                     $i = 0;
 					foreach($nombre_commentaire as $nb_commentaire){
+                        if(($i % 2) === 0) $ligneColor = 'pair';
+                        else $ligneColor = 'impair';
 						$date = $nb_commentaire['date'];
-						echo '<div id="cadre_affichage_commentaire">';
-							echo $insertion_date .'<br/>';
-							echo $nb_commentaire['commentaire'].'<br/>';
-							echo $nb_commentaire['auteur'].'<br/>';;
-							echo $nb_commentaire['note'];
-						echo '</div><br/>';
+						echo '<div id="cadre_affichage_commentaire_'.$ligneColor.'">';
+                            echo '<div id="ligne1">';
+                                echo '<span id="auteur">Par : '.$nb_commentaire['auteur'].'</span>';
+							    echo '<span id="date">Le : '.$insertion_date .'</span><br/>';
+                            echo '</div>';
+                            echo '<div id="ligne2">';
+							    echo $nb_commentaire['commentaire'].'<br/>';
+                            echo '</div>';
+                                if($nb_commentaire['note'] == 0){
+                                    echo '<span id="note">Note : aucune...</span>';
+                                }
+                                else{
+                                    echo '<span id="note">Note : '.$nb_commentaire['note'].'</span>';
+                                }
+						echo '</div>';
+                        $i++;
 					}
                     if($_SESSION){
                 ?>
