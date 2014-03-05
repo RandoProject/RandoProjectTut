@@ -3,45 +3,15 @@
 
 	<?php head("Modération"); ?>
     
-	<script language="javascript">
-		/* Cocher / Décocher UN checkbox
-		 * id : id du checkbox à cocher
-		 */
-        function unCheck(id){
-            if(!document.getElementById(id).checked){
-                document.getElementById(id).checked = true;
-            }
-            else{
-                document.getElementById(id).checked = false;
-            }
-        }
-    	
-		/* Cocher / Décocher TOUS les checkbox
-		 * id : id du checkbox principal qui coche les autres
-		 */
-		function unCheckAll(id){ 
-			var inputs = document.getElementsByTagName("input");
-			var value = false;
-			if(document.getElementById(id).checked){
-				value = true;
-			}
-			for(var i = 0; i < inputs.length; i++){
-				if(inputs[i].type == "checkbox" && inputs[i] != document.getElementById(id)){
-					inputs[i].checked = value;
-				}
-			}
-		}
-    </script>
-    
 	<body>
         <div id="corps">   
 			<?php menu(); ?>
             
             <section id="administration">
             	<div class="titre">Modération</div>
-           		<a class="menu_administration" href="index.php?page=moderateur&section=commentaires">commentaire</a>
-				<a class="menu_administration" href="index.php?page=moderateur&section=randonnees">randonnees</a>
-				<a class="menu_administration" href="index.php?page=moderateur&section=photos">photos</a>
+				<a class="menu_administration" href="index.php?page=moderateur&section=randonnees">Randonnees</a>
+           		<a class="menu_administration" href="index.php?page=moderateur&section=commentaires">Commentaires</a>
+				<a class="menu_administration" href="index.php?page=moderateur&section=photos">Photos</a>
                 
             	<?php $i = 0; 
 

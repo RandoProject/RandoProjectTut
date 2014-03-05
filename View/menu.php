@@ -24,7 +24,7 @@ function menu(){
 
 	if(isset($_SESSION['statut'])){
 		if($_SESSION['statut'] == 'administrateur'){
-			echo '	<li><a id="administrateur" href="index.php?page=administrateur">Administration</a></li>';
+			echo '	<li><a id="administrateur" href="index.php?page=administrateur&section=randonnees">Administration</a></li>';
 		}
 		else if($_SESSION['statut'] == 'moderateur'){
 			echo '	<li><a id="moderateur" href="index.php?page=moderateur&section=randonnees">Modération</a></li>';
