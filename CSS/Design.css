@@ -195,11 +195,44 @@ div#corps div.cadre{
 	margin: 10px;
 	overflow: hidden;
 }
-div#corps div#map{
-	display: block;
+div#corps div.map{
 	float: right;
-	margin: 10px;
-	overflow: hidden;
+	width: 650px;
+	height: 608px;
+	background: url(../Resources/Images/map.png) left top no-repeat;
+	position: relative;
+}
+div#corps div.map div.overlay{
+	width: 650px;
+	height: 608px;
+	background: url(../Resources/Images/map.png) 650px top no-repeat;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	z-index: 1;
+}
+div#corps div.map img{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	z-index: 2;
+}
+div#corps div.map div.tooltip{
+	position: fixed;
+	display: inline;
+	font-family: Kalinga;
+	text-align: center;
+	font-size: 15px;
+	color: #A8BF75;
+	background-color: #FFFFFF;
+	border-color: rgba(82, 168, 236, 0.8);
+    box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.075) inset, 
+                0px 0px 8px rgba(82, 168, 236, 0.6);
+	border-radius: 20px;
+	padding: 5px 10px 0px 10px;
+	top: 0px;
+	left: 0px;
+	z-index: 3;
 }
 
 
@@ -227,10 +260,11 @@ aside em{
 
 /* - - - - - - - - - - Section - - - - - - - - - - */
 section{
-	display: inline-block;
 	float: right;
 	width: 78%;
 	height: auto;
+	min-height: 500px;
+	
 }
 
 
@@ -658,6 +692,31 @@ section#administration form table tr.ligne_pair{ background-color: rgba(255, 255
 section#administration form table tr{
 	text-align: center;
 	cursor: pointer;
+}
+					/* Photos */
+section#administration form div.photo{
+	display: inline-block;
+	margin: 20px 0px 0px 22px;
+	width: 210px;
+	height: 143px;
+	overflow: hidden;
+}
+section#administration form label{
+	font-size: 15px;
+}
+section#administration form div.photo label img{
+	width: 200px;
+	height: 133px;
+	border: 5px #A8BF75 solid;
+	border-bottom-left-radius: 15px;
+	border-top-right-radius: 15px;
+}
+section#administration form div.photo input[type="checkbox"]{
+	position: relative;
+	display: block;
+	float: right;
+	margin-top: -20px;
+	margin-right: 4px;
 }
 
 

@@ -109,7 +109,7 @@ $listeRegion = select_regions('num_region, nom');
 $rando_recente = selection_rando_recente();
 
 /* Récupération des données */
-if(empty($_POST['envoie_formulaire']) && empty($_POST['envoie_titre'])){
+if(empty($_POST['envoie_formulaire']) && empty($_POST['envoie_titre']) && !isset($_GET['region'])){
 	$listeRando = $rando_recente;
 }
 else if(isset($_POST['envoie_formulaire'])){
@@ -117,6 +117,9 @@ else if(isset($_POST['envoie_formulaire'])){
 }
 else if(isset($_POST['envoie_titre'])){
 	$listeRando = $affichage_titre_rando;
+}
+else if(!empty($_GET['region']) && $_GET['region'] > 0 && $_GET['region'] < 23){
+	$listeRando = affichage_f_rando_complet($_GET['region'], 's_region_true', -1, -1, false, false, 'non_precise', false);
 }
 else{
 	$listeRando = NULL;

@@ -168,9 +168,29 @@
                     
                     
                 // - - - - - - - - - - Partie PHOTOS - - - - - - - - - -
-            	else if($_GET['section'] === 'photos'){ ?>
-                	azertyuiop
-                <?php } ?>
+            	else if($_GET['section'] === 'photos'){
+					if(!empty($listePhoto)){
+						// --- BOUTONS ---
+						echo '	<form method="post" action="index.php?page=moderateur&section=photos">
+									<input type="submit" value="Valider" name="validate"/> 
+									<input type="submit" value="Supprimer" name="delete"/>
+									<br/><br/><br/>
+						';
+						echo '		&emsp;&emsp;<input type="checkbox" id="selectAll" onChange="unCheckAll(\'selectAll\');"/><label for="selectAll"> Sélectionner / Déselectionner tout </label><br/>';
+						foreach($listePhoto as $photo){
+							echo '	<div class="photo">
+										<label for="'.$photo['numero'].'">
+											<img src="Resources/Galerie/'.$photo['nom_galerie'].'/'.$photo['nom'].'"/>
+										</label>
+										<input type="checkbox" name="photo[]" value="'.$photo['numero'].'" id="'.$photo['numero'].'"/>
+									</div>
+							';
+						}
+					}
+					else{
+						echo '<br/><br/><br/><br/><br/><h2>Aucune photos n\'a été récemment ajoutée<h2/>'; 
+					}
+                } ?>
             </section>
 
         	<?php include_once('Controller/c_footer.php'); ?>
