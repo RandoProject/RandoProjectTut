@@ -1,20 +1,25 @@
 <!DOCTYPE html>
 <html lang="fr">
-
-    <?php head("Fiche : $title",
-                array(
+    
+    <?php 
+    $listeFiles = array(
                     array('type' => 'meta', 'name' => 'viewport', 'content' => 'initial-scale=1.0, user-scalable=no'),
                     array('type' => 'javascript', 'src' => 'https://maps.googleapis.com/maps/api/js?key=AIzaSyC8ydWcT7L0z-S-g7DJf0Nh985GSMDjSf0&sensor=false&region=FR'),
-                    array('type' => 'javascript', 'src' => 'JS/script_GPX2.js'),
-                    array('type' => 'javascript', 'src' => 'JS/stars.js')
-                )); ?>
+                    array('type' => 'javascript', 'src' => 'JS/script_GPX2.js')
+                    );
+    if(isset($_SESSION['pseudo'])){
+        $listeFiles[] = array('type' => 'javascript', 'src' => 'JS/stars.js'); // On ajoute ce script seulement si on est connecté
+    }
+    head("Fiche : $title", $listeFiles); ?>
+
     <script type="text/javascript">
         var divMap;
         window.addEventListener('load', function(){
             divMap = document.getElementById('carte');
-            divMap.style.height = '350px';
-            
-            initializeMap()
+            divMap.style.height = '350px'; // -------------- A faire en CSS
+            if(!getGpx('<?php echo $srcParcours?>')){
+
+            }
         }, false);
     </script>
     
@@ -134,7 +139,7 @@
 						echo '</div>';
                         $i++;
 					}
-                    if($_SESSION){
+                    if(isset($_SESSION['pseudo']){
                 ?>
                 <br/>
 

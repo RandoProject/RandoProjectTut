@@ -1,11 +1,41 @@
-var divMap;
 
-window.addEventListener('load', function(){
-	divMap = document.getElementById('carte');
-	divMap.style.height = '350px';
-	/*document.getElementById('container-map').style.height = '350px';*/
-	initializeMap()
-}, false);
+
+
+
+function getGpx(name){
+	var xhr;
+	
+	if (window.XMLHttpRequest || window.ActiveXObject) {
+		if (window.ActiveXObject) {
+			try {
+				xhr = new ActiveXObject("Msxml2.XMLHTTP");
+			} catch(e) {
+				xhr = new ActiveXObject("Microsoft.XMLHTTP");
+			}
+		} else {
+			xhr = new XMLHttpRequest(); 
+		}
+	} else {
+		return false;
+	}
+
+	xhr.onreadystatechange = function(){
+		if(xhr.readyState == 4){
+			if(xhr.status == 200){
+				alert("ok : " + xhr.responseText);
+				initializeMap();
+			}
+			else{
+				console.log(xhr.status);
+			}
+		}
+	};
+
+
+	xhr.open('GET', 'Resources/GPX/'+name, true); // Demande le fichier gpx de la carte de manière asychrone
+	xhr.send(null);
+}
+
 
 function initializeMap(){
 	/*var sw = new google.maps.LatLng(limitPoints.south, limitPoints.west);
