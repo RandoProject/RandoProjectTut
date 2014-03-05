@@ -98,7 +98,7 @@
                 </div>
             </div>
     		
-            <br/><br/><hr/><br/>
+            <br/><br/><br/><br/><br/>
             <div class="map">
                 <img src="Resources/Images/void.png" width="650" height="608" usemap="#Map"/>
                 <map name="Map">

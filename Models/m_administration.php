@@ -210,23 +210,34 @@ function truncate($string, $lenght = 150) {
 	return $string;
 }
 
-function print_date($olddate){
-	$date = new DateTime(trim($olddate));
-	$month = $date->format('m');
-	switch($month) {
-		case '01': $month = 'Janvier'; break;
-		case '02': $month = 'Février'; break;
-		case '03': $month = 'Mars'; break;
-		case '04': $month = 'Avril'; break;
-		case '05': $month = 'Mai'; break;
-		case '06': $month = 'Juin'; break;
-		case '07': $month = 'Juillet'; break;
-		case '08': $month = 'Août'; break;
-		case '09': $month = 'Septembre'; break;
-		case '10': $month = 'Octobre'; break;
-		case '11': $month = 'Novembre'; break;
-		case '12': $month = 'Décembre'; break;
-		default: $month =''; break;
+?>
+ 
+<script language="javascript">
+	/* Cocher / Décocher UN checkbox
+	 * id : id du checkbox à cocher
+	 */
+	function unCheck(id){
+		if(!document.getElementById(id).checked){
+			document.getElementById(id).checked = true;
+		}
+		else{
+			document.getElementById(id).checked = false;
+		}
 	}
-	return $date->format('d').' '.$month.' '.$date->format('Y').' '.$date->format('H').'h'.$date->format('i');
-}
+	
+	/* Cocher / Décocher TOUS les checkbox
+	 * id : id du checkbox principal qui coche les autres
+	 */
+	function unCheckAll(id){ 
+		var inputs = document.getElementsByTagName("input");
+		var value = false;
+		if(document.getElementById(id).checked){
+			value = true;
+		}
+		for(var i = 0; i < inputs.length; i++){
+			if(inputs[i].type == "checkbox" && inputs[i] != document.getElementById(id)){
+				inputs[i].checked = value;
+			}
+		}
+	}
+</script>
