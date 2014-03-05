@@ -12,9 +12,12 @@
             <section id="contact">
                 <div class="titre">Nous contacter</div><br/><br/>
                     <form action="index.php?page=contact" method="post" id="form_contact">
-                        <input type="text" name="nom" placeholder="Nom" autocomplete="off" maxlength="30" required/><br/>
-                        <input type="email" name="adresse_mail" placeholder="Email" autocomplete="off" required/><br/>
-                        <input type="text" name="objet" placeholder="Objet" autocomplete="off" required/><br/>
+                            <img src="Resources/Images/contacts.png"/>
+                                <input type="text" name="nom" placeholder="Nom" autocomplete="off" maxlength="30" required/><br/>
+                            <img src="Resources/Images/mail.png"/>
+                                <input type="email" name="adresse_mail" placeholder="Email" autocomplete="off" required/><br/>
+                            <img src="Resources/Images/note.png"/>
+                                <input type="text" name="objet" placeholder="Objet" autocomplete="off" required/><br/>
                         <textarea id="message" name="message" placeholder="Message" autocomplete="off" required></textarea><br/>
                         <?php if(isset($mail_verif)) echo '<p> Votre adresse email n\'est pas valide </p>';?>
                         <input type="submit" name="envoi_mail" value="Envoyer"/>      
