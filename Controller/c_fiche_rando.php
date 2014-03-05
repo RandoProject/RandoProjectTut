@@ -108,7 +108,7 @@ if(isset($_GET['code'])){
 
 
 		//Commentaire
-		if($_SESSION['pseudo'] and strtolower($_SERVER['REQUEST_METHOD']) == 'post' and isset($_POST['commentaire']) and $_POST['commentaire'] != ""){
+		if(isset($_SESSION['pseudo']) and strtolower($_SERVER['REQUEST_METHOD']) == 'post' and isset($_POST['commentaire']) and $_POST['commentaire'] != ""){
 				$commentaire = strip_tags($_POST['commentaire']);
 				if(!isset($_POST['note'])){
 					$note2 = 0;
@@ -128,7 +128,7 @@ if(isset($_GET['code'])){
 			include_once('bin/params.php');
 			include_once('Models/m_parcours.php');
 			$srcParcours = get_parcours($idParcours)->nom; // Récupère le chemin du parcours
-			
+
 			include_once('View/v_fiche_rando.php');
 		}
 	}
