@@ -17,8 +17,11 @@
         window.addEventListener('load', function(){
             divMap = document.getElementById('carte');
             divMap.style.height = '350px'; // -------------- A faire en CSS
-            if(!getGpx('<?php echo $srcParcours?>')){
-
+            divMap.style.width = '450px';
+            if(!getGpx('<?php echo $srcParcours?>')){ // Si le XHR n'a ne peut pas être instancié
+                var elem = document.createElement('p');
+                elem.appendChild(document.createTextNode('Votre navigateur ne suporte pas notre gestion de parcours.'))
+                divMap.appendChild(elem);
             }
         }, false);
     </script>
@@ -36,8 +39,6 @@
                 <?php echo $description; ?><br/>
                 
                 <div id="carte">
-                    
-                	GPX : <?php echo $path; ?><br/>
                 </div>
                 
                 <div class="caracteristique">
@@ -139,7 +140,7 @@
 						echo '</div>';
                         $i++;
 					}
-                    if(isset($_SESSION['pseudo']){
+                    if(isset($_SESSION['pseudo'])){
                 ?>
                 <br/>
 
