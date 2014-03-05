@@ -9,6 +9,18 @@ function insert_parcours($nom, $nbPoints){
 						'nb_points' => $nbPoints));
 	$res = $bdd->lastInsertId();
 	$bdd->exec('UNLOCK TABLES');
-	// UPDATE nom ----------------------------------------------------------------
+
+	$req = $bdd->prepare('UPDATE parcours SET nom = CONCAT_WS(\'_\', :id, nom) WHERE id = :id'); // Avec l'id on change maintenant le nom
+	$req->execute(array('id' => $res));
+
 	return $res;
+}
+
+function get_parcours($id){
+	global $bdd;
+
+	$req = $bdd->prepare('SELECT * FROM parcours WHERE id = :id');
+	$req->execute(array('id' => $id));
+
+	return $req->fetch(PDO::FETCH_OBJ);
 }

@@ -30,8 +30,8 @@ function gpxReader(){
 	}
 	else{ // Si on est sur IE
 		gpxFile = new ActiveXObject("Microsoft.XMLDOM");
-			gpxFile.async=false;
-			gpxFile.loadXML(reader.result);
+		gpxFile.async=false;
+		gpxFile.loadXML(reader.result);
 	}
 
 	var listCoordinates = new Array();

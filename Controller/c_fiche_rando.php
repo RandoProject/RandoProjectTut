@@ -18,6 +18,7 @@ if(isset($_GET['code'])){
 		$path = $rando->parcours;
 		$galery = $rando->nom_galerie;
 		$photo = 'Resources/Galerie/'.$galery.'/'.$rando->nom_photo;
+		$idParcours = $rando->parcours;
 		
 		// Nombre de note
 			$number_of_note = $rando->nb_note.' vote'.(( $rando->nb_note > 1)? 's' : '');
@@ -107,32 +108,34 @@ if(isset($_GET['code'])){
 
 
 		//Commentaire
-		if($_SESSION){
-			if(strtolower($_SERVER['REQUEST_METHOD']) == 'post'){
-				if(!empty($_POST['commentaire'])){
-					$commentaire = strip_tags($_POST['commentaire']);
-				}
+		if($_SESSION['pseudo'] and strtolower($_SERVER['REQUEST_METHOD']) == 'post' and isset($_POST['commentaire']) and $_POST['commentaire'] != ""){
+				$commentaire = strip_tags($_POST['commentaire']);
 				if(!isset($_POST['note'])){
 					$note2 = 0;
 				}
 				else if(is_numeric($_POST['note']) and intval($_POST['note']) <= 5 and intval($_POST['note']) >= 1){
 					$note2 = intval($_POST['note']);
 				}
-				if($commentaire != ""){
-						validation_commentaire($commentaire,$_SESSION['pseudo'], $code, $note2);
-						$nombre_commentaire = recuperation_commentaire($code);
-						$insertion_date = $date->format('d').' '.$month.' '.$date->format('Y');
-						$moyenne = moyenne_note_rando($code);
-						mise_a_jour_note($code, $moyenne['moyenne_note']);
-						header('Location:index.php?page=commentaire_valide&code='.$code);
-				}
-			}
+				validation_commentaire($commentaire,$_SESSION['pseudo'], $code, $note2);
+				$nombre_commentaire = recuperation_commentaire($code);
+				$insertion_date = $date->format('d').' '.$month.' '.$date->format('Y');
+				$moyenne = moyenne_note_rando($code);
+				mise_a_jour_note($code, $moyenne['moyenne_note']);
+				header('Location:index.php?page=commentaire_valide&code='.$code);
 		}
-		$nombre_commentaire = recuperation_commentaire($code);
+		else{
+			$nombre_commentaire = recuperation_commentaire($code);
+			include_once('bin/params.php');
+			include_once('Models/m_parcours.php');
+			$srcParcours = get_parcours($idParcours)->nom; // Récupère le chemin du parcours
+			
+			include_once('View/v_fiche_rando.php');
+		}
 	}
 	else{
 		header('Location:index.php?page=erreur');
 	}
 }
-
-include_once('View/v_fiche_rando.php');
+else{
+	header('Location:index.php?page=erreur');
+}
