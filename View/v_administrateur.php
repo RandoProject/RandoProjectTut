@@ -9,10 +9,10 @@
             
             <section id="administration">
             	<div class="titre">Administration</div>
-				<a class="menu_administration" href="index.php?page=moderateur&section=randonnees">Randonnees</a>
-           		<a class="menu_administration" href="index.php?page=moderateur&section=commentaires">Commentaires</a>
-				<a class="menu_administration" href="index.php?page=moderateur&section=photos">Photos</a>
-				<a class="menu_administration" href="index.php?page=moderateur&section=membres">Membres</a>
+				<a class="menu_administration" href="index.php?page=administrateur&section=randonnees">Randonnees</a>
+           		<a class="menu_administration" href="index.php?page=administrateur&section=commentaires">Commentaires</a>
+				<a class="menu_administration" href="index.php?page=administrateur&section=photos">Photos</a>
+				<a class="menu_administration" href="index.php?page=administrateur&section=membres">Membres</a>
                 
             	<?php $i = 0; 
 
@@ -22,7 +22,7 @@
 				if($_GET['section'] === 'randonnees'){
 					if(!empty($listeRando)){
 						// --- BOUTONS ---
-						echo '<form method="post" action="index.php?page=moderateur&section=randonnees">';
+						echo '<form method="post" action="index.php?page=administrateur&section=randonnees">';
 						if(!empty($_POST['rando']) && !empty($_POST['update'])){
 							echo '<input type="submit" value="Valider" name="validUpdate"/>';
 						} 
@@ -32,7 +32,7 @@
 									<input type="submit" value="Valider" name="validate"/>
 							';
 						}
-					
+						
 						// --- ENTETE TABLEAU ---
 						echo'	<table>
 									<tr>
@@ -71,6 +71,7 @@
 							foreach($listeRando as $rando){
 								if(($i % 2) === 0) $ligneColor = 'pair';
 								else $ligneColor = 'impair';
+								if(array_search($rando, $listeRandoInvalide, true)){ echo '<tr><td>azertyuiop</td><td></td><td></td><td></td><td></td></tr>';}
 								echo '	<tr class="ligne_'.$ligneColor.'" height="80px" onclick="unCheck(\''.$i.'\');">
 											<td>'.$rando['code'].'</td>
 											<td title="'.$rando['titre'].'">'.$rando['titre'].'</td>

@@ -10,7 +10,9 @@ function get_liste_rando($condition){
 				FROM rando, photo, galerie, departements
 				WHERE rando.photo_principale = photo.numero
 				AND photo.galerie = galerie.numero
-				AND rando.departement = departements.num_departement '.$condition;
+				AND rando.departement = departements.num_departement
+				'.$condition.'
+				ORDER BY date_insertion ASC';
 				
 	$exec = $bdd->query($query) or die(print_r($erreur -> errorInfo()));
 	$data = $exec->fetchAll();
@@ -22,7 +24,9 @@ function get_liste_comment($condition){
 	global $bdd;
 
 	$query = '	SELECT *
-				FROM commentaire '.$condition;
+				FROM commentaire
+				'.$condition.'
+				ORDER BY date ASC';
 
 	$exec = $bdd->query($query) or die(print_r($erreur -> errorInfo()));
 	$data = $exec->fetchAll();
