@@ -5,35 +5,39 @@ var reader;
 window.addEventListener('load', function(){
     var divFile = document.getElementById('chooseFile');
     var chooser = divFile.getElementsByTagName('button')[0];
-    chooser.addEventListener('click', chooseFile, false);
+    chooser.addEventListener('click', function(){
+            var file = document.getElementById('fileMap');
+            file.click();
+    }, false);
 
     fileInput = document.getElementById('fileMap');
     fileInput.addEventListener('change', function(){
                 reader = new FileReader();
-                reader.addEventListener('load', gpxReader, false);
+                reader.addEventListener('load', function(){ initXmlReader(reader.result)}, false);
                 reader.readAsText(fileInput.files[0]);
     }, false);
     
 }, false);
 
-function chooseFile(ev){
-    var file = document.getElementById('fileMap');
-    file.click();
+
+// Initialise l'objet de lecture, et envoi le GPX à la fonction gpxRead
+function initXmlReader(textFile){
+    var gpxFile;
+    if(window.DOMParser){
+        parser = new DOMParser();
+        gpxFile = parser.parseFromString(textFile, "text/xml");
+    }
+    else{ // Si on est sur IE
+        gpxFile = new ActiveXObject("Microsoft.XMLDOM");
+        gpxFile.async=false;
+        gpxFile.loadXML(textFile);
+    }
+    gpxRead(gpxFile);
 }
 
 
-
-function gpxReader(){
-	if(window.DOMParser){
-		parser = new DOMParser();
-		gpxFile = parser.parseFromString(reader.result, "text/xml");
-	}
-	else{ // Si on est sur IE
-		gpxFile = new ActiveXObject("Microsoft.XMLDOM");
-		gpxFile.async=false;
-		gpxFile.loadXML(reader.result);
-	}
-
+function gpxRead(gpxFile){
+	
 	var listCoordinates = new Array();
 	var Coordinate = { // Longitude et lattitude
 		lat: NaN,

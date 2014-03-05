@@ -178,7 +178,7 @@ if(isset($_SESSION['statut']) and in_array($_SESSION['statut'], array('administr
 					$departement = 0; // Département invalide
 				}
 				include_once('Models/m_parcours.php');
-				$idRoute = insert_parcours($title.'.gpx'., $nbPoints);
+				$idRoute = insert_parcours($title.'.gpx', $nbPoints);
 				rename('Resources/GPX/tmp/gpx_'.session_id(), 'Resources/GPX/'.$idRoute.'_'.substr($title,  0, 150).'.gpx'); // A changer
 				
 				$delay = ($day*24) + $hour.':'.$minutes.':0';
