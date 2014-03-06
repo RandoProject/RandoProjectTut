@@ -243,6 +243,7 @@ aside{
 	width: 20%;
 	height: auto;
 	text-align: center;
+	overflow: hidden;
 }
 aside img{
 	border-radius: 2px;
@@ -458,10 +459,10 @@ section#fiche_rando img#photo{
 section#fiche_rando div#carte{
 	display: inline-block;
 	float: right;
-	margin: 5px;
-	border: 1px solid black;
-	width: 500px;
-	height: 400px;
+	margin: 30px 15px 0px 0px;
+	width: 450px;
+	height: 350px;
+	border: solid 1px #CCC;
 }
 					/* Caractéristiques */
 section#fiche_rando div.caracteristique{
@@ -498,36 +499,41 @@ section#fiche_rando div.caracteristique span.valeur_caract div#cercle{
 	box-shadow: 1px 1px 1px rgba(200, 200, 200, 1);
 	border-radius: 15px;
 }
+section#fiche_rando span#auteur,
+section#fiche_rando span#date{
+	font-style: italic;
+	margin: 15px;
+	display: block;
+}
+section#fiche_rando span#date{
+	float: right;
+}
+section#fiche_rando img.galerie{
+	margin: 5px 10px;
+	width: 105px;
+	height: 77px;
+}
 					/* Commentaire */
-section#fiche_rando div#cadre_affichage_commentaire_pair, div#cadre_affichage_commentaire_impair{
+section#fiche_rando div#commentaire{
 	display: block;
 	width: 600px;
 	height: auto;
 	padding: 10px;
-	margin-left: auto;
-	margin-right: auto;
+	margin: 10px auto;
 	border: solid 1px #CCC;
+	overflow: hidden;
+	background-color: #FFFFFF;
 }
-section#fiche_rando div#cadre_affichage_commentaire_impair{ background-color: rgba(255, 255, 255, 0.4);}
-section#fiche_rando div div#ligne1 span#auteur{
+section#fiche_rando div span#auteur{
 	font-weight: bold;
-	font-size: 1.2em;
+	font-size: 15px;
 }
-section#fiche_rando div div#ligne1 span#date{
+section#fiche_rando div span#date{
 	font-style: italic;
-	margin-left: 380px;
+	float: right;
 }
 section#fiche_rando div span#note{
-	font-style: italic;
-	margin-left: 460px;
-	font-size: 1.1em;
-}
-section#fiche_rando div div#ligne1{
-	margin-bottom: 15px;
-}
-section#fiche_rando div div#ligne2{
-	text-align: left;
-	margin-bottom: 15px;
+	float: right;
 }
 section#fiche_rando form{
 	display: inline-block;

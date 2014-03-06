@@ -16,8 +16,6 @@
         var divMap;
         window.addEventListener('load', function(){
             divMap = document.getElementById('carte');
-            divMap.style.height = '350px'; // -------------- A faire en CSS
-            divMap.style.width = '450px';
             if(!getGpx('<?php echo $srcParcours?>')){ // Si le XHR n'a ne peut pas être instancié
                 var elem = document.createElement('p');
                 elem.appendChild(document.createTextNode('Votre navigateur ne suporte pas notre gestion de parcours.'))
@@ -36,7 +34,8 @@
                 
                 <center><img id="photo" src="<?php echo $photo; ?>"/></center>
                 
-                <?php echo $description; ?><br/>
+                <?php echo $description; ?><br/><br/>
+				<?php echo $equipment; ?>
                 
                 <div id="carte">
                 </div>
@@ -105,39 +104,31 @@
                     </span>
                 </div>
                 
-                <br/> <br/> <br/> <br/>             
-                Equipement : <?php echo $equipment; ?><br/>
-                Ajouté le <?php echo $insertion_date.' à '.$insertion_hour; ?>.<br/>
-                Rédigé par <?php echo $author; ?>.<br/>
+                <br/><br/>
+                
+                <span id="date">Ajouté le <?php echo $insertion_date.' à '.$insertion_hour; ?></span>
+                <span id="auteur">Rédigé par <?php echo $author; ?></span>
+                
                 
                 <?php 
                     foreach($listeImage as $image) {
-                        echo '<img src="Resources/Galerie/'.$galery.'/'.$image['nom'].'" width="105" height="77"/>';
+                        echo '<img src="Resources/Galerie/'.$galery.'/'.$image['nom'].'" class="galerie"/>';
                     }
                 ?>
                 <br/><br/><br/><br/>
                 <div class="titre">Commentaires</div>
                 <?php
                     $i = 0;
-					foreach($nombre_commentaire as $nb_commentaire){
-                        if(($i % 2) === 0) $ligneColor = 'pair';
-                        else $ligneColor = 'impair';
-						$date = $nb_commentaire['date'];
-						echo '<div id="cadre_affichage_commentaire_'.$ligneColor.'">';
-                            echo '<div id="ligne1">';
-                                echo '<span id="auteur">Par : '.$nb_commentaire['auteur'].'</span>';
-							    echo '<span id="date">Le : '.$insertion_date .'</span><br/>';
-                            echo '</div>';
-                            echo '<div id="ligne2">';
-							    echo $nb_commentaire['commentaire'].'<br/>';
-                            echo '</div>';
-                                if($nb_commentaire['note'] == 0){
-                                    echo '<span id="note">Note : aucune...</span>';
+					foreach($nombre_commentaire as $commentaire){
+						$date = $commentaire['date'];
+						echo '	<div id="commentaire">
+                           			<span id="auteur">De '.$commentaire['auteur'].'</span>
+									<span id="date">Le '.$insertion_date .'</span><br/>
+							 		<br/>'.$commentaire['commentaire'].'<br/><br/>';
+                                for($j = 0; $j < $commentaire['note']; $j++){
+                                    echo '<span id="note"><img class="etoile" src="Resources/Images/star-pleine_fiche.png" width="15px"/></span>';
                                 }
-                                else{
-                                    echo '<span id="note">Note : '.$nb_commentaire['note'].'</span>';
-                                }
-						echo '</div>';
+						echo '	</div>';
                         $i++;
 					}
                     if(isset($_SESSION['pseudo'])){
