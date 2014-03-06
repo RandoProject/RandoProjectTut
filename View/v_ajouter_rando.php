@@ -14,9 +14,18 @@
 			selector: "#description",
 			browser_spellcheck: true,
 			language: "fr_FR",
+			element_format : 'html',
 			nowrap: true,
-			element_format : 'html'
-
+			menubar: false,
+			statusbar: false,
+			    image_list: [ 
+        {title: 'My image 1', value: 'http://www.tinymce.com/my1.gif'}, 
+        {title: 'My image 2', value: 'http://www.moxiecode.com/my2.gif'} 
+    ],
+			nonbreaking_force_tab: true, // Peremet à l'appuie sur <tab> d'avoir une tabulation et ne pas changer le focus (il faut le plugin)
+			plugins: 'emoticons link textcolor image nonbreaking',
+			toolbar1: 'undo redo | cut copy paste | bold italic underline | forecolor | fontsizeselect  | alignleft aligncenter alignright alignjustify | bullist numlist | image link | emoticons',
+			height: 230,
 		});
 	</script>
 
