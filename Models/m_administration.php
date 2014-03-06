@@ -12,7 +12,7 @@ function get_liste_rando($condition){
 				AND photo.galerie = galerie.numero
 				AND rando.departement = departements.num_departement
 				'.$condition.'
-				ORDER BY date_insertion ASC';
+				ORDER BY date_insertion DESC';
 				
 	$exec = $bdd->query($query) or die(print_r($erreur -> errorInfo()));
 	$data = $exec->fetchAll();
@@ -26,7 +26,7 @@ function get_liste_comment($condition){
 	$query = '	SELECT *
 				FROM commentaire
 				'.$condition.'
-				ORDER BY date ASC';
+				ORDER BY date DESC';
 
 	$exec = $bdd->query($query) or die(print_r($erreur -> errorInfo()));
 	$data = $exec->fetchAll();
@@ -50,8 +50,10 @@ function get_liste_photo($condition){
 function get_liste_member(){
 	global $bdd;
 
-	$query = '	SELECT *
-				FROM membre';
+	$query = '	SELECT membre.*, photo.nom AS nom_photo , galerie.nom AS nom_galerie
+				FROM membre, photo, galerie
+				WHERE membre.photo = photo.numero
+				AND galerie.numero = photo.galerie';
 
 	$exec = $bdd->query($query) or die(print_r($erreur -> errorInfo()));
 	$data = $exec->fetchAll();
@@ -94,10 +96,14 @@ function update_rando($listeCode, $listeTitre, $listeEquipement, $listeDescripti
 	global $bdd;
 	$i = 0;
 	foreach($listeCode as $code){
+		$titre = addslashes($listeTitre[$i]);
+		$equipement = addslashes($listeEquipement[$i]);
+		$description = addslashes($listeDescription[$i]);
+		
 		$query = '	UPDATE  rando 
-					SET titre = "'.$listeTitre[$i].'",
-						equipement = "'.$listeEquipement[$i].'",
-						descriptif = "'.$listeDescription[$i].'"
+					SET titre = "'.$titre.'",
+						equipement = "'.$equipement.'",
+						descriptif = "'.$description.'"
 					WHERE code = '.$code;
 
 		$exec = $bdd->query($query) or die(print_r($erreur -> errorInfo()));
@@ -119,7 +125,8 @@ function liste_update($listeCode){
 		$query .= $code.', ';
 	}
 	$query = substr($query, 0, -2).')';
-
+	$query .= 'ORDER BY date_insertion DESC';
+	
 	$exec = $bdd->query($query) or die(print_r($erreur -> errorInfo()));
 	$data = $exec->fetchAll();
 	$exec->closeCursor();
@@ -203,6 +210,22 @@ function delete_photo($listeNumero){
 }
 
 
+/* ACTION sur les PHOTOS */
+function delete_member($listePseudo){
+	global $bdd;
+
+	$query = '	DELETE FROM membre
+				WHERE pseudo IN (';
+				
+	foreach($listePseudo as $pseudo){
+		$query .= '\''.$pseudo.'\', ';
+	}
+	$query = substr($query, 0, -2).')';
+
+	$exec = $bdd->query($query) or die(print_r($erreur -> errorInfo()));
+}
+
+
 /* UTILITAIRES */
 function truncate($string, $lenght = 150) {
 	if (strlen($string) > $lenght) {
@@ -214,6 +237,29 @@ function truncate($string, $lenght = 150) {
 	return $string;
 }
 
+function printAddress($adresse, $cp, $ville){
+	if(empty($adresse) && empty($cp) && empty($ville)){
+		return '<em>non renseignée</em>';
+	}
+	else{
+		if(!empty($adresse)){
+			$address = $adresse;
+		}
+		if(!empty($cp)){
+			if(!empty($adresse))
+				$address .= ', '.$cp;
+			else
+				$address = $cp;
+		}
+		if(!empty($ville)){
+			if(!empty($adresse) || !empty($cp))
+				$address .= ', '.$ville;
+			else
+				$address = $ville;
+		}
+	}
+	return $address;
+}
 ?>
  
 <script language="javascript">

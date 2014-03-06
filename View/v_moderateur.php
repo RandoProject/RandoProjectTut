@@ -146,7 +146,10 @@
 									<input type="submit" value="Supprimer" name="delete"/>
 									<br/><br/><br/>
 						';
+						
 						echo '		&emsp;&emsp;<input type="checkbox" id="selectAll" onChange="unCheckAll(\'selectAll\');"/><label for="selectAll"> Sélectionner / Déselectionner tout </label><br/>';
+						
+						// --- LISTE PHOTOS ---
 						foreach($listePhoto as $photo){
 							echo '	<div class="photo">
 										<label for="'.$photo['numero'].'">
