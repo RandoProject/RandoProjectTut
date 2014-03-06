@@ -855,11 +855,13 @@ section#contact form#form_contact img{
 /* - - - - - - - - - - Footer - - - - - - - - - - */
 footer{
 	display: inline-block;
-	padding-top: 10px;
-	padding-bottom: 5px;
 	margin-left: 2%;
 	margin-top: 25px;
-	margin-bottom: 10px;
 	width: 96%;
 	text-align: center;
+}
+footer table{
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
 }
