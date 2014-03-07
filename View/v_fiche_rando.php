@@ -107,8 +107,8 @@
                 
                 <br/><br/>
                 
-                <span id="date">Ajouté le <?php echo $insertion_date.' à '.$insertion_hour; ?></span>
-                <span id="auteur">Rédigé par <?php echo $author; ?></span>
+                <span id="dateRando">Ajouté le <?php echo $insertion_date.' à '.$insertion_hour; ?></span>
+                <span id="auteurRando">Rédigé par <?php echo $author; ?></span>
                 
                 
                 <?php 
@@ -123,8 +123,8 @@
 					foreach($nombre_commentaire as $commentaire){
 						$date = $commentaire['date'];
 						echo '	<div id="commentaire">
-                           			<span id="auteur">De '.$commentaire['auteur'].'</span>
-									<span id="date">Le '.$insertion_date .'</span><br/>
+                           			<span id="auteurComment">De '.$commentaire['auteur'].'</span>
+									<span id="dateComment">Le '.$insertion_date .'</span><br/>
 							 		<br/>'.$commentaire['commentaire'].'<br/><br/>';
                                 for($j = 0; $j < $commentaire['note']; $j++){
                                     echo '<span id="note"><img class="etoile" src="Resources/Images/star-pleine_fiche.png" width="15px"/></span>';

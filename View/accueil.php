@@ -76,22 +76,18 @@
                     <div class="slider">
                         <?php
                         $photo = array(	"IMG_2337",
-                                        "DSC01582",
-                                        "DSC00749",
-                                        "DSC00732",
-                                        "DSC_6518",
                                         "DSC_6515",
-                                        "DSC00314");
+                                        "DSC01582",
+                                        "DSC00314",
+                                        "DSC00749");
                                         
                         $legende = array(	"",
                                             "",
                                             "",
                                             "",
-                                            "",
-                                            "",
                                             "");
 						$largeur = 1200;
-						$hauteur = 465;
+						$hauteur = 500;
 						$step = (100-(sizeof($photo)*5))/sizeof($photo);
                                 
 						function slide($step, $photo){
@@ -105,7 +101,7 @@
 						}
 					
                         for($i = 0; $i < sizeof($photo); $i++){
-                            echo '	<a href="#">
+                            echo '	<a>
                                         <figure>
                                             <img src="Resources/Images/'.$photo[$i].'.jpg"/>
                                             <figcaption>'.$legende[$i].'</figcaption>
