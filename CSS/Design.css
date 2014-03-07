@@ -499,13 +499,13 @@ section#fiche_rando div.caracteristique span.valeur_caract div#cercle{
 	box-shadow: 1px 1px 1px rgba(200, 200, 200, 1);
 	border-radius: 15px;
 }
-section#fiche_rando span#auteur,
-section#fiche_rando span#date{
+section#fiche_rando span#auteurRando,
+section#fiche_rando span#dateRando{
 	font-style: italic;
 	margin: 15px;
 	display: block;
 }
-section#fiche_rando span#date{
+section#fiche_rando span#dateRando{
 	float: right;
 }
 section#fiche_rando img.galerie{
@@ -524,13 +524,14 @@ section#fiche_rando div#commentaire{
 	overflow: hidden;
 	background-color: #FFFFFF;
 }
-section#fiche_rando div span#auteur{
+section#fiche_rando div span#auteurComment{
 	font-weight: bold;
 	font-size: 15px;
 }
-section#fiche_rando div span#date{
+section#fiche_rando div span#dateComment{
 	font-style: italic;
 	float: right;
+	vertical-align: top;
 }
 section#fiche_rando div span#note{
 	float: right;
