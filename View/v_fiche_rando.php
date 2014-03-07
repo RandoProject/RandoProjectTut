@@ -24,6 +24,7 @@
                 divMap.appendChild(elem);
             }
         }, false);
+
     </script>
     
     <body>
