@@ -1,6 +1,6 @@
 <?php
 
-if(isset($_SESSION['statut']) and in_array($_SESSION['statut'], array('administrateur', 'moderateur', 'utilisateur'))){
+if(isset($_SESSION['statut']) and in_array($_SESSION['statut'], array('administrateur', 'moderateur', 'membre'))){
 	
 	if(strtolower($_SERVER['REQUEST_METHOD']) == 'post'){
 		$error = array();

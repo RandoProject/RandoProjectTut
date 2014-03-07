@@ -6,10 +6,12 @@
 			array(
 				array('type' => 'meta', 'name' => 'viewport', 'content' => 'initial-scale=1.0, user-scalable=no'),
 				array('type' => 'javascript', 'src' => 'https://maps.googleapis.com/maps/api/js?key=AIzaSyC8ydWcT7L0z-S-g7DJf0Nh985GSMDjSf0&sensor=false&region=FR'),
-				array('type' => 'javascript', 'src' => 'JS/tinyMCE/tinymce.min.js')
+                array('type' => 'javascript', 'src' => 'https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js'),
+				array('type' => 'javascript', 'src' => 'JS/tinyMCE/tinymce.min.js'),
+                array('type' => 'javascript', 'src' => 'JS/upload_img.js')
 			));
 	?>
-	<script type="text/javascript">
+    <script type="text/javascript">
 		tinymce.init({
 			selector: "#description",
 			browser_spellcheck: true,
@@ -120,9 +122,18 @@
                     <input type="radio" id="non" name="water" value="non" <?php if(!isset($value['water']) or $value['water'] == 0) echo 'checked'; ?> ><label for="non">Non</label>&emsp;&emsp;&emsp;&emsp;
                     <input type="radio" id="oui" name="water" value="oui" <?php if(isset($value['water']) and $value['water'] == 1) echo 'checked'; ?> ><label for="oui">Oui</label><br/><br/><br/>
 
-
-                    <input type="submit" value="Ajouter"> 
                 </form>
+                <br>
+                <form method="post" enctype="multipart/form-data"  action="../Controller/c_upload_img.php">
+                        <input type="file" name="images[]" id="images" multiple="multiple" />
+                        <button type="submit" id="upl">Charger fichiers</button>
+                </form>
+                <div id="response"></div>
+                    <ul id="image-list">
+                 
+                    </ul>
+                <input type="submit" value="Ajouter"> 
+
                 <?php } // Ferme le else?>
             </section>
 

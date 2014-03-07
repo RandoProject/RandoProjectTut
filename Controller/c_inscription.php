@@ -93,7 +93,7 @@ if(strtolower($_SERVER['REQUEST_METHOD']) == 'post'){
 	if(isset($_POST['street']) and $_POST['street'] != ""){
 		$street = strip_tags($_POST['street']);
 		if(strlen($street) > 70){
-			$error['street'] = "L adresse ne doit pas faire plus de 70 caractères!";
+			$error['street'] = "L'adresse ne doit pas faire plus de 70 caractères!";
 		}
 		else if(ctype_digit($street)){
 			$error['street'] = "L'adresse ne peut pas contenir que des chiffres !";
