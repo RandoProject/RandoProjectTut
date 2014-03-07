@@ -18,12 +18,12 @@ div#slideshow div.container div.slider{
     position: absolute;
     left: 0px;
 	top: 0px;
-    -webkit-animation: slider 32s infinite;
-    -moz-animation: slider 32s infinite;
-    animation: slider 32s infinite;
+    -webkit-animation: slider 35s infinite;
+    -moz-animation: slider 35s infinite;
+    animation: slider 35s infinite;
 }
 div#slideshow div.container div.slider a{
-	margin-right: -3px;
+	margin-right: -3.8px;
 }
 div#slideshow div.container div.slider a figure{  
     position: relative;  

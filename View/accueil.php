@@ -79,13 +79,9 @@
                                         "DSC_6515",
                                         "DSC01582",
                                         "DSC00314",
-                                        "DSC00732",
-                                        "DSC_6518",
                                         "DSC00749");
                                         
                         $legende = array(	"",
-                                            "",
-                                            "",
                                             "",
                                             "",
                                             "",
@@ -105,7 +101,7 @@
 						}
 					
                         for($i = 0; $i < sizeof($photo); $i++){
-                            echo '	<a href="#">
+                            echo '	<a>
                                         <figure>
                                             <img src="Resources/Images/'.$photo[$i].'.jpg"/>
                                             <figcaption>'.$legende[$i].'</figcaption>
