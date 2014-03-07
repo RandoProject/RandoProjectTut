@@ -59,11 +59,11 @@ if(isset($_GET['code'])){
         }
 		
 		// Point d'eau
-		if(empty($rando->point_eau)){
+		if(empty($rando->point_eau) || $rando->point_eau === '0'){
 			$water = '<em>non renseigné</em>';
 		}
 		else{
-			$water = $rando->point_eau;
+			$water = 'oui';
 		}
 		
 		// Dénivelé
@@ -76,10 +76,10 @@ if(isset($_GET['code'])){
 		
 		// Equipement
 		if(empty($rando->equipement)){
-			$equipment = '<em>non renseigné</em>';
+			$equipment = '';
 		}
 		else{
-			$equipment = $rando->equipement;
+			$equipment = 'Equipement conseillé : '.$rando->equipement.'<br/><br/>';
 		}
 		
 		// Date et Heure d'insertion

@@ -16,8 +16,8 @@ function check_ip($ip){
 	$query = 'SELECT count(*) FROM connectes WHERE ip="'.$ip.'"';
 	$exec = $bdd->query($query);
 	$connecte = $exec->fetchColumn();
-	
-	if($connecte === 0){ // Si non-connecté -> on ajoute son IP
+
+	if($connecte === '0'){ // Si non-connecté -> on ajoute son IP
 		$query = 'INSERT INTO connectes VALUES(\''.$ip.'\', '.time().')';
 	}
 	else{ // Si déjà connecté -> on met à jour sont timestamp
