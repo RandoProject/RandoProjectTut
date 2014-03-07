@@ -3,8 +3,6 @@
 div#slideshow{
 	position: relative;
 	display: inline-block;
-    width: 1200px;
-    height: 465px;
 	-webkit-box-shadow: 0px 0px 5px rgba(0,0,0, 1);
 	-moz-box-shadow: 0px 0px 5px rgba(0,0,0, 1);
 	box-shadow: 0px 0px 5px rgba(0,0,0, 1);
@@ -14,22 +12,18 @@ div#slideshow{
 /* - - - - - - - - - - Photo - - - - - - - - - - */
 div#slideshow div.container{
     position: relative;
-    width: 1200px;  
-    height: 465px;  
     overflow: hidden;
 }
 div#slideshow div.container div.slider{  
     position: absolute;
     left: 0px;
 	top: 0px;
-    width: 400%;
-    height: 465px; 
     -webkit-animation: slider 32s infinite;
     -moz-animation: slider 32s infinite;
     animation: slider 32s infinite;
 }
 div#slideshow div.container div.slider a{
-	margin-right: -4px;
+	margin-right: -3px;
 }
 div#slideshow div.container div.slider a figure{  
     position: relative;  
@@ -45,58 +39,4 @@ div#slideshow div.container div.slider a figure:after{
 	left: 0px;  
     width: 100%; 
 	height: 100%;
-}
-
-
-/* - - - - - - - - - - Légende - - - - - - - - - - */
-div#slideshow div.container div.slider a figure figcaption{  
-    position: absolute;  
-    left: 0px; 
-	right: 0px; 
-	bottom: 0px;  
-    padding: 10px;  
-    margin: 0px;  
-    border-top: 1px solid rgba(225, 225, 225, 0.3);  
-    background: rgba(0, 0, 0, 0.5);  
-    color: #E4DFD2;
-    text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.3);  
-    text-align: center;  
-    letter-spacing: 0.05em;  
-    word-spacing: 0.05em;
-    -webkit-animation: figcaptionner 32s infinite;
-    -moz-animation: figcaptionner 32s infinite;  
-    animation: figcaptionner 32s infinite;
-}
-@-webkit-keyframes figcaptionner{  
-    0%, 20%, 45%, 70%, 95%                     { bottom: -55px;    }  
-    10%, 19%, 35%, 44%, 60%, 69%, 85%, 94%       { bottom: 0px;      }  
-}
-@-moz-keyframes figcaptionner{  
-    0%, 20%, 45%, 70%, 95%                     { bottom: -55px;    }  
-    10%, 19%, 35%, 44%, 60%, 69%, 85%, 94%       { bottom: 0px;      }  
-}
-@keyframes figcaptionner{  
-    0%, 20%, 45%, 70%, 95%                     { bottom: -55px;    }  
-    10%, 19%, 35%, 44%, 60%, 69%, 85%, 94%       { bottom: 0px;      }  
-}
-
-
-/* - - - - - - - - - - Animation - - - - - - - - - - */
-@-webkit-keyframes slider{  
-    0%, 20%, 100%   { left: 0 }  
-    25%, 45%        { left: -100% }  
-    50%, 70%        { left: -200% }  
-    75%, 95%        { left: -300% }  
-}
-@-moz-keyframes slider{  
-    0%, 20%, 100%   { left: 0 }  
-    25%, 45%        { left: -100% }  
-    50%, 70%        { left: -200% }  
-    75%, 95%        { left: -300% }  
-}
-@keyframes slider{  
-    0%, 20%, 100%   { left: 0 }  
-    25%, 45%        { left: -100% }  
-    50%, 70%        { left: -200% }  
-    75%, 95%        { left: -300% }  
 }

@@ -70,34 +70,92 @@
 	<body>
     	<div id="corps">
 			<?php menu(); ?>
+            
         	<div id="slideshow">
                 <div class="container">
                     <div class="slider">
                         <?php
-                        $photo = array(	"galerie_1.jpg",
-                                        "galerie_2.jpg",
-                                        "galerie_3.jpg",
-                                        "galerie_4.jpg");
+                        $photo = array(	"IMG_2337",
+                                        "DSC01582",
+                                        "DSC00749",
+                                        "DSC00732",
+                                        "DSC_6518",
+                                        "DSC_6515",
+                                        "DSC00314");
                                         
-                        $legende = array(	"slide 1",
-                                            "slide 2",
-                                            "slide 3",
-                                            "slide 4");
+                        $legende = array(	"",
+                                            "",
+                                            "",
+                                            "",
+                                            "",
+                                            "",
+                                            "");
+						$largeur = 1200;
+						$hauteur = 465;
+						$step = (100-(sizeof($photo)*5))/sizeof($photo);
                                 
-                        for($i = 0; $i < count($photo); $i++){
+						function slide($step, $photo){
+							$style = '';
+							$precedent = $step;
+							for($i = 1; $i < sizeof($photo); $i++){
+								$style .= ($precedent+5).'%, '.($precedent+$step+5).'% { left: -'.$i.'00% }';
+								$precedent = ($precedent+$step+5);
+							}
+							return $style;
+						}
+					
+                        for($i = 0; $i < sizeof($photo); $i++){
                             echo '	<a href="#">
                                         <figure>
-                                            <img src="Resources/Images/'.$photo[$i].'" alt="" width="1200" height="465"/>
+                                            <img src="Resources/Images/'.$photo[$i].'.jpg"/>
                                             <figcaption>'.$legende[$i].'</figcaption>
                                         </figure>
                                     </a>
                             ';
                         }
                         ?>
-                    </div>
+            		</div>
                 </div>
             </div>
-    		
+    		<style>
+				div#slideshow,
+				div#slideshow div.container,
+				div#slideshow div.container div.slider a figure img{
+					width: <?php echo $largeur; ?>px;
+					height: <?php echo $hauteur; ?>px;
+				}
+				div#slideshow div.container div.slider{
+					width: <?php echo sizeof($photo)+1; ?>00%;
+					height: <?php echo $hauteur; ?>px;
+				}
+				
+				/* Slide */
+				@-webkit-keyframes slider{  
+					0%, <?php echo $step; ?>%, 100%   { left: 0 }
+					<?php echo slide($step, $photo); ?>
+				}
+				@-moz-keyframes slider{  
+					0%, <?php echo (100-(sizeof($photo)*5))/sizeof($photo); ?>%, 100%   { left: 0 }
+					<?php echo slide($step, $photo); ?>
+				}
+				@keyframes slider{  
+					0%, <?php echo (100-(sizeof($photo)*5))/sizeof($photo); ?>%, 100%   { left: 0 }
+					<?php echo slide($step, $photo); ?>
+				}
+				<?php
+						function legende($step, $photo, $bottom){
+							$style = '0%, '.$step.'%';
+							$precedent = $step;
+							for($i = 1; $i < sizeof($photo); $i++){
+								$style .= ', '.($precedent+$step+5).'%';
+								$precedent = ($precedent+$step+5);
+							}
+							$style .= ' { bottom: -'.$bottom.'px; }';
+							return $style;
+						}
+				?>
+			</style>
+            
             <br/><br/><br/><br/><br/>
             <div class="map">
                 <img src="Resources/Images/void.png" width="650" height="608" usemap="#Map"/>
