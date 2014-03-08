@@ -152,7 +152,11 @@
 				?>
 			</style>
             
-            <br/><br/><br/><br/><br/>
+            <br/><br/><br/>
+            <div id="titre">
+            	<span id="titre_bienvenu">Bienvenue sur RandoPassion !</span>
+	            <span id="titre_map">Choississer votre région :</span><br/><br><br/>
+            </div>
             <div class="map">
                 <img src="Resources/Images/void.png" width="650" height="608" usemap="#Map"/>
                 <map name="Map">
@@ -182,25 +186,13 @@
             </div>
             
             <div class="cadre">
-            	<h1>Le sentier du guêpier</h1>
-                En forêt de Chaux, tout en parcourant le sentier botanique et ethnologique, vous serez initié au secret des bûcherons charbonniers qui peuplèrent jadis "la forêt qui n'en finit pas".
-            </div><div class="cadre">
-            	<h1>Le sentier du guêpier</h1>
-                En forêt de Chaux, tout en parcourant le sentier botanique et ethnologique, vous serez initié au secret des bûcherons charbonniers qui peuplèrent jadis "la forêt qui n'en finit pas".
-            </div><div class="cadre">
-            	<h1>Le sentier du guêpier</h1>
-                En forêt de Chaux, tout en parcourant le sentier botanique et ethnologique, vous serez initié au secret des bûcherons charbonniers qui peuplèrent jadis "la forêt qui n'en finit pas".
-            </div><div class="cadre">
-            	<h1>Le sentier du guêpier</h1>
-                En forêt de Chaux, tout en parcourant le sentier botanique et ethnologique, vous serez initié au secret des bûcherons charbonniers qui peuplèrent jadis "la forêt qui n'en finit pas".
-            </div><div class="cadre">
-            	<h1>Le sentier du guêpier</h1>
-                En forêt de Chaux, tout en parcourant le sentier botanique et ethnologique, vous serez initié au secret des bûcherons charbonniers qui peuplèrent jadis "la forêt qui n'en finit pas".
-            </div><div class="cadre">
-            	<h1>Le sentier du guêpier</h1>
-                En forêt de Chaux, tout en parcourant le sentier botanique et ethnologique, vous serez initié au secret des bûcherons charbonniers qui peuplèrent jadis "la forêt qui n'en finit pas".
-            </div>
-
+             	<h1>Sur RandoPassion vous pourrez :</h1>
+             		<a href="index.php?page=ajout_rando"><img id="img_accueil" src="Resources/Images/ajouter.png"/></a><h2>Ajouter des randonnées</h2>
+             		<a href="index.php?page=recherche"><img id="img_accueil" src="Resources/Images/rechercher.png"/><h2>Rechercher des parcours</h2>
+             		<a href="index.php?page=inscription"><img id="img_accueil" src="Resources/Images/participer.png"/><h2>Participer à vie du site</h2>
+             		<a href="index.php?page=contact"><img id="img_accueil" src="Resources/Images/contact_accueil.png"/><h2>Nous contacter</h2><br/><br/>
+             	<p>RandoPassion le site consacré à la randonnée !</p>
+             </div>
         	<?php include_once('Controller/c_footer.php'); ?>
         </div>
 	</body>
