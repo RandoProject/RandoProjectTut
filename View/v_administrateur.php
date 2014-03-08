@@ -75,7 +75,7 @@
 											<td>'.$rando['code'].'</td>
 											<td title="'.$rando['titre'].'">'.$rando['titre'].'</td>
 											<td title="'.$rando['equipement'].'">'.$rando['equipement'].'</td>
-											<td title="'.$rando['descriptif'].'">'.truncate($rando['descriptif'], 400).'</td>
+											<td title="'.strip_tags($rando['descriptif']).'">'.truncate($rando['descriptif'], 400).'</td>
 											<td><img src="Resources/Galerie/'.$rando['nom_galerie'].'/'.$rando['nom_photo'].'" width="100px"/></td>
 											<td onClick="unCheck(\''.$i.'\');"><input type="checkbox" name="rando[]" value="'.$rando['code'].'" id="'.$i.'" onclick="check(\''.$i.'\');"/></td>
 										</tr>';

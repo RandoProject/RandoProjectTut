@@ -125,14 +125,14 @@
                 </form>
                 <br>
                 <form method="post" enctype="multipart/form-data"  action="../Controller/c_upload_img.php">
-                        <input type="file" name="images[]" id="images" multiple="multiple" />
-                        <button type="submit" id="upl">Charger fichiers</button>
+                        <input type="file" name="images[]" id="images" multiple="multiple">
+                        <input type="submit" id="upl" value="Charger fichiers">
                 </form>
                 <div id="response"></div>
                     <ul id="image-list">
-                 
+                        
                     </ul>
-                <input type="submit" value="Ajouter"> 
+                <input type="button" value="Ajouter" id="submitRando"> 
 
                 <?php } // Ferme le else?>
             </section>

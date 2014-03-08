@@ -1,8 +1,13 @@
 
 window.addEventListener('load', function(){
-  var input = document.getElementById("images"),
-      formdata = false;
-     
+  var input = document.getElementById("images");
+  var formdata = false;
+  var inputSubmit = document.getElementById('submitRando');
+  inputSubmit.addEventListener('click', function(){
+    document.getElementById('insert_rando').submit(); // On envoie le formulaire
+  }, false);
+
+
   if (window.FormData) {
     formdata = new FormData();
     document.getElementById("upl").style.display = "none";
@@ -47,13 +52,12 @@ window.addEventListener('load', function(){
 }, false);
 
 
-function showUploadedItem (source) {
+function showUploadedItem(source) {
   var list = document.getElementById("image-list"),
       li   = document.createElement("li"),
       img  = document.createElement("img");
     img.src = source;
-    img.class = 'vignette';
+    img.className = 'vignette';
     li.appendChild(img);
   list.appendChild(li);
 }
-

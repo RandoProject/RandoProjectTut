@@ -1,6 +1,6 @@
 <?php
 
-if($_SESSION['statut'] !== 'administrateur'){
+if(!isset($_SESSION['statut']) or $_SESSION['statut'] !== 'administrateur'){
 	header('location:index.php?page=accueil');
 }
 

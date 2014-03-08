@@ -655,6 +655,10 @@ section#ajoutrando form input#fileMap{
 	display: none;
 }
 
+section#ajoutrando .vignette{
+	width: 200px;
+}
+
 /* - - - - - - - - - - Administration - - - - - - - - - - */
 section#administration{
 	width: 100%;
