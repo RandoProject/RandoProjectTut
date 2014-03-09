@@ -206,13 +206,13 @@ div#corps span#titre_map{
 	font-size: 1.9em;
 	color: #A8BF75;
 	margin-left: 250px;
-	text-shadow: 0px 0px 2px #2E2E2E;
+	text-shadow: 0px 0px 1px #2E2E2E;
 }
 div#corps span#titre_bienvenu{
 	font-size: 1.9em;
 	color: #A8BF75;
 	margin-left: 140px;
-	text-shadow: 0px 0px 2px #2E2E2E;
+	text-shadow: 0px 0px 1px #2E2E2E;
 }
 div#corps div.map div.overlay{
 	width: 650px;
@@ -251,12 +251,14 @@ div#corps div.cadre img#img_accueil{
 	margin-left: 125px;
 	margin-top: 20px;
 }
-
 div#corps div.cadre h2{
 	display: inline-block;
 	vertical-align: top;
 	margin-top: 35px;
 	margin-left: 10px;
+}
+div#corps div.cadre h2:hover{
+	border-bottom: 3px #A8BF75 solid;
 }
 div#corps div.cadre p{
 	font-size: 1.1em;

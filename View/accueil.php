@@ -187,10 +187,10 @@
             
             <div class="cadre">
              	<h1>Sur RandoPassion vous pourrez :</h1>
-             		<a href="index.php?page=ajout_rando"><img id="img_accueil" src="Resources/Images/ajouter.png"/></a><h2>Ajouter des randonnées</h2>
-             		<a href="index.php?page=recherche"><img id="img_accueil" src="Resources/Images/rechercher.png"/><h2>Rechercher des parcours</h2>
-             		<a href="index.php?page=inscription"><img id="img_accueil" src="Resources/Images/participer.png"/><h2>Participer à vie du site</h2>
-             		<a href="index.php?page=contact"><img id="img_accueil" src="Resources/Images/contact_accueil.png"/><h2>Nous contacter</h2><br/><br/>
+             		<a href="index.php?page=ajout_rando"><img id="img_accueil" src="Resources/Images/ajouter.png"/></a><a href="index.php?page=ajout_rando"><h2>Ajouter des randonnées</h2></a>
+             		<a href="index.php?page=recherche"><img id="img_accueil" src="Resources/Images/rechercher.png"/></a><a href="index.php?page=recherche"><h2>Rechercher des parcours</h2></a>
+             		<a href="index.php?page=inscription"><img id="img_accueil" src="Resources/Images/participer.png"/></a><a href="index.php?page=inscription"><h2>Participer à vie du site</h2></a>
+             		<a href="index.php?page=contact"><img id="img_accueil" src="Resources/Images/contact_accueil.png"/></a><a href="index.php?page=contact"><h2>Nous contacter</h2></a><br/><br/>
              	<p>RandoPassion le site consacré à la randonnée !</p>
              </div>
         	<?php include_once('Controller/c_footer.php'); ?>
