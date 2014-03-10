@@ -7,8 +7,8 @@ if(!$_SESSION){
 include_once('bin/params.php');
 include_once('Models/m_members.php');
 
-$member = get_member($_SESSION['pseudo']);
-$photo = get_photo($_SESSION['pseudo']);
+$member = get_member($_GET['pseudo']);
+$photo = get_photo($_GET['pseudo']);
 
 
 $pseudo = $member->pseudo;
@@ -47,23 +47,23 @@ else{
 
 // Adresse
 if(empty($member->adresse) && empty($member->code_postal) && empty($member->ville)){
-	$adress = '<em>non renseignée</em>';
+	$address = '<em>non renseignée</em>';
 }
 else{
 	if(!empty($member->adresse)){
-		$adress = $member->adresse;
+		$address = $member->adresse;
 	}
 	if(!empty($member->code_postal)){
 		if(!empty($member->adresse))
-			$adress .= ', '.$member->code_postal;
+			$address .= ', '.$member->code_postal;
 		else
-			$adress = $member->code_postal;
+			$address = $member->code_postal;
 	}
 	if(!empty($member->ville)){
 		if(!empty($member->adresse) || !empty($member->code_postal))
-			$adress .= ', '.$member->ville;
+			$address .= ', '.$member->ville;
 		else
-			$adress = $member->ville;
+			$address = $member->ville;
 	}
 }
 
@@ -72,7 +72,7 @@ if(empty($member->mail)){
 	$mail = '<em>non renseigné</em>';
 }
 else{
-	$mail = '<a href="mailto:'.$member->mail.'">'.$member->mail.'</a>';
+	$mail = $member->mail;
 }
 
 // Déscription
