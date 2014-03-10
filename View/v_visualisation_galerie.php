@@ -3,8 +3,9 @@
 
 	<?php 
         head("Visualisation_galerie",
-            array('type' => 'javascript', 'src' => 'http://code.jquery.com/jquery-latest.pack.js'),
-            array('type' => 'javascript', 'src' => 'JS/galerie/jqGalViewII.pack.js')
+            array(
+                array('type' => 'javascript', 'src' => 'http://code.jquery.com/jquery-latest.pack.js'),
+                array('type' => 'javascript', 'src' => 'JS/galerie/jqGalViewII.pack.js')
 
         )); 
     ?>
@@ -25,7 +26,7 @@
                 echo '<ul title="My Gallery">';
                     foreach ($liste_photos as $photos) {
                         echo '<li>';
-                            echo '<img src="Resources/Galerie/'.$photos['nom_galerie'].'/'.$photos['nom_photo'].'" id="img_couverture"/>';
+                            echo '<a href="Resources/Galerie/'.$photos['nom_galerie'].'/'.$photos['nom_photo'].'"><img src="Resources/Galerie/'.$photos['nom_galerie'].'/'.$photos['nom_photo'].'" id="img_couverture"/></a>';
                         echo '</li>';
                     }
                 echo '<ul>';
