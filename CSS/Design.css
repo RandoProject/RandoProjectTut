@@ -476,6 +476,30 @@ section#rando div#affichage_recherche div div#fiche a#lien_consulter_fiche{
 	padding-bottom: 15px;
 }
 
+/* - - - - - - - - - - Galerie - - - - - - - - - - */
+section#galerie ul li{
+	display: block;
+	float: left;
+	margin-left: 65px;
+	margin-top: 50px;
+}
+section#galerie ul li img#img_couverture{
+	width: 200px;
+	height: 200px;
+}
+
+/* - - - - - - - - - - Visualisation_galerie - - - - - - - - - - */
+section#visualisation_galerie ul li{
+	display: block;
+	float: left;
+	margin-left: 65px;
+	margin-top: 50px;
+}
+section#visualisation_galerie ul li img#img_couverture{
+	width: 200px;
+	height: 200px;
+}
+
 
 /* - - - - - - - - - - Fiche rando - - - - - - - - - - */
 section#fiche_rando img#photo{
