@@ -189,11 +189,22 @@ nav ul#account li a.connexion:hover{ background-color: #F26265; }
 
 
 /* - - - - - - - - - - Accueil - - - - - - - - - - */
-div#corps div.cadre{
-	display: inline-block;
-	width: 450px;
-	margin: 10px;
-	overflow: hidden;
+div#corps div#titre{
+	position: relative;
+	width: 100%;
+	margin-bottom: 15px;
+}
+div#corps div#titre span{
+	color: #A8BF75;
+	font-size: 22px;
+	font-weight: bold;
+	font-family: Kalinga;
+}
+div#corps div#titre span#titre_map{
+	margin-left: 250px;
+}
+div#corps div#titre span#titre_bienvenu{
+	margin-left: 140px;
 }
 div#corps div.map{
 	float: right;
@@ -201,18 +212,6 @@ div#corps div.map{
 	height: 608px;
 	background: url(../Resources/Images/map.png) left top no-repeat;
 	position: relative;
-}
-div#corps span#titre_map{
-	font-size: 1.9em;
-	color: #A8BF75;
-	margin-left: 250px;
-	text-shadow: 0px 0px 1px #2E2E2E;
-}
-div#corps span#titre_bienvenu{
-	font-size: 1.9em;
-	color: #A8BF75;
-	margin-left: 140px;
-	text-shadow: 0px 0px 1px #2E2E2E;
 }
 div#corps div.map div.overlay{
 	width: 650px;
@@ -247,6 +246,12 @@ div#corps div.map div.tooltip{
 	z-index: 3;
 }
 
+div#corps div.cadre{
+	display: inline-block;
+	width: 450px;
+	margin: 10px;
+	overflow: hidden;
+}
 div#corps div.cadre img#img_accueil{
 	margin-left: 125px;
 	margin-top: 20px;
