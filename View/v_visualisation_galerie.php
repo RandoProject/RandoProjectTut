@@ -2,20 +2,18 @@
 <html lang="fr">
 
 	<?php 
-        head("Visualisation_galerie",
-            array(
-                array('type' => 'javascript', 'src' => 'http://code.jquery.com/jquery-latest.pack.js'),
-                array('type' => 'javascript', 'src' => 'JS/galerie/jqGalViewII.pack.js')
-
-        )); 
+        head("Visualisation_galerie", array(	array('type' => 'css', 'href' => 'CSS', 'name' => 'Galerie'),
+												array('type' => 'javascript', 'src' => 'JS/galerie/jquery-latest.pack.js'),
+												array('type' => 'javascript', 'src' => 'JS/galerie/jqGalViewII.pack.js')
+			 )); 
     ?>
 
     <script type="text/javascript">
-        $(document).ready(function(){
-                $('ul').jqGalViewII();
-        });
+		$(document).ready(function(){
+			$('ul#galerie').jqGalViewII();
+		});
     </script>
-        
+    
 	<body>
         <div id="corps">
 			<?php menu(); ?>
@@ -23,14 +21,18 @@
     
             <section id="visualisation_galerie">               
             <?php
-                echo '<ul title="My Gallery">';
+			$i=0;
+                echo '	<ul id="galerie" title="My Gallery">';
+				echo $i; $i++;
                     foreach ($liste_photos as $photos) {
-                        echo '<li>';
-                            echo '<a href="Resources/Galerie/'.$photos['nom_galerie'].'/'.$photos['nom_photo'].'"><img src="Resources/Galerie/'.$photos['nom_galerie'].'/'.$photos['nom_photo'].'" id="img_couverture"/></a>';
-                        echo '</li>';
+                        echo '	<li>
+                            		<a href="Resources/Galerie/'.$photos['nom_galerie'].'/'.$photos['nom_photo'].'">
+										<img src="Resources/Galerie/'.$photos['nom_galerie'].'/'.$photos['nom_photo'].'" id="img_couverture" alt="'.$photos['titre'].'"/>
+									</a>
+                        		</li>
+						';
                     }
-                echo '<ul>';
-                echo 'bonjour';
+                echo '	</ul>';
             ?>
                 
             </section>
