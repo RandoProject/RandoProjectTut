@@ -13,7 +13,8 @@
                 echo '<ul>';
                     foreach ($liste_galerie as $rando) {
                         echo '<li>';
-                            echo '<a href="index.php?page=visualisation_galerie&num_galerie='.$rando['num_galerie'].'"><img src="Resources/Galerie/'.$rando['nom_galerie'].'/'.$rando['nom_photo'].'" id="img_couverture"/></a>';
+                            echo '<a href="index.php?page=visualisation_galerie&num_galerie='.$rando['num_galerie'].'"><img src="Resources/Galerie/'.$rando['nom_galerie'].'/'.$rando['nom_photo'].'" id="img_couverture"/></a><br>';
+                            echo '<center>'.$rando['titre'].'</center>';
                         echo '</li>';
                     }
                 echo '<ul>';

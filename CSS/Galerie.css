@@ -4,14 +4,9 @@ section#visualisation_galerie ul li{
 	margin-left:  65px;
 	margin-top:  50px;
 }
-section#visualisation_galerie ul li img#img_couverture{
-	width:  200px;
-	height:  200px;
-}
 section#visualisation_galerie .gvIIContainer{
-	width: 460px;
+	width: 855px;
 	position: relative;
-	background: #000;
 	padding: 10px 0 10px 10px;
 	/*border: 10px solid #fff;*/
 }
@@ -19,17 +14,17 @@ section#visualisation_galerie .gvIIContainer .gvIIImgContainer img{
 	margin-left: 0;
 	margin-top: 0;
 }
-section#visualisation_galerie .gvIIAltText{
+/*section#visualisation_galerie .gvIIAltText{
 	position: absolute;
-	right: 0;
+	right: 350px;
 	top: 0;
 	background: #000;
 	border: 1px solid #fff;
 	color: #fff;
 	padding: 5px;
-}
+}*/
 section#visualisation_galerie .gvIIContainer .gvIIImgContainer{
-	width: 450px;
+	width: 850px;
 	height: 385px;
 	position: relative;
 	overflow: hidden;
@@ -43,8 +38,8 @@ section#visualisation_galerie .gvIIContainer .gvIIImgContainer .gvIILoader{
 }
 section#visualisation_galerie .gvIIContainer .gvIIHolder{
 	position: relative;
-	height: 207px;
-	width: 450px;
+	height: 278px;
+	width: 880px;
 	overflow: auto;
 }
 section#visualisation_galerie .gvIIContainer .gvIIHolder .gvIIArrow{}
