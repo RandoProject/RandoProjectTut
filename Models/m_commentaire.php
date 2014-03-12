@@ -48,3 +48,18 @@ function mise_a_jour_note($code, $moyenne){
 	$req->execute($reqArray)  or die(print_r($erreur->errorInfo()));
 	$req->closeCursor();
 }
+
+
+function note_existante($code, $pseudo){
+	global $bdd;
+
+	$reqStr = "SELECT * FROM commentaire WHERE code = :code AND auteur = :pseudo AND note != 0";
+	$reqArray = array('code' => $code, 'pseudo' => $pseudo);
+
+	$req = $bdd->prepare($reqStr);
+	$req->execute($reqArray) or die(print_r($erreur->errorInfo()));
+	$res = $res->fetchAll();
+	$req->closeCursor();
+
+	return $res;
+}

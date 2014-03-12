@@ -117,21 +117,25 @@
                     }
                 ?>
                 <br/><br/><br/><br/>
-                <div class="titre">Commentaires</div>
-                <?php
-                    $i = 0;
-					foreach($nombre_commentaire as $commentaire){
-						$date = $commentaire['date'];
-						echo '	<div id="commentaire">
-                           			<span id="auteurComment">De '.$commentaire['auteur'].'</span>
-									<span id="dateComment">Le '.$insertion_date .'</span><br/>
-							 		<br/>'.$commentaire['commentaire'].'<br/><br/>';
-                                for($j = 0; $j < $commentaire['note']; $j++){
-                                    echo '<span id="note"><img class="etoile" src="Resources/Images/star-pleine_fiche.png" width="15px"/></span>';
-                                }
-						echo '	</div>';
-                        $i++;
-					}
+                <?php 
+                    if(!empty($nombre_commentaire)){
+                ?>
+                        <div class="titre">Commentaires</div>
+                        <?php
+                            $i = 0;
+        					foreach($nombre_commentaire as $commentaire){
+        						$date = $commentaire['date'];
+        						echo '	<div id="commentaire">
+                                   			<span id="auteurComment">De '.$commentaire['auteur'].'</span>
+        									<span id="dateComment">Le '.$insertion_date .'</span><br/>
+        							 		<br/>'.$commentaire['commentaire'].'<br/><br/>';
+                                        for($j = 0; $j < $commentaire['note']; $j++){
+                                            echo '<span id="note"><img class="etoile" src="Resources/Images/star-pleine_fiche.png" width="15px"/></span>';
+                                        }
+        						echo '	</div>';
+                                $i++;
+        					}
+                    }
                     if(isset($_SESSION['pseudo'])){
                 ?>
                 <br/>
