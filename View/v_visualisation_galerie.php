@@ -19,7 +19,8 @@
 			<?php menu(); ?>
             <?php include_once('Controller/c_activitees_recentes.php'); ?>
     
-            <section id="visualisation_galerie">               
+            <section id="visualisation_galerie">  
+                <div class="titre"><?php echo $titre; ?></div>             
             <?php
 			$i=0;
                 echo '	<ul id="galerie" title="My Gallery">';

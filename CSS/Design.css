@@ -492,6 +492,13 @@ section#galerie ul li{
 section#galerie ul li img#img_couverture{
 	width: 200px;
 	height: 200px;
+	box-shadow: 0px 0px 10px #585858;
+	border: 3px solid #585858;
+	border-radius: 50px;
+	margin-bottom: 10px;
+}
+section#galerie ul li span#titre_galerie{
+	font-size: 1.2em;
 }
 
 
