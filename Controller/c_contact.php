@@ -8,19 +8,20 @@ if(strtolower($_SERVER['REQUEST_METHOD']) == 'post'){
 				$mail_verif = false;
 			}
 			else{
-				$destinataire = "rongeardb@gmail.com";
+				$destinataire = "benron@hotmail.fr";
 				$sujet = strip_tags($_POST['objet']);
 				$nom = strip_tags($_POST['nom']);
 				$email = strip_tags($_POST['adresse_mail']);
 				$message = strip_tags($_POST['message']);
 
-				$entete = 'From : '.$nom.'<'.$email.'>'."\r\n".'Reply-To: '.$email."\r\n".'X-Mailer: PHP/'.phpversion();
+				$entete = "From : ".$nom."<".$email.">\n";
+				$entete .= "MINE-Version: 1.0";
 
 				if(mail($destinataire, $sujet, $message, $entete)){
-					header('Location:index.php?page=mail_envoye');
+					header('Location: index.php?page=mail_envoye');
 				}
 				else{
-					header('Location:index.php?page=mail_probleme');
+					header('Location: index.php?page=mail_probleme');
 				}
 			}
 		}
