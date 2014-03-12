@@ -106,6 +106,10 @@ if(isset($_GET['code'])){
 		// Galerie
 		$listeImage = get_galery($code);
 
+		// Dejà_noté
+		if(isset($_SESSION['pseudo'])){
+			$note_existante = note_existante($code, $_SESSION['pseudo']);
+		}
 
 		//Commentaire
 		if(isset($_SESSION['pseudo']) and strtolower($_SERVER['REQUEST_METHOD']) == 'post' and isset($_POST['commentaire']) and $_POST['commentaire'] != ""){
