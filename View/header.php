@@ -7,10 +7,6 @@
 	 		Chaque élément du tableau doit avoir cette forme : array('type' => 'css ou javascript', 'href' => 'path', 'name' => 'optionel pour css')
 */
 
-if (!is_dir(session_save_path())) {
-	session_save_path ('Sessions/');
-}
-
 const NAME_SITE = 'RandoPassion';
 const CSS_BASE = 'Design.css';
 
