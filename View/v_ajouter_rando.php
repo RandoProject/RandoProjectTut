@@ -99,7 +99,8 @@
                     <?php if(isset($error['difficulty'])) echo '<p class="error">'.$error['difficulty'].'</p>'; ?>
                     <input type="range" step="1" min="1" max="5" id="difficulty" name="difficulty" <?php  if(isset($value['difficulty'])) echo 'value="'.$value['difficulty'].'"'; else echo 'value="1"'; ?> onchange="document.getElementById('difficulte').value=this.value;"><br/><br/>
                 	
-
+                    <label for="deniv">Dénivelé (en mètre) : </label>
+                    <input type="text" maxlength="6" size="6" id="deniv" name="deniv"/><br/><br/>
                     <labe>Durée :</label><br/>
                     <?php 
                     if (isset($error['day']) or isset($error['hour']) or isset($error['minutes'])){
@@ -125,6 +126,7 @@
                 </form>
                 <br>
                 <form method="post" enctype="multipart/form-data"  action="../Controller/c_upload_img.php">
+                        <label for="images">Choisissez vos images : </label>
                         <input type="file" name="images[]" id="images" multiple="multiple">
                         <input type="submit" id="upl" value="Charger fichiers">
                 </form>
