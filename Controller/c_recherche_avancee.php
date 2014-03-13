@@ -100,6 +100,14 @@ if(isset($_POST['s_region'], $_POST['distance'], $_POST['time'], $_POST['difficu
 	}
 
 	$affichage_rando_complet = affichage_f_rando_complet($_POST['s_region'], $typeRegion, $MAX_distance, $MIN_distance, $MAX_time, $MIN_time, $difficulty, $water);
+
+	if($typeRegion == "s_region_true"){
+		if(is_numeric($_POST['s_region']) and intval($_POST['s_region']) >= 1 and intval($_POST['s_region']) <= 22){
+			$value_region['region'] = $_POST['s_region'];
+			$nom_rando = select_regions_via_num($value_region['region']);
+			$value_name_region = $nom_rando->nom;
+		}
+	}
 }
 
 /* Sélection des régions */

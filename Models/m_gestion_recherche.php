@@ -63,6 +63,20 @@ function select_regions($select){
 	return $res;
 }
 
+function select_regions_via_num($num_region){
+	global $bdd;
+
+	$reqStr = "SELECT * FROM regions WHERE num_region = :num_region";
+	$reqArray = array('num_region' => $num_region);
+
+	$req = $bdd->prepare($reqStr);
+	$req->execute($reqArray);
+	$res = $req->fetch(PDO::FETCH_OBJ);
+	$req->closeCursor();
+
+	return $res;
+}
+
 
 function selection_rando_recente(){
 	global $bdd;
