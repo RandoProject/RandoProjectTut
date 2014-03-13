@@ -1,5 +1,3 @@
-
-
 <?php
 
 function menu(){
@@ -35,7 +33,7 @@ function menu(){
 				<ul id="account">';
 				
 	if(isset($_SESSION['statut'])){
-		echo '		<li><a class="profil" href="index.php?page=profil">Profil</a></li>
+		echo '		<li><a class="profil" href="index.php?page=profil&pseudo='.$_SESSION['pseudo'].'">Profil</a></li>
 					<li><a class="connexion" href="index.php?page=deconnexion">Déconnexion</a></li>';
 	}
 	else{

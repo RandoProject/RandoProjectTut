@@ -1,0 +1,79 @@
+section#visualisation_galerie ul li{
+	display:  block;
+	float:  left;
+	margin-left:  65px;
+	margin-top:  50px;
+}
+section#visualisation_galerie .gvIIContainer{
+	width: 855px;
+	position: relative;
+	padding: 10px 0 10px 10px;
+}
+section#visualisation_galerie .gvIIContainer .gvIIImgContainer img{
+	margin-left: 0;
+	margin-top: 0;
+}
+/*section#visualisation_galerie .gvIIAltText{
+	position: absolute;
+	right: 350px;
+	top: 0;
+	background: #000;
+	border: 1px solid #fff;
+	color: #fff;
+	padding: 5px;
+}*/
+section#visualisation_galerie .gvIIContainer .gvIIImgContainer{
+	width: 800px;
+	height: 600px;
+	position: relative;
+	overflow: hidden;
+	margin-bottom: 50px;
+	margin-left: 35px;
+	box-shadow: 0px 0px 20px #585858;
+	border: 3px solid #585858;
+}
+section#visualisation_galerie .gvIIContainer .gvIIImgContainer .gvIILoader{
+	background:  url(../JS/galerie/ajax-loader.gif) no-repeat center center;
+	width: 450px;
+	height: 385px;
+	display: none;
+}
+section#visualisation_galerie .gvIIContainer .gvIIHolder{
+	position: relative;
+	height: 278px;
+	width: 877px;
+	overflow: auto;
+	border: 3px solid #585858;
+	box-shadow: 0px 0px 20px #585858;
+}
+section#visualisation_galerie .gvIIContainer .gvIIHolder .gvIIArrow{}
+section#visualisation_galerie .gvIIContainer .gvIIHolder .gvIIItem{
+	float: left;
+	height: 55px;
+	width: 72px;
+	padding: 4px;
+	border: 1px solid #585858;
+	margin: 2px;
+	position: relative;
+	overflow: hidden;
+}
+section#visualisation_galerie .gvIIContainer .gvIIHolder .gvIIItem .gvIIFlash{
+	background: #BDBDBD;
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 65px;
+	width: 80px;
+	cursor: pointer;
+}
+section#visualisation_galerie .gvIIContainer .gvIIHolder .gvIIItem img{
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding: 0;
+	margin: 0;
+	margin-left: 0;
+	margin-top: 0;
+	border: none;
+	cursor: pointer;
+}

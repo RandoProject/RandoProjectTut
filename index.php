@@ -19,6 +19,10 @@ else{
 			include_once('Controller/c_galerie.php');
 			break;
 
+		case 'visualisation_galerie':
+			include_once('Controller/c_visualisation_galerie.php');
+			break;
+		
 		case 'ajout_rando':
 			include_once('Controller/c_ajouter_rando.php');
 			break;

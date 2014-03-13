@@ -6,7 +6,7 @@
 		$listInc 	:	Tableau contenant les CSS, Scripts... que l'on veut rajouter(facultatif) 
 	 		Chaque élément du tableau doit avoir cette forme : array('type' => 'css ou javascript', 'href' => 'path', 'name' => 'optionel pour css')
 */
-	 
+
 const NAME_SITE = 'RandoPassion';
 const CSS_BASE = 'Design.css';
 

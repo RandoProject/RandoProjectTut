@@ -117,50 +117,63 @@
                     }
                 ?>
                 <br/><br/><br/><br/>
-                <div class="titre">Commentaires</div>
-                <?php
-                    $i = 0;
-					foreach($nombre_commentaire as $commentaire){
-						$date = $commentaire['date'];
-						echo '	<div id="commentaire">
-                           			<span id="auteurComment">De '.$commentaire['auteur'].'</span>
-									<span id="dateComment">Le '.$insertion_date .'</span><br/>
-							 		<br/>'.$commentaire['commentaire'].'<br/><br/>';
-                                for($j = 0; $j < $commentaire['note']; $j++){
-                                    echo '<span id="note"><img class="etoile" src="Resources/Images/star-pleine_fiche.png" width="15px"/></span>';
-                                }
-						echo '	</div>';
-                        $i++;
-					}
+                <?php 
+                    if(!empty($nombre_commentaire)){
+                ?>
+                        <div class="titre">Commentaires</div>
+                        <?php
+                            $i = 0;
+        					foreach($nombre_commentaire as $commentaire){
+        						$date = $commentaire['date'];
+        						echo '	<div id="commentaire">
+                                   			<span id="auteurComment">De '.$commentaire['auteur'].'</span>
+        									<span id="dateComment">Le '.$insertion_date .'</span><br/>
+        							 		<br/>'.$commentaire['commentaire'].'<br/><br/>';
+                                        for($j = 0; $j < $commentaire['note']; $j++){
+                                            echo '<span id="note"><img class="etoile" src="Resources/Images/star-pleine_fiche.png" width="15px"/></span>';
+                                        }
+        						echo '	</div>';
+                                $i++;
+        					}
+                    }
                     if(isset($_SESSION['pseudo'])){
                 ?>
                 <br/>
 
                 <form action="index.php?page=fiche_rando&code=<?php echo $code; ?>" method="post">
                     <label for="commentaire"><h1>Ajouter un commentaire :</h1></label><br/>
-                        <ul name="notes" class="notes">
-                            <p> Note : </p>
-                            <li>
-                                <label class="etoile_vide" id="et5" for="note5" title="Note : 5 sur 5"></label>
-                                <input type="radio" name="note" id="note5" value="5"/>
-                            </li>
-                            <li>
-                                <label class="etoile_vide" id="et4" for="note4" title="Note : 4 sur 5"></label>
-                                <input type="radio" name="note" id="note4" value="4"/>
-                            </li>
-                            <li>
-                                <label class="etoile_vide" id="et3" for="note3" title="Note : 3 sur 5"></label>
-                                <input type="radio" name="note" id="note3" value="3"/>
-                            </li>
-                            <li>
-                                <label class="etoile_vide" id="et2" for="note2" title="Note : 2 sur 5"></label>
-                                <input type="radio" name="note" id="note2" value="2"/>
-                            </li>
-                            <li>
-                                <label class="etoile_vide" id="et1" for="note1" title="Note : 1 sur 5"></label>
-                                <input type="radio" name="note" id="note1" value="1"/>
-                            </li>
-                        </ul>
+                        <?php 
+                            if(!$note_existante){
+                        ?>
+                                <ul name="notes" class="notes">
+                                    <p> Note : </p>
+                                    <li>
+                                        <label class="etoile_vide" id="et5" for="note5" title="Note : 5 sur 5"></label>
+                                        <input type="radio" name="note" id="note5" value="5"/>
+                                    </li>
+                                    <li>
+                                        <label class="etoile_vide" id="et4" for="note4" title="Note : 4 sur 5"></label>
+                                        <input type="radio" name="note" id="note4" value="4"/>
+                                    </li>
+                                    <li>
+                                        <label class="etoile_vide" id="et3" for="note3" title="Note : 3 sur 5"></label>
+                                        <input type="radio" name="note" id="note3" value="3"/>
+                                    </li>
+                                    <li>
+                                        <label class="etoile_vide" id="et2" for="note2" title="Note : 2 sur 5"></label>
+                                        <input type="radio" name="note" id="note2" value="2"/>
+                                    </li>
+                                    <li>
+                                        <label class="etoile_vide" id="et1" for="note1" title="Note : 1 sur 5"></label>
+                                        <input type="radio" name="note" id="note1" value="1"/>
+                                    </li>
+                                </ul>
+                        <?php
+                            }
+                            else{
+                                echo '<p>Vous avez déjà noté cette randonnée</p>';
+                            }
+                        ?>
                     <textarea id="commentaire" name="commentaire" required autocomplete="off" pattern="[a-z]"></textarea>
                     <input type="submit" name="envoie_commentaire" value="Envoyer"/>
                 </form>

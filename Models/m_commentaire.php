@@ -48,3 +48,23 @@ function mise_a_jour_note($code, $moyenne){
 	$req->execute($reqArray)  or die(print_r($erreur->errorInfo()));
 	$req->closeCursor();
 }
+
+
+function note_existante($code, $pseudo){
+	global $bdd;
+
+	$reqStr = "SELECT count(*) as nombre_note FROM commentaire WHERE code_rando = :code AND auteur = :pseudo AND note != 0";
+	$reqArray = array('code' => $code, 'pseudo' => $pseudo);
+
+	$req = $bdd->prepare($reqStr);
+	$req->execute($reqArray) or die(print_r($erreur->errorInfo()));
+	$res = $req->fetch(PDO::FETCH_OBJ);
+	$req->closeCursor();
+
+	if($res->nombre_note == 0){
+		return false;
+	}
+	else{
+		return true;
+	}
+}
