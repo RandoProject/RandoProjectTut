@@ -31,7 +31,7 @@ function affichage_title($title){
 		}
 		for($i = 0; $i < count($mots); $i++){ // Ajoute les conditions si le tableau n'est pas vide
 			if($mots[$i] !== ''){ // Ajoute les conditions si le mot n'est pas vide
-				$reqStr .= 'titre LIKE "%'.$mots[$i].'%"';
+				$reqStr .= 'titre LIKE "%'.$mots[$i].'%" OR rando.descriptif LIKE "%'.$mots[$i].'%"';
 				$j = $i+1;
 				while($j < count($mots)){ // Ajoute OR si il y a un autre mot non vide dans le tableau
 					if($mots[$j] !== ''){
