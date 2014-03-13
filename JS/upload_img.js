@@ -35,7 +35,7 @@ window.addEventListener('load', function(){
       }
       if (formdata) {
         $.ajax({
-          url: "Controller/c_upload_img.php",
+          url: "index.php?page=upload_img",
           type: "POST",
           data: formdata,
           processData: false,

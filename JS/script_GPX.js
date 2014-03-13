@@ -43,18 +43,24 @@ function gpxRead(gpxFile){
 		lat: NaN,
 		lon: NaN
 	};
-	var listPoints = gpxFile.getElementsByTagName('trkpt');
-    if(listPoints.length == 0){ // Si on ne trouve pas de balise trkpt
-        listPoints = gpxFile.getElementsByTagName('rtept');
-    }
+
     /* Les points aux extrémités de du parcours, point le plus au Sud, le plus à l'Est...
-       Ces point permetteront de trouver le centre du parcours*/
+   Ces point permetteront de trouver le centre du parcours*/
     var limitPoints = {
         north: NaN,
         south: NaN,
         east: NaN,
         west: NaN
     };
+    var deniv = 0; // Contiendra le dénivelé de la rando si l'élevation est indiquée
+    var ele = 0, elePrevious; // elevation actuel
+    var listChilds;
+
+	var listPoints = gpxFile.getElementsByTagName('trkpt');
+    if(listPoints.length == 0){ // Si on ne trouve pas de balise trkpt
+        listPoints = gpxFile.getElementsByTagName('rtept');
+    }
+
 
 	var listAttributes;
 	var i; // Permettra de calculer le nombre de points
@@ -72,11 +78,12 @@ function gpxRead(gpxFile){
 			}
 		}
 
+
 		if(!isNaN(Coordinate.lat) && !isNaN(Coordinate.lon)){ // Si la coordonnée est valide
             listCoordinates.push(Coordinate);
             if(isNaN(limitPoints.north)){
                 /* Si la lattitude est plus grande, ça veut dire que le point est plus au nord 
-                (Sur google API la longitude du sud est négative)*/
+                (Sur google API la longitude du sud est négative) */
                 limitPoints.north = Coordinate.lat;
                 limitPoints.south = Coordinate.lat;
                 limitPoints.east = Coordinate.lon;
@@ -98,6 +105,18 @@ function gpxRead(gpxFile){
                     limitPoints.west = Coordinate.lon;
                 }
             }
+		}
+
+		listChilds = listPoints[i].childNodes;
+		for(var j=0, childText; j < listChilds.length; j++){
+			
+			if(listChilds[j].nodeName == 'ele'){
+				elePrevious = ele;
+				ele = parseFloat(listChilds[j].childNodes[0].nodeValue);
+				if(ele > elePrevious){
+					deniv += ele - elePrevious;
+				}
+			}
 		}
 
 		Coordinate = { // Réinitialise Longitude et lattitude
@@ -132,7 +151,7 @@ function gpxRead(gpxFile){
 		p.appendChild(document.createTextNode('Erreur : Le fichier que vous avez choisi ne contient aucune coordonée'));
 		p.class = 'erreur';
 	}
-
+	/*
 
 	divInfo = document.getElementById('info-map');
     form = document.getElementById("insert_rando");
@@ -142,4 +161,10 @@ function gpxRead(gpxFile){
 	else{
 		form.replaceChild(infoFile, divInfo);
 	}
+
+	*/
+
+	document.getElementById('deniv').value = deniv;
+
+
 }

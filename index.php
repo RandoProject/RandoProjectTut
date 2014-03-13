@@ -76,6 +76,10 @@ else{
 			include_once('View/v_commentaire_envoye.php');
 			break;
 
+		case 'upload_img':
+			include_once('Controller/c_upload_img.php');
+		break;
+
 		default:
 			header('Location:index.php?page=erreur');
 			break;
