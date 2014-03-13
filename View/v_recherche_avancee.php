@@ -39,7 +39,12 @@
                         <div class="critere">
                             <label for="distance">Longueur</label><br/>
                             <select id="distance" name="distance">
-                                <option value="non_precise" selected="selected">Non précisée</option>
+                                <?php 
+                                    if(isset($value_distance, $value_nom_distance)){
+                                        echo '<option value="'.$value_distance.'">'.$value_nom_distance.'</option>';
+                                    }
+                                ?>
+                                <option value="non_precise">Non précisée</option>
                                 <?php
                                     $n=0;
                                     $m=5;
@@ -58,7 +63,12 @@
                         <div class="critere">
                             <label for="time">Durée</label><br/>
                             <select id="time" name="time">
-                                <option value="time_non_precise" selected="selected">Non précisée</option>
+                                <?php
+                                    if(isset($value_time, $value_name_time)){
+                                        echo '<option value="'.$value_time.'">'.$value_name_time.'</option>';
+                                    }
+                                ?>
+                                <option value="time_non_precise">Non précisée</option>
                                 <?php
                                     $d=0;
                                     $m=1;
@@ -81,7 +91,12 @@
                         <div class="critere">
                             <label for="difficulty">Difficulté</label><br/>
                             <select id="difficulty" name="difficulty">
-                                <option value="difficulte_non_precise" selected="selected">Non précisée</option>
+                                <?php
+                                    if(isset($value_difficulte, $value_name_difficulte)){
+                                        echo '<option value="'.$value_difficulte.'">'.$value_name_difficulte.'</option>';
+                                    }
+                                ?>
+                                <option value="difficulte_non_precise">Non précisée</option>
                                 <?php
                                     $n=1;
                                     $number_of_ligne=0;
@@ -96,7 +111,12 @@
                         <div class="critere">
                             <label for="water">Point d'eau</label><br/>
                             <select id="water" name="water">
-                                <option value="0" selected="selected">Indifférent</option>
+                                <?php
+                                    if(isset($value_water, $value_name_water)){
+                                        echo '<option value="'.$value_water.'">'.$value_name_water.'</option>';
+                                    }
+                                ?>
+                                <option value="0">Indifférent</option>
                                 <option value="1">Oui</option>
                             </select>
                         </div>
