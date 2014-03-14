@@ -187,6 +187,9 @@ else if(isset($_POST['envoie_formulaire'])){
 }
 else if(isset($_POST['envoie_titre'])){
 	$listeRando = $affichage_titre_rando;
+	if(isset($_POST['title'])){
+		$value_name_title = strip_tags($_POST['title']);
+	}
 }
 else if(!empty($_GET['region']) && $_GET['region'] > 0 && $_GET['region'] < 23){
 	$listeRando = affichage_f_rando_complet($_GET['region'], 's_region_true', -1, -1, false, false, 'non_precise', false);

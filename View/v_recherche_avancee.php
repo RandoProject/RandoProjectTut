@@ -14,7 +14,11 @@
                 <form method="post" action="index.php?page=recherche">
                     <div id="recherche_mot_cle">
                         <h1>Recherche par mots clés</h1>
-                        <input type="text" name="title" placeholder="mots clés.." autocomplete="off"/>
+                        <input type="text" name="title" 
+                            <?php 
+                                if(isset($value_name_title)){ echo 'value="'.$value_name_title.'"'; }
+                                else{ echo 'placeholder="mots clés.."';}
+                            ?> autocomplete="off"/>
                         <input type="submit" name="envoie_titre" value="Rechercher"/>
                     </div>
                     <br/><br/>
