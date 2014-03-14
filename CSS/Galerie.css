@@ -40,7 +40,7 @@ section#visualisation_galerie .gvIIContainer .gvIIImgContainer .gvIILoader{
 }
 section#visualisation_galerie .gvIIContainer .gvIIHolder{
 	position: relative;
-	height: 278px;
+	max-height: 278px;
 	width: 877px;
 	overflow: auto;
 	border: 3px solid #585858;

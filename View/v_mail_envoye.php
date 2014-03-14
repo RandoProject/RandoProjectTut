@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html lang="fr">
 	
-	<?php head("Contact");?>
+	<?php head("Contact",
+		array(
+			array('type' => 'meta', 'http-equiv' => 'refresh', 'content' => '3; URL=index.php')
+		));
+	?>
 	<body>
     	<div id="corps">
 			<?php menu(); ?>

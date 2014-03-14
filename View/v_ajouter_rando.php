@@ -78,7 +78,7 @@
                 <form method="post" action="index.php?page=ajout_rando" id="insert_rando" enctype="multipart/form-data">
                     <label for="name">Nom de la randonnée : </label><br/>
                     <?php if(isset($error['name'])) echo '<p class="error">'.$error['name'].'</p>';?>
-                    <input type="text" id="name" name="name" size="71" autocomplete="off" maxlength="150" required <?php if(isset($value['name'])) echo 'value="'.$value['name'].'"'; ?> ><br/><br/>
+                    <input type="text" id="name" name="name" size="71" autocomplete="off" maxlength="150" <?php if(isset($value['name'])) echo 'value="'.$value['name'].'"'; ?> required/><br/><br/>
                     
                     <label for="fileMap">Votre parcours (fichier GPX) : </label>
                     <div id="chooseFile">
@@ -100,7 +100,7 @@
                     <input type="range" step="1" min="1" max="5" id="difficulty" name="difficulty" <?php  if(isset($value['difficulty'])) echo 'value="'.$value['difficulty'].'"'; else echo 'value="1"'; ?> onchange="document.getElementById('difficulte').value=this.value;"><br/><br/>
                 	
                     <label for="deniv">Dénivelé (en mètre) : </label>
-                    <input type="text" maxlength="6" size="6" id="deniv" name="deniv"/><br/><br/>
+                    <input type="text" maxlength="6" size="6" id="deniv" name="deniv" pattern="\d+" required autocomplete="off"/><br/><br/>
                     <labe>Durée :</label><br/>
                     <?php 
                     if (isset($error['day']) or isset($error['hour']) or isset($error['minutes'])){
@@ -127,14 +127,14 @@
                 <br>
                 <form method="post" enctype="multipart/form-data"  action="../Controller/c_upload_img.php">
                         <label for="images">Choisissez vos images : </label>
-                        <input type="file" name="images[]" id="images" multiple="multiple">
+                        <input type="file" name="images[]" id="images" multiple>
                         <input type="submit" id="upl" value="Charger fichiers">
                 </form>
                 <div id="response"></div>
                     <ul id="image-list">
                         
                     </ul>
-                <input type="button" value="Ajouter" id="submitRando"> 
+                <input type="submit" value="Ajouter" id="submitRando"> 
 
                 <?php } // Ferme le else?>
             </section>
