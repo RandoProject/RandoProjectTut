@@ -153,7 +153,7 @@ INSERT INTO `departements` VALUES ('2b', '9', 'Haute Corse');
 -- ____________________ GALERIE ____________________ --
 CREATE TABLE IF NOT EXISTS `galerie` (
 	`numero` int(10) NOT NULL AUTO_INCREMENT,
-	`nom` varchar(100) NOT NULL,
+	`nom` varchar(100) DEFAULT NULL,
 	PRIMARY KEY (`numero`)
 );
 

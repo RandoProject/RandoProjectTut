@@ -19,6 +19,7 @@ function get_rando($code){
 	
 	$query = $bdd->prepare($queryStr);
 	$query->execute($queryArray);
+
 	$data = $query->fetch(PDO::FETCH_OBJ);
 	$query->closeCursor();
 	
@@ -30,6 +31,7 @@ function insert_rando($title, $delay, $difficulty, $description, $water, $autor,
 	$queryStr = 'INSERT INTO rando(titre, duree, difficulte, descriptif, point_eau, auteur, date_insertion, departement, parcours, denivele, valide)
 				VALUES(:title, :delay, :difficulty, :description, :water, :autor, NOW(), :departement, :parcours, :denivele, 0)';
 	$query = $bdd->prepare($queryStr);
+
 	$query->execute(array(':title' => $title,
 						  ':delay' => $delay,
 						  ':difficulty' => $difficulty,
@@ -39,6 +41,7 @@ function insert_rando($title, $delay, $difficulty, $description, $water, $autor,
 						  ':departement' => $departement,
 						  ':parcours' => $parcours,
 						  ':denivele' => $deniv));
+
 }
 
 function get_galery($code){

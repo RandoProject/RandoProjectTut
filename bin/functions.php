@@ -9,7 +9,7 @@ function cleanTmp($dirGpxTmp = 'Resources/GPX/tmp'){
 
 	$dir = opendir(session_save_path()); // Chemin des fichiers de session
 	while($file = readdir($dir)) {
-		if($file != '.' && $file != '..' && !is_dir($dir.'/'.$file)){
+		if($file != '.' and $file != '..' and !is_dir($dir.'/'.$file)){
 				$listSession[] = substr($file, 5);
 		}
 	}
@@ -17,7 +17,7 @@ function cleanTmp($dirGpxTmp = 'Resources/GPX/tmp'){
 
 	$dir = opendir($dirGpxTmp);
 	while($file = readdir($dir)) {
-		if($file != '.' && $file != '..'){
+		if($file != '.' and $file != '..'){
 			if(!in_array(substr($file, 4), $listSession)){
 				if(is_dir($dirGpxTmp.'/'.$file)){ // Si c'est un dossier
 					cleanDir($dirGpxTmp.'/'.$file); // Vide et supprime le sous dossier
@@ -39,7 +39,7 @@ function cleanTmp($dirGpxTmp = 'Resources/GPX/tmp'){
 function cleanDir($dirname){ 
 	$dir = opendir($dirname);
 	while($file = readdir($dir)){
-		if($file != '.' && $file != '..'){
+		if($file != '.' and $file != '..'){
 			if(is_dir($dirname.'/'.$file)){
 				cleanDir($dirname.'/'.$file); // Rappel la fonction elle même
 			}
@@ -50,4 +50,21 @@ function cleanDir($dirname){
 	}
 	closedir($dir);
 	rmdir($dirname); // Supprime le dossier courant
+}
+
+/*
+	Déplace tous les fichier d'un dossier dans un autre dossier
+	Prend en paramètre le dossier source et le dossier d'arrivée
+	Renvoie un tableau contenant la liste des nom de fichiers contenus dans le dossier
+*/
+function moveFilesDir($src, $dest){
+	$dirSrc = opendir($src);
+	$listFiles = array();
+	while($file = readdir($dirSrc)){
+		if($file != '.' and $file != '..'){
+			rename($src.'/'.$file, $dest.'/'.$file);
+			$listFiles[] = $file;
+		}
+	}
+	return $listFiles;
 }

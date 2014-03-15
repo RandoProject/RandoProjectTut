@@ -13,3 +13,14 @@
 		$req->closeCursor();
 		return $res;
 }
+
+
+function insert_galerie($nom = null){
+	global $bdd;
+	$req = $bdd->prepare('INSERT INTO galerie(nom) VALUES(:nom)');
+	$bdd->exec('LOCK TABLES galerie WRITE'); // empèche l'écriture dans la table pour ne pas avoir d'erreur sur l'id
+	$req->execute(array(':nom' => $nom));
+	$id = $bdd->lastInsertId();
+	$bdd->exec('UNLOCK TABLES');
+	return $id;
+}
