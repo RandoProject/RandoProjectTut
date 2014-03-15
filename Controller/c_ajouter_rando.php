@@ -200,17 +200,19 @@ if(isset($_SESSION['statut']) and in_array($_SESSION['statut'], array('administr
 
 
 				
-				// -------------------------------------------- Gestion des images ---------------------------------------------
+				// ------------------------------------------------- Gestion des images ---------------------------------------------
 				$srcImgDir = 'Resources/Galerie/tmp/'.session_id();
 				if(file_exists($srcImgDir)){ // Si il y a un dossier d'images
 					include_once('Models/m_galerie.php');
+					include_once('Models/m_photo.php');
 					$idGalery = insert_galerie();
 					$galeryDir = 'Resources/Galerie/'.$idGalery;
 					if(!file_exists($galeryDir)){
 						mkdir($galeryDir, 0777);
 					}
-					moveFilesDir($srcImgDir, $galeryDir); // Déplace les images
-					
+					$listImg = moveFilesDir($srcImgDir, $galeryDir); // Déplace les images
+					insert_photo($listImg, $idGalery);
+					rmdir($srcImgDir); // Supprime le dossier source
 				}
 				else{
 					$idGalery = 0;
@@ -223,7 +225,7 @@ if(isset($_SESSION['statut']) and in_array($_SESSION['statut'], array('administr
 				rename('Resources/GPX/tmp/gpx_'.session_id(), 'Resources/GPX/'.$idRoute.'_'.substr($title,  0, 150).'.gpx'); 
 				
 				$delay = ($day*24) + $hour.':'.$minutes.':0';
-				$idRando = insert_rando($title, $delay, $difficulty, $_POST['description'], $water, $_SESSION['pseudo'], $departement, $idRoute, $deniv); // On enregistre la randonnée
+				$idRando = insert_rando($title, $delay, $difficulty, $_POST['description'], $water, $_SESSION['pseudo'], $departement, $idRoute, $idGalery, $deniv); // On enregistre la randonnée
 				
 
 
