@@ -679,9 +679,23 @@ section#ajoutrando{
 	width: 1150px;
 	text-align: center;
 }
+
+
 section#ajoutrando form{
 	margin-right: 50px;
 }
+
+section#ajoutrando form input[type="button"]{
+	cursor: pointer;
+	font-weight: bold;
+}
+
+section#ajoutrando form input[type="button"]:hover{
+	background-color: #A8BF75;
+	color: #F5F6F7;
+	border: solid 1px #A8BF75;
+}
+
 section#ajoutrando form input[type=range] {
 	height:10px;
 	width:280px;

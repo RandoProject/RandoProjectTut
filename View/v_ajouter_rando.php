@@ -82,9 +82,9 @@
                     
                     <label for="fileMap">Votre parcours (fichier GPX) : </label>
                     <div id="chooseFile">
-                        <button type="button">Choisissez un fichier</button>
+                        <input type="button" id="buttonChooseGpx" value="Choisissez un fichier" />
                         <p id="pathFile"></p>
-                        <input type="file" id="fileMap" name="fileMap" required><br/><br/>
+                        <input type="file" id="fileMap" name="fileMap"><br/><br/>
                     </div>
                     <div id="container-map">
                         <div id="map-canvas"></div><br/>
@@ -99,8 +99,9 @@
                     <?php if(isset($error['difficulty'])) echo '<p class="error">'.$error['difficulty'].'</p>'; ?>
                     <input type="range" step="1" min="1" max="5" id="difficulty" name="difficulty" <?php  if(isset($value['difficulty'])) echo 'value="'.$value['difficulty'].'"'; else echo 'value="1"'; ?> onchange="document.getElementById('difficulte').value=this.value;"><br/><br/>
                 	
+                    <?php if(isset($error['deniv'])) echo '<p class="error">'.$error['deniv'].'</p>';?>
                     <label for="deniv">Dénivelé (en mètre) : </label>
-                    <input type="text" maxlength="6" size="6" id="deniv" name="deniv" pattern="\d+" required autocomplete="off"/><br/><br/>
+                    <input type="text" maxlength="6" size="6" id="deniv" name="deniv" pattern="\d+" autocomplete="off" <?php if(isset($value['deniv'])) echo 'value="'.$value['deniv'].'"'; ?>/><br/><br/>
                     <labe>Durée :</label><br/>
                     <?php 
                     if (isset($error['day']) or isset($error['hour']) or isset($error['minutes'])){

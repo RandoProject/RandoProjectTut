@@ -39,6 +39,18 @@ if(isset($_SESSION['statut']) and in_array($_SESSION['statut'], array('administr
 				$error['difficulty'] = "La difficulté que vous avez entré n'est pas valide.";
 			}
 		}
+		// Vérif dénivelé
+		if(!isset($_POST['deniv']) or $_POST['deniv'] == ""){
+			$deniv = null;
+		}
+		else if(is_numeric($_POST['deniv'])){
+			$deniv = intval($_POST['deniv']);
+		}
+		else{
+			$error['deniv'] = 'Le dénivelé entrer est invalide';
+		}
+
+
 		// Vérification de la durée
 		if(!isset($_POST['day']) or $_POST['day'] == ""){
 			$day = 0;
@@ -124,6 +136,7 @@ if(isset($_SESSION['statut']) and in_array($_SESSION['statut'], array('administr
 			$error['fileMap'] = "Le fichier sélectionné est invalide.";
 		}
 
+		// Si aucune erreur on valide et on enregistre la randonnée
 		if(empty($error)){
 				include_once('bin/params.php');
 				include_once('Models/m_randonnees.php');
@@ -135,10 +148,10 @@ if(isset($_SESSION['statut']) and in_array($_SESSION['statut'], array('administr
 					$ele = NULL;
 					foreach($point->attributes() as $name => $value){ // Récupère longitude et latitude
 						if($name == 'lon'){
-							$lon = intval($value);
+							$lon = floatval($value);
 						}
 						else if($name == 'lat'){
-							$lat = intval($value);
+							$lat = floatval($value);
 						}
 					}
 					// Récupère l'élèvation
@@ -179,10 +192,10 @@ if(isset($_SESSION['statut']) and in_array($_SESSION['statut'], array('administr
 				}
 				include_once('Models/m_parcours.php');
 				$idRoute = insert_parcours($title.'.gpx', $nbPoints);
-				rename('Resources/GPX/tmp/gpx_'.session_id(), 'Resources/GPX/'.$idRoute.'_'.substr($title,  0, 150).'.gpx'); // A changer
+				rename('Resources/GPX/tmp/gpx_'.session_id(), 'Resources/GPX/'.$idRoute.'_'.substr($title,  0, 150).'.gpx'); 
 				
 				$delay = ($day*24) + $hour.':'.$minutes.':0';
-				insert_rando($title, $delay, $difficulty, $_POST['description'], $water, $_SESSION['pseudo'], $departement, $idRoute);
+				insert_rando($title, $delay, $difficulty, $_POST['description'], $water, $_SESSION['pseudo'], $departement, $idRoute, $deniv); // On enregistre la randonnée
 				
 			
 				include_once('bin/functions.php');
@@ -200,6 +213,9 @@ if(isset($_SESSION['statut']) and in_array($_SESSION['statut'], array('administr
 			}
 			if(!isset($error['difficulty'])){
 				$value['difficulty'] = $difficulty;
+			}
+			if(!isset($error['deniv'])){
+				$value['deniv'] = ($deniv === null)? "" : $deniv;
 			}
 			if(!isset($error['day'])){
 				$value['day'] = $day;
