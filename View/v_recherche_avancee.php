@@ -29,12 +29,9 @@
                             <label for="s_region">Région</label><br/>
                             <?php
                                 echo'<select id="s_region" name="s_region">';
-                                if(isset($value_region['region'], $value_name_region)){
-                                    echo '<option value="'.$value_region['region'].'">'.$value_name_region.'</option>';
-                                }
                                 echo'<option value="not_clarify">Non précisée</option>';
                                 foreach ($listeRegion as $l_region){
-                                    echo'<option value="'.$l_region['num_region'].'">'.$l_region['nom'].'</option>';
+                                    echo'<option value="'.$l_region['num_region'].'" '.((isset($value_region) and $l_region['num_region'] == $value_region)? 'selected' : "").'>'.$l_region['nom'].'</option>';
                                 }
                                 echo'</select>';
                             ?>
