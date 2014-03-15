@@ -211,7 +211,7 @@ if(isset($_SESSION['statut']) and in_array($_SESSION['statut'], array('administr
 						mkdir($galeryDir, 0777);
 					}
 					$listImg = moveFilesDir($srcImgDir, $galeryDir); // Déplace les images
-					insert_photo($listImg, $idGalery);
+					$idFirstImg = insert_photo($listImg, $idGalery);
 					rmdir($srcImgDir); // Supprime le dossier source
 				}
 				else{
@@ -224,8 +224,9 @@ if(isset($_SESSION['statut']) and in_array($_SESSION['statut'], array('administr
 				$idRoute = insert_parcours($title.'.gpx', $nbPoints);
 				rename('Resources/GPX/tmp/gpx_'.session_id(), 'Resources/GPX/'.$idRoute.'_'.substr($title,  0, 150).'.gpx'); 
 				
+				$imgCover = (isset($idFirstImg) and $idFirstImg !== null)? $idFirstImg : 0; // L'image de couverture
 				$delay = ($day*24) + $hour.':'.$minutes.':0';
-				$idRando = insert_rando($title, $delay, $difficulty, $_POST['description'], $water, $_SESSION['pseudo'], $departement, $idRoute, $idGalery, $deniv); // On enregistre la randonnée
+				$idRando = insert_rando($title, $delay, $difficulty, $_POST['description'], $water, $_SESSION['pseudo'], $departement, $idRoute, $idGalery, $imgCover, $deniv); // On enregistre la randonnée
 				
 
 

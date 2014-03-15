@@ -1,10 +1,11 @@
 <?php
-	function get_gallerie(){
+	function get_galerie(){
 		global $bdd;
 
 		$reqStr = '	SELECT *, photo.nom AS nom_photo, galerie.nom AS nom_galerie, galerie.numero AS num_galerie 
 					FROM rando, photo, galerie 
 				   	WHERE rando.photo_principale = photo.numero 
+				   	AND rando.galerie IS NOT NULL
 					AND photo.galerie = galerie.numero 
 					AND rando.valide = 1';
 
@@ -22,5 +23,8 @@ function insert_galerie($nom = null){
 	$req->execute(array(':nom' => $nom));
 	$id = $bdd->lastInsertId();
 	$bdd->exec('UNLOCK TABLES');
+	if($nom === null){
+		$bdd->query('UPDATE galerie SET nom = '.$id.' WHERE numero = '.$id);
+	}
 	return $id;
 }
