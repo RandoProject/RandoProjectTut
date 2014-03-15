@@ -16,15 +16,14 @@
 }
 
 
-function insert_galerie($nom = null){
+function insert_galerie($nom = ""){
 	global $bdd;
 	$req = $bdd->prepare('INSERT INTO galerie(nom) VALUES(:nom)');
 	$bdd->exec('LOCK TABLES galerie WRITE'); // empèche l'écriture dans la table pour ne pas avoir d'erreur sur l'id
 	$req->execute(array(':nom' => $nom));
 	$id = $bdd->lastInsertId();
 	$bdd->exec('UNLOCK TABLES');
-	if($nom === null){
-		$bdd->query('UPDATE galerie SET nom = '.$id.' WHERE numero = '.$id);
-	}
+
+	$bdd->query('UPDATE galerie SET nom = "'.$id.'_'.$nom.'" WHERE numero = '.$id);
 	return $id;
 }

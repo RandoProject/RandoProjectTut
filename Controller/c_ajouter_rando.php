@@ -205,13 +205,13 @@ if(isset($_SESSION['statut']) and in_array($_SESSION['statut'], array('administr
 				if(file_exists($srcImgDir)){ // Si il y a un dossier d'images
 					include_once('Models/m_galerie.php');
 					include_once('Models/m_photo.php');
-					$idGalery = insert_galerie();
-					$galeryDir = 'Resources/Galerie/'.$idGalery;
+					$idGalery = insert_galerie(substr($title, 0, 140));
+					$galeryDir = 'Resources/Galerie/'.$idGalery.'_'.substr($title, 0, 140);
 					if(!file_exists($galeryDir)){
 						mkdir($galeryDir, 0777);
 					}
 					$listImg = moveFilesDir($srcImgDir, $galeryDir); // Déplace les images
-					$idFirstImg = insert_photo($listImg, $idGalery);
+					$idFirstImg = insert_photo($listImg, $idGalery.'_'.substr($title, 0, 140));
 					rmdir($srcImgDir); // Supprime le dossier source
 				}
 				else{
@@ -221,7 +221,7 @@ if(isset($_SESSION['statut']) and in_array($_SESSION['statut'], array('administr
 
 				// -------------------------------------------- Insetion dans la base ---------------------------------------------
 
-				$idRoute = insert_parcours($title.'.gpx', $nbPoints);
+				$idRoute = insert_parcours($title.'.gpx', $firstPoint['lat'], $firstPoint['lon'], $nbPoints);
 				rename('Resources/GPX/tmp/gpx_'.session_id(), 'Resources/GPX/'.$idRoute.'_'.substr($title,  0, 150).'.gpx'); 
 				
 				$imgCover = (isset($idFirstImg) and $idFirstImg !== null)? $idFirstImg : 0; // L'image de couverture
