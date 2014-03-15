@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 
-	<?php head("Administration"); ?>
+	<?php head("Administration", array(array('type' => 'javascript', 'src' => 'JS/check_checkbox.js'))); ?>
 
 	<body>
         <div id="corps">  
