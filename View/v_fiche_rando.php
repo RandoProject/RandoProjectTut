@@ -83,7 +83,7 @@
                         Dénivelé
                     </span><br/>
                     <span class="valeur_caract">
-						<?php echo $altitude; ?>
+						<?php echo $altitude.' m'; ?>
                     </span>
                 </div>
                 <div class="caracteristique">

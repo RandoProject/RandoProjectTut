@@ -124,8 +124,8 @@ if(isset($_POST['s_region'], $_POST['distance'], $_POST['time'], $_POST['difficu
 	//récupération des variables pour afficher dans les selects après une recherche
 	if($typeRegion == "s_region_true"){
 		if(is_numeric($_POST['s_region']) and intval($_POST['s_region']) >= 1 and intval($_POST['s_region']) <= 22){
-			$value_region['region'] = $_POST['s_region'];
-			$nom_rando = select_regions_via_num($value_region['region']);
+			$value_region = $_POST['s_region'];
+			$nom_rando = select_regions_via_num($value_region);
 			$value_name_region = $nom_rando->nom;
 		}
 	}
@@ -191,8 +191,9 @@ else if(isset($_POST['envoie_titre'])){
 		$value_name_title = strip_tags($_POST['title']);
 	}
 }
-else if(!empty($_GET['region']) && $_GET['region'] > 0 && $_GET['region'] < 23){
+else if(isset($_GET['region']) && $_GET['region'] > 0 && $_GET['region'] < 23){
 	$listeRando = affichage_f_rando_complet($_GET['region'], 's_region_true', -1, -1, false, false, 'non_precise', false);
+	$value_region = $_GET['region'];
 }
 else{
 	$listeRando = NULL;

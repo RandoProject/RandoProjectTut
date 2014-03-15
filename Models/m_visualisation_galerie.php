@@ -19,8 +19,7 @@ function get_photos_galerie($num_galerie){
 
 function get_infos_rando($num_galerie){
 	global $bdd;
-
-	$reqStr = '	SELECT rando.*
+	$reqStr = '	SELECT rando.*, rando.galerie
 				FROM rando, galerie
 				WHERE galerie.numero = :num_galerie
 				AND rando.galerie = galerie.numero';
