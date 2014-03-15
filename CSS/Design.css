@@ -279,6 +279,7 @@ aside{
 	float: left;
 	width: 20%;
 	height: auto;
+	height: 550px;
 	text-align: center;
 	overflow: hidden;
 }
@@ -909,20 +910,27 @@ section#connexion div#div_lien_inscription img#img_inscription{
 
 
 /* - - - - - - - - - - Profil - - - - - - - - - - */
-section#profil div#pseudo{
-	margin-top: 50px;
-	margin-bottom: 20px;
-	text-align: center;
-	font-weight: bold;
-}
 section#profil table{
-	margin: auto;
+	margin: 50px auto 20px auto;
 	vertical-align: top;
-	line-height: 150%;
+	width: 90%;
 }
 section#profil table tr td img{
 	width: 128px;
 	height: 128px;
+}
+section#profil input[name="modify"]{
+	width: 160px;
+	float: right;
+	margin-left: -160px;
+	margin-right: 10px;
+	margin-top: 50px;
+	-webkit-transition: background-color .5s ease, color .8s ease;
+	transition: background-color .5s ease, color .8s ease;
+}
+section#profil input[name="modify"]:hover{
+	background-color: #639FFA;
+	border-color: #639FFA;
 }
 
 

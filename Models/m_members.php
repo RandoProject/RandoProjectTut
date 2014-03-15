@@ -36,3 +36,23 @@ function get_photo($pseudo){
 	$req->closeCursor();
 	return $result;
 }
+
+function get_rando_of($pseudo){
+	global $bdd;
+
+	$reqStr = '	SELECT rando.* , departements.nom AS nom_departement, photo.nom AS nom_photo, galerie.nom AS nom_galerie
+				FROM rando, photo, galerie, departements
+				WHERE rando.photo_principale = photo.numero
+				AND photo.galerie = galerie.numero
+				AND rando.departement = departements.num_departement
+				AND auteur = :pseudo
+				ORDER BY date_insertion DESC';
+	$reqArray = array('pseudo' => $pseudo);
+
+	$req = $bdd->prepare($reqStr);
+	$req->execute($reqArray);
+	$result = $req->fetchAll();
+
+	$req->closeCursor();
+	return $result;
+}

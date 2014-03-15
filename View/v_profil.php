@@ -10,51 +10,95 @@
             <?php include_once('Controller/c_activitees_recentes.php'); ?>
     
             <section id="profil">
-				<div id="pseudo"><?php echo $pseudo; ?></div><br/>
                 <?php
-					if(isset($_POST['pseudo'])){
-						echo '	<table>
-									<tr>
-										<td width="150px">
-											<img src="'.$path_photo.'"/>
-											<input type="file"/>
-										</td>
-										<td>
-											Nom : <input type="text" name="familly_name" value="'.$name.'" maxlength="30" autocomplete="off" required/><br/>
-											Prénom : <input type="text" name="firstname" value="'.$firstname.'" maxlength="30" autocomplete="off" required/><br/>
-											Né(e) le <input type="text" name="birth" value="'.$birth.'"/><br/>
-											Adresse : <input type="text" name="address" value="'.$address.'"/><br/>
-											E-mail : <input type="email" name="mail" value="'.$mail.'" maxlength="70" required/><br/>
-										</td>
-									</tr>
-									<tr>
-										<td colspan="2">Déscription : <?php echo $description; ?><br/></td>
-									</tr>
-								</table>
-						';					
+					// Modification du profil
+					if(isset($_POST['modify']) && $_SESSION['pseudo'] === $pseudo){
+						echo '	<div class="titre">Modifier mon profil</div>
+								<form method="post" action="index.php?page=profil&pseudo='.$_SESSION['pseudo'].'">
+									<table>
+										<tr>
+											<td rowspan="4"><img src="'.$path_photo.'"/><input type="file"/></td>
+											<td>
+												Nom : <input type="text" name="familly_name" value="'.$name.'" maxlength="30" autocomplete="off" required/>
+											</td>
+											<td>
+												Prénom : <input type="text" name="firstname" value="'.$firstname.'" maxlength="30" autocomplete="off" required/>
+											</td>
+										</tr>
+										<tr>
+											<td colspan="2">
+												<input type="text" name="birth" value="'.$birth.'"/>
+											</td>
+										</tr>
+										<tr>
+											<td colspan="2">
+												Adresse : <input type="text" name="address" value="'.$address.'"/>
+											</td>
+										</tr>
+										<tr>
+											<td colspan="2">
+												E-mail : <input type="email" name="mail" value="'.$mail.'" maxlength="70" required/>
+											</td>
+										</tr>
+										<tr>
+											<td colspan="3">
+												Déscription : <?php echo $description; ?>
+											</td>
+										</tr>
+									</table>
+								   <input type="submit" value="Valider" name="validate"/>
+								</form>
+						';				
 					}
+					
+					// Affichage du profil
 					else{
-						echo '	<table>
+						if($_SESSION['pseudo'] === $pseudo){
+							echo '	<form method="post" action="index.php?page=profil&pseudo='.$_SESSION['pseudo'].'">
+									   <input type="submit" value="Modifier mon profil" name="modify"/>
+									</form>
+							';
+						}
+						echo '	<div class="titre">'.$pseudo.'</div>
+								<table>
 									<tr>
-										<td width="150px"><img src="'.$path_photo.'"/></td>
+										<td rowspan="4"><img src="'.$path_photo.'"/></td>
 										<td>
-											Nom : '.$name.'<br/>
-											Prénom : '.$firstname.'<br/>
-											Né(e) le '.$birth.'<br/>
-											Adresse : '.$address.'<br/>
-											E-mail : <a href="mailto:'.$mail.'">'.$member->mail.'</a><br/>
+											Nom : '.$name.'
+										</td>
+										<td>
+											Prénom : '.$firstname.'
 										</td>
 									</tr>
 									<tr>
-										<td colspan="2">Déscription : <?php echo $description; ?><br/></td>
+										<td colspan="2">Né(e) le '.$birth.'</td>
+									</tr>
+									<tr>
+										<td colspan="2">Adresse : '.$address.'</td>
+									</tr>
+									<tr>
+										<td colspan="2">E-mail : <a href="mailto:'.$mail.'">'.$member->mail.'</a></td>
+									</tr>
+									<tr>
+										<td colspan="3">Déscription : <?php echo $description; ?><br/></td>
 									</tr>
 								</table>
 						';
-						if($_SESSION['pseudo'] === $pseudo){
-							echo '	<form method="post" action="index.php?page=profil&pseudo='.$_SESSION['pseudo'].'">
-									   <input type="submit" value="Modifier mon profil" name="pseudo"/>
-									</form>
-							';
+						echo '	<div class="titre">Randonnées</div>';
+						foreach($listeRando as $rando){
+							$titleRando = $rando['titre'];
+							$lenghtRando = $rando['longueur'];
+							$durationRando = $rando['duree'];
+							$difficultyRando = $rando['difficulte'];
+							$descriptionRando = $rando['descriptif'];
+							$waterRando = $rando['point_eau'];
+							$altitudeRando = $rando['denivele'];
+							$equipmentRando = $rando['titre'];
+							$photoRando = $rando['nom_photo'];
+							$galerieRando = $rando['nom_galerie'];
+							$noteRando = $rando['note'];
+							
+							echo $titleRando.' '.$noteRando.'<img src="Resources/Galerie/'.$galerieRando.'/'.$photoRando.'" width="100"/><br/>';
 						}
 					}
 				?>

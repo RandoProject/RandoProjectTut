@@ -83,4 +83,7 @@ else{
 	$description = $member->description;
 }
 
+// Randonnées
+$listeRando = get_rando_of($pseudo);
+
 include_once('View/v_profil.php');
