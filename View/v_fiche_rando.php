@@ -108,7 +108,7 @@
                 <br/><br/>
                 
                 <span id="dateRando">Ajouté le <?php echo $insertion_date.' à '.$insertion_hour; ?></span>
-                <span id="auteurRando">Rédigé par <?php echo $author; ?></span>
+                <span id="auteurRando">Rédigé par <?php echo '<a href="index.php?page=profil&pseudo='.$author.'">'.$author.'</a>'; ?></span>
                 
                 
                 <?php 
@@ -126,7 +126,7 @@
         					foreach($nombre_commentaire as $commentaire){
         						$date = $commentaire['date'];
         						echo '	<div id="commentaire">
-                                   			<span id="auteurComment">De '.$commentaire['auteur'].'</span>
+                                   			<span id="auteurComment">De <a href="index.php?page=profil&pseudo='.$com['auteur'].'">'.$commentaire['auteur'].'</a></span>
         									<span id="dateComment">Le '.$insertion_date .'</span><br/>
         							 		<br/>'.$commentaire['commentaire'].'<br/><br/>';
                                         for($j = 0; $j < $commentaire['note']; $j++){

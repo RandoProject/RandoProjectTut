@@ -14,7 +14,7 @@
 		<?php
         foreach($liste_com as $com){
 			echo $com['commentaire'].'</br>';
-			echo '<em>'.$com['auteur'].'</em><br/><br/>';
+			echo '<a href="index.php?page=profil&pseudo='.$com['auteur'].'"><em>'.$com['auteur'].'</em></a><br/><br/>';
         }
         ?>
 </aside>			
