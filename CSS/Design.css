@@ -279,7 +279,7 @@ aside{
 	float: left;
 	width: 20%;
 	height: auto;
-	height: 550px;
+	min-height: 550px;
 	text-align: center;
 	overflow: hidden;
 }
