@@ -153,7 +153,7 @@ INSERT INTO `departements` VALUES ('2b', '9', 'Haute Corse');
 -- ____________________ GALERIE ____________________ --
 CREATE TABLE IF NOT EXISTS `galerie` (
 	`numero` int(10) NOT NULL AUTO_INCREMENT,
-	`nom` varchar(100) NOT NULL,
+	`nom` varchar(150) NOT NULL,
 	PRIMARY KEY (`numero`)
 );
 
@@ -241,10 +241,8 @@ CREATE TABLE IF NOT EXISTS `membre` (
 	`ville` varchar(30) DEFAULT NULL,
 	`mail` varchar(70) NOT NULL,
 	`description` text DEFAULT NULL,
-	`galerie` int(10) DEFAULT NULL,
 	`photo` int(10) DEFAULT NULL,
 	PRIMARY KEY(`pseudo`),
-	FOREIGN KEY (`galerie`) REFERENCES `galerie`(`numero`),
 	FOREIGN KEY (`photo`) REFERENCES `photo`(`numero`),
 	CONSTRAINT C_STATUT CHECK (statut = 'membre' OR statut = 'administrateur' OR statut = 'modérateur')
 );
@@ -261,7 +259,6 @@ INSERT INTO `membre` VALUES (
 	'Saint Michel sur Rhône',
 	'florian.paturaux@univ-lyon1.fr',
 	'',
-	'',
 	''
 );
 INSERT INTO `membre` VALUES (
@@ -275,7 +272,6 @@ INSERT INTO `membre` VALUES (
 	'',
 	'',
 	'benoit.rongeard@univ-lyon1.fr',
-	'',
 	'',
 	''
 );
@@ -291,7 +287,6 @@ INSERT INTO `membre` VALUES (
 	'',
 	'sylvio.menubarbe@univ-lyon1.fr',
 	'',
-	'',
 	''
 );
 INSERT INTO `membre` VALUES (
@@ -306,7 +301,6 @@ INSERT INTO `membre` VALUES (
 	'',
 	'sylvio.menubarbe@univ-lyon1.fr',
 	'',
-	'',
 	''
 );
 
@@ -314,18 +308,21 @@ INSERT INTO `membre` VALUES (
 CREATE TABLE IF NOT EXISTS `parcours` (
 	`id` int(10) NOT NULL AUTO_INCREMENT,
 	`nom` blob NOT NULL,
+	`depart_lat` double NOT NULL,
+	`depart_lon` double NOT NULL,
 	`nb_point` int NOT NULL,
+	
 	PRIMARY KEY (`id`)
 );
 
-INSERT INTO `parcours` VALUES ('1',	'a.gpx', '0');
-INSERT INTO `parcours` VALUES ('2', 'b.gpx', '0');
-INSERT INTO `parcours` VALUES ('3', 'c.gpx', '0');
-INSERT INTO `parcours` VALUES ('4', 'pr-le-sentier-du-loup-garou-9737.gpx', '0');
-INSERT INTO `parcours` VALUES ('5', 'ped30003-le-sentier-des-etangs-920-9720.gpx', '0');
-INSERT INTO `parcours` VALUES ('6', 'pr-sentier-du-guepier-9741.gpx', '0');
-INSERT INTO `parcours` VALUES ('7', 'point-info-tourisme-Ambon__Circuit_Killig_Ar_Mor.gpx', '0');
-INSERT INTO `parcours` VALUES ('8', '650783.gpx', '0');
+INSERT INTO `parcours` VALUES ('1',	'a.gpx', '44.8958571850001', '2.75850228700006', '0');
+INSERT INTO `parcours` VALUES ('2', 'b.gpx', '44.599227581', '2.39757743600006', '0');
+INSERT INTO `parcours` VALUES ('3', 'c.gpx', '44.4381417130001', '1.93000135300002','0');
+INSERT INTO `parcours` VALUES ('4', 'pr-le-sentier-du-loup-garou-9737.gpx', '0', '0','0');
+INSERT INTO `parcours` VALUES ('5', 'ped30003-le-sentier-des-etangs-920-9720.gpx', '0', '0','0');
+INSERT INTO `parcours` VALUES ('6', 'pr-sentier-du-guepier-9741.gpx', '0', '0','0');
+INSERT INTO `parcours` VALUES ('7', 'point-info-tourisme-Ambon__Circuit_Killig_Ar_Mor.gpx', '0', '0','0');
+INSERT INTO `parcours` VALUES ('8', '650783.gpx', '0', '0','0');
 
 -- ____________________ RANDO ____________________ --
 CREATE TABLE IF NOT EXISTS `rando` (

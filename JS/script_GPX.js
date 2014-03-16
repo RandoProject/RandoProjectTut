@@ -1,10 +1,10 @@
+const stepHeight = 10; // La hauteur du seuil à prendre en compte pour les dénielés
 var chooser;
 var fileInput;
 var reader;
 
 window.addEventListener('load', function(){
-    var divFile = document.getElementById('chooseFile');
-    var chooser = divFile.getElementsByTagName('button')[0];
+    var chooser = document.getElementById('buttonChooseGpx');
     chooser.addEventListener('click', function(){
             var file = document.getElementById('fileMap');
             file.click();
@@ -52,8 +52,8 @@ function gpxRead(gpxFile){
         east: NaN,
         west: NaN
     };
-    var deniv = 0; // Contiendra le dénivelé de la rando si l'élevation est indiquée
-    var ele = 0, elePrevious; // elevation actuel
+    var deniv = null; // Contiendra le dénivelé de la rando si l'élevation est indiquée
+    var ele = 0, elePrevious = 0; // elevation actuel
     var listChilds;
 
 	var listPoints = gpxFile.getElementsByTagName('trkpt');
@@ -111,10 +111,20 @@ function gpxRead(gpxFile){
 		for(var j=0, childText; j < listChilds.length; j++){
 			
 			if(listChilds[j].nodeName == 'ele'){
-				elePrevious = ele;
+				
 				ele = parseFloat(listChilds[j].childNodes[0].nodeValue);
-				if(ele > elePrevious){
-					deniv += ele - elePrevious;
+				if(ele > (elePrevious + stepHeight)){
+					if(deniv === null){
+						deniv = 0;
+					}
+					else{
+						deniv += ele - elePrevious;
+					}
+					elePrevious = ele;
+					console.log("ele : " + ele + "  elePrev : " + elePrevious + " deniv : " + deniv);
+				}
+				else if(ele < (elePrevious - stepHeight)){
+					elePrevious = ele;
 				}
 			}
 		}
@@ -163,8 +173,11 @@ function gpxRead(gpxFile){
 	}
 
 	*/
-
-	document.getElementById('deniv').value = deniv;
-
+	if(deniv !== null){
+		document.getElementById('deniv').value = deniv;
+	}
+	else{
+		document.getElementById('deniv').value = "";
+	}
 
 }

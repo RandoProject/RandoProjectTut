@@ -11,7 +11,7 @@
             <section id="rando">
                 <div class="titre"> Recherche avancée </div>
                 
-                <form method="post" action="index.php?page=recherche">
+                <form method="post" action="index.php?page=recherche" id="formRecherche">
                     <div id="recherche_mot_cle">
                         <h1>Recherche par mots clés</h1>
                         <input type="text" name="title" 
@@ -29,12 +29,9 @@
                             <label for="s_region">Région</label><br/>
                             <?php
                                 echo'<select id="s_region" name="s_region">';
-                                if(isset($value_region['region'], $value_name_region)){
-                                    echo '<option value="'.$value_region['region'].'">'.$value_name_region.'</option>';
-                                }
                                 echo'<option value="not_clarify">Non précisée</option>';
                                 foreach ($listeRegion as $l_region){
-                                    echo'<option value="'.$l_region['num_region'].'">'.$l_region['nom'].'</option>';
+                                    echo'<option value="'.$l_region['num_region'].'" '.((isset($value_region) and $l_region['num_region'] == $value_region)? 'selected' : "").'>'.$l_region['nom'].'</option>';
                                 }
                                 echo'</select>';
                             ?>
@@ -124,7 +121,12 @@
                                 <option value="1">Oui</option>
                             </select>
                         </div>
-                        <br/><br/>
+                        <br/>
+                        <input type="hidden" id="lat" name="lat"/>
+                        <input type="hidden" id="lon" name="lon"/>
+                        <lable for="bttGeo" id="labelGeo">Près de chez vous</lable><br/>
+                        <input type="button" value="Me localiser" id="bttGeo"/>
+                        <br/>
                         <input type="submit" value="Rechercher" name="envoie_formulaire"/>
                     </div>
                 </form>
@@ -242,7 +244,7 @@
                     ?>
                 </div>
             </section>
-    
+            <script type="text/javascript" src="JS/geolocalise.js"></script>
             <?php include_once('Controller/c_footer.php'); ?>
         </div>
     </body>

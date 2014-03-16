@@ -279,6 +279,7 @@ aside{
 	float: left;
 	width: 20%;
 	height: auto;
+	min-height: 550px;
 	text-align: center;
 	overflow: hidden;
 }
@@ -347,6 +348,22 @@ section#rando form div#recherche_criteres div.critere{
 	margin-top: 0px;
 	margin-left: 19px;
 	margin-right: 19px;
+}
+
+
+section#rando form #bttGeo, section#rando form #labelGeo{
+	float: left;
+}
+
+section#rando form #bttGeo{
+	cursor: pointer;
+	font-weight: bold;
+	width: 150px;
+}
+section#rando form #bttGeo:hover{
+	background-color: #A8BF75;
+	color: #F5F6F7;
+	border: solid 1px #A8BF75;
 }
 
 
@@ -679,9 +696,23 @@ section#ajoutrando{
 	width: 1150px;
 	text-align: center;
 }
+
+
 section#ajoutrando form{
 	margin-right: 50px;
 }
+
+section#ajoutrando form input[type="button"]{
+	cursor: pointer;
+	font-weight: bold;
+}
+
+section#ajoutrando form input[type="button"]:hover{
+	background-color: #A8BF75;
+	color: #F5F6F7;
+	border: solid 1px #A8BF75;
+}
+
 section#ajoutrando form input[type=range] {
 	height:10px;
 	width:280px;
@@ -895,20 +926,57 @@ section#connexion div#div_lien_inscription img#img_inscription{
 
 
 /* - - - - - - - - - - Profil - - - - - - - - - - */
-section#profil div#pseudo{
-	margin-top: 50px;
-	margin-bottom: 20px;
-	text-align: center;
-	font-weight: bold;
-}
 section#profil table{
-	margin: auto;
+	margin: 50px auto 20px auto;
 	vertical-align: top;
-	line-height: 150%;
+	width: 90%;
 }
-section#profil table tr td img{
+section#profil table#profil tr td img{
+	display: block;
 	width: 128px;
 	height: 128px;
+	margin: auto;
+}
+section#profil table#profil tr td input[type="file"]{
+	width: 280px;
+	margin: 0px;	
+}
+section#profil input[name="update"]{
+	display: block;
+	margin: auto;
+}
+section#profil input[name="modify"]{
+	width: 160px;
+	float: right;
+	margin-left: -160px;
+	margin-right: 10px;
+	margin-top: 50px;
+	-webkit-transition: background-color .5s ease, color .8s ease;
+	transition: background-color .5s ease, color .8s ease;
+}
+section#profil input[name="modify"]:hover{
+	background-color: #639FFA;
+	border-color: #639FFA;
+}
+section#profil table#rando tr{
+	cursor: pointer;
+}
+section#profil table#rando tr td img.photo_rando{
+	width: 150px;
+	height: 100px;
+	border-radius: 2px;
+	border-bottom-left-radius: 15px;
+	border-top-right-radius: 15px;
+	border-style: solid;
+	border-color: rgba(168, 191, 117, 0.7);
+	border-width: 5px;
+}
+section#profil table#rando tr td img.note{
+	width: 20px;
+	height: 20px;
+}
+section#profil table#rando tr td h1{
+	text-align: center;
 }
 
 

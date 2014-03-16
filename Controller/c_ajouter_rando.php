@@ -39,6 +39,18 @@ if(isset($_SESSION['statut']) and in_array($_SESSION['statut'], array('administr
 				$error['difficulty'] = "La difficulté que vous avez entré n'est pas valide.";
 			}
 		}
+		// Vérif dénivelé
+		if(!isset($_POST['deniv']) or $_POST['deniv'] == ""){
+			$deniv = null;
+		}
+		else if(is_numeric($_POST['deniv'])){
+			$deniv = intval($_POST['deniv']);
+		}
+		else{
+			$error['deniv'] = 'Le dénivelé entrer est invalide';
+		}
+
+
 		// Vérification de la durée
 		if(!isset($_POST['day']) or $_POST['day'] == ""){
 			$day = 0;
@@ -113,7 +125,7 @@ if(isset($_SESSION['statut']) and in_array($_SESSION['statut'], array('administr
 					}
 				}
 				else{
-					$error['fileMap'] = "Votre fichier n'est pas de type gpx.";
+					$error['fileMap'] = "Votre fichier n'est pas de type GPX.";
 				}
 			}
 			else{
@@ -124,10 +136,15 @@ if(isset($_SESSION['statut']) and in_array($_SESSION['statut'], array('administr
 			$error['fileMap'] = "Le fichier sélectionné est invalide.";
 		}
 
+		// Si aucune erreur on valide et on enregistre la randonnée
 		if(empty($error)){
 				include_once('bin/params.php');
+				include_once('bin/functions.php');
 				include_once('Models/m_randonnees.php');
+				include_once('Models/m_parcours.php');
 
+
+				// -------------------------------Récupération des données du GPX----------------------------------------------
 				$nbPoints = 0;
 				foreach($points as $point){
 					$lon = NULL;
@@ -135,10 +152,10 @@ if(isset($_SESSION['statut']) and in_array($_SESSION['statut'], array('administr
 					$ele = NULL;
 					foreach($point->attributes() as $name => $value){ // Récupère longitude et latitude
 						if($name == 'lon'){
-							$lon = intval($value);
+							$lon = floatval($value);
 						}
 						else if($name == 'lat'){
-							$lat = intval($value);
+							$lat = floatval($value);
 						}
 					}
 					// Récupère l'élèvation
@@ -156,6 +173,7 @@ if(isset($_SESSION['statut']) and in_array($_SESSION['statut'], array('administr
 					}
 				}
 
+				// -------------------------------------------- Géocodage de l'adresse ------------------------------------------
 				if(isset($firstPoint)){ 
 					/* On utilise un fichier xml de l'API google map pour touver le code postal de ces coordonnées */
 					$xmlResult = simplexml_load_file('https://maps.googleapis.com/maps/api/geocode/xml?latlng='.$firstPoint['lat'].','.$firstPoint['lon'].'&sensor=false'); // Pas besoin de la clée d'API...
@@ -170,22 +188,49 @@ if(isset($_SESSION['statut']) and in_array($_SESSION['statut'], array('administr
 						}
 					}
 				}
-
 				if(isset($postalCode)){
 					$departement = intval(substr($postalCode, 0, 2)); // On récupère seulement le département
 				}
 				else{
 					$departement = 0; // Département invalide
 				}
-				include_once('Models/m_parcours.php');
-				$idRoute = insert_parcours($title.'.gpx', $nbPoints);
-				rename('Resources/GPX/tmp/gpx_'.session_id(), 'Resources/GPX/'.$idRoute.'_'.substr($title,  0, 150).'.gpx'); // A changer
+
+
+
+
+
 				
+				// ------------------------------------------------- Gestion des images ---------------------------------------------
+				$srcImgDir = 'Resources/Galerie/tmp/'.session_id();
+				if(file_exists($srcImgDir)){ // Si il y a un dossier d'images
+					include_once('Models/m_galerie.php');
+					include_once('Models/m_photo.php');
+					$idGalery = insert_galerie(substr($title, 0, 140));
+					$galeryDir = 'Resources/Galerie/'.$idGalery.'_'.substr($title, 0, 140);
+					if(!file_exists($galeryDir)){
+						mkdir($galeryDir, 0777);
+					}
+					$listImg = moveFilesDir($srcImgDir, $galeryDir); // Déplace les images
+					$idFirstImg = insert_photo($listImg, $idGalery.'_'.substr($title, 0, 140));
+					rmdir($srcImgDir); // Supprime le dossier source
+				}
+				else{
+					$idGalery = 0;
+				}
+
+
+				// -------------------------------------------- Insetion dans la base ---------------------------------------------
+
+				$idRoute = insert_parcours($title.'.gpx', $firstPoint['lat'], $firstPoint['lon'], $nbPoints);
+				rename('Resources/GPX/tmp/gpx_'.session_id(), 'Resources/GPX/'.$idRoute.'_'.substr($title,  0, 150).'.gpx'); 
+				
+				$imgCover = (isset($idFirstImg) and $idFirstImg !== null)? $idFirstImg : 0; // L'image de couverture
 				$delay = ($day*24) + $hour.':'.$minutes.':0';
-				insert_rando($title, $delay, $difficulty, $_POST['description'], $water, $_SESSION['pseudo'], $departement, $idRoute);
+				$idRando = insert_rando($title, $delay, $difficulty, $_POST['description'], $water, $_SESSION['pseudo'], $departement, $idRoute, $idGalery, $imgCover, $deniv); // On enregistre la randonnée
 				
-			
-				include_once('bin/functions.php');
+
+
+				
 				cleanTmp(); // Supprime les fichiers temporaires de parcours qui ne sont plus utiles
 
 				$validation = true; // Cette variable permet d'afficher la page de validation
@@ -200,6 +245,9 @@ if(isset($_SESSION['statut']) and in_array($_SESSION['statut'], array('administr
 			}
 			if(!isset($error['difficulty'])){
 				$value['difficulty'] = $difficulty;
+			}
+			if(!isset($error['deniv'])){
+				$value['deniv'] = ($deniv === null)? "" : $deniv;
 			}
 			if(!isset($error['day'])){
 				$value['day'] = $day;
