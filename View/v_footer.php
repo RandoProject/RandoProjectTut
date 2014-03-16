@@ -14,7 +14,7 @@
         
     	<tr>
         	<td></td>
-        	<td><br/>&copy; 2014 RandoPassion</td>
+        	<td><br/>&copy; 2014 RandoPassion - Photos : Benoit CHIDAINE</td>
         	<td></td>
         </tr>
 	</table>
