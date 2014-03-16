@@ -932,8 +932,18 @@ section#profil table{
 	width: 90%;
 }
 section#profil table#profil tr td img{
+	display: block;
 	width: 128px;
 	height: 128px;
+	margin: auto;
+}
+section#profil table#profil tr td input[type="file"]{
+	width: 280px;
+	margin: 0px;	
+}
+section#profil input[name="update"]{
+	display: block;
+	margin: auto;
 }
 section#profil input[name="modify"]{
 	width: 160px;

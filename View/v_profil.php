@@ -33,8 +33,16 @@
 								<form method="post" action="index.php?page=profil&pseudo='.$_SESSION['pseudo'].'">
 									<table id="profil">
 										<tr>
-											<td rowspan="4"><img src="'.$path_photo.'"/><input name="photo" type="file"/></td>
-											<td>
+											<td width="40%"></td>
+											<td width="14%"></td>
+											<td width="21%"></td>
+											<td width="27%"></td>
+										</tr>
+										<tr>
+											<td rowspan="4">
+												<img src="'.$path_photo.'"/>
+											</td>
+											<td colspan="2">
 												Nom : <input type="text" name="name" value="'.$member->nom.'" maxlength="30" autocomplete="off" required/>
 											</td>
 											<td>
@@ -42,15 +50,15 @@
 											</td>
 										</tr>
 										<tr>
-											<td colspan="2">
-												Date de naissance :
+											<td colspan="3">
+												Date de naissance : 
 												<select name="day_birth">';
 												for($i = 1; $i <= 31; $i++){
 													echo '<option value="'.$i.'"';
 													if($i == $date->format('d')) echo ' selected';
 													echo '>'.$i.'</option>';
 												}
-												echo '</select>/
+												echo '</select> / 
 												<select name="month_birth">';
 												for($i = 1; $i <= 12; $i++){
 													$j = (($i < 10)? '0' : '').$i;
@@ -58,7 +66,7 @@
 													if($j == $date->format('m')) echo ' selected';
 													echo '>'.$j.'</option>';
 												}
-												echo '</select>/
+												echo '</select> / 
 												<select name="year_birth">';
 												for($i = date('Y'); $i >= 1920; $i--){
 													echo '<option value="'.$i.'"';
@@ -69,24 +77,48 @@
 											</td>
 										</tr>
 										<tr>
+											<td>
+												Adresse : 
+											</td>
 											<td colspan="2">
-												Adresse : <input type="text" name="address" value="'.$member->adresse.'" maxlength="70"/><br/>
-												Code postal : <input type="text" name="postal_code" value="'.$member->code_postal.'" maxlength="5" pattern="\d+"/><br/>
-												Ville : <input type="text" name="city" value="'.$member->ville.'" maxlength="30"/>
+												<input type="text" name="address" value="'.$member->adresse.'" maxlength="70" size="59"/>
 											</td>
 										</tr>
 										<tr>
+											<td>
+												Code postal : 
+											</td>
 											<td colspan="2">
-												E-mail : <input type="email" name="mail" value="'.$member->mail.'" maxlength="70" required/>
+												<input type="text" name="postal_code" value="'.$member->code_postal.'" maxlength="5" pattern="\d+" size="5"/>
 											</td>
 										</tr>
 										<tr>
-											<td colspan="3">
+											<td rowspan="2">
+												<input type="file" name="photo"/>
+											</td>
+											<td>
+												Ville : 
+											</td>
+											<td colspan="2">
+												<input type="text" name="city" value="'.$member->ville.'" maxlength="30" size="59"/>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												E-mail :
+											</td>
+											<td colspan="2">
+												<input type="email" name="mail" value="'.$member->mail.'" maxlength="70" required size="59"/>
+											</td>
+										</tr>
+										<tr>
+											<td colspan="4">
+												<br/>
 												<textarea id="description" name="description">'.$member->description.'</textarea>
 											</td>
 										</tr>
 									</table>
-								   <input type="submit" value="Valider" name="update"/>
+								   	<input type="submit" value="Valider" name="update"/>
 								</form>
 						';				
 					}
@@ -102,8 +134,10 @@
 						echo '	<div class="titre">'.$pseudo.'</div>
 								<table id="profil">
 									<tr>
-										<td rowspan="4"><img src="'.$path_photo.'"/></td>
-										<td>
+										<td rowspan="4" width="25%">
+											<img src="'.$path_photo.'"/>
+										</td>
+										<td width="35%">
 											Nom : '.$name.'
 										</td>
 										<td>
