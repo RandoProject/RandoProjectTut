@@ -241,7 +241,6 @@ CREATE TABLE IF NOT EXISTS `membre` (
 	`ville` varchar(30) DEFAULT NULL,
 	`mail` varchar(70) NOT NULL,
 	`description` text DEFAULT NULL,
-	`galerie` int(10) DEFAULT NULL,
 	`photo` int(10) DEFAULT NULL,
 	PRIMARY KEY(`pseudo`),
 	FOREIGN KEY (`galerie`) REFERENCES `galerie`(`numero`),
@@ -261,7 +260,6 @@ INSERT INTO `membre` VALUES (
 	'Saint Michel sur Rhône',
 	'florian.paturaux@univ-lyon1.fr',
 	'',
-	'',
 	''
 );
 INSERT INTO `membre` VALUES (
@@ -275,7 +273,6 @@ INSERT INTO `membre` VALUES (
 	'',
 	'',
 	'benoit.rongeard@univ-lyon1.fr',
-	'',
 	'',
 	''
 );
@@ -291,7 +288,6 @@ INSERT INTO `membre` VALUES (
 	'',
 	'sylvio.menubarbe@univ-lyon1.fr',
 	'',
-	'',
 	''
 );
 INSERT INTO `membre` VALUES (
@@ -305,7 +301,6 @@ INSERT INTO `membre` VALUES (
 	'',
 	'',
 	'sylvio.menubarbe@univ-lyon1.fr',
-	'',
 	'',
 	''
 );
