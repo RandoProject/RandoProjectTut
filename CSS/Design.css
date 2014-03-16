@@ -931,7 +931,7 @@ section#profil table{
 	vertical-align: top;
 	width: 90%;
 }
-section#profil table tr td img{
+section#profil table#profil tr td img{
 	width: 128px;
 	height: 128px;
 }
@@ -947,6 +947,26 @@ section#profil input[name="modify"]{
 section#profil input[name="modify"]:hover{
 	background-color: #639FFA;
 	border-color: #639FFA;
+}
+section#profil table#rando tr{
+	cursor: pointer;
+}
+section#profil table#rando tr td img.photo_rando{
+	width: 150px;
+	height: 100px;
+	border-radius: 2px;
+	border-bottom-left-radius: 15px;
+	border-top-right-radius: 15px;
+	border-style: solid;
+	border-color: rgba(168, 191, 117, 0.7);
+	border-width: 5px;
+}
+section#profil table#rando tr td img.note{
+	width: 20px;
+	height: 20px;
+}
+section#profil table#rando tr td h1{
+	text-align: center;
 }
 
 

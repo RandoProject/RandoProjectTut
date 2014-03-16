@@ -31,7 +31,7 @@
 					if(isset($_POST['modify']) && $_SESSION['pseudo'] === $pseudo){
 						echo '	<div class="titre">Modifier mon profil</div>
 								<form method="post" action="index.php?page=profil&pseudo='.$_SESSION['pseudo'].'">
-									<table>
+									<table id="profil">
 										<tr>
 											<td rowspan="4"><img src="'.$path_photo.'"/><input name="photo" type="file"/></td>
 											<td>
@@ -100,7 +100,7 @@
 							';
 						}
 						echo '	<div class="titre">'.$pseudo.'</div>
-								<table>
+								<table id="profil">
 									<tr>
 										<td rowspan="4"><img src="'.$path_photo.'"/></td>
 										<td>
@@ -124,22 +124,28 @@
 									</tr>
 								</table>
 						';
-						echo '	<div class="titre">Randonnées</div>';
+						echo '	<div class="titre">Randonnées</div>
+									<table id="rando">';
 						foreach($listeRando as $rando){
+							$codeRando = $rando['code'];
 							$titleRando = $rando['titre'];
-							$lenghtRando = $rando['longueur'];
-							$durationRando = $rando['duree'];
-							$difficultyRando = $rando['difficulte'];
-							$descriptionRando = $rando['descriptif'];
-							$waterRando = $rando['point_eau'];
-							$altitudeRando = $rando['denivele'];
-							$equipmentRando = $rando['titre'];
 							$photoRando = $rando['nom_photo'];
 							$galerieRando = $rando['nom_galerie'];
-							$noteRando = $rando['note'];
+							$noteRando = '';
+							for($i = 1; $i <= $rando['note']; $i++){ 
+								$noteRando .= '<img class="note" src="Resources/Images/stars_pleines.png"/>';
+							}
 							
-							echo $titleRando.' '.$noteRando.'<img src="Resources/Galerie/'.$galerieRando.'/'.$photoRando.'" width="100"/><br/>';
+							echo '	
+										<tr onclick="document.location=\'index.php?page=fiche_rando&code='.$codeRando.'\'">
+											<td width="160px"><img class="photo_rando" src="Resources/Galerie/'.$galerieRando.'/'.$photoRando.'"/></td>
+											<td><a href="index.php?page=fiche_rando&code='.$codeRando.'"><h1>'.$titleRando.'</h1></a></td>
+											<td>'.$noteRando.'</td>
+										</tr>
+									
+							';
 						}
+						echo '		</table>';
 					}
 				?>
             </section>

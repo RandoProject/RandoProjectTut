@@ -243,7 +243,6 @@ CREATE TABLE IF NOT EXISTS `membre` (
 	`description` text DEFAULT NULL,
 	`photo` int(10) DEFAULT NULL,
 	PRIMARY KEY(`pseudo`),
-	FOREIGN KEY (`galerie`) REFERENCES `galerie`(`numero`),
 	FOREIGN KEY (`photo`) REFERENCES `photo`(`numero`),
 	CONSTRAINT C_STATUT CHECK (statut = 'membre' OR statut = 'administrateur' OR statut = 'modérateur')
 );
