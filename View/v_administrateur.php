@@ -34,7 +34,8 @@
 						}
 						
 						// --- ENTETE TABLEAU ---
-						echo'	<table>
+						echo'	<br/>
+								<table>
 									<tr>
 										<td width="25px"></td>
 										<td width="200px">Titre</td>
@@ -99,7 +100,8 @@
 						';
 						
 						// --- ENTETE TABLEAU ---
-						echo'   <table>
+						echo'   <br/>
+								<table>
                                     <tr>
                                         <td width="25px"></td>
                                         <td width="170px">Auteur</td>
@@ -168,7 +170,8 @@
 						';
 						
 						// --- ENTETE TABLEAU ---
-						echo'   <table>
+						echo'   <br/>
+								<table>
                                     <tr>
                                         <td width="100px">Pseudo</td>
                                         <td width="150px">Nom - Prénom</td>
