@@ -351,6 +351,22 @@ section#rando form div#recherche_criteres div.critere{
 }
 
 
+section#rando form #bttGeo, section#rando form #labelGeo{
+	float: left;
+}
+
+section#rando form #bttGeo{
+	cursor: pointer;
+	font-weight: bold;
+	width: 150px;
+}
+section#rando form #bttGeo:hover{
+	background-color: #A8BF75;
+	color: #F5F6F7;
+	border: solid 1px #A8BF75;
+}
+
+
 /* - - - - - - - - - - Affichage randonnée - - - - - - - - - - */
 section#rando div#affichage_recherche div#rando_pair{ background-color: #FFFFFF; }
 section#rando div#affichage_recherche div#rando_impair{ background-color: #EAEAEA; }
