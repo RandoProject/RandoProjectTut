@@ -7,9 +7,14 @@ if(!$_SESSION){
 include_once('bin/params.php');
 include_once('Models/m_members.php');
 
+// Mise à jour
+if(isset($_POST['update'])){
+	$birth = $_POST['year_birth'].'-'.$_POST['month_birth'].'-'.$_POST['day_birth'];
+	update_member($_GET['pseudo'], $_POST['name'], $_POST['firstname'], $birth, $_POST['address'], $_POST['postal_code'], $_POST['city'], $_POST['mail'], $_POST['description'], 'a');
+}
+
 $member = get_member($_GET['pseudo']);
 $photo = get_photo($_GET['pseudo']);
-
 
 $pseudo = $member->pseudo;
 $name = $member->nom;

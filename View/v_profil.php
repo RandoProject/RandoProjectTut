@@ -1,8 +1,24 @@
 <!DOCTYPE html>
 <html lang="fr">
 
-	<?php head("Profil"); ?>
+	<?php head("Profil", array(array('type' => 'javascript', 'src' => 'JS/tinyMCE/tinymce.min.js'))); ?>
 
+    <script type="text/javascript">
+		tinymce.init({
+			selector: "#description",
+			browser_spellcheck: true,
+			language: "fr_FR",
+			element_format : 'html',
+			nowrap: true,
+			menubar: false,
+			statusbar: false,
+			nonbreaking_force_tab: true, // Peremet à l'appuie sur <tab> d'avoir une tabulation et ne pas changer le focus (il faut le plugin)
+			plugins: 'emoticons link textcolor image nonbreaking',
+			toolbar1: 'undo redo | cut copy paste | bold italic underline | forecolor | fontsizeselect  | alignleft aligncenter alignright alignjustify | bullist numlist | image link | emoticons',
+			height: 150,
+		});
+	</script>
+    
 	<body>
         <div id="corps">
 			<?php menu(); ?>
@@ -17,36 +33,60 @@
 								<form method="post" action="index.php?page=profil&pseudo='.$_SESSION['pseudo'].'">
 									<table>
 										<tr>
-											<td rowspan="4"><img src="'.$path_photo.'"/><input type="file"/></td>
+											<td rowspan="4"><img src="'.$path_photo.'"/><input name="photo" type="file"/></td>
 											<td>
-												Nom : <input type="text" name="familly_name" value="'.$name.'" maxlength="30" autocomplete="off" required/>
+												Nom : <input type="text" name="name" value="'.$member->nom.'" maxlength="30" autocomplete="off" required/>
 											</td>
 											<td>
-												Prénom : <input type="text" name="firstname" value="'.$firstname.'" maxlength="30" autocomplete="off" required/>
+												Prénom : <input type="text" name="firstname" value="'.$member->prenom.'" maxlength="30" autocomplete="off" required/>
 											</td>
 										</tr>
 										<tr>
 											<td colspan="2">
-												<input type="text" name="birth" value="'.$birth.'"/>
+												Date de naissance :
+												<select name="day_birth">';
+												for($i = 1; $i <= 31; $i++){
+													echo '<option value="'.$i.'"';
+													if($i == $date->format('d')) echo ' selected';
+													echo '>'.$i.'</option>';
+												}
+												echo '</select>/
+												<select name="month_birth">';
+												for($i = 1; $i <= 12; $i++){
+													$j = (($i < 10)? '0' : '').$i;
+													echo '<option value="'.$j.'"';
+													if($j == $date->format('m')) echo ' selected';
+													echo '>'.$j.'</option>';
+												}
+												echo '</select>/
+												<select name="year_birth">';
+												for($i = date('Y'); $i >= 1920; $i--){
+													echo '<option value="'.$i.'"';
+													if($i == $date->format('Y')) echo ' selected';
+													echo '>'.$i.'</option>';
+												}
+												echo '</select>
 											</td>
 										</tr>
 										<tr>
 											<td colspan="2">
-												Adresse : <input type="text" name="address" value="'.$address.'"/>
+												Adresse : <input type="text" name="address" value="'.$member->adresse.'" maxlength="70"/><br/>
+												Code postal : <input type="text" name="postal_code" value="'.$member->code_postal.'" maxlength="5" pattern="\d+"/><br/>
+												Ville : <input type="text" name="city" value="'.$member->ville.'" maxlength="30"/>
 											</td>
 										</tr>
 										<tr>
 											<td colspan="2">
-												E-mail : <input type="email" name="mail" value="'.$mail.'" maxlength="70" required/>
+												E-mail : <input type="email" name="mail" value="'.$member->mail.'" maxlength="70" required/>
 											</td>
 										</tr>
 										<tr>
 											<td colspan="3">
-												Déscription : <?php echo $description; ?>
+												<textarea id="description" name="description">'.$member->description.'</textarea>
 											</td>
 										</tr>
 									</table>
-								   <input type="submit" value="Valider" name="validate"/>
+								   <input type="submit" value="Valider" name="update"/>
 								</form>
 						';				
 					}
@@ -80,7 +120,7 @@
 										<td colspan="2">E-mail : <a href="mailto:'.$mail.'">'.$member->mail.'</a></td>
 									</tr>
 									<tr>
-										<td colspan="3">Déscription : <?php echo $description; ?><br/></td>
+										<td colspan="3">Déscription : '.$description.'<br/></td>
 									</tr>
 								</table>
 						';
