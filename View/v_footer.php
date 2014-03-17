@@ -4,7 +4,7 @@
     	<tr>
         	<td><?php echo $nb_rando; ?> randonnées</td>
         	<td><?php echo $nb_membre; ?> inscrits</td>
-        	<td><a href="#">Qui sommes-nous ?</a></td>
+        	<td><a href="index.php?page=presentation">Qui sommes-nous ?</a></td>
         </tr>
     	<tr>
         	<td><?php echo $nb_photo; ?> photos</td>

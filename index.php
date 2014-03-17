@@ -80,6 +80,10 @@ else{
 			include_once('Controller/c_upload_img.php');
 		break;
 
+		case 'presentation':
+			include('View/v_presentation.php');
+		break;
+
 		default:
 			header('Location:index.php?page=erreur');
 			break;
