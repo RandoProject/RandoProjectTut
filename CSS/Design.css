@@ -371,7 +371,7 @@ section#rando form #bttGeo:hover{
 
 /* - - - - - - - - - - Affichage randonnée - - - - - - - - - - */
 section#rando div#affichage_recherche div#rando_pair{ background-color: #FFFFFF; }
-section#rando div#affichage_recherche div#rando_impair{ background-color: #EAEAEA; }
+section#rando div#affichage_recherche div#rando_impair{background-image: url(../Resources/Images/rayure.png); background-repeat: repeat;}
 section#rando div#affichage_recherche div#rando_pair,
 section#rando div#affichage_recherche div#rando_impair{
 	min-height: 300px;
