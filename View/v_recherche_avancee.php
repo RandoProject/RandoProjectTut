@@ -40,23 +40,18 @@
                         <div class="critere">
                             <label for="distance">Longueur</label><br/>
                             <select id="distance" name="distance">
-                                <?php 
-                                    if(isset($value_distance, $value_nom_distance)){
-                                        echo '<option value="'.$value_distance.'">'.$value_nom_distance.'</option>';
-                                    }
-                                ?>
                                 <option value="non_precise">Non précisée</option>
                                 <?php
                                     $n=0;
                                     $m=5;
                                     for($number_of_ligne = 0; $number_of_ligne <=5; $number_of_ligne++){
-                                        echo'<option value="'.$n.'">De '.$n.' à '.$m.'Km';
+                                        echo'<option value="'.$n.'" '.((isset($value_distance) and $n == $value_distance)? 'selected' : "").'>De '.$n.' à '.$m.'Km';
                                         $n=$n+5;
                                         $m=$m+5;
                                     }
-                                    echo'<option value="30">De 30 à 40Km';
-                                    echo'<option value="40">De 40 à 50Km';
-                                    echo'<option value="50">Plus de 50Km';
+                                    echo'<option value="30" '.((isset($value_distance) and 30 == $value_distance)? 'selected' : "").'>De 30 à 40Km';
+                                    echo'<option value="40" '.((isset($value_distance) and 40 == $value_distance)? 'selected' : "").'>De 40 à 50Km';
+                                    echo'<option value="50" '.((isset($value_distance) and 50 == $value_distance)? 'selected' : "").'>Plus de 50Km';
                                 ?>
                             </select>
                         </div>
@@ -64,26 +59,21 @@
                         <div class="critere">
                             <label for="time">Durée</label><br/>
                             <select id="time" name="time">
-                                <?php
-                                    if(isset($value_time, $value_name_time)){
-                                        echo '<option value="'.$value_time.'">'.$value_name_time.'</option>';
-                                    }
-                                ?>
                                 <option value="time_non_precise">Non précisée</option>
                                 <?php
                                     $d=0;
                                     $m=1;
                                     $n=3;
-                                    echo'<option value="0'.$d.':00:00"> Moins de '.$m.' heure';
+                                    echo'<option value="0'.$d.':00:00" '.((isset($value_time) and "00:00:00" == $value_time)? 'selected' : "").'> Moins de '.$m.' heure';
                                     for($number_of_ligne = 0; $number_of_ligne <=1; $number_of_ligne++){
-                                        echo'<option value="0'.$m.':00:00"> De '.$m.' h à '.$n.' h';
+                                        echo'<option value="0'.$m.':00:00" '.((isset($value_time) and "0".$m.":00:00" == $value_time)? 'selected' : "").'> De '.$m.' h à '.$n.' h';
                                         $m=$n;
                                         $n=$n+3;
                                     }
-                                    echo'<option value="10:00:00"> Demi journée </option>';
-                                    echo'<option value="24:00:00"> 1 journée</option>';
-                                    echo'<option value="48:00:00"> 2 à 4 jours </option>';
-                                    echo'<option value="96:00:00"> Plus de 4 jours </option>';
+                                    echo'<option value="10:00:00" '.((isset($value_time) and "10:00:00" == $value_time)? 'selected' : "").'> Demi journée </option>';
+                                    echo'<option value="24:00:00" '.((isset($value_time) and "24:00:00" == $value_time)? 'selected' : "").'> 1 journée</option>';
+                                    echo'<option value="48:00:00" '.((isset($value_time) and "48:00:00" == $value_time)? 'selected' : "").'> 2 à 4 jours </option>';
+                                    echo'<option value="96:00:00" '.((isset($value_time) and "96:00:00" == $value_time)? 'selected' : "").'> Plus de 4 jours </option>';
         
                                 ?>
                             </select>
@@ -92,17 +82,12 @@
                         <div class="critere">
                             <label for="difficulty">Difficulté</label><br/>
                             <select id="difficulty" name="difficulty">
-                                <?php
-                                    if(isset($value_difficulte, $value_name_difficulte)){
-                                        echo '<option value="'.$value_difficulte.'">'.$value_name_difficulte.'</option>';
-                                    }
-                                ?>
                                 <option value="difficulte_non_precise">Non précisée</option>
                                 <?php
                                     $n=1;
                                     $number_of_ligne=0;
                                     for($number_of_ligne; $number_of_ligne <=4; $number_of_ligne++){
-                                        echo'<option value="'.$n.'">Difficulté '.$n.'</option>';
+                                        echo'<option value="'.$n.'" '.((isset($value_difficulte) and $n == $value_difficulte)? 'selected' : "").'>Difficulté '.$n.'</option>';
                                         $n=$n+1;
                                     }
                                 ?>
@@ -112,13 +97,10 @@
                         <div class="critere">
                             <label for="water">Point d'eau</label><br/>
                             <select id="water" name="water">
-                                <?php
-                                    if(isset($value_water, $value_name_water)){
-                                        echo '<option value="'.$value_water.'">'.$value_name_water.'</option>';
-                                    }
+                                <?php 
+                                    echo '<option value="0" '.((isset($value_water) and 0 == $value_water)? 'selected' : "").'>Indifférent</option>';
+                                    echo '<option value="1" '.((isset($value_water) and 1 == $value_water)? 'selected' : "").'>Oui</option>';
                                 ?>
-                                <option value="0">Indifférent</option>
-                                <option value="1">Oui</option>
                             </select>
                         </div>
                         <br/>
