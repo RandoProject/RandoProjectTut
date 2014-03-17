@@ -26,6 +26,21 @@ function get_rando($code){
 	return $data;
 }
 
+function get_rando_with_route(){
+	global $bdd;
+	
+	$queryArray = array('code' => $code);
+	
+	$query = $bdd->prepare($queryStr);
+	$query->execute($queryArray);
+
+	$data = $query->fetch(PDO::FETCH_OBJ);
+	$query->closeCursor();
+	
+	return $data;
+}
+
+
 function insert_rando($title, $delay, $difficulty, $description, $water, $autor, $departement, $parcours, $galerie, $photo, $deniv){
 	global $bdd;
 	$queryStr = 'INSERT INTO rando(titre, duree, difficulte, descriptif, point_eau, auteur, date_insertion, departement, parcours, galerie, photo_principale, denivele, valide)
