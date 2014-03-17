@@ -256,6 +256,9 @@ div#corps div.cadre img#img_accueil{
 	margin-left: 125px;
 	margin-top: 20px;
 }
+div#corps div.cadre h1{
+	margin-top: 50px;
+}
 div#corps div.cadre h2{
 	display: inline-block;
 	vertical-align: top;
@@ -268,8 +271,7 @@ div#corps div.cadre h2:hover{
 div#corps div.cadre p{
 	font-size: 1.1em;
 	font-style: italic;
-	position: absolute;
-	margin-left: 250px;
+	margin-left: 150px;
 }
 
 
@@ -1002,6 +1004,28 @@ section#contact form#form_contact img{
 	margin-left: 60px;
 }
 
+/* - - - - - - - - - - Présentation - - - - - - - - - - */
+section#presentation p#texte4{
+	font-size: 1.2em;
+	font-weight: bold;
+	margin-left: 650px;
+}
+section#presentation p#texte3{
+	margin-left: 580px;
+	font-size: 1.1em;
+}
+section#presentation p#texte1, p#texte2{
+	font-size: 1.1em;
+	text-align: left;
+}
+section#presentation a{
+	text-decoration: none;
+	font-style: none;
+	font-size: 1em;
+}
+section#presentation a:hover{
+	border-bottom: 1px solid;
+}
 
 /* - - - - - - - - - - Footer - - - - - - - - - - */
 footer{

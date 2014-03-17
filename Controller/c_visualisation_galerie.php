@@ -7,6 +7,10 @@ include_once('Models/m_visualisation_galerie.php');
 
 		if(get_infos_rando($num_galerie)->valide == 1){
 			$liste_photos = get_photos_galerie($num_galerie);
+
+			$nb_photo = get_nb_photo($num_galerie);
+			echo $nb_photo['nb_photo'];
+
 			$info_rando = get_infos_rando($num_galerie);
 			$titre = $info_rando->titre;
 			include_once('View/v_visualisation_galerie.php');

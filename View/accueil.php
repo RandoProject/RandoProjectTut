@@ -124,7 +124,7 @@
             </div>
             
             <div class="cadre">
-             	<h2>Sur RandoPassion vous pourrez :</h2>
+             	<h1>Sur RandoPassion vous pourrez :</h1>
              		<a href="index.php?page=ajout_rando">
                     	<img id="img_accueil" src="Resources/Images/ajouter.png"/>
                     </a>
@@ -140,7 +140,7 @@
                     	<img id="img_accueil" src="Resources/Images/participer.png"/>
                     </a>
                     <a href="index.php?page=inscription">
-                    	<h2>Participer à vie du site</h2>
+                    	<h2>Participer à la vie du site</h2>
                     </a>
              		<a href="index.php?page=contact">
                     	<img id="img_accueil" src="Resources/Images/contact_accueil.png"/>
