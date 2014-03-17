@@ -14,10 +14,7 @@
 				<a class="menu_administration" href="index.php?page=moderateur&section=photos">Photos</a>
                 
             	<?php $i = 0; 
-
-
-
-                // - - - - - - - - - - Partie RANDONNEES - - - - - - - - - -
+				 // - - - - - - - - - - Partie RANDONNEES - - - - - - - - - -
 				if($_GET['section'] === 'randonnees'){
 					if(!empty($listeRando)){
 						// --- BOUTONS ---
@@ -33,7 +30,8 @@
 						}
 					
 						// --- ENTETE TABLEAU ---
-						echo'	<table>
+						echo'	<br/>
+								<table>
 									<tr>
 										<td width="25px"></td>
 										<td width="200px">Titre</td>
@@ -101,7 +99,8 @@
 						';
 						
 						// --- ENTETE TABLEAU ---
-						echo'   <table>
+						echo'   <br/>
+								<table>
                                     <tr>
                                         <td width="25px"></td>
                                         <td width="170px">Auteur</td>
