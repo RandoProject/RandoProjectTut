@@ -124,7 +124,7 @@
             </div>
             
             <div class="cadre">
-             	<h2>Sur RandoPassion vous pourrez :</h2>
+             	<h1>Sur RandoPassion vous pourrez :</h1>
              		<a href="index.php?page=ajout_rando">
                     	<img id="img_accueil" src="Resources/Images/ajouter.png"/>
                     </a>

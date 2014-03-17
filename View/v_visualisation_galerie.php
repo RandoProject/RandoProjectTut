@@ -41,10 +41,11 @@
                     section#visualisation_galerie .gvIIContainer .gvIIHolder{
                         position: ;
                         max-height: 278px;
-                        width: 877px;
+                        width: 450px;
                         overflow: none;
                         border: none;
                         box-shadow: none;
+                        margin-left: 250px;
                         text-align: center;
                     }
                     section#visualisation_galerie .gvIIContainer .gvIIHolder .gvIIItem{
