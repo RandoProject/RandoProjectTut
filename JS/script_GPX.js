@@ -54,6 +54,8 @@ function gpxRead(gpxFile){
     };
     var deniv = null; // Contiendra le dénivelé de la rando si l'élevation est indiquée
     var ele = 0, elePrevious = 0; // elevation actuel
+    var lenght = 0; // La longueur du parcours
+    var prevCoordinate = null; // Contiendra coordonnée précedente, utile pour le calcul de distance
     var listChilds;
 
 	var listPoints = gpxFile.getElementsByTagName('trkpt');
@@ -66,7 +68,7 @@ function gpxRead(gpxFile){
 	var i; // Permettra de calculer le nombre de points
 
 
-	for(var i=0; i< listPoints.length; i++){
+	for(i=0; i< listPoints.length; i++){
 
 		listAttributes = listPoints[i].attributes;
 		for(var j=0; j < listAttributes.length; j++){
@@ -81,6 +83,14 @@ function gpxRead(gpxFile){
 
 		if(!isNaN(Coordinate.lat) && !isNaN(Coordinate.lon)){ // Si la coordonnée est valide
             listCoordinates.push(Coordinate);
+
+            if(prevCoordinate != null){
+            	length += calculLenght(prevCoordinate.lat, prevCoordinate.lon, Coordinate.lat, Coordinate.lon);
+            }
+            prevCoordinate = Coordinate;
+
+
+
             if(isNaN(limitPoints.north)){
                 /* Si la lattitude est plus grande, ça veut dire que le point est plus au nord 
                 (Sur google API la longitude du sud est négative) */
@@ -121,7 +131,6 @@ function gpxRead(gpxFile){
 						deniv += ele - elePrevious;
 					}
 					elePrevious = ele;
-					console.log("ele : " + ele + "  elePrev : " + elePrevious + " deniv : " + deniv);
 				}
 				else if(ele < (elePrevious - stepHeight)){
 					elePrevious = ele;
@@ -173,6 +182,9 @@ function gpxRead(gpxFile){
 	}
 
 	*/
+
+	
+	document.getElementById('length').value = Math.round(length * 1000);
 	if(deniv !== null){
 		document.getElementById('deniv').value = deniv;
 	}
@@ -180,4 +192,18 @@ function gpxRead(gpxFile){
 		document.getElementById('deniv').value = "";
 	}
 
+}
+
+
+// Retourne la distance entre 2 coordonnées en kilomètre
+function calculLenght(lat1, lon1, lat2, lon2){
+	var a = Math.PI / 180;
+	var lat_a = lat1 * a;
+	var lat_b = lat2 * a;
+	var t1 = Math.sin(lat_a) * Math.sin(lat_b);
+	var t2 = Math.cos(lat_a) * Math.cos(lat_b);
+	var t3 = Math.cos(lon1*a - lon2*a);
+	var t5 = t1 + (t2 * t3);
+	var rad_dist = Math.atan(-t5/Math.sqrt(-t5 * t5 +1)) + 2 * Math.atan(1);
+    return (rad_dist * 3437.74677 * 1.1508) * 1.6093470878864446;
 }
