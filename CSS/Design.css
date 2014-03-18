@@ -935,6 +935,9 @@ section#profil table{
 	vertical-align: top;
 	width: 90%;
 }
+section#profil table select{
+	min-width: 80px;
+}
 section#profil table#profil tr td img{
 	display: block;
 	width: 128px;
