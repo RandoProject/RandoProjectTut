@@ -1,11 +1,28 @@
 <?php
+define("DISTANCE_MAX", 250); // La distance(en km) max auxquelle on peut chercher une randonnée en géolocalisation
 
 include_once('bin/params.php');
 include_once('Models/m_gestion_recherche.php');
 include_once('Models/m_commentaire.php');
 
 if(isset($_POST['lat']) and isset($_POST['lon']) and is_numeric($_POST['lat']) and is_numeric($_POST['lon'])){ // Si géolocalisation
-	
+	include_once('Models/m_randonnees.php');
+	include_once('bin/functions.php');
+	$listeRando = array(); // Contiendra la liste des randos triée par distance par rapport au point géolocalisé
+	$cursor = get_rando_with_route();
+
+	while($ramble = $cursor->fetch(PDO::FETCH_ASSOC)){ // ramble : randonnée
+		if($ramble['depart_lat'] != 0 or $ramble['depart_lon'] != 0){ // Sont égales à zéro dans le cas où on ne connait pas le point de départ
+			$ramble['distance'] = round(compareCoord($_POST['lat'], $_POST['lon'], $ramble['depart_lat'], $ramble['depart_lon']), 1); // On rajoute une clée distance dans le tableau
+			if($ramble['distance'] <= DISTANCE_MAX){
+				$i = 0;
+				while($i < count($listeRando) and $ramble['distance'] >= $listeRando[$i]['distance']) $i++;
+
+				array_insert($listeRando, $ramble, $i); // Fonction dans functions.php
+			}
+		}
+	}
+	$cursor->closeCursor();
 }
 else{
 	/* Recherche par mot clé */
@@ -125,9 +142,6 @@ else{
 		}
 	}
 
-	/* Sélection des régions */
-	$listeRegion = select_regions('num_region, nom');
-
 	/* Sélection randonnée récente */
 	$rando_recente = selection_rando_recente();
 
@@ -153,5 +167,7 @@ else{
 	}
 }
 
+/* Sélection des régions */
+$listeRegion = select_regions('num_region, nom');
 
 include_once('View/v_recherche_avancee.php');

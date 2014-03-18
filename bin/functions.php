@@ -68,3 +68,28 @@ function moveFilesDir($src, $dest){
 	}
 	return $listFiles;
 }
+
+/*
+	Retourne la distance qu'il y a entre 2 coordonnées
+*/
+function compareCoord($lat1, $lon1, $lat2, $lon2){
+	$res =  69.09 * rad2deg(acos(sin(deg2rad($lat1)) * sin(deg2rad($lat2)) +  cos(deg2rad($lat1)) * cos(deg2rad($lat2)) * cos(deg2rad($lon1 - $lon2)))); 
+    $res *= 1.609344; // En kilomètre
+    return $res;
+}
+
+
+function array_insert(&$array, $element, $indice){
+	$size = count($array);
+	if($indice < $size){
+		$array[] = $array[$size-1];
+		for($i = $size-2; $i >= $indice; $i--){
+			$array[$i+1] = $array[$i];
+		}
+		$array[$indice] = $element;
+
+	}
+	else{
+		$array[] = $element; // Ajoute l'élément à la fin
+	}
+}

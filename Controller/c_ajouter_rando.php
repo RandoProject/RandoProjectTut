@@ -176,7 +176,9 @@ if(isset($_SESSION['statut']) and in_array($_SESSION['statut'], array('administr
 				// -------------------------------------------- Géocodage de l'adresse ------------------------------------------
 				if(isset($firstPoint)){ 
 					/* On utilise un fichier xml de l'API google map pour touver le code postal de ces coordonnées */
-					$xmlResult = simplexml_load_file('https://maps.googleapis.com/maps/api/geocode/xml?latlng='.$firstPoint['lat'].','.$firstPoint['lon'].'&sensor=false'); // Pas besoin de la clée d'API...
+					$ch = curl_init('http://maps.googleapis.com/maps/api/geocode/xml?latlng='.$firstPoint['lat'].','.$firstPoint['lon'].'&sensor=false'); // Pas besoin de la clée d'API...
+					curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+					$xmlResult = simplexml_load_string(curl_exec($ch));  
 					$status = $xmlResult->status;
 					if($status == 'OK'){
 						$listAddressComponent = $xmlResult->result[0]->address_component;
@@ -187,6 +189,7 @@ if(isset($_SESSION['statut']) and in_array($_SESSION['statut'], array('administr
 							}
 						}
 					}
+					curl_close($ch);
 				}
 				if(isset($postalCode)){
 					$departement = intval(substr($postalCode, 0, 2)); // On récupère seulement le département

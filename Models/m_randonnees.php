@@ -26,18 +26,24 @@ function get_rando($code){
 	return $data;
 }
 
+// Attention, cette rando renvoie le curseur et non une rando
 function get_rando_with_route(){
 	global $bdd;
-	
-	$queryArray = array('code' => $code);
-	
-	$query = $bdd->prepare($queryStr);
-	$query->execute($queryArray);
-
-	$data = $query->fetch(PDO::FETCH_OBJ);
-	$query->closeCursor();
-	
-	return $data;
+	$req = $bdd->query('SELECT rando.*, parcours.*, departements.nom AS nom_departement, photo.nom AS nom_photo, galerie.nom AS nom_galerie, (	SELECT COUNT(*) 
+																																FROM commentaire
+																																WHERE note
+																																BETWEEN 1 
+																																AND 5 
+																																AND code_rando = rando.code
+																																) AS nb_note
+					FROM rando, photo, galerie, departements, parcours
+					WHERE rando.parcours IS NOT NULL 
+					AND rando.parcours = parcours.id
+					AND rando.photo_principale = photo.numero 
+					AND photo.galerie = galerie.numero
+					AND rando.departement = departements.num_departement
+					AND rando.valide = 1');
+	return $req;
 }
 
 
