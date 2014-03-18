@@ -170,7 +170,7 @@
                                 $i++;
                                 
                                 // Affichage
-                                echo '  <div id="rando'.$css.'">'.(isset($rando['distance'])? '<p>A '.$rando['distance'].' km de chez moi</p>' : "").'
+                                echo '  <div id="rando'.$css.'">'.(isset($rando['distance'])? '<p>A '.$rando['distance'].' km de chez vous</p>' : "").'
                                             <br/>
                                             <center><h2>'.$title.'</h2></center>
                                             <div id="note">'.$etoile.'<br/><span id="nb_vote">'.$number_of_note.'</span></div>
