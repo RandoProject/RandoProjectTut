@@ -109,12 +109,12 @@ select:focus{
     box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.075) inset, 
                 0px 0px 8px rgba(82, 168, 236, 0.6);
 }
-input[type="submit"]{
+input[type="submit"], input[type="button"]{
 	cursor: pointer;
 	font-weight: bold;
 	width: 150px;
 }
-input[type="submit"]:hover{
+input[type="submit"]:hover, input[type="button"]:hover{
 	background-color: #A8BF75;
 	color: #F5F6F7;
 	border: solid 1px #A8BF75;
@@ -352,23 +352,22 @@ section#rando form div#recherche_criteres div.critere{
 	margin-right: 19px;
 }
 
-
-section#rando form #bttGeo, section#rando form #labelGeo{
+section#rando form div#recherche_criteres div.critere_geo{
+	display: inline-block;
+	margin-top: 5px;
 	float: left;
+	margin-left: 19px;
 }
 
-section#rando form #bttGeo{
-	cursor: pointer;
-	font-weight: bold;
-	width: 150px;
+section#rando form div#recherche_criteres div.critere_geo input[type="button"]{
+	font-weight: normal;
+	min-width: 205px;
+	min-height: 30px;
 }
-section#rando form #bttGeo:hover{
-	background-color: #A8BF75;
-	color: #F5F6F7;
-	border: solid 1px #A8BF75;
+section#rando form div#recherche_criteres div#input_recherche{
+	width: 100%;
+	margin-top: 60px;
 }
-
-
 /* - - - - - - - - - - Affichage randonnée - - - - - - - - - - */
 section#rando div#affichage_recherche div#rando_pair{ background-color: #FFFFFF; }
 section#rando div#affichage_recherche div#rando_impair{background-image: url(../Resources/Images/rayure.png); background-repeat: repeat;}
@@ -880,6 +879,9 @@ section#inscription form select{
 	vertical-align: top;
 	margin-top: 10px;
 	border-radius: 50px;
+}
+section#inscription form select{
+	min-width: 80px;
 }
 section#inscription form img#img_formulaire_inscription{
 	display: inline-block;

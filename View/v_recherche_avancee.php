@@ -103,13 +103,15 @@
                                 ?>
                             </select>
                         </div>
-                        <br/>
                         <input type="hidden" id="lat" name="lat"/>
                         <input type="hidden" id="lon" name="lon"/>
-                        <lable for="bttGeo" id="labelGeo">Près de chez vous</lable><br/>
-                        <input type="button" value="Me localiser" id="bttGeo"/>
-                        <br/>
-                        <input type="submit" value="Rechercher" name="envoie_formulaire"/>
+                        <div class="critere_geo">
+                            <label for="bttGeo" id="labelGeo">Près de chez vous</label><br/>
+                                <input type="button" value="Me localiser" id="bttGeo"/>
+                        </div>
+                        <div id="input_recherche">
+                            <input type="submit" value="Rechercher" id="input_submit" name="envoie_formulaire"/>
+                        </div>
                     </div>
                 </form>
                 <br/><br/><br/>
