@@ -24,7 +24,7 @@ if(strtolower($_SERVER['REQUEST_METHOD']) == 'post'){
 				else{
 					header('Location: index.php?page=mail_probleme');
 				}
-			}
+			
 		}
 	}
 }
