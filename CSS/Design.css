@@ -896,6 +896,10 @@ section#inscription form input[type="submit"]{
 	margin-top: 50px;
 }
 
+section#inscription form p#p_erreur{
+	margin-left: 42%;
+}
+
 
 /* - - - - - - - - - - Connexion - - - - - - - - - - */
 section#connexion{
