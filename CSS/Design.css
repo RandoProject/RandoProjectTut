@@ -124,8 +124,7 @@ input[type="submit"]:hover, input[type="button"]:hover{
 /* - - - - - - - - - - Corps - - - - - - - - - - */
 div#corps{
 	width: 1200px;
-	height: auto;
-	min-height: 100%;
+	min-height: 100% !important;
 	margin-left: auto;
 	margin-right: auto;
 	background-color: #FFFFFF;
