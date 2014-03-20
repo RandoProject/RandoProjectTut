@@ -23,7 +23,7 @@ if(strtolower($_SERVER['REQUEST_METHOD']) == 'post'){
 					header('Location: index.php?page=mail_envoye');
 				}
 				else{
-					header('Location: index.php?page=mail_probleme');
+					header('Location: index.php?page=mdp_forget_problem');
 				}
 			
 		}
