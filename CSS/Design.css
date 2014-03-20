@@ -932,6 +932,29 @@ section#connexion div#div_lien_inscription img#img_inscription{
 	margin-top: 40px;
 }
 
+section#connexion form p#mdp_forget{
+	margin-left: 100px;
+}
+
+/* - - - - - - - - - - Mot de passe oublié - - - - - - - - - - */
+section#mdp_forget form{
+	margin-left: 200px;
+}
+section#mdp_forget form#form_contact input[type=text],
+section#mdp_forget form#form_contact input[type=email]{
+    width: 350px;
+    margin-left: 10px;
+}
+section#mdp_forget form#form_contact input[type=submit]{
+	display: block;
+	margin-left: 215px;
+}
+section#mdp_forget form#form_contact img{
+	width: 20px;
+	height: 20px;
+	margin-left: 60px;
+}
+
 
 /* - - - - - - - - - - Profil - - - - - - - - - - */
 section#profil table{
