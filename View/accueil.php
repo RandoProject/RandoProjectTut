@@ -124,32 +124,14 @@
             </div>
             
             <div class="cadre">
-             	<h1>Sur RandoPassion vous pourrez :</h1>
-             		<a href="index.php?page=ajout_rando">
-                    	<img id="img_accueil" src="Resources/Images/ajouter.png"/>
-                    </a>
-                    <a href="index.php?page=ajout_rando">
-                    	<h2>Ajouter des randonnées</h2>
-                    </a>
-             		<a href="index.php?page=recherche">
-                    	<img id="img_accueil" src="Resources/Images/rechercher.png"/>
-                    </a><a href="index.php?page=recherche">
-                    	<h2>Rechercher des parcours</h2>
-                    </a>
-             		<a href="index.php?page=inscription">
-                    	<img id="img_accueil" src="Resources/Images/participer.png"/>
-                    </a>
-                    <a href="index.php?page=inscription">
-                    	<h2>Participer à la vie du site</h2>
-                    </a>
-             		<a href="index.php?page=contact">
-                    	<img id="img_accueil" src="Resources/Images/contact_accueil.png"/>
-                    </a>
-                    <a href="index.php?page=contact">
-                    	<h2>Nous contacter</h2>
-                    </a>
-                    <br/><br/>
-             	<p>RandoPassion le site consacré à la randonnée !</p>
+            	<br/>
+            	<center>RandoPassion est destiné à tous les randonneurs voulant partager leur passion de la randonnée. Novice ou expert, ce site est fait pour vous.</center><br/><br/>
+                Vous pourrez :<br/>
+                <a href=""><img src="Resources/Images/favicon.png"/>Chercher les parcours adaptés à vos envies</a><br/><br/>
+                <a href=""><img src="Resources/Images/favicon.png"/>Consulter notre banque de photo prise lors de<br/>&emsp;&emsp; &emsp; randonnées</a><br/><br/>
+                <a href=""><img src="Resources/Images/favicon.png"/>Participé à la dynamique du site en y ajoutant<br/>&emsp;&emsp; &emsp; vos propres randonnées</a><br/><br/><br/><br/>
+                
+             	<center>RandoPassion le site consacré à la randonnée !</center>
              </div>
         	<?php include_once('Controller/c_footer.php'); ?>
         </div>

@@ -153,6 +153,9 @@ nav ul li a{
 	font-family: Kalinga;
 	color: #999;
 }
+nav img{
+	margin-left: 170px;
+}
 					/* Menu */
 nav ul#menu li a{
 	padding: 5px 10px 2px 10px;
@@ -200,11 +203,11 @@ div#corps div#titre span{
 	font-weight: bold;
 	font-family: Kalinga;
 }
+div#corps div#titre span#titre_bienvenu{
+	margin-left: 80px;
+}
 div#corps div#titre span#titre_map{
 	margin-left: 250px;
-}
-div#corps div#titre span#titre_bienvenu{
-	margin-left: 140px;
 }
 div#corps div.map{
 	float: right;
@@ -250,30 +253,21 @@ div#corps div.cadre{
 	display: inline-block;
 	width: 450px;
 	margin: 10px;
+	padding: 15px;
 	overflow: hidden;
+	font-family: kalinga;
+	font-size: 17px;
 }
-div#corps div.cadre img#img_accueil{
-	margin-left: 125px;
-	margin-top: 20px;
+div#corps div.cadre center,
+div#corps div.cadre a{
+	font-family: kalinga;
+	font-size: 17px;
 }
-div#corps div.cadre h1{
-	margin-top: 50px;
+div#corps div.cadre img{
+	width: 25px;
+	margin-left: 25px;
+	margin-right: 10px;
 }
-div#corps div.cadre h2{
-	display: inline-block;
-	vertical-align: top;
-	margin-top: 35px;
-	margin-left: 10px;
-}
-div#corps div.cadre h2:hover{
-	border-bottom: 3px #A8BF75 solid;
-}
-div#corps div.cadre p{
-	font-size: 1.1em;
-	font-style: italic;
-	margin-left: 150px;
-}
-
 
 /* - - - - - - - - - - Activite_recente - - - - - - - - - - */
 aside{
@@ -459,7 +453,7 @@ section#rando div#affichage_recherche div div#texte div.caracteristiques div#cer
 	width: 10px;
 	height: 10px;
 	margin-right: 3px;
-	background-color: #FE642E;
+	background-color: #39F;
 	box-shadow: 1px 1px 1px rgba(200, 200, 200, 1);
 	border-radius: 15px;
 }
@@ -582,7 +576,7 @@ section#fiche_rando div.caracteristique span.valeur_caract div#cercle{
 	width: 10px;
 	height: 10px;
 	margin-right: 3px;
-	background-color: #FE642E;
+	background-color: #39F;
 	box-shadow: 1px 1px 1px rgba(200, 200, 200, 1);
 	border-radius: 15px;
 }
@@ -659,24 +653,17 @@ section#fiche_rando ul.notes li{
 	min-width:20px;
 	min-height:20px;
 }
+section#fiche_rando ul.notes li label.etoile_select,
 section#fiche_rando ul.notes li label.etoile_vide{
 	display:block;
-	width: 35px;
+	width: 37px;
 	height: 45px;
-	text-align:center;
-	line-height:40px;
-	background:url(../Resources/Images/etoile_jaune_vide.png) center no-repeat;
-	cursor:pointer;
+	text-align: center;
+	line-height: 40px;
+	cursor: pointer;
 }
-section#fiche_rando ul.notes li label.etoile_select{
-	display:block;
-	width: 35px;
-	height: 45px;
-	text-align:center;
-	line-height:40px;
-	background:url(../Resources/Images/etoile_jaune_pleine.png) center no-repeat;
-	cursor:pointer;
-}
+section#fiche_rando ul.notes li label.etoile_vide{ background: url(../Resources/Images/etoile_jaune_vide.png) center no-repeat; }
+section#fiche_rando ul.notes li label.etoile_select{ background: url(../Resources/Images/etoile_jaune_pleine.png) center no-repeat; }
 section#fiche_rando ul.notes li input{
 	position: absolute;
 	left: -999%;
@@ -1071,4 +1058,11 @@ footer table{
 	width: 80%;
 	margin-left: auto;
 	margin-right: auto;
+}
+footer img{
+	position: relative;
+	float: right;
+	width: 70px;
+	top: -50px;
+	margin-bottom: -50px;
 }

@@ -30,6 +30,7 @@ function menu(){
 	}
 
 	echo '		</ul>
+				<a href="index.php"><img src="Resources/Images/logo.png"/></a>
 				<ul id="account">';
 				
 	if(isset($_SESSION['statut'])){

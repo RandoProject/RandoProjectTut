@@ -15,7 +15,7 @@ function head($titlePage, $listInc = array()){
 	echo '<title>'.NAME_SITE.' - '.$titlePage.'</title>';
 	echo '<meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1"/>';
 	echo '<link rel="stylesheet" type="text/css" href="CSS/'.CSS_BASE.'"/>';
-	echo '<link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/>';
+	echo '<link rel="icon" type="image/png" href="Resources/Images/favicon.png"/>';
 	foreach($listInc as $inc){		
 		if(isset($inc['type'])){
 			switch(strtolower($inc['type'])){

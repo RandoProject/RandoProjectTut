@@ -130,7 +130,7 @@
         									<span id="dateComment">Le '.$insertion_date .'</span><br/>
         							 		<br/>'.$commentaire['commentaire'].'<br/><br/>';
                                         for($j = 0; $j < $commentaire['note']; $j++){
-                                            echo '<span id="note"><img class="etoile" src="Resources/Images/star-pleine_fiche.png" width="15px"/></span>';
+                                            echo '<span id="note"><img class="etoile" src="Resources/Images/star-pleine_fiche.png"/></span>';
                                         }
         						echo '	</div>';
                                 $i++;
