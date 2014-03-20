@@ -84,6 +84,10 @@ else{
 			include('View/v_presentation.php');
 		break;
 
+		case 'mdp_forget':
+			include('Controller/c_mdp_forget.php');
+		break;
+
 		default:
 			header('Location:index.php?page=erreur');
 			break;

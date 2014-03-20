@@ -27,6 +27,7 @@
                         
                         <label for="pass">Mot de passe : </label><br/>
                         <input type="password" name="pass" maxlength="30" required/>
+                            <a href="index.php?page=mdp_forget"><p id="mdp_forget">Mot de passe oublié ?</p></a>
                         <?php if(isset($error['pass'])) echo '<p class="error">'.$error['pass'].'</p>'; else echo '<br/><br/>'; ?><br/>
                         
                         <input type="submit" value="connexion">
@@ -48,6 +49,7 @@
                         
                         <label for="pass">Mot de passe : </label><br/>
                         <input type="password" name="pass" maxlength="30" required/>
+                            <a href="index.php?page=mdp_forget"><p id="mdp_forget">Mot de passe oublié ?</p></a>
                         <?php if(isset($error['pass'])) echo '<p class="error">'.$error['pass'].'</p>'; else echo '<br/><br/>'; ?><br/>
                         
                         <input type="submit" value="connexion">

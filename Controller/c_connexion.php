@@ -14,7 +14,7 @@ if(strtolower($_SERVER['REQUEST_METHOD']) == "post"){
 		include_once('Models/m_members.php');
 		$member = get_member(strip_tags($_POST['pseudo']));
 		if(isset($member->mdp)){ // Si le pseudo du client existe
-			if($member->mdp == $_POST['pass']){
+			if($member->mdp == sha1(sha1($_POST['pass']).$salt)){
 				$_SESSION['pseudo'] = $member->pseudo;
 				$_SESSION['name'] = $member->nom;
 				$_SESSION['prenom'] = $member->prenom;
