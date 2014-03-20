@@ -28,7 +28,7 @@
                             foreach ($liste_photos as $photos) {
                                 echo '	<li>
                                     		<a href="Resources/Galerie/'.$photos['nom_galerie'].'/'.$photos['nom_photo'].'">
-        										<img src="Resources/Galerie/'.$photos['nom_galerie'].'/'.$photos['nom_photo'].'" id="img_couverture" alt="'.$photos['titre'].'"/>
+        										<img src="Resources/Galerie/'.$photos['nom_galerie'].'/'.$photos['nom_photo'].'" id="img_couverture"  />
         									</a>
                                 		</li>
         						';
