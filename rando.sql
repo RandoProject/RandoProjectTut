@@ -231,7 +231,7 @@ INSERT INTO `photo` VALUES ('48', 'IMG_0505.jpg', '8', '', '0');
 -- ____________________ MEMBRE ____________________ --
 CREATE TABLE IF NOT EXISTS `membre` (
 	`pseudo` varchar(30) NOT NULL,
-	`mdp` varchar(30) NOT NULL,
+	`mdp` varchar(100) NOT NULL,
 	`statut` varchar(20) NOT NULL,
 	`nom` varchar(30) NOT NULL,
 	`prenom` varchar(30) NOT NULL,
@@ -249,7 +249,7 @@ CREATE TABLE IF NOT EXISTS `membre` (
 
 INSERT INTO `membre` VALUES (
 	'Pat',
-	'0000',
+	'336ef0314691374761c51e0d278cd06c64548d74',
 	'administrateur',
 	'Paturaux',
 	'Florian',
@@ -263,7 +263,7 @@ INSERT INTO `membre` VALUES (
 );
 INSERT INTO `membre` VALUES (
 	'Benoit',
-	'0000',
+	'336ef0314691374761c51e0d278cd06c64548d74',
 	'administrateur',
 	'Rongeard',
 	'Benoit',
@@ -277,7 +277,7 @@ INSERT INTO `membre` VALUES (
 );
 INSERT INTO `membre` VALUES (
 	'Sylvio',
-	'0000',
+	'336ef0314691374761c51e0d278cd06c64548d74',
 	'administrateur',
 	'Menubarbe',
 	'Sylvio',
@@ -291,7 +291,7 @@ INSERT INTO `membre` VALUES (
 );
 INSERT INTO `membre` VALUES (
 	'modo',
-	'0000',
+	'336ef0314691374761c51e0d278cd06c64548d74',
 	'moderateur',
 	'modo',
 	'modo',

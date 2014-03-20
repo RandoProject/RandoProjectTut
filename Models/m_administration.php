@@ -210,7 +210,7 @@ function delete_photo($listeNumero){
 }
 
 
-/* ACTION sur les PHOTOS */
+/* ACTION sur les MEMBRES */
 function delete_member($listePseudo){
 	global $bdd;
 

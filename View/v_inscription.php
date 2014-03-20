@@ -11,8 +11,7 @@
             <section id="inscription">
 				<?php
                     if(isset($_POST['submit']) and !isset($error)){
-                            echo '<p>Vous vous êtes inscrit sur RandoPassion !</p> 
-                                            <p>Bienvenue !</p>';
+                            echo '<h2>Vous vous êtes inscrit sur RandoPassion !</br>Bienvenue !</h2>';
                     }
                     else{
                 ?>

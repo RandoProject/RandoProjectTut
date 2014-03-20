@@ -2,7 +2,7 @@
 <html lang="fr">
 
     <?php head("Recherche avancée"); ?>
-
+	<script type="text/javascript" src="JS/geolocalise.js"></script>
     <body>
         <div id="corps">
             <?php menu(); ?>
@@ -170,8 +170,8 @@
                                 $i++;
                                 
                                 // Affichage
-                                echo '  <div id="rando'.$css.'">'.(isset($rando['distance'])? '<p>A '.$rando['distance'].' km de chez moi</p>' : "").'
-                                            <br/>
+                                echo '  <div id="rando'.$css.'">
+											<br/>
                                             <center><h2>'.$title.'</h2></center>
                                             <div id="note">'.$etoile.'<br/><span id="nb_vote">'.$number_of_note.'</span></div>
                                             <div id="rond">
@@ -211,15 +211,13 @@
                                                         <img src="Resources/Images/departement.png"/>
                                                         Département
                                                     </span><br/>
-                                                    <span class="valeur_caract">'.$department.'</span>
+                                                    <span class="valeur_caract">'.$department.''.(isset($rando['distance'])? ' : <b> '.$rando['distance'].' km</b>' : "").'</span>
                                                 </div>
                                             </div>
                                             <div id="fiche">
                                                 <a id="lien_consulter_fiche" href="index.php?page=fiche_rando&code='.$code.'">consulter la fiche..</a>
                                             </div>
                                         </div>';
-                                // faire la limite de 10 randos par page
-                                // if($i === 10) break;
                             }
                         }
                         else{
@@ -228,7 +226,7 @@
                     ?>
                 </div>
             </section>
-            <script type="text/javascript" src="JS/geolocalise.js"></script>
+            
             <?php include_once('Controller/c_footer.php'); ?>
         </div>
     </body>

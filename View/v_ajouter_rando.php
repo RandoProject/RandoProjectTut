@@ -90,18 +90,14 @@
                         <div id="map-canvas"></div><br/>
                     </div>
 
-                    <label for="description">Décrivez votre randonnée : </label><br/>
-                    <?php if(isset($error['description'])) echo '<p class="error">'.$error['description'].'</p>'; ?>
-                    <textarea id="description" name="description"><?php if(isset($value['description'])) echo $value['description']; ?></textarea><br/>
+                    <?php if(isset($error['length'])) echo '<p class="error">'.$error['length'].'</p>';?>
+                    <label for="length">Longueur (en mètre) : </label>
+                    <input type="text" maxlength="7" size="7" id="length" name="length" pattern="\d+" autocomplete="off" <?php if(isset($value['length'])) echo 'value="'.$value['length'].'"'; ?>/><br/><br/>
 
-                    <label for="difficulty">Difficulté :</label>
-                    <input type="text" id="difficulte" size="1" value="1" pattern="\d+" readonly/><br/>
-                    <?php if(isset($error['difficulty'])) echo '<p class="error">'.$error['difficulty'].'</p>'; ?>
-                    <input type="range" step="1" min="1" max="5" id="difficulty" name="difficulty" <?php  if(isset($value['difficulty'])) echo 'value="'.$value['difficulty'].'"'; else echo 'value="1"'; ?> onchange="document.getElementById('difficulte').value=this.value;"><br/><br/>
-                	
                     <?php if(isset($error['deniv'])) echo '<p class="error">'.$error['deniv'].'</p>';?>
-                    <label for="deniv">Dénivelé (en mètre) : </label>
+                    <label for="deniv">Dénivelé positif (en mètre) : </label>
                     <input type="text" maxlength="6" size="6" id="deniv" name="deniv" pattern="\d+" autocomplete="off" <?php if(isset($value['deniv'])) echo 'value="'.$value['deniv'].'"'; ?>/><br/><br/>
+
                     <labe>Durée :</label><br/>
                     <?php 
                     if (isset($error['day']) or isset($error['hour']) or isset($error['minutes'])){
@@ -119,10 +115,23 @@
                     <label for="minutes">minutes</label>
                     <input type="text" id="minutes" name="minutes" axlength="2" autocomplete="off" pattern="\d+" style="width:20px;" <?php if(isset($value['minutes'])) echo 'value="'.$value['minutes'].'"'; ?> ><br/><br/>
 
+                    <label for="difficulty">Difficulté :</label>
+                    <input type="text" id="difficulte" size="1" value="1" pattern="\d+" readonly/><br/>
+                    <?php if(isset($error['difficulty'])) echo '<p class="error">'.$error['difficulty'].'</p>'; ?>
+                    <input type="range" step="1" min="1" max="5" id="difficulty" name="difficulty" <?php  if(isset($value['difficulty'])) echo 'value="'.$value['difficulty'].'"'; else echo 'value="1"'; ?> onchange="document.getElementById('difficulte').value=this.value;"><br/><br/>
+                    
                     <label>Votre randonnée contient-elle un point d'eau ?</label><br/>
                     <?php if(isset($error['water'])) echo '<p class="error">'.$error['water'].'</p>'; ?>
                     <input type="radio" id="non" name="water" value="non" <?php if(!isset($value['water']) or $value['water'] == 0) echo 'checked'; ?> ><label for="non">Non</label>&emsp;&emsp;&emsp;&emsp;
                     <input type="radio" id="oui" name="water" value="oui" <?php if(isset($value['water']) and $value['water'] == 1) echo 'checked'; ?> ><label for="oui">Oui</label><br/><br/><br/>
+
+
+
+                    <label for="description">Décrivez votre randonnée : </label><br/>
+                    <?php if(isset($error['description'])) echo '<p class="error">'.$error['description'].'</p>'; ?>
+                    <textarea id="description" name="description"><?php if(isset($value['description'])) echo $value['description']; ?></textarea><br/>
+
+                   
 
                 </form>
                 <br>

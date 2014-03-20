@@ -28,17 +28,28 @@ if(isset($_SESSION['statut']) and in_array($_SESSION['statut'], array('administr
 
 		if(!isset($_POST['difficulty'])){
 			$error['difficulty'] = "Vous n'avez pas précisé la difficulté";
-		}else{
-			if(is_numeric($_POST['difficulty'])){
+		}
+		else if(is_numeric($_POST['difficulty'])){
 				$difficulty = intval($_POST['difficulty']);
 				if($difficulty < 1 and $difficulty > 5){
 					$error['difficulty'] = "La difficulté doit être comprise entre 1 et 5.";
 				}
-			}
-			else{
-				$error['difficulty'] = "La difficulté que vous avez entré n'est pas valide.";
-			}
 		}
+		else{
+			$error['difficulty'] = "La difficulté que vous avez entré n'est pas valide.";
+		}
+
+		// La longueur de la rando
+		if(!isset($_POST['length'])){
+			$lenRamble = null;
+		}
+		else if(is_numeric($_POST['length'])){
+			$lenRamble = intval($_POST['length']);
+		}
+		else{
+			$error['length'] = 'La longueur entrée est invalide';
+		}
+
 		// Vérif dénivelé
 		if(!isset($_POST['deniv']) or $_POST['deniv'] == ""){
 			$deniv = null;
@@ -47,7 +58,7 @@ if(isset($_SESSION['statut']) and in_array($_SESSION['statut'], array('administr
 			$deniv = intval($_POST['deniv']);
 		}
 		else{
-			$error['deniv'] = 'Le dénivelé entrer est invalide';
+			$error['deniv'] = 'Le dénivelé entré est invalide';
 		}
 
 
@@ -103,6 +114,9 @@ if(isset($_SESSION['statut']) and in_array($_SESSION['statut'], array('administr
 				if(in_array($extension, array('gpx'))){
 					$nameFile = strip_tags(basename($_FILES['fileMap']['name']));
 					// Le nom session_id permet de pas avoir de problème avec des fichiers ayant le même nom en même temps
+					if(!file_exists('Resources/GPX/tmp')){
+						mkdir('Resources/GPX/tmp', 0777);
+					}
 					move_uploaded_file($_FILES['fileMap']['tmp_name'], 'Resources/GPX/tmp/gpx_'.session_id());
 					$gpx = simplexml_load_file('Resources/GPX/tmp/gpx_'.session_id());
 					$namespace = $gpx->getNamespaces(true); // On récupère l'espace de nom du fichier
@@ -199,9 +213,6 @@ if(isset($_SESSION['statut']) and in_array($_SESSION['statut'], array('administr
 				}
 
 
-
-
-
 				
 				// ------------------------------------------------- Gestion des images ---------------------------------------------
 				$srcImgDir = 'Resources/Galerie/tmp/'.session_id();
@@ -229,7 +240,8 @@ if(isset($_SESSION['statut']) and in_array($_SESSION['statut'], array('administr
 				
 				$imgCover = (isset($idFirstImg) and $idFirstImg !== null)? $idFirstImg : 0; // L'image de couverture
 				$delay = ($day*24) + $hour.':'.$minutes.':0';
-				$idRando = insert_rando($title, $delay, $difficulty, $_POST['description'], $water, $_SESSION['pseudo'], $departement, $idRoute, $idGalery, $imgCover, $deniv); // On enregistre la randonnée
+				$lenRamble = round($lenRamble / 1000, 1);
+				$idRando = insert_rando($title, $delay, $difficulty, $_POST['description'], $water, $_SESSION['pseudo'], $departement, $lenRamble, $idRoute, $idGalery, $imgCover, $deniv); // On enregistre la randonnée
 				
 
 

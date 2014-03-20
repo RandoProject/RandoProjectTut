@@ -124,8 +124,7 @@ input[type="submit"]:hover, input[type="button"]:hover{
 /* - - - - - - - - - - Corps - - - - - - - - - - */
 div#corps{
 	width: 1200px;
-	height: auto;
-	min-height: 100%;
+	min-height: 100% !important;
 	margin-left: auto;
 	margin-right: auto;
 	background-color: #FFFFFF;
@@ -370,7 +369,7 @@ section#rando form div#recherche_criteres div#input_recherche{
 }
 /* - - - - - - - - - - Affichage randonnée - - - - - - - - - - */
 section#rando div#affichage_recherche div#rando_pair{ background-color: #FFFFFF; }
-section#rando div#affichage_recherche div#rando_impair{background-image: url(../Resources/Images/rayure.png); background-repeat: repeat;}
+section#rando div#affichage_recherche div#rando_impair{background-color: #EAEAEA; }
 section#rando div#affichage_recherche div#rando_pair,
 section#rando div#affichage_recherche div#rando_impair{
 	min-height: 300px;
