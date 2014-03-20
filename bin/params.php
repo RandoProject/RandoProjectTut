@@ -3,6 +3,7 @@ $host='mysql:host=localhost;dbname=site_rando';
 $user='root';
 $password='';
 $bdd;
+$salt = "16@g!KQ69j";
 
 	try{
 		$bdd = new PDO($host, $user, $password);
@@ -12,4 +13,3 @@ $bdd;
 		die('Erreur : ' . $e->getMessage());
 	}
 ?>
-
