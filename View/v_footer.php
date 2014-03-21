@@ -18,4 +18,5 @@
         	<td></td>
         </tr>
 	</table>
+    <a href="index.php"><img src="Resources/Images/logo.png"/></a>
 </footer>
