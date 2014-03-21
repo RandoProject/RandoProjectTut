@@ -7,7 +7,6 @@ if(strtolower($_SERVER['REQUEST_METHOD']) == "post"){
 	if(!isset($_POST['pass']) or $_POST['pass'] == ""){
 		$error['pass'] = 'Vous n\'avez pas entré de mot de passe.';
 	}
-	
 
 	if(empty($error)){
 		include_once('bin/params.php');
