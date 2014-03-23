@@ -20,6 +20,13 @@ if(isset($_GET['code'])){
 		$photo = 'Resources/Galerie/'.$galery.'/'.$rando->nom_photo;
 		$idParcours = $rando->parcours;
 		
+		
+		//Nom du GPX
+		
+		$nom_GPX = get_nom_parcour($idParcours);
+		$nom_GPX_final = $nom_GPX->nom_parcour;
+		
+		
 		// Nombre de note
 			$number_of_note = $rando->nb_note.' vote'.(( $rando->nb_note > 1)? 's' : '');
 		

@@ -569,6 +569,9 @@ section#fiche_rando div.caracteristique span.valeur_caract img.etoile{
 	width: 25px;
 	height: 25px;
 }
+section#fiche_rando span#description{
+	font-size: 1.2em;
+}
 section#fiche_rando div.caracteristique span.valeur_caract div#cercle{
 	display: inline-block;
 	vertical-align: top;
@@ -583,6 +586,7 @@ section#fiche_rando div.caracteristique span.valeur_caract div#cercle{
 section#fiche_rando span#auteurRando,
 section#fiche_rando span#dateRando{
 	font-style: italic;
+	font-weight: bold;
 	margin: 15px;
 	display: block;
 }
@@ -593,6 +597,13 @@ section#fiche_rando img.galerie{
 	margin: 5px 10px;
 	width: 105px;
 	height: 77px;
+}
+section#fiche_rando div#download_gpx{
+	margin-left: 580px;
+}
+section#fiche_rando input#download_gpx{
+	width: 250px;
+	margin-top: 0;
 }
 					/* Commentaire */
 section#fiche_rando div#commentaire{

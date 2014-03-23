@@ -91,6 +91,10 @@ else{
 		case 'mdp_forget_problem':
 			include('View/v_mdp_forget_problem.php');
 		break;
+	
+		case 'download':
+			include('Controller/c_download_gpx.php');
+		break;
 
 		default:
 			header('Location:index.php?page=erreur');
