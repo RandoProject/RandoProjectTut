@@ -14,9 +14,9 @@ function get_rando($code){
 					LEFT JOIN departements
 				        ON rando.departement = departements.num_departement
 					JOIN photo 
-					ON rando.photo_principale = photo.numero
+						ON rando.photo_principale = photo.numero
 					JOIN galerie 
-					ON photo.galerie = galerie.numero
+						ON photo.galerie = galerie.numero
 					WHERE rando.code = :code';
 	$queryArray = array('code' => $code);
 	

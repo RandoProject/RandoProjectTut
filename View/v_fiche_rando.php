@@ -12,19 +12,20 @@
     }
     head("Fiche : $title", $listeFiles); ?>
 
-    <script type="text/javascript">
-        var divMap;
-        window.addEventListener('load', function(){
-            divMap = document.getElementById('carte');
-            if(!getGpx('<?php echo $srcParcours?>')){ // Si le XHR n'a ne peut pas être instancié
-                var elem = document.createElement('p');
-                elem.appendChild(document.createTextNode('Votre navigateur ne suporte pas notre gestion de parcours.'))
-                divMap.appendChild(elem);
-            }
-        }, false);
+    <?php if(isset($srcParcours)){ ?>
+        <script type="text/javascript">
+            var divMap;
+            window.addEventListener('load', function(){
+                divMap = document.getElementById('carte');
+                if(!getGpx('<?php echo $srcParcours?>')){ // Si le XHR n'a ne peut pas être instancié
+                    var elem = document.createElement('p');
+                    elem.appendChild(document.createTextNode('Votre navigateur ne suporte pas notre gestion de parcours.'))
+                    divMap.appendChild(elem);
+                }
+            }, false);
+        </script>
+    <?php } ?>
 
-    </script>
-    
     <body>
         <div id="corps">
             <?php menu(); ?>
@@ -38,9 +39,10 @@
                 <span id="description"><?php echo $description; ?></span><br/><br/>
 				<?php echo $equipment; ?>
                 
-                <div id="carte">
-                </div>
-                
+                <?php if(isset($nom_GPX_final)){ ?>
+                    <div id="carte">
+                    </div>
+                <?php } ?>
                 <div class="caracteristique">
                 	<span class="intitule_caract">
                         <img id="img_fiche" src="Resources/Images/longueur.png"/>
@@ -92,7 +94,7 @@
                         Département
                     </span><br/>
                     <span class="valeur_caract">
-						<?php echo $department; ?>
+						<?php if($department === null) echo '<em>Non renseigné</em>'; else echo $department?>
                     </span>
                 </div>
                 <div class="caracteristique">
@@ -106,9 +108,11 @@
                 </div>
 
                 <br/><br/>
-                <div id="download_gpx">
-                    <?php echo '<a href="index.php?page=download&file='.$nom_GPX_final.'" target="_blank">' ?><input type="button" id="download_gpx" value="Télécharger le fichier "/></a>
-                </div>
+                <?php if(isset($nom_GPX_final)){ ?>
+                    <div id="download_gpx">
+                        <?php echo '<a href="index.php?page=download&file='.$nom_GPX_final.'" target="_blank">' ?><input type="button" id="download_gpx" value="Télécharger le fichier "/></a>
+                    </div>
+                <?php } ?>
                 <span id="dateRando">Ajouté le <?php echo $insertion_date.' à '.$insertion_hour; ?></span>
                 <span id="auteurRando">Rédigé par <?php echo '<a href="index.php?page=profil&pseudo='.$author.'">'.$author.'</a>'; ?></span>
                 

@@ -22,10 +22,10 @@ if(isset($_GET['code'])){
 		
 		
 		//Nom du GPX
-		
-		$nom_GPX = get_nom_parcour($idParcours);
-		$nom_GPX_final = $nom_GPX->nom_parcour;
-		
+		if($idParcours !== null){
+			$nom_GPX = get_nom_parcour($idParcours);
+			$nom_GPX_final = $nom_GPX->nom_parcour;
+		}
 		
 		// Nombre de note
 		$number_of_note = $rando->nb_note.' vote'.(( $rando->nb_note > 1)? 's' : '');
@@ -138,7 +138,9 @@ if(isset($_GET['code'])){
 			$nombre_commentaire = recuperation_commentaire($code);
 			include_once('bin/params.php');
 			include_once('Models/m_parcours.php');
-			$srcParcours = get_parcours($idParcours)->nom; // Récupère le chemin du parcours
+			if($idParcours !== null){
+				$srcParcours = get_parcours($idParcours)->nom; // Récupère le chemin du parcours
+			}
 
 			include_once('View/v_fiche_rando.php');
 		}

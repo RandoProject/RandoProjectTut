@@ -211,7 +211,7 @@
                                                         <img src="Resources/Images/departement.png"/>
                                                         Département
                                                     </span><br/>
-                                                    <span class="valeur_caract">'.$department.''.(isset($rando['distance'])? ' : <b> '.$rando['distance'].' km</b>' : "").'</span>
+                                                    <span class="valeur_caract">'.(($department === null)? '<em>Non renseigné</em>' : $department.(isset($rando['distance'])? ' : <b> '.$rando['distance'].' km</b>' : "")).'</span>
                                                 </div>
                                             </div>
                                             <div id="fiche">
