@@ -101,3 +101,24 @@ function count_rando($title = false){
 	
 	return $query->fetch(PDO::FETCH_OBJ);
 }
+
+
+
+function get_nom_parcour($idParcour){
+	global $bdd;
+	
+	$reqStr = 'SELECT parcours.nom AS nom_parcour FROM parcours WHERE id = :idParcour';
+	$reqArray = array('idParcour' => $idParcour);
+	
+	$req = $bdd->prepare($reqStr);
+	$req->execute($reqArray);
+	
+	$resultat = $req->fetch(PDO::FETCH_OBJ);
+	$req->closeCursor();
+	
+	return $resultat;	
+}
+
+
+
+

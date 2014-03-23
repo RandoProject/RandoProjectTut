@@ -24,7 +24,7 @@ jQuery(function($){
 		{name : 'Languedoc Roussillon', slug: '13'},
 		{name : 'Provence Alpes Côte d\'Azur', slug: '21'},
 		{name : 'Corse', slug: '9'}
-	]
+	];
 	
 	// Info-Bulle
 	$(document).mousemove(function(e){

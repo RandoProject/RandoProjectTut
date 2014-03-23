@@ -35,7 +35,7 @@
                 
                 <center><img id="photo" src="<?php echo $photo; ?>"/></center>
                 
-                <?php echo $description; ?><br/><br/>
+                <span id="description"><?php echo $description; ?></span><br/><br/>
 				<?php echo $equipment; ?>
                 
                 <div id="carte">
@@ -104,9 +104,11 @@
                     	<?php echo $etoile.'<br/>&emsp;&emsp;&emsp; '.$number_of_note; ?>
                     </span>
                 </div>
-                
+
                 <br/><br/>
-                
+                <div id="download_gpx">
+                    <?php echo '<a href="index.php?page=download&file='.$nom_GPX_final.'" target="_blank">' ?><input type="button" id="download_gpx" value="Télécharger le fichier "/></a>
+                </div>
                 <span id="dateRando">Ajouté le <?php echo $insertion_date.' à '.$insertion_hour; ?></span>
                 <span id="auteurRando">Rédigé par <?php echo '<a href="index.php?page=profil&pseudo='.$author.'">'.$author.'</a>'; ?></span>
                 
