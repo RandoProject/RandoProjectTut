@@ -1,6 +1,6 @@
 <?php
 
-if($_SESSION['statut'] !== 'moderateur'){
+if(isset($_SESSION['statut']) and $_SESSION['statut'] !== 'moderateur'){
 	header('location:index.php?page=accueil');
 }
 
@@ -20,7 +20,7 @@ if($_GET['section'] === 'randonnees'){
 			update_rando($_POST['rando'], $_POST['title'], $_POST['equipment'], $_POST['description']);
 		}
 	}
-	$listeRando = get_liste_rando('AND rando.valide = 0');
+	$listeRando = get_liste_rando('rando.valide = 0');
 	if(!empty($_POST['rando']) && !empty($_POST['update'])){
 		$listeRando = liste_update($_POST['rando']);
 	}

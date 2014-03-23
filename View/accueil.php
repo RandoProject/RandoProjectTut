@@ -127,9 +127,9 @@
             	<br/>
             	<center>RandoPassion est destiné à tous les randonneurs voulant partager leur passion de la randonnée. Novice ou expert, ce site est fait pour vous.</center><br/><br/>
                 Vous pourrez :<br/>
-                <a href=""><img src="Resources/Images/favicon.png"/>Chercher les parcours adaptés à vos envies</a><br/><br/>
-                <a href=""><img src="Resources/Images/favicon.png"/>Consulter notre banque de photo prise lors de<br/>&emsp;&emsp; &emsp; randonnées</a><br/><br/>
-                <a href=""><img src="Resources/Images/favicon.png"/>Participé à la dynamique du site en y ajoutant<br/>&emsp;&emsp; &emsp; vos propres randonnées</a><br/><br/><br/><br/>
+                <a href=""><img src="Resources/Images/favicon.png"/>Cherchez les parcours adaptés à vos envies</a><br/><br/>
+                <a href=""><img src="Resources/Images/favicon.png"/>Consultez notre banque de photo prise lors de<br/>&emsp;&emsp; &emsp; randonnées</a><br/><br/>
+                <a href=""><img src="Resources/Images/favicon.png"/>Participez à la dynamique du site en y ajoutant<br/>&emsp;&emsp; &emsp; vos propres randonnées</a><br/><br/><br/><br/>
                 
              	<center>RandoPassion le site consacré à la randonnée !</center>
              </div>

@@ -105,49 +105,50 @@ if(isset($_SESSION['statut']) and in_array($_SESSION['statut'], array('administr
 		else{
 			$error['water'] = "Vous n'avez pas précisé si votre randonnée comportait un point d'eau.";
 		}
-
-		if(isset($_FILES['fileMap']) and $_FILES['fileMap']['error'] == UPLOAD_ERR_OK and is_uploaded_file($_FILES['fileMap']['tmp_name'])){
-			if($_FILES['fileMap']['size'] <= 2000000){ // taille de fichier max <= 2Mo
-				$infosFile = pathinfo($_FILES['fileMap']['name']);
-				$extension = strtolower($infosFile['extension']);
-				
-				if(in_array($extension, array('gpx'))){
-					$nameFile = strip_tags(basename($_FILES['fileMap']['name']));
-					// Le nom session_id permet de pas avoir de problème avec des fichiers ayant le même nom en même temps
-					if(!file_exists('Resources/GPX/tmp')){
-						mkdir('Resources/GPX/tmp', 0777);
-					}
-					move_uploaded_file($_FILES['fileMap']['tmp_name'], 'Resources/GPX/tmp/gpx_'.session_id());
-					$gpx = simplexml_load_file('Resources/GPX/tmp/gpx_'.session_id());
-					$namespace = $gpx->getNamespaces(true); // On récupère l'espace de nom du fichier
-					if(!empty($namespace)){
-						$gpx->registerXPathNamespace('gpx', current($namespace)); // Chargement de l'espace de nom contenant le vocabulaire des GPX
-						
-						$points = $gpx->xpath('//gpx:trkpt');
-						if($points === false){ // Si il y a une erreur
-							$error['fileMap'] = "Le fichier GPX est invalide";
+		if(isset($_FILES['fileMap']) and is_uploaded_file($_FILES['fileMap']['tmp_name'])){
+			if($_FILES['fileMap']['error'] == UPLOAD_ERR_OK){
+				if($_FILES['fileMap']['size'] <= 2000000){ // taille de fichier max <= 2Mo
+					$infosFile = pathinfo($_FILES['fileMap']['name']);
+					$extension = strtolower($infosFile['extension']);
+					
+					if(in_array($extension, array('gpx'))){
+						$nameFile = strip_tags(basename($_FILES['fileMap']['name']));
+						// Le nom session_id permet de pas avoir de problème avec des fichiers ayant le même nom en même temps
+						if(!file_exists('Resources/GPX/tmp')){
+							mkdir('Resources/GPX/tmp', 0777);
 						}
-						else if(empty($points)){
-							$points = $gpx->xpath('//gpx:rtept');
-							if($points === false or empty($points)){
+						move_uploaded_file($_FILES['fileMap']['tmp_name'], 'Resources/GPX/tmp/gpx_'.session_id());
+						$gpx = simplexml_load_file('Resources/GPX/tmp/gpx_'.session_id());
+						$namespace = $gpx->getNamespaces(true); // On récupère l'espace de nom du fichier
+						if(!empty($namespace)){
+							$gpx->registerXPathNamespace('gpx', current($namespace)); // Chargement de l'espace de nom contenant le vocabulaire des GPX
+							
+							$points = $gpx->xpath('//gpx:trkpt');
+							if($points === false){ // Si il y a une erreur
 								$error['fileMap'] = "Le fichier GPX est invalide";
 							}
+							else if(empty($points)){
+								$points = $gpx->xpath('//gpx:rtept');
+								if($points === false or empty($points)){
+									$error['fileMap'] = "Le fichier GPX est invalide";
+								}
+							}
+						}
+						else{
+							$error['fileMap'] = "L'espace de nom du fichier n'est pas valide";
 						}
 					}
 					else{
-						$error['fileMap'] = "L'espace de nom du fichier n'est pas valide";
+						$error['fileMap'] = "Votre fichier n'est pas de type GPX.";
 					}
 				}
 				else{
-					$error['fileMap'] = "Votre fichier n'est pas de type GPX.";
+					$error['fileMap'] = "Votre fichier doit faire moins de 2Mo";
 				}
 			}
 			else{
-				$error['fileMap'] = "Votre fichier doit faire moins de 2Mo";
+				$error['fileMap'] = "Le fichier sélectionné est invalide.";
 			}
-		}
-		else{
-			$error['fileMap'] = "Le fichier sélectionné est invalide.";
 		}
 
 		// Si aucune erreur on valide et on enregistre la randonnée
@@ -159,59 +160,60 @@ if(isset($_SESSION['statut']) and in_array($_SESSION['statut'], array('administr
 
 
 				// -------------------------------Récupération des données du GPX----------------------------------------------
-				$nbPoints = 0;
-				foreach($points as $point){
-					$lon = NULL;
-					$lat = NULL;
-					$ele = NULL;
-					foreach($point->attributes() as $name => $value){ // Récupère longitude et latitude
-						if($name == 'lon'){
-							$lon = floatval($value);
+				if(isset($gpx)){ // Si un fichier a été choisi
+					$nbPoints = 0;
+					foreach($points as $point){
+						$lon = NULL;
+						$lat = NULL;
+						$ele = NULL;
+						foreach($point->attributes() as $name => $value){ // Récupère longitude et latitude
+							if($name == 'lon'){
+								$lon = floatval($value);
+							}
+							else if($name == 'lat'){
+								$lat = floatval($value);
+							}
 						}
-						else if($name == 'lat'){
-							$lat = floatval($value);
+						// Récupère l'élèvation
+						foreach ($point->children() as $child){ // Meilleur optimisation en utilisant les iterateurs
+							if($child->getName() == 'ele'){
+								$ele = intval($child);
+							}
 						}
-					}
-					// Récupère l'élèvation
-					foreach ($point->children() as $child){ // Meilleur optimisation en utilisant les iterateurs
-						if($child->getName() == 'ele'){
-							$ele = intval($child);
-						}
-					}
-					if($lon !== NULL and $lat !== NULL){
-						$nbPoints++;
-						if(!isset($firstPoint)){ // Récupère le premier point du parcours
-							$firstPoint['lat'] = $lat;
-							$firstPoint['lon'] = $lon;
-						}
-					}
-				}
-
-				// -------------------------------------------- Géocodage de l'adresse ------------------------------------------
-				if(isset($firstPoint)){ 
-					/* On utilise un fichier xml de l'API google map pour touver le code postal de ces coordonnées */
-					$ch = curl_init('http://maps.googleapis.com/maps/api/geocode/xml?latlng='.$firstPoint['lat'].','.$firstPoint['lon'].'&sensor=false'); // Pas besoin de la clée d'API...
-					curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-					$xmlResult = simplexml_load_string(curl_exec($ch));  
-					$status = $xmlResult->status;
-					if($status == 'OK'){
-						$listAddressComponent = $xmlResult->result[0]->address_component;
-						foreach($listAddressComponent as $adressComponent){
-							if($adressComponent->type == 'postal_code'){
-								$postalCode = $adressComponent->long_name;
-								break;
+						if($lon !== NULL and $lat !== NULL){
+							$nbPoints++;
+							if(!isset($firstPoint)){ // Récupère le premier point du parcours
+								$firstPoint['lat'] = $lat;
+								$firstPoint['lon'] = $lon;
 							}
 						}
 					}
-					curl_close($ch);
-				}
-				if(isset($postalCode)){
-					$departement = intval(substr($postalCode, 0, 2)); // On récupère seulement le département
-				}
-				else{
-					$departement = 0; // Département invalide
-				}
 
+					// -------------------------------------------- Géocodage de l'adresse ------------------------------------------
+					if(isset($firstPoint)){ 
+						/* On utilise un fichier xml de l'API google map pour touver le code postal de ces coordonnées */
+						$ch = curl_init('http://maps.googleapis.com/maps/api/geocode/xml?latlng='.$firstPoint['lat'].','.$firstPoint['lon'].'&sensor=false'); // Pas besoin de la clée d'API...
+						curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+						$xmlResult = simplexml_load_string(curl_exec($ch));  
+						$status = $xmlResult->status;
+						if($status == 'OK'){
+							$listAddressComponent = $xmlResult->result[0]->address_component;
+							foreach($listAddressComponent as $adressComponent){
+								if($adressComponent->type == 'postal_code'){
+									$postalCode = $adressComponent->long_name;
+									break;
+								}
+							}
+						}
+						curl_close($ch);
+					}
+					if(isset($postalCode)){
+						$departement = intval(substr($postalCode, 0, 2)); // On récupère seulement le département
+					}
+					else{
+						$departement = 0; // Département invalide
+					}
+				}
 
 				
 				// ------------------------------------------------- Gestion des images ---------------------------------------------
@@ -235,9 +237,14 @@ if(isset($_SESSION['statut']) and in_array($_SESSION['statut'], array('administr
 
 				// -------------------------------------------- Insetion dans la base ---------------------------------------------
 
-				$idRoute = insert_parcours($title.'.gpx', $firstPoint['lat'], $firstPoint['lon'], $nbPoints);
-				rename('Resources/GPX/tmp/gpx_'.session_id(), 'Resources/GPX/'.$idRoute.'_'.substr($title,  0, 150).'.gpx'); 
-				
+				if(isset($gpx)){
+					$idRoute = insert_parcours($title.'.gpx', $firstPoint['lat'], $firstPoint['lon'], $nbPoints);
+					rename('Resources/GPX/tmp/gpx_'.session_id(), 'Resources/GPX/'.$idRoute.'_'.substr($title,  0, 150).'.gpx'); 
+				}
+				else{
+					$departement = null;
+					$idRoute = null;
+				}
 				$imgCover = (isset($idFirstImg) and $idFirstImg !== null)? $idFirstImg : 0; // L'image de couverture
 				$delay = ($day*24) + $hour.':'.$minutes.':0';
 				$lenRamble = round($lenRamble / 1000, 1);

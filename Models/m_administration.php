@@ -3,15 +3,18 @@
 /* Les fonctions de ce fichier concernent les opération sur l'administration et la modération */
 
 /* GETTERS */
-function get_liste_rando($condition){
+function get_liste_rando($condition = null){
 	global $bdd;
 
 	$query = '	SELECT rando.*, departements.nom AS nom_departement, photo.nom AS nom_photo , galerie.nom AS nom_galerie
-				FROM rando, photo, galerie, departements
-				WHERE rando.photo_principale = photo.numero
-				AND photo.galerie = galerie.numero
-				AND rando.departement = departements.num_departement
-				'.$condition.'
+				FROM rando
+				LEFT JOIN departements
+				        ON rando.departement = departements.num_departement
+				JOIN photo 
+					ON rando.photo_principale = photo.numero
+				JOIN galerie 
+					ON photo.galerie = galerie.numero
+				'.(($condition !== null)? 'WHERE '.$condition : "").'
 				ORDER BY date_insertion DESC';
 				
 	$exec = $bdd->query($query) or die(print_r($erreur -> errorInfo()));

@@ -17,7 +17,7 @@ if($_GET['section'] === 'randonnees'){
 			update_rando($_POST['rando'], $_POST['title'], $_POST['equipment'], $_POST['description']);
 		}
 	}
-	$listeRando = get_liste_rando('');
+	$listeRando = get_liste_rando();
 	if(!empty($_POST['rando']) && !empty($_POST['update'])){
 		$listeRando = liste_update($_POST['rando']);
 	}

@@ -14,11 +14,14 @@ function affichage_title($title){
 																																AND 5 
 																																AND code_rando = rando.code
 																																) AS nb_note
-					FROM rando, photo, galerie, departements
-					WHERE rando.photo_principale = photo.numero 
-					AND photo.galerie = galerie.numero
-					AND rando.departement = departements.num_departement
-					AND rando.valide = 1';
+					FROM rando
+					LEFT JOIN departements
+				        ON rando.departement = departements.num_departement
+					JOIN photo 
+						ON rando.photo_principale = photo.numero
+					JOIN galerie 
+						ON photo.galerie = galerie.numero
+					WHERE rando.valide = 1';
 		$i = 0;
 		$parenthese = 0;
 		while($i < count($mots)){ // Ajoute AND si il y a un mot non vide dans le tableau
@@ -74,11 +77,14 @@ function selection_rando_recente(){
 																															AND 5 
 																															AND code_rando = rando.code
 																															) AS nb_note
-				FROM rando, photo, galerie, departements
-				WHERE rando.photo_principale = photo.numero
-				AND photo.galerie = galerie.numero
-				AND rando.departement = departements.num_departement
-				AND rando.valide =1
+				FROM rando
+				LEFT JOIN departements
+		        	ON rando.departement = departements.num_departement
+				JOIN photo 
+					ON rando.photo_principale = photo.numero
+				JOIN galerie 
+					ON photo.galerie = galerie.numero
+				WHERE rando.valide =1
 				ORDER BY date_insertion DESC 
 				LIMIT 0 , 10';
 				
@@ -144,11 +150,14 @@ function affichage_f_rando_complet($region, $typeRegion, $MAX_distance, $MIN_dis
 																															AND 5 
 																															AND code_rando = rando.code
 																															) AS nb_note
-				FROM rando, photo, galerie, departements
-				WHERE rando.photo_principale = photo.numero
-				AND photo.galerie = galerie.numero
-				AND rando.departement = departements.num_departement
-				AND rando.valide = 1';
+				FROM rando
+				LEFT JOIN departements
+			        ON rando.departement = departements.num_departement
+				JOIN photo 
+					ON rando.photo_principale = photo.numero
+				JOIN galerie 
+					ON photo.galerie = galerie.numero
+				WHERE rando.valide = 1';
 
 	if(!empty($reqArray)){
 		$reqStr .= ' AND '.implode(' AND ', $reqArray);

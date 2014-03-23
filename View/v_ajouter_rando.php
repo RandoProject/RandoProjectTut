@@ -79,7 +79,7 @@
                     <label for="name">Nom de la randonnée : </label><br/>
                     <?php if(isset($error['name'])) echo '<p class="error">'.$error['name'].'</p>';?>
                     <input type="text" id="name" name="name" size="71" autocomplete="off" maxlength="150" <?php if(isset($value['name'])) echo 'value="'.$value['name'].'"'; ?> required/><br/><br/>
-                    
+                    <?php if(isset($error['fileMap'])) echo '<p class="error">'.$error['fileMap'].'</p>'; ?>
                     <label for="fileMap">Votre parcours (fichier GPX) : </label>
                     <div id="chooseFile">
                         <input type="button" id="buttonChooseGpx" value="Choisissez un fichier" />

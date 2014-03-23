@@ -10,11 +10,14 @@ function get_rando($code){
 																														AND 5 
 																														AND code_rando = rando.code
 																														) AS nb_note
-					FROM rando, photo, galerie, departements
-					WHERE rando.photo_principale = photo.numero
-					AND photo.galerie = galerie.numero
-					AND rando.departement = departements.num_departement
-					AND rando.code = :code';
+					FROM rando
+					LEFT JOIN departements
+				        ON rando.departement = departements.num_departement
+					JOIN photo 
+					ON rando.photo_principale = photo.numero
+					JOIN galerie 
+					ON photo.galerie = galerie.numero
+					WHERE rando.code = :code';
 	$queryArray = array('code' => $code);
 	
 	$query = $bdd->prepare($queryStr);
