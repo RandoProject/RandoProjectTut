@@ -28,7 +28,7 @@ if(isset($_GET['code'])){
 		
 		
 		// Nombre de note
-			$number_of_note = $rando->nb_note.' vote'.(( $rando->nb_note > 1)? 's' : '');
+		$number_of_note = $rando->nb_note.' vote'.(( $rando->nb_note > 1)? 's' : '');
 		
 		// Difficulté
 		$difficulty = '';

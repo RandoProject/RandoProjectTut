@@ -104,7 +104,7 @@
                     	<?php echo $etoile.'<br/>&emsp;&emsp;&emsp; '.$number_of_note; ?>
                     </span>
                 </div>
-                
+
                 <br/><br/>
                 <div id="download_gpx">
                     <?php echo '<a href="index.php?page=download&file='.$nom_GPX_final.'" target="_blank">' ?><input type="button" id="download_gpx" value="Télécharger le fichier "/></a>
