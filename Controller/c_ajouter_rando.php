@@ -43,7 +43,7 @@ if(isset($_SESSION['statut']) and in_array($_SESSION['statut'], array('administr
 		if(!isset($_POST['length'])){
 			$lenRamble = null;
 		}
-		else if(is_numeric($_POST['length'])){
+		else if(is_numeric($_POST['length']) and intval($_POST['length']) > 0){
 			$lenRamble = intval($_POST['length']);
 		}
 		else{
@@ -255,8 +255,7 @@ if(isset($_SESSION['statut']) and in_array($_SESSION['statut'], array('administr
 				
 				cleanTmp(); // Supprime les fichiers temporaires de parcours qui ne sont plus utiles
 
-				$validation = true; // Cette variable permet d'afficher la page de validation
-				include_once('View/v_ajouter_rando.php');
+				header('Location:index.php?page=ajout_valide');
 		}
 		else{
 			if(!isset($error['name'])){
@@ -267,6 +266,9 @@ if(isset($_SESSION['statut']) and in_array($_SESSION['statut'], array('administr
 			}
 			if(!isset($error['difficulty'])){
 				$value['difficulty'] = $difficulty;
+			}
+			if(!isset($error['length'])){
+				$value['length'] = $lenRamble;
 			}
 			if(!isset($error['deniv'])){
 				$value['deniv'] = ($deniv === null)? "" : $deniv;

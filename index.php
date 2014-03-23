@@ -26,7 +26,9 @@ else{
 		case 'ajout_rando':
 			include_once('Controller/c_ajouter_rando.php');
 			break;
-
+		case 'ajout_valide':
+			include_once('View/v_ajout_valide.php');
+			break;
 		case 'connexion':
 			include_once('Controller/c_connexion.php');
 			break;

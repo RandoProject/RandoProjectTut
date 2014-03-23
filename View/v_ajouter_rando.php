@@ -63,16 +63,6 @@
 			<?php menu(); ?>
 			
             <section id="ajoutrando">
-			<?php 
-            if(isset($validation)){ ?>
-                <div class="titre">Randonnées ajoutée</div>
-                <p>
-                    Votre randonnée a bien été ajoutée.<br/>
-                    Elle sera visible sur le site, dès que le modérateur l'aura validé.<br/>
-                    Vous pouvez en attendant consulter les <a href="index.php?page=recherche">autres randonnées</a> ou retouner sur la <a href="index.php">page d'accueil</a>.
-                </p>
-            <?php }
-            else{ ?>
                 <div class="titre">Ajouter une randonnée</div>
                 <?php if(isset($error) and !empty($error)) echo '<p class="error">Impossible de créer votre randonnée, certaines informations ne sont pas valides...</p>';?>
                 <form method="post" action="index.php?page=ajout_rando" id="insert_rando" enctype="multipart/form-data">
@@ -144,9 +134,7 @@
                     <ul id="image-list">
                         
                     </ul>
-                <input type="submit" value="Ajouter" id="submitRando"> 
-
-                <?php } // Ferme le else?>
+                <input type="submit" value="Ajouter" id="submitRando">
             </section>
 
 			<?php include_once('Controller/c_footer.php'); ?>
