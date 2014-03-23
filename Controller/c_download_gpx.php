@@ -50,6 +50,7 @@
     
     // indique la taille du fichier à télécharger
     header("Content-Length: ".$size);
-
+    ob_clean(); // Vide le tempon de sortie
+    flush();
     // envoi le contenu du fichier
     readfile($filename);
