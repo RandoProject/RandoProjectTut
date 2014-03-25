@@ -125,7 +125,7 @@
 
                 </form>
                 <br>
-                <form method="post" enctype="multipart/form-data"  action="../Controller/c_upload_img.php">
+                <form method="post" enctype="multipart/form-data">
                         <label for="images">Choisissez vos images : </label>
                         <input type="file" name="images[]" id="images" multiple>
                         <input type="submit" id="upl" value="Charger fichiers">
