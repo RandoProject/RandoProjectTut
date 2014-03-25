@@ -136,7 +136,7 @@
         									<span id="dateComment">Le '.$insertion_date .'</span><br/>
         							 		<br/>'.$commentaire['commentaire'].'<br/><br/>';
                                         for($j = 0; $j < $commentaire['note']; $j++){
-                                            echo '<span id="note"><img class="etoile" src="Resources/Images/star-pleine_fiche.png"/></span>';
+                                            echo '<span id="note"><img class="etoile" src="Resources/Images/star-pleine_fiche.png" width="20px"/></span>';
                                         }
         						echo '	</div>';
                                 $i++;
@@ -174,12 +174,9 @@
                                         <input type="radio" name="note" id="note1" value="1"/>
                                     </li>
                                 </ul>
-                        <?php
-                            }
-                            else{
-                                echo '<p>Vous avez déjà noté cette randonnée</p>';
-                            }
-                        ?>
+                        
+                            <?php } ?>
+                        
                     <textarea id="commentaire" name="commentaire" required autocomplete="off" pattern="[a-z]"></textarea>
                     <input type="submit" name="envoie_commentaire" value="Envoyer"/>
                 </form>
