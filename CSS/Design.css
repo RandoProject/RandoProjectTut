@@ -748,6 +748,19 @@ section#ajoutrando form input[type=range]::-ms-fill-upper {
 section#ajoutrando form input#difficulte{
 	background: none;
 	border: none;
+	width: auto;
+	margin-left: 240px;
+	margin-top: 0px;
+}
+section#ajoutrando form input#difficulte:hover, input#difficulte:focus{
+	border: none;
+	box-shadow: none;
+	background: none;
+}
+section#ajoutrando div#input_difficulte{
+	width: 250px;
+	margin-top: 20px;
+	margin-left: 293px;
 }
 
 section#ajoutrando form input#fileMap{
@@ -757,6 +770,52 @@ section#ajoutrando form input#fileMap{
 section#ajoutrando .vignette{
 	width: 150px;
 }
+
+/*------------------------Difficulté-----------------------*/
+section#ajoutrando ul.notes{
+	display: block;
+	width: 250px;
+	text-align: center;
+	margin-top: 10px;
+	margin-left: 355px;
+}
+section#ajoutrando ul.notes li{
+	display: block;
+	float:right;
+	margin:0;	
+	padding:0;
+	list-style:none;
+	min-width:20px;
+	min-height:20px;
+}
+section#ajoutrando ul.notes li label.etoile_select,
+section#ajoutrando ul.notes li label.etoile_vide{
+	display: inline-block;
+	width: 18px;
+	height: 18px;
+	margin-right: 5px;
+	background-color: #39F;
+	box-shadow: 1px 1px 1px rgba(200, 200, 200, 1);
+	border-radius: 15px;
+	text-align: center;
+	cursor: pointer;
+}
+section#ajoutrando ul.notes li label.etoile_vide{ background-color: #FFFFFF; }
+section#ajoutrando ul.notes li label.etoile_select{ background-color: #39F; }
+section#ajoutrando ul.notes li input{
+	position: absolute;
+	left: -999%;
+}
+section#ajoutrando li.note-off label{
+	background-position:center -60px;
+}
+section#ajoutrando ul.notes-echelle li.note-checked {
+	font-weight:bold;
+}
+section#ajoutrando ul.notes-echelle.js li.note-focus {
+	outline:1px dotted #000;
+}
+
 
 /* - - - - - - - - - - Administration - - - - - - - - - - */
 section#administration{

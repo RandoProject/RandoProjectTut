@@ -8,7 +8,8 @@
 				array('type' => 'javascript', 'src' => 'https://maps.googleapis.com/maps/api/js?key=AIzaSyC8ydWcT7L0z-S-g7DJf0Nh985GSMDjSf0&sensor=false&region=FR'),
                 array('type' => 'javascript', 'src' => 'https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js'),
 				array('type' => 'javascript', 'src' => 'JS/tinyMCE/tinymce.min.js'),
-                array('type' => 'javascript', 'src' => 'JS/upload_img.js')
+                array('type' => 'javascript', 'src' => 'JS/upload_img.js'),
+                array('type' => 'javascript', 'src' => 'JS/stars.js')
 			));
 	?>
     <script type="text/javascript">
@@ -105,10 +106,35 @@
                     <label for="minutes">minutes</label>
                     <input type="text" id="minutes" name="minutes" axlength="2" autocomplete="off" pattern="\d+" style="width:20px;" <?php if(isset($value['minutes'])) echo 'value="'.$value['minutes'].'"'; ?> ><br/><br/>
 
-                    <label for="difficulty">Difficulté :</label>
-                    <input type="text" id="difficulte" size="1" value="1" pattern="\d+" readonly/><br/>
                     <?php if(isset($error['difficulty'])) echo '<p class="error">'.$error['difficulty'].'</p>'; ?>
-                    <input type="range" step="1" min="1" max="5" id="difficulty" name="difficulty" <?php  if(isset($value['difficulty'])) echo 'value="'.$value['difficulty'].'"'; else echo 'value="1"'; ?> onchange="document.getElementById('difficulte').value=this.value;"><br/><br/>
+                    <p> Difficulté : </p>
+                    <ul name="notes" class="notes">
+                                    <li>
+                                        <label class="etoile_vide" id="et5" for="note5" title="Difficultée: 5 sur 5"></label>
+                                        <input type="radio" name="difficulty" id="note5" value="5" onchange="document.getElementById('difficulte').value=this.value;"/>
+                                    </li>
+                                    <li>
+                                        <label class="etoile_vide" id="et4" for="note4" title="Difficultée : 4 sur 5"></label>
+                                        <input type="radio" name="difficulty" id="note4" value="4" onchange="document.getElementById('difficulte').value=this.value;"/>
+                                    </li>
+                                    <li>
+                                        <label class="etoile_vide" id="et3" for="note3" title="Difficultée : 3 sur 5"></label>
+                                        <input type="radio" name="difficulty" id="note3" value="3" onchange="document.getElementById('difficulte').value=this.value;"/>
+                                    </li>
+                                    <li>
+                                        <label class="etoile_vide" id="et2" for="note2" title="Difficultée : 2 sur 5"></label>
+                                        <input type="radio" name="difficulty" id="note2" value="2" onchange="document.getElementById('difficulte').value=this.value;"/>
+                                    </li>
+                                    <li>
+                                        <label class="etoile_vide" id="et1" for="note1" title="Difficultée : 1 sur 5"></label>
+                                        <input type="radio" name="difficulty" id="note1" value="1" onchange="document.getElementById('difficulte').value=this.value;"/>
+                                    </li>
+                    </ul>
+                    <div id="input_difficulte">
+                        <input type="text" id="difficulte" size="1" value="1" pattern="\d+" readonly/><br/>
+                    </div>
+                    <!--<label for="difficulty">Difficulté :</label>
+                    <input type="range" step="1" min="1" max="5" id="difficulty" name="difficulty" <?php  /*if(isset($value['difficulty'])) echo 'value="'.$value['difficulty'].'"'; else echo 'value="1"';*/ ?> onchange="document.getElementById('difficulte').value=this.value;">--><br/>
                     
                     <label>Votre randonnée contient-elle un point d'eau ?</label><br/>
                     <?php if(isset($error['water'])) echo '<p class="error">'.$error['water'].'</p>'; ?>
