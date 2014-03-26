@@ -788,14 +788,6 @@ section#ajoutrando ul#image-list li {
 	margin-top: 10px;
 	padding: 0px;
 }
-section#ajoutrando ul#image-list li p{
-	width: 40px;
-	overflow: hidden;
-}
-section#ajoutrando ul#image-list li img{
-	width: 150px;
-	height: 150px;
-}
 section#ajoutrando ul#image-list li[float="left"] + li {
 	float:none;
 }
