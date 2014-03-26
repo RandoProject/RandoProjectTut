@@ -257,7 +257,7 @@ INSERT INTO `membre` VALUES (
 	'60 rue du Solon',
 	'42410',
 	'Saint Michel sur Rhône',
-	'florian.paturaux@univ-lyon1.fr',
+	'florian.paturaux@etu.univ-lyon1.frb',
 	'',
 	''
 );
@@ -271,7 +271,7 @@ INSERT INTO `membre` VALUES (
 	'',
 	'',
 	'',
-	'benoit.rongeard@univ-lyon1.fr',
+	'benoit.rongeard@etu.univ-lyon1.fr',
 	'',
 	''
 );
@@ -285,7 +285,7 @@ INSERT INTO `membre` VALUES (
 	'',
 	'',
 	'',
-	'sylvio.menubarbe@univ-lyon1.fr',
+	'sylvio.menubarbe@etu.univ-lyon1.fr',
 	'',
 	''
 );
@@ -299,7 +299,21 @@ INSERT INTO `membre` VALUES (
 	'',
 	'',
 	'',
-	'sylvio.menubarbe@univ-lyon1.fr',
+	'sylvio.menubarbe@etu.univ-lyon1.fr',
+	'',
+	''
+);
+INSERT INTO `membre` VALUES (
+	'Veronique',
+	'336ef0314691374761c51e0d278cd06c64548d74',
+	'administrateur',
+	'Deslandres',
+	'Veronique',
+	'2014-01-01',
+	'',
+	'',
+	'',
+	'veronique.deslandres@univ-lyon1.fr',
 	'',
 	''
 );

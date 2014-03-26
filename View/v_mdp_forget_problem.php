@@ -10,7 +10,7 @@
     	<div id="corps">
 			<?php menu(); ?>
         	
-        		<h2>Votre pseudo ou adresse mail est incorrect, veuillez réessayer.</h2>
+        		<h2>Votre pseudo ou adresse mail est incorrect ou les deux mots de passes ne correspondent pas, veuillez réessayer.</h2>
 
         	<?php include_once('Controller/c_footer.php'); ?>
         </div>

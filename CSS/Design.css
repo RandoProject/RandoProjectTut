@@ -1020,13 +1020,15 @@ section#mdp_forget form{
 	margin-left: 200px;
 }
 section#mdp_forget form#form_contact input[type=text],
-section#mdp_forget form#form_contact input[type=email]{
+section#mdp_forget form#form_contact input[type=email],
+section#mdp_forget form#form_contact input[type=password]{
     width: 350px;
     margin-left: 10px;
 }
 section#mdp_forget form#form_contact input[type=submit]{
 	display: block;
 	margin-left: 215px;
+	margin-top: 10px;
 }
 section#mdp_forget form#form_contact img{
 	width: 20px;

@@ -13,3 +13,15 @@
 
 		return $resultat;
 	}
+
+
+	function update_mdp($mdp_crypte, $pseudo){
+		global $bdd;
+
+		$reqStr = 'UPDATE membre SET mdp = :mdp_crypte WHERE pseudo = :pseudo';
+		$reqArray = array('mdp_crypte' => $mdp_crypte, 'pseudo' => $pseudo);
+
+		$req = $bdd->prepare($reqStr);
+		$req->execute($reqArray);
+		$req->closeCursor();
+	}
