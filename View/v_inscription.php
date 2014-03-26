@@ -71,7 +71,7 @@
                     <?php
                         echo '<select id="year_birth" name="year_birth">';
                             $i = date('Y');
-                            for($i; $i >= 1920; $i--){
+                            for($i; $i >= (date('Y') - 130); $i--){
                                 echo '<option value="'.$i.'">'.$i.'</option>';
                             }
                         echo '</select>';

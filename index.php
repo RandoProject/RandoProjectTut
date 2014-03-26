@@ -1,6 +1,7 @@
 <?php
 include_once("View/header.php");
 include_once("View/menu.php");
+session_start();
 
 if(!isset($_GET['page']) or $_GET['page'] == 'accueil'){
 	include_once('View/accueil.php');
