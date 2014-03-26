@@ -528,6 +528,13 @@ section#galerie ul li span#titre_galerie{
 
 /* - - - - - - - - - - Fiche rando - - - - - - - - - - */
 section#fiche_rando img#photo{
+	width: 700px;
+	border-bottom-left-radius: 75px;
+	border-top-right-radius: 75px;
+	margin-bottom: 20px;
+	border-style: solid;
+	border-color: rgba(168, 191, 117, 0.7);
+	border-width: 10px;
 }
 					/* Carte */
 section#fiche_rando div#carte{
