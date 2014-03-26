@@ -768,8 +768,29 @@ section#ajoutrando form input#fileMap{
 }
 
 section#ajoutrando .vignette{
-	width: 150px;
+	width: 160px;
 }
+
+section#ajoutrando ul#image-list{
+	width: 100% ;
+}
+section#ajoutrando ul#image-list li {
+	display:block;
+	width : 15.5%;
+	height : 200px;
+	float:left;
+	margin-top: 10px;
+	padding: 0px;
+}
+section#ajoutrando ul#image-list li[float="left"] + li {
+	float:none;
+}
+
+section#ajoutrando ul#image-list li progress{
+	width: 95%;
+}
+
+
 
 /*------------------------Difficulté-----------------------*/
 section#ajoutrando ul.notes{

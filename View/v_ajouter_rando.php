@@ -110,23 +110,23 @@
                     <p> Difficulté : </p>
                     <ul name="notes" class="notes">
                                     <li>
-                                        <label class="etoile_vide" id="et5" for="note5" title="Difficultée: 5 sur 5"></label>
+                                        <label class="etoile_vide" id="et5" for="note5" title="Difficulté: 5 sur 5"></label>
                                         <input type="radio" name="difficulty" id="note5" value="5" onchange="document.getElementById('difficulte').value='Expert';"/>
                                     </li>
                                     <li>
-                                        <label class="etoile_vide" id="et4" for="note4" title="Difficultée : 4 sur 5"></label>
+                                        <label class="etoile_vide" id="et4" for="note4" title="Difficulté : 4 sur 5"></label>
                                         <input type="radio" name="difficulty" id="note4" value="4" onchange="document.getElementById('difficulte').value='Confirmé';"/>
                                     </li>
                                     <li>
-                                        <label class="etoile_vide" id="et3" for="note3" title="Difficultée : 3 sur 5"></label>
+                                        <label class="etoile_vide" id="et3" for="note3" title="Difficulté : 3 sur 5"></label>
                                         <input type="radio" name="difficulty" id="note3" value="3" onchange="document.getElementById('difficulte').value='Difficile';"/>
                                     </li>
                                     <li>
-                                        <label class="etoile_vide" id="et2" for="note2" title="Difficultée : 2 sur 5"></label>
+                                        <label class="etoile_vide" id="et2" for="note2" title="Difficulté : 2 sur 5"></label>
                                         <input type="radio" name="difficulty" id="note2" value="2" onchange="document.getElementById('difficulte').value='Moyen';"/>
                                     </li>
                                     <li>
-                                        <label class="etoile_vide" id="et1" for="note1" title="Difficultée : 1 sur 5"></label>
+                                        <label class="etoile_vide" id="et1" for="note1" title="Difficulté : 1 sur 5"></label>
                                         <input type="radio" name="difficulty" id="note1" value="1" onchange="document.getElementById('difficulte').value='Facile';"/>
                                     </li>
                     </ul>
@@ -154,12 +154,12 @@
                 <form method="post" enctype="multipart/form-data">
                         <label for="images">Choisissez vos images : </label>
                         <input type="file" name="images[]" id="images" multiple>
-                        <input type="submit" id="upl" value="Charger fichiers">
                 </form>
                 <div id="response"></div>
                     <ul id="image-list">
                         
                     </ul>
+                <br/>
                 <input type="submit" value="Ajouter" id="submitRando">
             </section>
 
