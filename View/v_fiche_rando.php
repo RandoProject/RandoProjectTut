@@ -5,7 +5,8 @@
     $listeFiles = array(
                     array('type' => 'meta', 'name' => 'viewport', 'content' => 'initial-scale=1.0, user-scalable=no'),
                     array('type' => 'javascript', 'src' => 'https://maps.googleapis.com/maps/api/js?key=AIzaSyC8ydWcT7L0z-S-g7DJf0Nh985GSMDjSf0&sensor=false&region=FR'),
-                    array('type' => 'javascript', 'src' => 'JS/script_GPX2.js')
+                    array('type' => 'javascript', 'src' => 'JS/script_GPX2.js'),
+                    array('type' => 'css', 'href' => 'CSS', 'name' => 'lightbox')
                     );
     if(isset($_SESSION['pseudo'])){
         $listeFiles[] = array('type' => 'javascript', 'src' => 'JS/stars.js'); // On ajoute ce script seulement si on est connecté
@@ -118,9 +119,16 @@
                 
                 
                 <?php 
-                    foreach($listeImage as $image) {
-                        echo '<img src="Resources/Galerie/'.$galery.'/'.$image['nom'].'" class="galerie"/>';
-                    }
+                if(isset($listeImage) and !empty($listeImage)){
+                    echo '<div class="image-row"> <div class="image-set">';
+                    $i=0;
+                        foreach($listeImage as $image) {
+                            $i++;
+                            echo '<a class="image-link" href="Resources/Galerie/'.$galery.'/'.$image['nom'].'" data-lightbox="example-set" >';
+                            echo '<img class="image" src="Resources/Galerie/'.$galery.'/'.$image['nom'].'" alt="Image '.$i.' sur '.count($listeImage).'"/></a>';
+                        }
+                    echo '</div></div>';
+                }
                 ?>
                 <br/><br/><br/><br/>
                 <?php 
@@ -183,7 +191,8 @@
 
                 <?php } ?>
             </section>
-    
+            <script src="JS/jquery-1.10.2.min.js"></script>
+            <script src="JS/lightbox-2.6.min.js"></script>
             <?php include_once('Controller/c_footer.php'); ?>
         </div>
     </body>
