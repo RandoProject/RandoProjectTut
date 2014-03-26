@@ -696,20 +696,24 @@ section#ajoutrando{
 	text-align: center;
 }
 
-
 section#ajoutrando form{
 	margin-right: 50px;
 }
 
+section#ajoutrando form input#submitRando{
+	margin-top: 20px;
+}
 section#ajoutrando form input[type="button"]{
 	cursor: pointer;
 	font-weight: bold;
+	width: 165px;
 }
 
 section#ajoutrando form input[type="button"]:hover{
 	background-color: #A8BF75;
 	color: #F5F6F7;
 	border: solid 1px #A8BF75;
+	width: 165px;
 }
 
 section#ajoutrando form input[type=range] {
@@ -749,8 +753,9 @@ section#ajoutrando form input#difficulte{
 	background: none;
 	border: none;
 	width: auto;
-	margin-left: 240px;
+	margin-left: 225px;
 	margin-top: 0px;
+	font-weight: bold;
 }
 section#ajoutrando form input#difficulte:hover, input#difficulte:focus{
 	border: none;
@@ -760,7 +765,7 @@ section#ajoutrando form input#difficulte:hover, input#difficulte:focus{
 section#ajoutrando div#input_difficulte{
 	width: 250px;
 	margin-top: 20px;
-	margin-left: 293px;
+	margin-left: 292px;
 }
 
 section#ajoutrando form input#fileMap{
@@ -772,6 +777,7 @@ section#ajoutrando .vignette{
 }
 
 section#ajoutrando ul#image-list{
+	display: inline-block;
 	width: 100% ;
 }
 section#ajoutrando ul#image-list li {
@@ -781,6 +787,14 @@ section#ajoutrando ul#image-list li {
 	float:left;
 	margin-top: 10px;
 	padding: 0px;
+}
+section#ajoutrando ul#image-list li p{
+	width: 40px;
+	overflow: hidden;
+}
+section#ajoutrando ul#image-list li img{
+	width: 150px;
+	height: 150px;
 }
 section#ajoutrando ul#image-list li[float="left"] + li {
 	float:none;

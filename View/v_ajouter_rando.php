@@ -75,7 +75,7 @@
                     <div id="chooseFile">
                         <input type="button" id="buttonChooseGpx" value="Choisissez un fichier" />
                         <p id="pathFile"></p>
-                        <input type="file" id="fileMap" name="fileMap"><br/><br/>
+                        <input type="file" id="fileMap" name="fileMap">
                     </div>
                     <div id="container-map">
                         <div id="map-canvas"></div><br/>
@@ -131,10 +131,8 @@
                                     </li>
                     </ul>
                     <div id="input_difficulte">
-                        <input type="text" id="difficulte" size="7" value="" pattern="\d+" readonly/><br/>
+                        <input type="text" id="difficulte" size="7" value="" pattern="\d+" readonly/>
                     </div>
-                    <!--<label for="difficulty">Difficulté :</label>
-                    <input type="range" step="1" min="1" max="5" id="difficulty" name="difficulty" <?php  /*if(isset($value['difficulty'])) echo 'value="'.$value['difficulty'].'"'; else echo 'value="1"';*/ ?> onchange="document.getElementById('difficulte').value=this.value;">--><br/>
                     
                     <label>Votre randonnée contient-elle un point d'eau ?</label><br/>
                     <?php if(isset($error['water'])) echo '<p class="error">'.$error['water'].'</p>'; ?>
