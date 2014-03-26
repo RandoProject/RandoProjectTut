@@ -38,10 +38,6 @@ transition: all 0.1s ease-out;
   border: 2px solid #dcdc64;
   border-radius: 8px;
 }
-.img-galerie:hover{
-
-
-}
 
 /* line 11, ../sass/lightbox.sass */
 .lightboxOverlay {
