@@ -129,7 +129,6 @@ if(isset($_GET['code'])){
 				}
 				validation_commentaire($commentaire,$_SESSION['pseudo'], $code, $note2);
 				$nombre_commentaire = recuperation_commentaire($code);
-				$insertion_date = $date->format('d').' '.$month.' '.$date->format('Y');
 				$moyenne = moyenne_note_rando($code);
 				mise_a_jour_note($code, $moyenne['moyenne_note']);
 				header('Location:index.php?page=commentaire_valide&code='.$code);

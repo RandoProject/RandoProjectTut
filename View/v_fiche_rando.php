@@ -141,7 +141,7 @@
         						$date = $commentaire['date'];
         						echo '	<div id="commentaire">
                                    			<span id="auteurComment">De <a href="index.php?page=profil&pseudo='.$com['auteur'].'">'.$commentaire['auteur'].'</a></span>
-        									<span id="dateComment">Le '.$insertion_date .'</span><br/>
+        									<span id="dateComment">Le '.$date .'</span><br/>
         							 		<br/>'.$commentaire['commentaire'].'<br/><br/>';
                                         for($j = 0; $j < $commentaire['note']; $j++){
                                             echo '<span id="note"><img class="etoile" src="Resources/Images/star-pleine_fiche.png" width="20px"/></span>';
