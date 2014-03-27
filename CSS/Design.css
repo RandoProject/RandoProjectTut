@@ -1118,26 +1118,15 @@ section#contact form#form_contact img{
 }
 
 /* - - - - - - - - - - Présentation - - - - - - - - - - */
-section#presentation p#texte4{
-	font-size: 1.2em;
-	font-weight: bold;
-	margin-left: 650px;
+section#presentation{
+	width: 1150px;
 }
-section#presentation p#texte3{
-	margin-left: 580px;
-	font-size: 1.1em;
-}
-section#presentation p#texte1, p#texte2{
-	font-size: 1.1em;
-	text-align: left;
-}
-section#presentation a{
-	text-decoration: none;
-	font-style: none;
-	font-size: 1em;
+section#presentation p#texte{
+	padding-right: 50px;
+	text-align: justify;
 }
 section#presentation a:hover{
-	border-bottom: 1px solid;
+	text-decoration: underline
 }
 
 /* - - - - - - - - - - Footer - - - - - - - - - - */
